@@ -6,7 +6,7 @@ import { globalStyles } from '../styles/global';
 export default function About() {
     return (
         <View style={globalStyles.container}>
-            <Text>Created by: Andrew Baker, Dawson Buist, Joe Pastucha, Belina Sainju, and Kelsey Yen</Text>
+            <Text>Created by: Andrew Baker, Dawson Buist, Joe Pastucha, Belina Sainju, Nathan Strain, and Kelsey Yen</Text>
         </View>
     );
 };
