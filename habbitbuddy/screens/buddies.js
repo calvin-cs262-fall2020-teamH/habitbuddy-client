@@ -5,9 +5,9 @@ import Card from '../shared/card';
 
 export default function Buddies({ navigation }) {
     const [reviews, setReviews] = useState([
-        { title: 'Zelda, Breath of Fresh Air', rating: 5, body: 'lorem ipsum', key: '1' },
-        { title: 'Gotta Catch Them All (again)', rating: 4, body: 'lorem ipsum', key: '2' },
-        { title: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: '3' },
+
+        {name: 'Andrew Baker', habit: 'Attending chapel', hobby: 'Reading', key: '1'}
+        
     ]);
 
     return (
@@ -15,7 +15,8 @@ export default function Buddies({ navigation }) {
             <FlatList data={reviews} renderItem={({ item }) => (
                 <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>
                     <Card>
-                        <Text style={globalStyles.titleText}>{ item.title }</Text>
+                        <Text style={globalStyles.titleText}>{ item.name }</Text>
+                        <Text style={globalStyles.buddyCards}>{ item.habit }</Text>
                     </Card>
                 </TouchableOpacity>
             )} />

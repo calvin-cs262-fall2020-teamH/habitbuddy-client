@@ -17,4 +17,8 @@ export const globalStyles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  buddyCards: {
+    fontSize: 14,
+    color: '#333',
+  }
 });
