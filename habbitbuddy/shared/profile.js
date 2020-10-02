@@ -1,6 +1,9 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
+// written similar to cards, possibly to be used to display and modify profiles of buddies. may be discarded at a later date. 
+// Written by Andrew Baker
+
 export default function Profile(props) {
     return (
         <View style={styles.profile}>
