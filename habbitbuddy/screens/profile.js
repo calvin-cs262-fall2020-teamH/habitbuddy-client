@@ -12,7 +12,7 @@ export default function Profile() {
         { title: 'Name:', data: 'Joe Pastucha', key: '1' },
         { title: 'Email:', data: 'coolguy@yeet.com', key: '2' },
         { title: 'Habits:', data: 'Getting good', key: '3' },
-        { title: 'Activities:', data: 'Getting gooder', key: '3' },
+        { title: 'Activities:', data: 'Getting gooder', key: '4' },
     ]);
 
     return (
