@@ -8,12 +8,19 @@ import { MaterialIcons } from '@expo/vector-icons';
 /* Profile outputs the content of the Profile page */
 export default function Profile() {
 
+
+
     const [profilePage, setProfilePage] = useState([
         { title: 'Name:', data: 'Joe Pastucha', key: '1' },
         { title: 'Email:', data: 'coolguy@yeet.com', key: '2' },
         { title: 'Habits:', data: 'Getting good', key: '3' },
-        { title: 'Activities:', data: 'Getting gooder', key: '3' },
+        { title: 'Activities:', data: 'Getting gooder', key: '4' },
     ]);
+
+    const nameUpdate = () => {
+        const enteredName = prompt('Please enter your name');
+        setProfilePage(this.data = enteredName);
+    }
 
     return (
         
@@ -22,7 +29,7 @@ export default function Profile() {
                 <FlatList data={profilePage} renderItem={({ item }) => (
                     <ProfileCard styles={styles.contentHolder}>
                         <Text style={globalStyles.titleText}>{ item.title }  { item.data }</Text>
-                        <MaterialIcons name="edit" size={20} color='#333' style={styles.leftIcon}/>
+                        <MaterialIcons name="edit" size={20} color='#333' style={styles.leftIcon} onPress={nameUpdate}/>
                     </ProfileCard>
 
                 )} />

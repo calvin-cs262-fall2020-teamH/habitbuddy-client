@@ -18,7 +18,7 @@ const styles = StyleSheet.create ({
     card: {
         borderRadius: 6,
         elevation: 3,
-        backgroundColor: '#fff',
+        backgroundColor: '#ffffff',
         borderWidth: 2,
         backgroundColor: '#ffd699',
         borderColor: 'orange',
