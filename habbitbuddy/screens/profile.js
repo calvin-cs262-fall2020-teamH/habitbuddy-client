@@ -6,26 +6,52 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 
 /* Profile outputs the content of the Profile page */
-export default function Profile() {
+export default function Profile({route, navigation}) {
 
-    const [profilePage, setProfilePage] = useState([
-        { title: 'Name:', data: 'Joe Pastucha', key: '1' },
-        { title: 'Email:', data: 'coolguy@yeet.com', key: '2' },
-        { title: 'Habits:', data: 'Getting good', key: '3' },
-        { title: 'Activities:', data: 'Getting gooder', key: '4' },
-    ]);
+    /*Initialization the profile page with the user information*/
+    let [profilePage, setProfilePage] = useState(
+        {name: 'Andrew Baker', habit: 'Attending chapel', hobby: 'Reading', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '1'},
+    );
+
+    /*Function that changes the users email*/
+    const emailUpdate = () => {
+        const enteredEmail = prompt('Please enter your *new* name (you probably should not be able to do this...)');
+        setProfilePage({name: profilePage.name, habit: profilePage.habit, hobby: profilePage.hobby, email: enteredEmail, pic: profilePage.pic, key: profilePage.key})
+    }
+    /*Function that changes the users habit*/
+    const habitUpdate = () => {
+        const enteredHabit = prompt('Please enter your *new* name (you probably should not be able to do this...)');
+        setProfilePage({name: profilePage.name, habit: enteredHabit, hobby: profilePage.hobby, email: profilePage.email, pic: profilePage.pic, key: profilePage.key})
+    }
+    /*Function that changes the users hobbies*/
+    const activityUpdate = () => {
+        const enteredHobby = prompt('Please enter your *new* name (you probably should not be able to do this...)');
+        setProfilePage({name: profilePage.name, habit: profilePage.habit, hobby: enteredHobby, email: profilePage.email, pic: profilePage.pic, key: profilePage.key})
+    }
+
 
     return (
-        
+        /*View container that holds all the UI data*/
         <View style={styles.container}>
             <View style={styles.containerLeft}>
-                <FlatList data={profilePage} renderItem={({ item }) => (
                     <ProfileCard styles={styles.contentHolder}>
-                        <Text style={globalStyles.titleText}>{ item.title }  { item.data }</Text>
-                        <MaterialIcons name="edit" size={20} color='#333' style={styles.leftIcon}/>
+                        <Text style={globalStyles.titleText}> Name: { profilePage.name }</Text>
                     </ProfileCard>
 
-                )} />
+                    <ProfileCard styles={styles.contentHolder}>
+                        <Text style={globalStyles.titleText}> Email: { profilePage.email }</Text>
+                        <MaterialIcons name="edit" size={20} color='#333' style={styles.leftIcon} onPress={emailUpdate}/>
+                    </ProfileCard>
+
+                    <ProfileCard styles={styles.contentHolder}>
+                        <Text style={globalStyles.titleText}> Habits: { profilePage.habit }</Text>
+                        <MaterialIcons name="edit" size={20} color='#333' style={styles.leftIcon} onPress={habitUpdate}/>
+                    </ProfileCard>
+
+                    <ProfileCard styles={styles.contentHolder}>
+                        <Text style={globalStyles.titleText}> Activities: { profilePage.hobby }</Text>
+                        <MaterialIcons name="edit" size={20} color='#333' style={styles.leftIcon} onPress={activityUpdate}/>
+                    </ProfileCard>
             </View>
             <View style={styles.containerRight}>
                 <View style={styles.profilePic}>
@@ -36,6 +62,7 @@ export default function Profile() {
     );
 };
 
+/*Styles for everything on the page*/
 const styles =  StyleSheet.create({
     container: {
         flex: 1,
@@ -90,7 +117,22 @@ const styles =  StyleSheet.create({
     },
     leftIcon: {
         textAlign: 'right'
-    }
+    },
+    profileInfo: {
+        flexDirection: 'column',
+        flex: .6,
+        backgroundColor: 'blue'
+    },
+    nameInfo: {
+        flexDirection: 'column',
+        flex: .2,
+        backgroundColor: 'orange',
+        marginTop: 10,
+        marginLeft: 10,
+        marginRight: 10,
+        borderRadius: 5
+    },
+
 
 
 
