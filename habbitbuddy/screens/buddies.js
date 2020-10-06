@@ -6,7 +6,9 @@ import Card from '../shared/card';
 export default function Buddies({ navigation }) {
     const [reviews, setReviews] = useState([
 
-        {name: 'Andrew Baker', habit: 'Attending chapel', hobby: 'Reading', key: '1'}
+        {name: 'Andrew Baker', habit: 'Attending chapel', hobby: 'Reading', key: '1'},
+        {name: 'Belina Sainju', habit: 'Attending chapel', hobby: 'Reading', key: '2'}
+
         
     ]);
 

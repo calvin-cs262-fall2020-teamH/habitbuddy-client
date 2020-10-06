@@ -10,6 +10,7 @@ import About from '../routes/aboutStack';
 import Buddies from '../routes/buddiesStack';
 import Profile from '../routes/profileStack';
 import HabitSelector from '../routes/habitSelectorStack';
+import Habittrack from '../routes/habittrackStack';
 
 const Drawer = createDrawerNavigator();
 
@@ -20,7 +21,9 @@ export default function App() {
             <Drawer.Screen name="Buddies" component={Buddies} />
             <Drawer.Screen name="Profile" component={Profile} />
             <Drawer.Screen name="Habit Selector" component={HabitSelector} />
+            <Drawer.Screen name="Habit Track" component={Habittrack}/>
             <Drawer.Screen name="About" component={About} />
+            
         </Drawer.Navigator>
     );
 };
