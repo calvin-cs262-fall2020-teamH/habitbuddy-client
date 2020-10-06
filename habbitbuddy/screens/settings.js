@@ -18,6 +18,7 @@ export default function Settings({navigation}) {
     );
 };
 
+//lol
 const styles = StyleSheet.create({
     blockStack: {
         flex: 1,
