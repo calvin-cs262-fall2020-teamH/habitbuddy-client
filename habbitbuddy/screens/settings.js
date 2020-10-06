@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { globalStyles } from '../styles/global';
+import { globalStyles, colorCodes } from '../styles/global';
 
 import SettingsBlock from '../shared/settingsBlock'
 
@@ -22,5 +22,6 @@ const styles = StyleSheet.create({
     blockStack: {
         flex: 1,
         justifyContent: "flex-start",
+        backgroundColor: colorCodes.back,
     },
 });
