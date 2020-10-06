@@ -35,5 +35,21 @@ export const globalStyles = StyleSheet.create({
     alignItems: 'stretch',
     justifyContent: 'center',
     
+  },
+  aboutHeader: {
+    paddingTop: 20,
+    paddingLeft: 20,
+    paddingBottom: 10,
+    fontWeight: 'bold',
+    fontSize: 20,
+    justifyContent: 'center',
+
+  },
+  aboutText: {
+    paddingLeft: 20,
+    paddingRight: 20,
+    paddingTop: 10,
+    fontSize: 14,
+    justifyContent: 'center',
   }
 });
