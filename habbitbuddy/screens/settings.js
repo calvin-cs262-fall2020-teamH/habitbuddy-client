@@ -14,14 +14,19 @@ export default function Settings({navigation}) {
             <SettingsBlock icon="md-person" title = "Account"></SettingsBlock>
             <SettingsBlock icon="md-information-circle-outline" title = "About" 
                 page = "About" navigation = {navigation}></SettingsBlock>
+            <SettingsBlock icon="md-person" title = "Test"></SettingsBlock>
+            <SettingsBlock icon="md-person" title = "Test"></SettingsBlock>
+            <SettingsBlock icon="md-person" title = "Test"></SettingsBlock>
+            <SettingsBlock icon="md-person" title = "Test"></SettingsBlock>
+            <SettingsBlock icon="md-person" title = "Test"></SettingsBlock>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
     blockStack: {
-        flex: 1,
-        justifyContent: "flex-start",
-        backgroundColor: colorCodes.back,
+        // flex: 1,
+        // justifyContent: "flex-start",
+        // backgroundColor: colorCodes.back,
     },
 });

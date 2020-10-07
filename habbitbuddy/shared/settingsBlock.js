@@ -10,14 +10,14 @@ export default function SettingsBlock({icon, title, selected, page, navigation})
                 () => navigation.navigate(page, {name: {title}})} style={{flex: 1, flexDirection: 'row',}
             }>
                 <View style={styles.containerIcon}>
-                    <Ionicons name={icon} size={24} color={colorCodes.text} />                
+                    <Ionicons name={icon} size={'2em'} color={colorCodes.text} />                
                 </View>
                 <View style={styles.containerText}>
-                    <Text style={{color: colorCodes.text}}>
+                    <Text style={styles.text}>
                         {title}
                     </Text>
                 </View>
-                <View style={styles.containerSelction}>
+                <View style={styles.containerSelection}>
                     <Text style={{textAlign: "right", paddingRight: 15, color: colorCodes.selected}}>
                         {selected}
                     </Text>
@@ -32,22 +32,23 @@ export default function SettingsBlock({icon, title, selected, page, navigation})
 
 const styles = StyleSheet.create({
     container: {
-        flex: .05,
+        flex: 1,
         flexDirection: 'row',
         paddingVertical: 15,
         paddingHorizontal: 20,
+        height: '10%',
         backgroundColor: colorCodes.front,
     },
     containerIcon: {
         flex: .1,
-        flexDirection: 'column'
+        flexDirection: 'column',
     },
     containerText: {
         flex: .6,
         flexDirection: 'column',
-        paddingVertical: 2,
+        paddingVertical: '.5em',
     },
-    containerSelction: {
+    containerSelection: {
         flex: .25,
         flexDirection: 'column',
         paddingVertical: 2,
@@ -57,4 +58,8 @@ const styles = StyleSheet.create({
         position: "absolute",
         right: 5,
     },
+    text: {
+        color: colorCodes.text,
+        fontSize: '1em'
+    }
 });
