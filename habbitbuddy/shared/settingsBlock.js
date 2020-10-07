@@ -6,17 +6,17 @@ import { colorCodes } from '../styles/global'
 export default function SettingsBlock({icon, title, selected, page, navigation}) {
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress= {
-                () => navigation.navigate(page, {name: {title}})} style={{flex: 1, flexDirection: 'row',}
-            }>
+            <TouchableOpacity onPress= { //Makes the blocks interactable
+                () => navigation.navigate(page, {name: {title}})} style={styles.block}>
+                
                 <View style={styles.containerIcon}>
-                    <Ionicons name={icon} size={'2em'} color={colorCodes.text} />                
+                    <Ionicons name={icon} size={24} color={colorCodes.text} />                
                 </View>
                 <View style={styles.containerText}>
                     <Text style={styles.text}>
                         {title}
                     </Text>
-                </View>
+                </View>          
                 <View style={styles.containerSelection}>
                     <Text style={{textAlign: "right", paddingRight: 15, color: colorCodes.selected}}>
                         {selected}
@@ -31,35 +31,36 @@ export default function SettingsBlock({icon, title, selected, page, navigation})
 };
 
 const styles = StyleSheet.create({
+    block: { 
+        flexDirection: 'row', 
+        flexBasis: '100%',
+    },
     container: {
-        flex: 1,
+        display: 'flex', 
+        height: 55,
         flexDirection: 'row',
         paddingVertical: 15,
         paddingHorizontal: 20,
-        height: '10%',
         backgroundColor: colorCodes.front,
     },
     containerIcon: {
         flex: .1,
-        flexDirection: 'column',
     },
     containerText: {
         flex: .6,
-        flexDirection: 'column',
-        paddingVertical: '.5em',
+        paddingVertical: 3,
     },
     containerSelection: {
         flex: .25,
-        flexDirection: 'column',
-        paddingVertical: 2,
+        paddingVertical: 3,
     },
     containerArrow: {
         flex: .05,
         position: "absolute",
         right: 5,
+        paddingVertical: 3,
     },
     text: {
         color: colorCodes.text,
-        fontSize: '1em'
     }
 });
