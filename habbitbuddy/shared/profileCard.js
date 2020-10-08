@@ -1,6 +1,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
+
+/*Function that creates a template for the profile card for the profile page*/
 export default function ProfileCard(props) {
     return (
         <View style={styles.card}>
