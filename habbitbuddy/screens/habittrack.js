@@ -4,14 +4,6 @@ import { globalStyles } from '../styles/stracking';
 import Card from '../shared/card';
 
 export default function Habittrack({ navigation }) {
-    // const [reviews, setReviews] = useState([
-
-    //     {name: 'Andrew Baker', habit: 'Attending chapel', hobby: 'Reading', key: '1'},
-    //     {name: 'Belina Sainju', habit: 'Attending chapel', hobby: 'Reading', key: '2'}
-
-        
-    // ]);
-
     const [chabit, setChabit] = useState('Current Habit');
     const [nhabit, setNhabit] = useState('New Habit')
 
@@ -32,8 +24,10 @@ export default function Habittrack({ navigation }) {
                         placeholder='NEW HABIT'
                         onChangeText={(val) => setChabit(val)}/>
                 </View>
-                
+            </View>
 
+            <View style={styles.track}>
+                <Text style={styles.titleText}>Habit Tracking</Text>
             </View>
             
 
@@ -56,39 +50,60 @@ export default function Habittrack({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+
         backgroundColor: '#fff',
-        padding: 15,
+        padding: 10,
+        //alignItems: 'center',
     },
     stack:{
-        flex: 0.3,
-        justifyContent:'flex-end',
+        flex: 1,
+       
         backgroundColor:'#ffdab9', //mustard
         borderRadius: 10,
+        marginBottom:10,
+        
     },
     currentH:{
-        flex:0.5,
+        flex:1,
         alignItems: 'center',
         marginTop: 10,
-        justifyContent:'flex-end',
+        marginBottom: 5,
+        height: 50,
+        //justifyContent:'flex-end',
         //backgroundColor:'blue',
+        //position:'absolute'
     },
     newH:{
-        flex:0.5,
+        flex:1,
         alignItems: 'center',
         marginBottom:10,
-        justifyContent:'flex-end',
+        height: 50,
+        //position:'absolute'
+        //justifyContent:'flex-end',
         //backgroundColor:'green',
     },
     titleText: {
         fontSize: 18,
         fontWeight: 'bold',
         color: '#333',
-        marginTop: 10,
-        fontStyle: 'italic'
+        fontStyle: 'italic',
+        //position:'absolute',
     },
     inputBox: {
-        borderColor:'#d2b48c',
-        //backgroundColor: '#fff',
-        fontSize: 22,
+        borderWidth: 1,
+        borderColor: '#777',
+        //margin: 10,
+        width:200,
+        height: 30,
+        //padding:10,
+        //position:'absolute',
+    },
+    track:{
+        flex:2.5,
+        backgroundColor:'grey', 
+        borderRadius: 10,
+        alignItems: 'center',
+
+
     }
 });
