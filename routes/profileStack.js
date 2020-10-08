@@ -3,8 +3,10 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Header from '../shared/header';
 import Profile from '../screens/profile';
+
 import EditProfile from "../screens/editProfile";
 import BuddyDetails from "../screens/buddyDetails";
+
 
 const Stack = createStackNavigator();
 
@@ -21,11 +23,13 @@ export default function ProfileStack( {navigation} ) {
                     headerLeft: () =>  <Header navigation={navigation} />
                 }}
             />
+
             <Stack.Screen
                 name="EditProfile"
                 component={EditProfile}
                 options={{title: 'Edit Profile'}}
             />
+
         </Stack.Navigator>
     );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import {StyleSheet, View, Text, FlatList, TextInput} from 'react-native';
 import { globalStyles } from '../styles/global';
 import ProfileCard from "../shared/profileCard";
@@ -9,10 +10,13 @@ import { MaterialIcons } from '@expo/vector-icons';
 /* Profile outputs the content of the Profile page */
 export default function Profile({navigation}) {
 
+
+
     /*Initialization the profile page with the user information*/
     let [profilePage, setProfilePage] = useState(
         {name: 'Andrew Baker', habit: 'Attending chapel', hobby: 'Reading', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '1'},
     );
+
 
     // /*Function that changes the users email*/
     // const emailUpdate = () => {
@@ -28,15 +32,19 @@ export default function Profile({navigation}) {
     // }
 
 
+
     return (
         /*View container that holds all the UI data*/
         <View style={styles.container}>
+
             {/*View containing all user data: name, email, habit, and hobbies*/}
             <View style={styles.containerLeft}>
                     {/*Card that contains and displays user's name*/}
+
                     <ProfileCard styles={styles.contentHolder}>
                         <Text style={globalStyles.titleText}> Name: { profilePage.name }</Text>
                     </ProfileCard>
+
 
                     {/*Card that contains and displays user's email*/}
                     <ProfileCard styles={styles.contentHolder}>
@@ -65,6 +73,7 @@ export default function Profile({navigation}) {
                     </View>
                 </View>
                 {/*Card that contains and displays user's profile pic*/}
+
                 <View style={styles.profilePic}>
                      <Text>Profile Pic</Text>
                 </View>
@@ -129,6 +138,7 @@ const styles =  StyleSheet.create({
     leftIcon: {
         textAlign: 'right'
 
+
     },
     profileInfo: {
         flexDirection: 'column',
@@ -167,8 +177,4 @@ const styles =  StyleSheet.create({
         justifyContent: 'center'
 
     }
-
-
-
-
 })
