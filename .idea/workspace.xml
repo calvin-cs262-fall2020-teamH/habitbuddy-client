@@ -1,24 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="19e66443-e8d4-4c9a-8255-d2219e652046" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/habbitbuddy/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/habbitbuddy/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/habbitbuddy/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/habbitbuddy/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/habbitbuddy/routes/profileStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/habbitbuddy/routes/profileStack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/habbitbuddy/screens/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/habbitbuddy/screens/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/habbitbuddy/shared/profileCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/habbitbuddy/shared/profileCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-    </list>
+    <list default="true" id="ff28d36e-b9fd-42cf-b269-0e699892fc35" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1iN6njJzGb8S2wEXChEBFR3A8cQ" />
+  <component name="ProjectId" id="1hvUDRBynfTPLCY9vi66eqCrcLc" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -39,36 +53,86 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="19e66443-e8d4-4c9a-8255-d2219e652046" name="Default Changelist" comment="" />
-      <created>1601735873246</created>
+      <changelist id="ff28d36e-b9fd-42cf-b269-0e699892fc35" name="Default Changelist" comment="" />
+      <created>1600890939464</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1601735873246</updated>
-      <workItem from="1601735875693" duration="511000" />
-      <workItem from="1601928669136" duration="148000" />
-      <workItem from="1601928875181" duration="11540000" />
-      <workItem from="1601942590965" duration="91000" />
-      <workItem from="1601942755018" duration="1467000" />
-      <workItem from="1601944259496" duration="206000" />
-      <workItem from="1601944495854" duration="1239000" />
-      <workItem from="1601945808368" duration="7063000" />
-      <workItem from="1602019593317" duration="186000" />
-      <workItem from="1602109363248" duration="216000" />
-      <workItem from="1602168332493" duration="2825000" />
+      <updated>1600890939464</updated>
+      <workItem from="1600890940608" duration="450000" />
+      <workItem from="1600897552730" duration="339000" />
+      <workItem from="1601047778373" duration="596000" />
+      <workItem from="1601344914489" duration="541000" />
+      <workItem from="1601400207874" duration="176000" />
+      <workItem from="1601500264519" duration="1225000" />
+      <workItem from="1601503703167" duration="11386000" />
+      <workItem from="1601663282846" duration="1322000" />
+      <workItem from="1601664899843" duration="2494000" />
+      <workItem from="1601668430565" duration="4064000" />
+      <workItem from="1601678470192" duration="586000" />
+      <workItem from="1601679058230" duration="248000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="341" y="91" key="#Inspections" timestamp="1601944892293">
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1601679054944">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="341" y="91" key="#Inspections/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1601944892293" />
-    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602019773070">
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1601679054944" />
+    <state x="503" y="112" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1601670464378" />
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1601345455254">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1602019773070" />
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601345455254" />
+    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1601345455254">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1601345455254" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1601345455253">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1601345455253" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1601345455254">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1601345455254" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1601572157562">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1601572157562" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1601505471909">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1601505471909" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/screens/profile.js</url>
+          <line>91</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/shared/profileCard.js</url>
+          <line>17</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
