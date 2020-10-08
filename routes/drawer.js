@@ -11,6 +11,7 @@ import Profile from '../routes/profileStack';
 import HabitSelector from '../routes/habitSelectorStack';
 import Settings from '../routes/settingsStack';
 
+
 const Drawer = createDrawerNavigator();
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
             <Drawer.Screen name="Profile" component={Profile} />
             <Drawer.Screen name="Habit Selector" component={HabitSelector} />
             <Drawer.Screen name="Settings" component={Settings} />
+
         </Drawer.Navigator>
     );
 };
