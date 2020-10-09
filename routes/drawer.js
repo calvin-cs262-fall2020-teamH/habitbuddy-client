@@ -9,8 +9,12 @@ import Home from '../routes/homeStack';
 import Buddies from '../routes/buddiesStack';
 import Profile from '../routes/profileStack';
 import HabitSelector from '../routes/habitSelectorStack';
+<<<<<<< HEAD:habbitbuddy/routes/drawer.js
+import Habittrack from '../routes/habittrackStack';
+=======
 import Settings from '../routes/settingsStack';
 
+>>>>>>> master:routes/drawer.js
 
 const Drawer = createDrawerNavigator();
 
@@ -21,8 +25,14 @@ export default function App() {
             <Drawer.Screen name="Buddies" component={Buddies} />
             <Drawer.Screen name="Profile" component={Profile} />
             <Drawer.Screen name="Habit Selector" component={HabitSelector} />
+<<<<<<< HEAD:habbitbuddy/routes/drawer.js
+            <Drawer.Screen name="Habit Track" component={Habittrack}/>
+            <Drawer.Screen name="About" component={About} />
+            
+=======
             <Drawer.Screen name="Settings" component={Settings} />
 
+>>>>>>> master:routes/drawer.js
         </Drawer.Navigator>
     );
 };
