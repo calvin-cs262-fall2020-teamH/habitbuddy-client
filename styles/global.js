@@ -15,6 +15,7 @@ export var colorCodes = {
     selected: 'gray',
 };
 
+
 export const globalStyles = StyleSheet.create({
   titleText: {
     fontSize: 18,
@@ -48,8 +49,7 @@ export const globalStyles = StyleSheet.create({
     padding: 20,
     backgroundColor: '#fff',
     alignItems: 'stretch',
-    justifyContent: 'center',
-    
+    justifyContent: 'center',   
   },
   aboutHeader: {
     paddingTop: 20,
@@ -58,7 +58,6 @@ export const globalStyles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     justifyContent: 'center',
-
   },
   aboutText: {
     paddingLeft: 20,
@@ -68,3 +67,4 @@ export const globalStyles = StyleSheet.create({
     justifyContent: 'center',
   }
 });
+
