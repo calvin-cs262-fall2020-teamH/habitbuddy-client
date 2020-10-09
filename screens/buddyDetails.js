@@ -1,22 +1,3 @@
-// import React from 'react';
-// import { StyleSheet, View, Text } from 'react-native';
-// import { globalStyles } from '../styles/global';
-
-// import Card from '../shared/card';
-// import Profile from '../shared/profile';
-
-// export default function BuddyDetails({ route, navigation }) {
-//     return (
-//         <View style={globalStyles.container}>
-//             <Profile>
-//                 <Text style={globalStyles.titleText}>{ route.params.name }</Text>
-//                 <Text>Habits: { route.params.habit }</Text>
-//                 <Text>Hobbies: { route.params.hobby }</Text>
-//             </Profile>
-//         </View>
-//     );
-// }
-
 import React, { useState } from 'react';
 import {StyleSheet, View, Text, FlatList, Image} from 'react-native';
 import { globalStyles } from '../styles/global';
@@ -25,6 +6,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 
 /* Profile outputs the content of the Profile page */
+// originally written by Joe Pastucha, extended and altered by Andrew Baker to display general user information. 
 export default function BuddyDetails({route, navigation}) {
 
     const [profilePage, setProfilePage] = useState([
