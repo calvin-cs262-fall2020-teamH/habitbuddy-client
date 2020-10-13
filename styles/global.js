@@ -55,8 +55,7 @@ export const globalStyles = StyleSheet.create({
     padding: 20,
     backgroundColor: colorCodes.front,
     alignItems: 'stretch',
-    justifyContent: 'center',
-    
+    justifyContent: 'center',   
   },
   aboutHeader: {
     paddingTop: 20,
@@ -65,7 +64,6 @@ export const globalStyles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
     justifyContent: 'center',
-
   },
   aboutText: {
     paddingLeft: 20,
@@ -75,3 +73,4 @@ export const globalStyles = StyleSheet.create({
     justifyContent: 'center',
   }
 });
+
