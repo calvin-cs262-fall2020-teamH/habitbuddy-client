@@ -1,113 +1,95 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons'; 
+import React, { Component } from 'react';
+import { StyleSheet, Text, View, FlatList, TouchableOpacity, } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { colorCodes } from '../styles/global'
 
-const DATA = [
-    {
-      id: "0",
-      title: "Light",
-    },
-    {
-      id: "1",
-      title: "Dark",
-    },
-];
+export default class BasicFlatList extends Component {
+    constructor(props) {
+        super(props);
 
-  const Item = ({ item, onPress, style }) => (
-    <TouchableOpacity onPress={onPress} style={[styles.block, style]}>
-        <View style={styles.containerIcon}>
-            <Ionicons name={'md-person'} size={24} color={colorCodes.text} />                
-        </View>
-        <View style={styles.containerText}>
-            <Text style={styles.text}>
-                {item.title}
-            </Text>
-        </View>          
-        <View style={styles.containerArrow}>
-            <Ionicons name="ios-arrow-forward" size={20} color={colorCodes.selected} styles={styles.arrow}/>
-        </View>
-    </TouchableOpacity>
-  );
+        this.state = {
+            selectedItem: 0,
+        };
+    }
 
-export default function SelectionBlock({icon, title, selected, page, navigation}) {
-    const [selectedId, setSelectedId] = useState(null);
+    onPressAction = (rowItem) => {
+        console.log('ListItem was selected');
+        console.dir(rowItem);
+        this.setState({
+            selectedItem: rowItem.id,
+        });
+    }
 
-    const renderItem = ({ item }) => {
-    const backgroundColor = item.id === selectedId ? "#6e3b6e" : "#f9c2ff";
-
+    renderRow = (item) => {
+        const isSelected = this.state.selectedItem === item.id;
+        console.log(`Rendered item - ${item.title} for ${isSelected}`);
+        const viewStyle = isSelected ? styles.selectedButton : styles.normalButton;
+        const textColor = isSelected ? {color: colorCodes.highlightFront, fontWeight: 'bold'} : {color: colorCodes.text};
+        const iconColor = isSelected ? colorCodes.highlightFront : colorCodes.text;
         return (
-            <Item
-            item={item}
-            onPress={() => setSelectedId(item.id)}
-            style={{ backgroundColor }}
+            <TouchableOpacity style={[viewStyle, styles.block]} onPress={() => this.onPressAction(item)} underlayColor='#dddddd'> 
+                <View style={styles.containerIcon}>
+                    <Ionicons name={item.icon} size={24} color={iconColor} />
+                </View>
+                <View style={styles.containerText}>
+                    <Text style={textColor}>
+                        {item.title}
+                    </Text>
+                </View>
+                <View style={styles.containerArrow}>
+                    {isSelected ? 
+                        <Ionicons name="md-checkmark" size={20} color={colorCodes.highlightFront} />
+                        : null
+                    }
+                </View>
+            </TouchableOpacity>
+        );
+    }
+
+    render() {
+        return (
+            <FlatList style={styles.container}
+                data={this.props.data}
+                renderItem={({ item }) => (
+                    this.renderRow(item)
+                )}
+                keyExtractor={(item, index) => index.toString()}
+                style={{ marginTop: 0, height: '100%' }}
             />
         );
-    };
-
-    return (
-        <SafeAreaView style={styles.container}>
-            <FlatList
-            data={DATA}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.id}
-            extraData={selectedId}
-            />
-        </SafeAreaView>
-    );
-    // return (
-    //     <View style={styles.container}>
-    //         <TouchableOpacity onPress= { //Makes the blocks interactable
-    //             () => navigation.navigate(page, {name: {title}})} style={styles.block}>
-                
-    //             <View style={styles.containerIcon}>
-    //                 <Ionicons name={icon} size={24} color={colorCodes.text} />                
-    //             </View>
-    //             <View style={styles.containerText}>
-    //                 <Text style={styles.text}>
-    //                     {title}
-    //                 </Text>
-    //             </View>          
-    //             <View style={styles.containerSelection}>
-    //                 <Text style={{textAlign: "right", paddingRight: 15, color: colorCodes.selected}}>
-    //                     {selected}
-    //                 </Text>
-    //             </View>
-    //             <View style={styles.containerArrow}>
-    //                 <Ionicons name="ios-arrow-forward" size={20} color={colorCodes.selected} styles={styles.arrow}/>
-    //             </View>
-    //         </TouchableOpacity>
-    //     </View>
-    // );
-};
+    }
+}
 
 const styles = StyleSheet.create({
-    block: { 
-        flexDirection: 'row', 
+    block: {
+        flexDirection: 'row',
         flexBasis: '100%',
+        paddingHorizontal: 20,
     },
     container: {
-        display: 'flex', 
+        display: 'flex',
         height: 55,
         flexDirection: 'row',
-        paddingVertical: 15,
-        paddingHorizontal: 20,
-        backgroundColor: colorCodes.front,
     },
     containerIcon: {
         flex: .1,
+        paddingVertical: 15,
     },
     containerText: {
         flex: .85,
-        paddingVertical: 3,
+        paddingVertical: 18,
     },
     containerArrow: {
         flex: .05,
         position: "absolute",
         right: 5,
-        paddingVertical: 3,
+        paddingVertical: 18,
+        paddingHorizontal: 20,
     },
-    text: {
-        color: colorCodes.text,
-    }
+    selectedButton: {
+        backgroundColor: colorCodes.highlightBack,
+    },
+    normalButton: {
+        backgroundColor: colorCodes.front,
+    },
 });

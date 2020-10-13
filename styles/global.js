@@ -1,25 +1,32 @@
 import { StyleSheet } from 'react-native';
 
-
-export var colorCodes = {
-    /* dark theme */
-    // back: '#303030',
-    // front: '#282828',
-    // text: '#eee',
-    // selected: 'gray',
-
-    /* light theme */
-    back: '#eee',
-    front: '#fff',
-    text: '#222',
-    selected: 'gray',
+let light = {
+  back: '#eee',
+  front: '#fff',
+  text: '#222',
+  lightText: '#666',
+  selected: 'gray',
+  highlightBack: '#caebff',
+  highlightFront: '#1b86ff',
 };
+
+let dark = {
+    back: '#303030',
+    front: '#282828',
+    text: '#eee',
+    lightText: '#aaa',
+    selected: 'gray',
+    highlightBack: '#1b86ff',
+    highlightFront: '#caebff',
+};
+
+export let colorCodes = light;
 
 export const globalStyles = StyleSheet.create({
   titleText: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#333',
+    color: colorCodes.text,
   },
   paragraph: {
     marginVertical: 8,
@@ -35,18 +42,18 @@ export const globalStyles = StyleSheet.create({
   buddyCardTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#333',
+    color: colorCodes.text,
     marginLeft: 55,     //55 value used as a position over to make up for the profile picture
   },
   buddyCardText: {
     fontSize: 14,
-    color: '#333',
+    color: colorCodes.text,
     marginLeft: 55,
   },
   buddyDisplayContainer: {      //used to display the buddy cards on the buddies page
     flex: 1,
     padding: 20,
-    backgroundColor: '#fff',
+    backgroundColor: colorCodes.front,
     alignItems: 'stretch',
     justifyContent: 'center',
     

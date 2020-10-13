@@ -1,9 +1,12 @@
-import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, Switch } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; 
 import { colorCodes } from '../styles/global'
 
-export default function SettingsBlock({icon, title, selected, page, navigation}) {
+export default function SwitchBlock({icon, title, selected, page, navigation}) {
+    const [isEnabled, setIsEnabled] = useState(true);
+    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
     return (
         <View style={styles.container}>
             <TouchableOpacity onPress= { //Makes the blocks interactable
@@ -16,14 +19,15 @@ export default function SettingsBlock({icon, title, selected, page, navigation})
                     <Text style={styles.text}>
                         {title}
                     </Text>
-                </View>          
-                <View style={styles.containerSelection}>
-                    <Text style={{textAlign: "right", paddingRight: 15, color: colorCodes.selected}}>
-                        {selected}
-                    </Text>
                 </View>
                 <View style={styles.containerArrow}>
-                    <Ionicons name="ios-arrow-forward" size={20} color={colorCodes.selected} />
+                    <Switch
+                        trackColor={{ false: "#767577", true: "#5be531" }}
+                        thumbColor="#f4f3f4"
+                        ios_backgroundColor="#3e3e3e"
+                        onValueChange={toggleSwitch}
+                        value={isEnabled}
+                    />
                 </View>
             </TouchableOpacity>
         </View>

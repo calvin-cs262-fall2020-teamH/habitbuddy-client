@@ -4,7 +4,6 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Header from '../shared/header';
 import Settings from '../screens/settings';
 import Theme from '../screens/settingsScreens/theme';
-import Notifications from '../screens/settingsScreens/notifications';
 import Account from '../screens/settingsScreens/account';
 import About from '../screens/settingsScreens/about';
 
@@ -28,13 +27,6 @@ export default function SettingsStack( {navigation} ) {
                 component={Theme}
                 options={{
                     title: "Theme"
-                }}
-            />
-            <Stack.Screen
-                name="Notifications"
-                component={Notifications}
-                options={{
-                    title: "Notifications"
                 }}
             />
             <Stack.Screen

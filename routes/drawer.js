@@ -10,12 +10,17 @@ import Buddies from '../routes/buddiesStack';
 import Profile from '../routes/profileStack';
 import HabitSelector from '../routes/habitSelectorStack';
 import Settings from '../routes/settingsStack';
+import { colorCodes } from '../styles/global';
 
 const Drawer = createDrawerNavigator();
 
 export default function App() {
     return (
-        <Drawer.Navigator initialRouteName="Home">
+        <Drawer.Navigator initialRouteName="Home" drawerStyle={{backgroundColor: colorCodes.front}}
+            drawerContentOptions={{
+                inactiveTintColor: colorCodes.lightText
+            }}
+        >
             <Drawer.Screen name="Home" component={Home} />
             <Drawer.Screen name="Buddies" component={Buddies} />
             <Drawer.Screen name="Profile" component={Profile} />
