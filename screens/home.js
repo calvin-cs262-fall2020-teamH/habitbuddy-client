@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
+import {ImageBackground, StyleSheet, View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
+import Circle from '../shared/circleCard';
 
 // Written by Andrew Baker
 // Date 10.8.20
 // Sets up the Home screen to display basic information and app traversal
 
+
+// Two possible background images.
+// const background = { uri: "https://pngimg.com/uploads/bamboo/bamboo_PNG51.png"};
+const background = { uri: "http://pngimg.com/uploads/bamboo/bamboo_PNG29.png"};
+
 export default function Home({ navigation }) {
 
     return (
-        <View style={styles.container}> 
+        <ImageBackground source={background} style={styles.image}>
+        <View style={styles.container}>
+            
+
         {/* The container sets up the columns for the homescreen. Adding a basic view adds additional columns to the row*/}
             <View style={styles.containerAcross}>
                 {/* The containerAcross creates a system of rows for data and cards. Add a containerAcross view to add an additional row */}
@@ -22,30 +31,36 @@ export default function Home({ navigation }) {
                     </Card>
                 </View>
             </View>
+
+
             <View style={styles.containerAcross}>
+
+
                 <View style={styles.corners}>
-                    {/* <TouchableOpacity onPress={() => navigation.navigate('HabitSelector')}> */}
-                        <Card>
+                    <TouchableOpacity onPress={() => navigation.navigate('Habittrack')}>
+                        <Circle>
                             <Text style={globalStyles.titleText}>Streak</Text>
                             <Text/>
                             {/* Using static data until the backend is built to keep track of user data */}
                             <Text style={styles.counter}>2</Text>
                             <Text/>
-                        </Card>
-                    {/* </TouchableOpacity> */}
+                        </Circle>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.corners}>
                     <TouchableOpacity onPress={() => navigation.navigate('Buddies')}>
-                        <Card>
+                        <Circle>
                             <Text style={globalStyles.titleText}>Buddies</Text>
                             <Text/>
                             <Text style={styles.counter}>6</Text>
                             <Text/>
-                        </Card>
+                        </Circle>
                     </TouchableOpacity>
                 </View>
             </View>
         </View>
+        </ImageBackground>
+
     );
 }
 
@@ -71,5 +86,12 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         alignSelf: 'center',
-    }
+    },
+    image: {
+        flex: 1,
+        resizeMode: 'cover',
+        justifyContent: "center",
+        width: '100%',
+        height: '100%',
+      },
 })

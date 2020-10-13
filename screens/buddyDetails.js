@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {StyleSheet, View, Text, FlatList, Image} from 'react-native';
 import { globalStyles } from '../styles/global';
-import ProfileCard from "../shared/profileCard";
+import Card from "../shared/card";
 import { MaterialIcons } from '@expo/vector-icons';
 
 
@@ -21,9 +21,9 @@ export default function BuddyDetails({route, navigation}) {
         <View style={styles.container}>
             <View style={styles.containerLeft}>
                 <FlatList data={profilePage} renderItem={({ item }) => (
-                    <ProfileCard styles={styles.contentHolder}>
+                    <Card styles={styles.contentHolder}>
                         <Text style={globalStyles.titleText}>{ item.title }  { item.data }</Text>
-                    </ProfileCard>
+                    </Card>
 
                 )} />
             </View>
