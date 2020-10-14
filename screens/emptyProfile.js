@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { globalStyles } from '../styles/global';
-import Card from '../shared/card';
 
 /* emptyProfile lets you fill out your profile for the first time 
 * Written by Kelsey Yen
@@ -20,31 +19,29 @@ export default function EmptyProfile({ navigation }) {
             console.log('dismissed keyboard')
         }}>
             <View style={globalStyles.loginContainer}>
-                <Text style={globalStyles.loginText}>Login Information</Text>
+                <Text style={globalStyles.loginText}>Account Information</Text>
                 <TextInput
                     style={globalStyles.input}
-                    placeholder='first name'
+                    placeholder='First Name'
                     onChangeText={(val) => setFirstName(val)} />
                 <TextInput
                     style={globalStyles.input}
-                    placeholder='last name'
+                    placeholder='Last Name'
                     onChangeText={(val) => setLastName(val)} />    
                 <TextInput
                     style={globalStyles.input}
-                    placeholder='username'
+                    placeholder='Username'
                     onChangeText={(val) => setUsername(val)} />
                 <TextInput
                     style={globalStyles.input}
-                    placeholder='email'
+                    placeholder='Email'
                     onChangeText={(val) => setEmail(val)} />
                 <TextInput
                     style={globalStyles.input}
-                    placeholder='password'
+                    placeholder='Password'
                     onChangeText={(val) => setPassword(val)} />
-                <TouchableOpacity onPress={() => navigation.navigate('EmptyHabits')}>
-                    <Card>
-                        <Text style={globalStyles.button}>next</Text>
-                    </Card>
+                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('EmptyHabits')}>
+                        <Text style={globalStyles.loginButtonText}>Next</Text>
                 </TouchableOpacity>    
             </View>
         </TouchableWithoutFeedback>
