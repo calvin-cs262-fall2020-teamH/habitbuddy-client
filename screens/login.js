@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { globalStyles } from '../styles/global';
-import Card from '../shared/card';
 
 /* Login lets you log into app and access your profile 
 * Written by Kelsey Yen
@@ -20,22 +19,18 @@ export default function Login({ navigation }) {
                 <Text style={globalStyles.loginText}>Welcome to Habitbuddy!</Text>
                 <TextInput
                     style={globalStyles.input}
-                    placeholder='username or email'
+                    placeholder='Username or Email'
                     onChangeText={(val) => setUsername(val)} />
                 <TextInput
                     style={globalStyles.input}
-                    placeholder='password'
+                    placeholder='Password'
                     onChangeText={(val) => setPassword(val)} />
-                <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-                    <Card>
-                        <Text style={globalStyles.button}>login</Text>
-                    </Card>
+                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('Home')}>
+                    <Text style={globalStyles.loginButtonText}>Login</Text>   
                 </TouchableOpacity>
                 <Text style={globalStyles.loginText}>Don't have an account?</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('EmptyProfile')}>
-                    <Card>
-                        <Text style={globalStyles.button}>sign up</Text>
-                    </Card>
+                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('EmptyProfile')}>
+                    <Text style={globalStyles.loginButtonText}>Sign Up</Text>
                 </TouchableOpacity>
             </View>
         </TouchableWithoutFeedback>
