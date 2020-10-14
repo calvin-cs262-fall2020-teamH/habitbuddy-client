@@ -46,11 +46,6 @@ export const globalStyles = StyleSheet.create({
     margin: 10,
     width: 200,
   },
-  button: {
-    fontWeight: 'bold',
-    color: colorCodes.text,
-    justifyContent: 'center', 
-  },
   buddyCardTitle: {
     fontSize: 18,
     fontWeight: 'bold',
@@ -95,5 +90,23 @@ export const globalStyles = StyleSheet.create({
     fontSize: 14,
     color: colorCodes.text,
   },
+  loginButtonContainer: {
+    borderRadius: 10,
+    width: 100,
+    height: 40,
+    backgroundColor: '#ffd699',    
+    shadowOffset: {width: 1, height: 1},
+    shadowColor: '#333',
+    shadowOpacity: 0.3,
+    shadowRadius: 2,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  loginButtonText: {
+    fontWeight: 'bold',
+    color: colorCodes.text,
+    justifyContent: 'center', 
+  },
 });
+
 
