@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import { colorCodes, globalStyles } from '../../styles/global';
-import SelectionBlock from '../../shared/selectionBlock';
+import SelectionBlock from '../../shared/blocks/selectionBlock';
 
 /* Lets your change your theme */
 export default function Theme() {

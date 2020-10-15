@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
-import { globalStyles } from '../styles/global';
+import { colorCodes, globalStyles } from '../styles/global';
 import Card from '../shared/card';
 
 // Written by Andrew Baker
@@ -53,6 +53,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
+        backgroundColor: colorCodes.back,
     },
     containerAcross: {
         flex: 1,

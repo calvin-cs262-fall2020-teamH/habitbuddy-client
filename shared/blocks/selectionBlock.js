@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { colorCodes } from '../styles/global'
+import { colorCodes } from '../../styles/global'
 
-export default class BasicFlatList extends Component {
+{/* Sample code taken and modified from https://www.thetopsites.net/article/53403612.shtml */}
+export default class SelectionBlock extends Component {
+    
+    //The constructor takes in props passed from outside and sets the default selected item (Light)
     constructor(props) {
         super(props);
 
@@ -12,6 +15,7 @@ export default class BasicFlatList extends Component {
         };
     }
 
+    //This function is called when a user taps one of the blocks
     onPressAction = (rowItem) => {
         console.log('ListItem was selected');
         console.dir(rowItem);
@@ -20,12 +24,16 @@ export default class BasicFlatList extends Component {
         });
     }
 
+    //renderRow renders each row for the selection
     renderRow = (item) => {
-        const isSelected = this.state.selectedItem === item.id;
-        console.log(`Rendered item - ${item.title} for ${isSelected}`);
+        const isSelected = this.state.selectedItem === item.id; //checks if the rendering item is selected
+        console.log(`Rendered item - ${item.title} for ${isSelected}`); //logs whether its selected
+        
+        //change style depending on whether the block is selected or not
         const viewStyle = isSelected ? styles.selectedButton : styles.normalButton;
         const textColor = isSelected ? {color: colorCodes.highlightFront, fontWeight: 'bold'} : {color: colorCodes.text};
         const iconColor = isSelected ? colorCodes.highlightFront : colorCodes.text;
+        
         return (
             <TouchableOpacity style={[viewStyle, styles.block]} onPress={() => this.onPressAction(item)} underlayColor='#dddddd'> 
                 <View style={styles.containerIcon}>
@@ -48,6 +56,7 @@ export default class BasicFlatList extends Component {
 
     render() {
         return (
+            //takes the data passed in and renders each item in the list using renderRow
             <FlatList style={styles.container}
                 data={this.props.data}
                 renderItem={({ item }) => (
