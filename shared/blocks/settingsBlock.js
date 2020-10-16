@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; 
-import { colorCodes } from '../styles/global'
+import { colorCodes } from '../../styles/global'
 
 export default function SettingsBlock({icon, title, selected, page, navigation}) {
     return (
