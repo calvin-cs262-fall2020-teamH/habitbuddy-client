@@ -10,7 +10,7 @@ import ChangePassword from '../screens/settingsScreens/changePassword';
 
 const Stack = createStackNavigator();
 
-/*AboutStack creates a stack of screens with the default being the About screen */
+/*SettingsStack creates a stack of screens with the default being the Settings screen */
 export default function SettingsStack( {navigation} ) {
     return (
         <Stack.Navigator screenOptions={{
