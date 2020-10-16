@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableWithoutFeedback, Keyboard, Button } from 'react-native';
+//import { Input } from 'react-native-elements';
 import { globalStyles, colorCodes } from '../../styles/global';
 
 /* The Change Password screen allows the user to change their password*/
@@ -13,17 +14,19 @@ export default function ChangePassword() {
                 <TextInput   
                     style={styles.inputBox}
                     placeholder=''
-                    /*onChangeText={(val) => setChabit(val)}*//>
+                    onChangeText={(val) => {}}/>
                 
                 <Text style={globalStyles.Text}>Enter New Password:</Text>
                 <TextInput   
                     style={styles.inputBox}
-                    placeholder=''/>
+                    placeholder=''
+                    onChangeText={(val) => {}}/>
 
                 <Text style={globalStyles.Text}>Confirm New Password:</Text>
                 <TextInput   
                     style={styles.inputBox}
-                    placeholder=''/>
+                    placeholder=''
+                    onChangeText={(val) => {}}/>
 
                 <Button title='Confirm'></Button>
             </View>
