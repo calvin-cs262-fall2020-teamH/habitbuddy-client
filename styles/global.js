@@ -72,129 +72,129 @@ export const globalStyles = StyleSheet.create({
 		justifyContent: 'center',
 		color: colorCodes.text,
 	},
-  loginContainer:{
-    backgroundColor: colorCodes.back,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  loginText: {
-    paddingTop: 30,
-    paddingBottom: 10,
-    fontSize: 14,
-    color: colorCodes.text,
-  },
-  loginButtonContainer: {
-    borderRadius: 10,
-    width: 100,
-    height: 40,
-    backgroundColor: '#ffd699',    
-    shadowOffset: {width: 1, height: 1},
-    shadowColor: '#333',
-    shadowOpacity: 0.3,
-    shadowRadius: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  loginButtonText: {
-    fontWeight: 'bold',
-    color: colorCodes.text,
-    justifyContent: 'center', 
-  },
-  aboutText: {
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 10,
-    fontSize: 14,
-    justifyContent: 'center',
-  },
-  /*Profile page--------------------------------------------------*/
-  wholePage: {
-    flex: 1
-  },
-  profContainer: {
-    flex: .4,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  userName: {
-    fontSize: 27,
-    fontWeight: 'bold',
-    color: '#333',
-    marginTop: 5
-  },
-  userNamePlacement: {
-    marginTop: 10
-  },
-  profilePic: {
-    width: 125,
-    height: 125,
-    marginTop: 20,
-    alignItems: 'center',
-    borderRadius: 5,
-    justifyContent: 'center',
-    backgroundColor: "orange",
-  },
-  userInfo: {
-    flex: .5
-  },
-  userEmail: {
-    fontSize: 24,
-    marginLeft: 15,
-    marginTop: 15
-  },
-  cardItems: {
-    justifyContent: 'center'
-  },
-  contentHolder: {
-    borderRadius: 6,
-    elevation: 3,
-    backgroundColor: '#fff',
-    borderWidth: 2,
-    borderColor: 'orange',
-    shadowOffset: {width: 1, height: 1},
-    shadowColor: '#333',
-    shadowOpacity: 0.3,
-    shadowRadius: 2,
-    marginHorizontal: 7,
-    marginVertical: 9,
-  },
-  leftIcon: {
-    textAlign: 'right',
-    paddingRight: 15,
-  },
-  profileInfo: {
-    flexDirection: 'column',
-    flex: .6,
-    backgroundColor: 'blue'
-  },
-  nameInfo: {
-    flexDirection: 'column',
-    flex: .2,
-    backgroundColor: 'orange',
-    marginTop: 10,
-    marginLeft: 10,
-    marginRight: 10,
-    borderRadius: 5,
-  },
-  editView: {
-    flexDirection: 'row',
-    width: 105,
-    height: 30,
-    backgroundColor: "#ffd699",
-    marginTop: 10,
-    borderWidth: 2,
-    borderRadius: 6,
-    borderColor: 'orange',
-    shadowOffset: {width: 1, height: 1},
-    shadowColor: '#333',
-    shadowOpacity: 0.3,
-    shadowRadius: 2,
-    marginHorizontal: 7,
-    marginVertical: 9,
-  },
-  editInfoText: {
-    flex: .9,
-    alignItems: 'center',
-    justifyContent: 'center'
-  }
+  	loginContainer:{
+    		backgroundColor: colorCodes.back,
+    		alignItems: 'center',
+    		justifyContent: 'center',
+  	},
+  	loginText: {
+    		paddingTop: 30,
+    		paddingBottom: 10,
+    		fontSize: 14,
+    		color: colorCodes.text,
+ 	},
+  	loginButtonContainer: {
+    		borderRadius: 10,
+    		width: 100,
+    		height: 40,
+    		backgroundColor: '#ffd699',    
+    		shadowOffset: {width: 1, height: 1},
+    		shadowColor: '#333',
+    		shadowOpacity: 0.3,
+    		shadowRadius: 2,
+    		justifyContent: 'center',
+    		alignItems: 'center',
+  	},
+  	loginButtonText: {
+    		fontWeight: 'bold',
+    		color: colorCodes.text,
+    		justifyContent: 'center', 
+  	},
+  	aboutText: {
+    		paddingLeft: 20,
+    		paddingRight: 20,
+    		paddingTop: 10,
+    		fontSize: 14,
+    	justifyContent: 'center',
+  	},
+  	/*Profile page--------------------------------------------------*/
+  	wholePage: {
+    		flex: 1
+  	},
+  	profContainer: {
+    		flex: .4,
+    		alignItems: 'center',
+    		justifyContent: 'center',
+  	},
+  	userName: {
+    		fontSize: 27,
+    		fontWeight: 'bold',
+    		color: '#333',
+    		marginTop: 5
+  	},
+  	userNamePlacement: {
+    		marginTop: 10
+  	},
+  	profilePic: {
+    		width: 125,
+    		height: 125,
+    		marginTop: 20,
+    		alignItems: 'center',
+    		borderRadius: 5,
+    		justifyContent: 'center',
+    		backgroundColor: "orange",
+  	},
+  	userInfo: {
+    		flex: .5
+  	},
+  	userEmail: {
+    		fontSize: 24,
+    		marginLeft: 15,
+    		marginTop: 15
+  	},
+  	cardItems: {
+    		justifyContent: 'center'
+  	},
+  	contentHolder: {
+    		borderRadius: 6,
+    		elevation: 3,
+    		backgroundColor: '#fff',
+    		borderWidth: 2,
+    		borderColor: 'orange',
+    		shadowOffset: {width: 1, height: 1},
+    		shadowColor: '#333',
+    		shadowOpacity: 0.3,
+    		shadowRadius: 2,
+    		marginHorizontal: 7,
+    		marginVertical: 9,
+  	},
+  	leftIcon: {
+    		textAlign: 'right',
+    		paddingRight: 15,
+  	},
+  	profileInfo: {
+    		flexDirection: 'column',
+    		flex: .6,
+    		backgroundColor: 'blue'
+  	},
+  	nameInfo: {
+    		flexDirection: 'column',
+    		flex: .2,
+    		backgroundColor: 'orange',
+    		marginTop: 10,
+    		marginLeft: 10,
+    		marginRight: 10,
+    		borderRadius: 5,
+  	},
+  	editView: {
+    		flexDirection: 'row',
+    		width: 105,
+    		height: 30,
+    		backgroundColor: "#ffd699",
+    		marginTop: 10,
+    		borderWidth: 2,
+    		borderRadius: 6,
+    		borderColor: 'orange',
+    		shadowOffset: {width: 1, height: 1},
+    		shadowColor: '#333',
+    		shadowOpacity: 0.3,
+    		shadowRadius: 2,
+    		marginHorizontal: 7,
+    		marginVertical: 9,
+  	},
+  	editInfoText: {
+    		flex: .9,
+    		alignItems: 'center',
+    		justifyContent: 'center'
+  	}
 });
