@@ -39,6 +39,13 @@ export const globalStyles = StyleSheet.create({
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
 	},
+	input: {
+		borderWidth: 1,
+		borderColor:'#777',
+		padding: 8,
+		margin: 10,
+		width: 200,
+	},
 	buddyCardTitle: {
 		fontSize: 18,
 		fontWeight: 'bold',
@@ -56,7 +63,6 @@ export const globalStyles = StyleSheet.create({
 		backgroundColor: colorCodes.front,
 		alignItems: 'stretch',
 		justifyContent: 'center',
-
 	},
 	aboutHeader: {
 		paddingBottom: 10,
@@ -64,7 +70,6 @@ export const globalStyles = StyleSheet.create({
 		fontSize: 20,
 		justifyContent: 'center',
 		color: colorCodes.text,
-
 	},
 	aboutText: {
 		paddingTop: 10,
@@ -72,32 +77,38 @@ export const globalStyles = StyleSheet.create({
 		justifyContent: 'center',
 		color: colorCodes.text,
 	},
-  loginContainer:{
-    backgroundColor: colorCodes.back,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  loginText: {
-    paddingTop: 30,
-    paddingBottom: 10,
-    fontSize: 14,
-    color: colorCodes.text,
-  },
-  loginButtonContainer: {
-    borderRadius: 10,
-    width: 100,
-    height: 40,
-    backgroundColor: '#ffd699',    
-    shadowOffset: {width: 1, height: 1},
-    shadowColor: '#333',
-    shadowOpacity: 0.3,
-    shadowRadius: 2,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  loginButtonText: {
-    fontWeight: 'bold',
-    color: colorCodes.text,
-    justifyContent: 'center', 
-  },
+  	loginContainer:{
+		  flex: 1,
+    	backgroundColor: colorCodes.back,
+    	alignItems: 'center',
+  	},
+  	loginText: {
+    	paddingTop: 30,
+    	paddingBottom: 10,
+    	fontSize: 16,
+    	color: colorCodes.text,
+  	},
+  	loginButtonContainer: {
+    	borderRadius: 10,
+    	width: 100,
+		height: 40,
+		margin: 8,
+    	backgroundColor: '#ffd699',    
+    	shadowOffset: {width: 1, height: 1},
+    	shadowColor: '#333',
+    	shadowOpacity: 0.3,
+    	shadowRadius: 2,
+    	justifyContent: 'center',
+    	alignItems: 'center',
+  	},
+  	loginButtonText: {
+    	fontWeight: 'bold',
+    	color: colorCodes.text,
+    	justifyContent: 'center', 
+	},
+	emptyHabitContainer: {
+		flex: 1,
+		backgroundColor: colorCodes.back,
+		alignItems: 'center',
+	},	
 });
