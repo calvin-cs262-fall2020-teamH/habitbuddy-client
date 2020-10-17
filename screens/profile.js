@@ -3,11 +3,6 @@ import React, { useState } from 'react';
 import {StyleSheet, View, Text, FlatList, TextInput, Image} from 'react-native';
 import { globalStyles } from '../styles/global';
 import ProfileCard from "../shared/profileCard";
-import { MaterialIcons } from '@expo/vector-icons';
-import {NavigationContainer} from "@react-navigation/native";
-import Navigator from "../routes/drawer";
-import SettingsBlock from "../shared/settingsBlock";
-import Card from "../shared/card";
 
 /*Created by Joe Pastucha*/
 
