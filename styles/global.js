@@ -90,7 +90,7 @@ export const globalStyles = StyleSheet.create({
 	},
 	loginButtonContainer: {
 		borderRadius: 10,
-		width: 100,
+		width: 120,
 		height: 40,
 		margin: 8,
 		backgroundColor: '#ffd699',
