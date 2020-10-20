@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
+import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, FlatList, Image, TextInput } from 'react-native';
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import Circle from '../shared/circleCard';
@@ -11,32 +11,36 @@ import Circle from '../shared/circleCard';
 
 // Two possible background images.
 // const background = { uri: "https://pngimg.com/uploads/bamboo/bamboo_PNG51.png"};
-const background = { uri: "http://pngimg.com/uploads/bamboo/bamboo_PNG29.png" };
+// const background = { uri: "http://pngimg.com/uploads/bamboo/bamboo_PNG29.png" };
+// const background = { uri: "https://calvinchimes.org/wp-content/uploads/2017/02/20160822calvin-summer-16-stephennorregaard-91-1498x1000.jpg" };
+const background = { uri: "https://calvin.edu/contentAsset/image/091f147d-bb7b-4a3b-b337-e872c7a19c3d/bannerImage/filter/Resize,Jpeg/resize_w/720/jpeg_q/80" };
+
 //Panda image
 const panda = { uri: "https://cdn.pixabay.com/photo/2016/10/07/22/12/panda-1722704_640.png"};
 
 export default function Home({ navigation }) {
+    const [chabit, setChabit] = useState('Current Habit');
+    const [nhabit, setNhabit] = useState('New Habit')
 
     var hour = new Date().getHours();
     var greeting = "";
 
     if (hour < 5) {
-        greeting = "Good night";
+        greeting = "Good\nNight";
     } else if (hour < 12) {
-        greeting = "Good morning";
+        greeting = "Good\nMorning";
     } else if (hour < 17) {
-        greeting = "Good afternoon";
+        greeting = "Good\nAfternoon";
     } else if (hour < 20) {
-        greeting = "Good evening";
+        greeting = "Good\nEvening";
     } else if (hour < 23) {
-        greeting = "Good night";
+        greeting = "Good\nNight";
     } else {
         greeting = "Hello";
     }
 
-    var andHome = false;
+    var andHome = true;
     // used to pick between two homescreen options. TEMPORARY
-    // when changing the screens, the first version uses flex 0.3 in countainerAcross, which is commented out below. to view the differences make sure you change that.
 
     if (andHome) {
         return (
@@ -55,6 +59,59 @@ export default function Home({ navigation }) {
                             </Card>
                         </View>
                     </View>
+
+                    {/* TEMP */}
+{/* 
+                    <View style={styles.containerAcross}>
+
+                        <View style={styles.container}>
+
+                        <View style={styles.bar}>
+                            <View style={styles.Hab}>
+                                <Text style={styles.titleText}>After I</Text>
+                                    <TextInput   
+                                        style={styles.inputBox}
+                                        placeholder=' CURRENT HABIT'
+                                        onChangeText={(val) => setChabit(val)}/>
+                            </View>
+                            <View style={styles.Hab}>
+                                <Text style={styles.titleText}>I will</Text>
+                                    <TextInput   
+                                        style={styles.inputBox}
+                                        placeholder=' NEW HABIT'
+                                        onChangeText={(val) => setChabit(val)}/>
+                            </View>
+                        </View>
+                        <View style={styles.bar}>
+                            <Text style={styles.title}>Habit Tracking</Text>
+                        </View>
+                        </View>
+                    </View> */}
+
+                    <View style={styles.containerAcross}>
+                        <Card>
+                        <View style={styles.Hab}>
+                            <Text style={styles.titleText}>After I</Text>
+                                <TextInput   
+                                    style={styles.inputBox}
+                                    placeholder=' CURRENT HABIT'
+                                    onChangeText={(val) => setChabit(val)}/>
+                        </View>
+                        <View style={styles.Hab}>
+                            <Text style={styles.titleText}>I will</Text>
+                                <TextInput   
+                                    style={styles.inputBox}
+                                    placeholder=' NEW HABIT'
+                                    onChangeText={(val) => setChabit(val)}/>
+                        </View>
+                        </Card>
+                        <Card>
+                            <Text style={styles.title}>Habit Tracking</Text>
+                        </Card>
+                    </View>
+
+
+
 
                     <View style={styles.containerAcross}>
 
@@ -95,22 +152,21 @@ export default function Home({ navigation }) {
     } else {
         return (
 
-            <View>
+            <View style={styles.container}>
 
                 <View style={styles.containerAcross}>
-                    <Image source={panda} style={{width: 250, height: 250, position: 'relative'}}/>
-
-                    <Text style={styles.barContent}>{greeting}</Text>
-                    
+                    <Image source={panda} style={{width: 275, height: 275, position: 'relative'}}/>
+                    <View style={styles.container}>
+                        <Text style={{paddingBottom: 120}}/>
+                        <Text style={ styles.counter }>{greeting}</Text>
+                    </View>
                 </View>
-
 
                 <View style={styles.bar}>
                     <Text style={styles.barContent}>Your Habit</Text>
                     <Text style={styles.title}>Going to chapel</Text>
                     <Text></Text>
                 </View>
-
 
                 {/* <View>
                     <View style={styles.bar}>
@@ -158,7 +214,7 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
     },
     containerAcross: {
-        // flex: 0.4,
+        flex: 0.4,
         flexDirection: 'row',
     },
     corners: {
@@ -169,7 +225,7 @@ const styles = StyleSheet.create({
     counter: {
         fontSize: 30,
         fontWeight: 'bold',
-        alignSelf: 'center',
+        textAlign: 'center',
     },
     image: {
         flex: 1,
@@ -200,5 +256,31 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#333',
         textAlign: 'center',
-    }
+    },
+    Hab:{
+        // flex:1,
+        alignItems: 'center',
+        marginTop: 5,
+        marginBottom: 10,
+        height: 50,
+        //justifyContent:'flex-end',
+        //backgroundColor:'blue',
+        //position:'absolute'
+    },
+    titleText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#333',
+        fontStyle: 'italic',
+        //position:'absolute',
+    },
+    inputBox: {
+        borderWidth: 1,
+        borderColor: '#777',
+        //margin: 10,
+        width:200,
+        height: 30,
+        //padding:10,
+        //position:'absolute',
+    },
 })
