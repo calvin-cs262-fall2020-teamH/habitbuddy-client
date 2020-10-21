@@ -39,6 +39,13 @@ export const globalStyles = StyleSheet.create({
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
 	},
+	input: {
+		borderWidth: 1,
+		borderColor:'#777',
+		padding: 8,
+		margin: 10,
+		width: 200,
+	  },
 	buddyCardTitle: {
 		fontSize: 18,
 		fontWeight: 'bold',

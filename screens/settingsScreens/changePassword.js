@@ -11,7 +11,7 @@ function focusNextField(id) {
 }
 
 /* The Change Password screen allows the user to change their password*/
-export default function ChangePassword() {
+export default function ChangePassword({ navigation }) {
 
     return (
         //Dismiss keyboard if you tap off the input box or keyboard
@@ -62,7 +62,8 @@ export default function ChangePassword() {
                     }}
                 />
                 <View style={{alignItems: 'center', justifyContent: 'center'}}> 
-                <TouchableOpacity style={globalStyles.loginButtonContainer}>
+                <TouchableOpacity style={globalStyles.loginButtonContainer}
+                    onPress={() => navigation.navigate('Account')}>
                     <Text style={globalStyles.loginButtonText}>Confirm</Text>   
                 </TouchableOpacity>
                 </View>

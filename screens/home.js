@@ -9,6 +9,8 @@ import Card from '../shared/card';
 
 export default function Home({ navigation }) {
 
+    navigation.navigate('Login');
+
     return (
         <View style={styles.container}> 
         {/* The container sets up the columns for the homescreen. Adding a basic view adds additional columns to the row*/}

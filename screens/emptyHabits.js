@@ -14,7 +14,7 @@ export default function EmptyHabits({ navigation }) {
             console.log('dismissed keyboard')
         }}>
             <View style={globalStyles.container}>
-                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('Home')}>
+                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('HabitBuddy')}>
                     <Text style={globalStyles.loginButtonText}>Finish</Text>
                 </TouchableOpacity>    
             </View>
