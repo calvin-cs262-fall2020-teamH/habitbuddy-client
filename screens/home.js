@@ -7,9 +7,11 @@ import Card from '../shared/card';
 // Date 10.8.20
 // Sets up the Home screen to display basic information and app traversal
 
+let LoggedIn = false; //temporary value to represent whether or not the user is logged in
+
 export default function Home({ navigation }) {
 
-    navigation.navigate('Login');
+    if(!LoggedIn) navigation.navigate('Login');
 
     return (
         <View style={styles.container}> 
