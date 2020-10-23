@@ -235,6 +235,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
+        backgroundColor: colorCodes.back,
     },
     // Container for rows within the columns. 
     containerAcross: {
