@@ -39,6 +39,7 @@ export const globalStyles = StyleSheet.create({
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
 	},
+
 	  input: {
    		borderWidth: 1,
     		borderColor:'#777',
@@ -46,6 +47,7 @@ export const globalStyles = StyleSheet.create({
     		margin: 10,
     		width: 200,
   	},
+
 	buddyCardTitle: {
 		fontSize: 18,
 		fontWeight: 'bold',
@@ -63,7 +65,6 @@ export const globalStyles = StyleSheet.create({
 		backgroundColor: colorCodes.front,
 		alignItems: 'stretch',
 		justifyContent: 'center',
-
 	},
 	aboutHeader: {
 		paddingBottom: 10,
@@ -71,7 +72,6 @@ export const globalStyles = StyleSheet.create({
 		fontSize: 20,
 		justifyContent: 'center',
 		color: colorCodes.text,
-
 	},
 	aboutText: {
 		paddingTop: 10,
@@ -220,4 +220,10 @@ export const globalStyles = StyleSheet.create({
 		justifyContent: 'center',
 		alignItems: 'center'
 	}
+	emptyHabitContainer: {
+		flex: 1,
+		backgroundColor: colorCodes.back,
+		alignItems: 'center',
+	},
+
 });

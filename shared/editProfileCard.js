@@ -40,7 +40,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         paddingVertical: 15,
         paddingHorizontal: 0,
-
     },
     containerText: {
         flex: .2,

@@ -6,7 +6,6 @@ import { colorCodes } from '../styles/global'
 export default function ProfileCard({icon, title, userInfo, page, navigation}) {
     return (
         <View style={styles.container}>
-
                 <View style={styles.containerText}>
                     <Text style={styles.text}>
                         {title}
@@ -21,7 +20,6 @@ export default function ProfileCard({icon, title, userInfo, page, navigation}) {
         </View>
     );
 };
-
 const styles = StyleSheet.create({
     block: {
         flexDirection: 'row',
@@ -43,7 +41,6 @@ const styles = StyleSheet.create({
     containerSelection: {
         flex: .8,
         paddingVertical: 3,
-
     },
     text: {
         color: colorCodes.text,

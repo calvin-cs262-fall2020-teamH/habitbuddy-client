@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+
 import {
     StyleSheet,
     Text,
@@ -10,13 +11,16 @@ import {
     Keyboard,
     TouchableOpacity
 } from "react-native";
+
 import EditProfileCard from "../shared/editProfileCard";
 import ProfileCard from "../shared/profileCard";
 
 import {globalStyles} from "../styles/global";
 import {MaterialIcons} from "@expo/vector-icons";
 
+
 export default function EditProfile({ navigation }) {
+
 
 
     /*Initialization the profile page with the user information*/
@@ -52,6 +56,7 @@ export default function EditProfile({ navigation }) {
                     <Text style={globalStyles.loginButtonText}>Confirm Changes</Text>
                 </TouchableOpacity>
             </View>
+
         </View>
         </TouchableWithoutFeedback>
     );
