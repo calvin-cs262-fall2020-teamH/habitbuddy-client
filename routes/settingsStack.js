@@ -6,6 +6,7 @@ import Settings from '../screens/settings';
 import Theme from '../screens/settingsScreens/theme';
 import Account from '../screens/settingsScreens/account';
 import About from '../screens/settingsScreens/about';
+import ChangePassword from '../screens/settingsScreens/changePassword';
 
 const Stack = createStackNavigator();
 
@@ -34,6 +35,13 @@ export default function SettingsStack( {navigation} ) {
                 component={Account}
                 options={{
                     title: "Account"
+                }}
+            />
+            <Stack.Screen
+                name="Change Password"
+                component={ChangePassword}
+                options={{
+                    title: "Change Password"
                 }}
             />
             <Stack.Screen

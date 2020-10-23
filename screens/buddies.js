@@ -9,13 +9,13 @@ export default function Buddies({ navigation }) {
     const [buddies, setReviews] = useState([
 
         // Basic static user data, used until backend is developed.
-        {name: 'Andrew Baker', habit: 'Attending chapel', hobby: 'Reading', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '1'},
-        {name: 'Dawson Buist', habit: 'Reading books', hobby: 'Hacking', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '2'},
-        {name: 'Kelsey Yen', habit: 'Sleeping', hobby: 'Engineering', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '3'},
-        {name: 'Belina Sainju', habit: 'Watching TV', hobby: 'Reading', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '4'},
-        {name: 'Joe Pastucha', habit: 'Watching Films', hobby: 'Sleeping', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '5'},
-        {name: 'Nathan Strain', habit: 'Meditation', hobby: 'School', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '6'},
-    
+        {name: 'Andrew Baker', category: 'Spiritual', goal: 'I want to attend chapel twice a week', hobby: 'Reading', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '1'},
+        {name: 'Dawson Buist', category: 'Education', goal: 'I want to read one book every week', hobby: 'Hacking', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '2'},
+        {name: 'Kelsey Yen', category: 'Spiritual', goal: 'I want to rest every day for an hour', hobby: 'Engineering', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '3'},
+        {name: 'Belina Sainju', category: 'Relaxation', goal: 'I want watch TV every day', hobby: 'Reading', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '4'},
+        {name: 'Joe Pastucha', category: 'Relaxation', goal: 'I want to watch 2 movies every week', hobby: 'Sleeping', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '5'},
+        {name: 'Nathan Strain', category: 'Spiritual', goal: 'I want to meditate daily', hobby: 'School', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '6'},
+
     ]);
 
     return (
