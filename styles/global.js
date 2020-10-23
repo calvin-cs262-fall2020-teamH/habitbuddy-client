@@ -82,7 +82,8 @@ export const globalStyles = StyleSheet.create({
   loginContainer:{
     backgroundColor: colorCodes.back,
     alignItems: 'center',
-    justifyContent: 'center',
+	justifyContent: 'flex-start',
+	height: '100%',
   },
   loginText: {
     paddingTop: 30,
