@@ -219,7 +219,7 @@ export const globalStyles = StyleSheet.create({
 	buttonPlacement: {
 		justifyContent: 'center',
 		alignItems: 'center'
-	}
+	},
 	emptyHabitContainer: {
 		flex: 1,
 		backgroundColor: colorCodes.back,
