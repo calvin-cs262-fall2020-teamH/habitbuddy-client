@@ -1,44 +1,44 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList } from 'react-native';
+import {StyleSheet, View, Text, Button, TextInput, TouchableOpacity, FlatList, TouchableHighlight, CardItem } from 'react-native';
 import { globalStyles } from '../styles/stracking';
 import Card from '../shared/card';
 
 export default function Habittrack({ navigation }) {
-    const [chabit, setChabit] = useState('Current Habit');
-    const [nhabit, setNhabit] = useState('New Habit')
+    const green = "#39D1B4";
+    const grey = "#D3D3D3";
+    const orange = '#ffd699';
+    const [chcolor, setColor] = useState(grey);
+    const [count, setCount] = useState(1);
+    const [days, setDays] = useState([{day:'Day 1',key:'1'}]);
 
+    const changeColor = () => {
+        // setCount(count+1)
+        // setDays(days.concat({key:count.toString()}))
+        const newColor = chcolor == green ? grey : green
+        setColor(newColor);
+    }
+    
     return (
         <View style={styles.container}>
-            <View style={styles.stack}>
-                <View style={styles.currentH}>
-                    <Text style={styles.titleText}>After I</Text>
-                    <TextInput   
-                        style={styles.inputBox}
-                        placeholder='CURRENT HABIT'
-                        onChangeText={(val) => setChabit(val)}/>
-                </View>
-                <View style={styles.newH}>
-                    <Text style={styles.titleText}>I will</Text>
-                    <TextInput   
-                        style={styles.inputBox}
-                        placeholder='NEW HABIT'
-                        onChangeText={(val) => setChabit(val)}/>
-                </View>
-            </View>
+            <Text style={styles.titleText}>Track My Habit</Text>
+            <Text></Text>
 
-            <View style={styles.track}>
-                <Text style={styles.titleText}>Habit Tracking</Text>
-            </View>
-            
+            <FlatList data={days} renderItem={({ item }) => (
+                <TouchableOpacity >
+                    {/* Changes color of card when clicked i.e. each colored card represents the day when habit completed */}
+                    {/* <Card>
+                        <Text style={styles.titleText}>{item.day}</Text>
+                    </Card> */}
+                    
+                    <Button 
+                        title={item.day}
+                        onPress={ changeColor } 
+                        color = {chcolor}
 
-            {/* <FlatList data={reviews} renderItem={({ item }) => (
-                <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>
-                    <Card>
-                        <Text style={globalStyles.titleText}>{ item.name }</Text>
-                        <Text style={globalStyles.buddyCards}>{ item.habit }</Text>
-                    </Card>
+                    />
+                                              
                 </TouchableOpacity>
-            )} /> */}
+            )}/>
         </View>
 
         
@@ -50,60 +50,16 @@ export default function Habittrack({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-
-        backgroundColor: '#fff',
+        backgroundColor: 'grey',
         padding: 10,
-        //alignItems: 'center',
-    },
-    stack:{
-        flex: 1,
-       
-        backgroundColor:'#ffdab9', //mustard
-        borderRadius: 10,
-        marginBottom:10,
-        
-    },
-    currentH:{
-        flex:1,
         alignItems: 'center',
-        marginTop: 10,
-        marginBottom: 5,
-        height: 50,
-        //justifyContent:'flex-end',
-        //backgroundColor:'blue',
-        //position:'absolute'
     },
-    newH:{
-        flex:1,
-        alignItems: 'center',
-        marginBottom:10,
-        height: 50,
-        //position:'absolute'
-        //justifyContent:'flex-end',
-        //backgroundColor:'green',
-    },
+   
     titleText: {
         fontSize: 18,
         fontWeight: 'bold',
         color: '#333',
-        fontStyle: 'italic',
         //position:'absolute',
     },
-    inputBox: {
-        borderWidth: 1,
-        borderColor: '#777',
-        //margin: 10,
-        width:200,
-        height: 30,
-        //padding:10,
-        //position:'absolute',
-    },
-    track:{
-        flex:2.5,
-        backgroundColor:'grey', 
-        borderRadius: 10,
-        alignItems: 'center',
 
-
-    }
 });
