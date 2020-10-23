@@ -240,6 +240,7 @@ const styles = StyleSheet.create({
     containerAcross: {
         flex: 0.4,
         flexDirection: 'row',
+        alignItems: 'center',
     },
     // Creates 'corners' for within the rows. Essentially creates elements within rows. 
     corners: {
@@ -270,10 +271,10 @@ const styles = StyleSheet.create({
 
     // Bars are used to draw full bars across the screen with information in them. Very similar to cards. 
     bar: {
-        backgroundColor: '#ffd698',
+        backgroundColor: '#ffd698b2', //rgba color code (a is opacity)
         alignItems: 'stretch',
 
-        opacity: 0.7,
+        //opacity: 0.7,
         // marginVertical: 15,
     },
     barContent: {
@@ -302,5 +303,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#777',
         alignSelf: 'stretch',
+        fontSize: 12.5,
     },
 })
