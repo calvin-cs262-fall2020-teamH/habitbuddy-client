@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; 
-import { colorCodes } from '../styles/global'
+import { colorCodes } from '../../styles/global'
 
 export default function SettingsBlock({icon, title, selected, page, navigation}) {
     return (
@@ -23,7 +23,7 @@ export default function SettingsBlock({icon, title, selected, page, navigation})
                     </Text>
                 </View>
                 <View style={styles.containerArrow}>
-                    <Ionicons name="ios-arrow-forward" size={20} color={colorCodes.selected} styles={styles.arrow}/>
+                    <Ionicons name="ios-arrow-forward" size={20} color={colorCodes.selected} />
                 </View>
             </TouchableOpacity>
         </View>
@@ -39,26 +39,26 @@ const styles = StyleSheet.create({
         display: 'flex', 
         height: 55,
         flexDirection: 'row',
-        paddingVertical: 15,
         paddingHorizontal: 20,
         backgroundColor: colorCodes.front,
     },
     containerIcon: {
         flex: .1,
+        paddingVertical: 15,
     },
     containerText: {
         flex: .6,
-        paddingVertical: 3,
+        paddingVertical: 18,
     },
     containerSelection: {
         flex: .25,
-        paddingVertical: 3,
+        paddingVertical: 18,
     },
     containerArrow: {
         flex: .05,
         position: "absolute",
         right: 5,
-        paddingVertical: 3,
+        paddingVertical: 18,
     },
     text: {
         color: colorCodes.text,

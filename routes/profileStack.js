@@ -1,9 +1,10 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-
+import { Text } from 'react-native';
+import { MaterialIcons } from '@expo/vector-icons';
+import { globalStyles } from '../styles/global';
 import Header from '../shared/header';
 import Profile from '../screens/profile';
-
 import EditProfile from "../screens/editProfile";
 import BuddyDetails from "../screens/buddyDetails";
 
@@ -20,7 +21,10 @@ export default function ProfileStack( {navigation} ) {
                 name="Profile"
                 component={Profile}
                 options={{
-                    headerLeft: () =>  <Header navigation={navigation} />
+                    headerLeft: () =>  <Header navigation={navigation} />,
+                    headerRight: () => (
+                           <MaterialIcons name="edit" size={27} color='#333' style={globalStyles.leftIcon} onPress={() => navigation.navigate('EditProfile')}/>
+                    ),
                 }}
             />
 

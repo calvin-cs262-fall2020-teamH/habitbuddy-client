@@ -6,8 +6,9 @@ import Card from '../shared/card';
 // Written by Andrew Baker
 
 export default function Buddies({ navigation }) {
-    const [reviews, setReviews] = useState([
+    const [buddies, setReviews] = useState([
 
+        // Basic static user data, used until backend is developed.
         {name: 'Andrew Baker', habit: 'Attending chapel', hobby: 'Reading', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '1'},
         {name: 'Dawson Buist', habit: 'Reading books', hobby: 'Hacking', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '2'},
         {name: 'Kelsey Yen', habit: 'Sleeping', hobby: 'Engineering', email: 'coolguy@yeet.com', pic: '../assets/images/george.jpg', key: '3'},
@@ -19,12 +20,13 @@ export default function Buddies({ navigation }) {
 
     return (
         <View style={globalStyles.buddyDisplayContainer}>
-            <FlatList data={reviews} renderItem={({ item }) => (
+            <FlatList data={buddies} renderItem={({ item }) => (
                 <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>
+                    {/* Allows for traversal into the buddy details page */}
                     <Card>  
                         <Image source = {require('../assets/images/george.jpg')} style = {{width: 50, height: 50, position: 'absolute'}}/> 
 
-                        {/* image width and height 50 by 50. position absolute to keep picture and text in the same line */}
+                        {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
 
                         <Text style={globalStyles.buddyCardTitle}>{ item.name }</Text>
                         <Text style={globalStyles.buddyCardText}>{ item.habit }</Text>

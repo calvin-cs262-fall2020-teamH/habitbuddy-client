@@ -4,13 +4,13 @@ import {createStackNavigator} from '@react-navigation/stack';
 import Header from '../shared/header';
 import Settings from '../screens/settings';
 import Theme from '../screens/settingsScreens/theme';
-import Notifications from '../screens/settingsScreens/notifications';
 import Account from '../screens/settingsScreens/account';
 import About from '../screens/settingsScreens/about';
+import ChangePassword from '../screens/settingsScreens/changePassword';
 
 const Stack = createStackNavigator();
 
-/*AboutStack creates a stack of screens with the default being the About screen */
+/*SettingsStack creates a stack of screens with the default being the Settings screen */
 export default function SettingsStack( {navigation} ) {
     return (
         <Stack.Navigator screenOptions={{
@@ -31,17 +31,17 @@ export default function SettingsStack( {navigation} ) {
                 }}
             />
             <Stack.Screen
-                name="Notifications"
-                component={Notifications}
-                options={{
-                    title: "Notifications"
-                }}
-            />
-            <Stack.Screen
                 name="Account"
                 component={Account}
                 options={{
                     title: "Account"
+                }}
+            />
+            <Stack.Screen
+                name="Change Password"
+                component={ChangePassword}
+                options={{
+                    title: "Change Password"
                 }}
             />
             <Stack.Screen
