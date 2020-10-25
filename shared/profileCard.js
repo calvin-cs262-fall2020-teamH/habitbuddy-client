@@ -16,7 +16,6 @@ export default function ProfileCard({icon, title, userInfo, page, navigation}) {
                         {userInfo}
                     </Text>
                 </View>
-
         </View>
     );
 };
@@ -27,19 +26,18 @@ const styles = StyleSheet.create({
     },
     container: {
         display: 'flex',
-        height: 60,
         flexDirection: 'row',
         paddingVertical: 15,
-        paddingHorizontal: 0,
-
+        flexWrap: 'wrap',
+        alignItems: 'center',
     },
     containerText: {
-        flex: .2,
+        flex: .3,
         paddingVertical: 3,
         paddingLeft: 20,
     },
     containerSelection: {
-        flex: .8,
+        flex: .7,
         paddingVertical: 3,
     },
     text: {
