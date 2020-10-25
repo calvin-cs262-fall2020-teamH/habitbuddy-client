@@ -24,7 +24,7 @@ export default function Buddies({ navigation }) {
                 <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>
                     {/* Allows for traversal into the buddy details page */}
                     <Card>  
-                        <Image source = {require('../assets/images/george.jpg')} style = {{width: 50, height: 50, position: 'absolute'}}/> 
+                        <Image source = {require('../assets/images/george.jpg')} style = {{width: 50, height: 50, position: 'absolute', borderRadius: 6,}}/> 
 
                         {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
 
