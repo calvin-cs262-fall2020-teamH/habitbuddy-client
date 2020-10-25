@@ -35,7 +35,7 @@ export default function EmptyHabits({ navigation }) {
                     placeholder='i.e. walk for 20 minutes'
                     onChangeText={(val) => setPersonalGoal(val)}
                 />
-                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('Home')}>
+                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('HabitBuddy')}>
                     <Text style={globalStyles.loginButtonText}>Go to Home</Text>
                 </TouchableOpacity>    
             </View>

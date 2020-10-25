@@ -41,11 +41,11 @@ export const globalStyles = StyleSheet.create({
 	},
 	input: {
 		borderWidth: 1,
-		borderColor: '#777',
+		borderColor:'#777',
 		padding: 8,
 		margin: 10,
 		width: 200,
-	},
+	  },
 	buddyCardTitle: {
 		fontSize: 18,
 		fontWeight: 'bold',
@@ -77,11 +77,13 @@ export const globalStyles = StyleSheet.create({
 		justifyContent: 'center',
 		color: colorCodes.text,
 	},
-	loginContainer: {
-		flex: 1,
-		backgroundColor: colorCodes.back,
-		alignItems: 'center',
-	},
+
+  loginContainer:{
+    backgroundColor: colorCodes.back,
+    alignItems: 'center',
+	  justifyContent: 'flex-start',
+	  height: '100%',
+  },
 	loginText: {
 		paddingTop: 30,
 		paddingBottom: 10,

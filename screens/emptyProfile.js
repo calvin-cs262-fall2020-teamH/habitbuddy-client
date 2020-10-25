@@ -12,7 +12,7 @@ export default function EmptyProfile({ navigation }) {
     const [username, setUsername] = useState('Username');
     const [email, setEmail] = useState('Email');
     const [password, setPassword] = useState('Password');
-
+    
     return (
         <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss();

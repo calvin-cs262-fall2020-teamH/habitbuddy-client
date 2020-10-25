@@ -8,6 +8,7 @@ import Circle from '../shared/circleCard';
 // Date 10.8.20
 // Sets up the Home screen to display basic information and app traversal
 
+let LoggedIn = false; //temporary value to represent whether or not the user is logged in
 
 // Multiple possible background images. Haven't decided fully on one yet. Ditching the panda theme.
 // const background = { uri: "https://pngimg.com/uploads/bamboo/bamboo_PNG51.png"};
@@ -41,6 +42,8 @@ export default function Home({ navigation }) {
     } else {
         greeting = "Hello";
     }
+
+    if(!LoggedIn) navigation.navigate('Login');
 
     var andHome = true;
     // used to pick between two homescreen options. TEMPORARY
@@ -235,7 +238,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        backgroundColor: colorCodes.back,
     },
     // Container for rows within the columns. 
     containerAcross: {
