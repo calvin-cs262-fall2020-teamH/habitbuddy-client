@@ -52,7 +52,7 @@ export default function EditProfile({ navigation }) {
                 <EditProfileCard title = "Email" placeholder = "Enter new email"></EditProfileCard>
             </View>
             <View style={globalStyles.buttonPlacement}>
-                <TouchableOpacity style={globalStyles.confirmChangesButtonContainer} onPress={() => navigation.navigate('Profile')}>
+                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('Profile')}>
                     <Text style={globalStyles.loginButtonText}>Confirm Changes</Text>
                 </TouchableOpacity>
             </View>
