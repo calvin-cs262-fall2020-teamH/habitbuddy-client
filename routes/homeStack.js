@@ -7,6 +7,9 @@ import Home from '../screens/home';
 import Login from '../screens/login';
 import EmptyProfile from '../screens/emptyProfile'
 import EmptyHabits from '../screens/emptyHabits'
+import Buddies from '../screens/buddies';
+import Habittrack from '../screens/habittrack';
+import BuddyDetails from '../screens/buddyDetails';
 
 const Stack = createStackNavigator();
 const LoggedIn = false;
@@ -50,6 +53,21 @@ export default function HomeStack( {navigation} ) {
                 name='EmptyHabits'
                 component={EmptyHabits}
                 options={{title: 'Habits'}}
+            />
+            <Stack.Screen
+                name="Buddies"
+                component={Buddies}
+                options={{title: 'Buddies'}}
+            />
+            <Stack.Screen
+                name="Habittrack"
+                component={Habittrack}
+                options={{title: 'Habit Tracker'}}
+            />
+            <Stack.Screen
+                name="BuddyDetails"
+                component={BuddyDetails}
+                options={{title: 'Buddy Details'}}
             />
         </Stack.Navigator>
     );
