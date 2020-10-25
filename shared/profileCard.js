@@ -1,40 +1,55 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { colorCodes } from '../styles/global'
 
-
-
-/*Function that creates a template for the profile card for the profile page*/
-
-export default function ProfileCard(props) {
+export default function ProfileCard({icon, title, userInfo, page, navigation}) {
     return (
-        <View style={styles.card}>
-            <View style={styles.cardTitle}>
-                { props.children }
-            </View>
-            <View style={styles.cardContent}>
+        <View style={styles.container}>
 
-            </View>
+
+                <View style={styles.containerIcon}>
+                    <Ionicons name={icon} size={24} color={colorCodes.text} />
+                </View>
+                <View style={styles.containerText}>
+                    <Text style={styles.text}>
+                        {title}
+                    </Text>
+                </View>
+                <View style={styles.containerSelection}>
+                    <Text style={{textAlign: "right", paddingRight: 17, color: colorCodes.selected}}>
+                        {userInfo}
+                    </Text>
+                </View>
+
         </View>
     );
-}
+};
 
-const styles = StyleSheet.create ({
-    card: {
-        borderRadius: 6,
-        elevation: 3,
-        backgroundColor: '#ffffff',
-        borderWidth: 2,
-        backgroundColor: '#ffd699',
-        borderColor: 'orange',
-        shadowOffset: {width: 1, height: 1},
-        shadowColor: '#333',
-        shadowOpacity: 0.3,
-        shadowRadius: 2,
-        marginHorizontal: 7,
-        marginVertical: 9,
+const styles = StyleSheet.create({
+    block: {
+        flexDirection: 'row',
+        flexBasis: '100%',
     },
-    cardTitle: {
-        marginHorizontal: 4,
-        marginVertical: 4,
+    container: {
+        display: 'flex',
+        height: 60,
+        flexDirection: 'row',
+        paddingVertical: 15,
+        paddingHorizontal: 0,
+    },
+    containerIcon: {
+        flex: .1,
+    },
+    containerText: {
+        flex: .15,
+        paddingVertical: 3,
+    },
+    containerSelection: {
+        flex: .70,
+        paddingVertical: 3,
+    },
+    text: {
+        color: colorCodes.text,
     }
 });
