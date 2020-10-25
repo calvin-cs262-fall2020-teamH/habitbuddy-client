@@ -13,7 +13,12 @@ export default function Profile({navigation}) {
 
     /*Initialization the profile page with the user information*/
     let [profilePage, setProfilePage] = useState(
-        {name: 'Andrew Baker', habit: 'Attending chapel', hobby: 'Reading', email: 'email@gmail.com', pic: '../assets/images/george.jpg', key: '1'},
+        {name: 'Andrew Baker',
+            category: 'Spiritual',
+            goal: 'I want to attend chapel twice a week',
+            hobby: 'Reading', email: 'email@gmail.com',
+            pic: '../assets/images/george.jpg', key: '1'
+        }
     );
 
 
@@ -30,12 +35,10 @@ export default function Profile({navigation}) {
                 </View>
             </View>
             <View style={globalStyles.userInfo}>
-                <ProfileCard title = "Habit" userInfo = {profilePage.habit}></ProfileCard>
+                <ProfileCard title = "Category" userInfo = {profilePage.category}></ProfileCard>
+                <ProfileCard title = "Habit Goal" userInfo = {profilePage.goal}></ProfileCard>
                 <ProfileCard title = "Hobby" userInfo = {profilePage.hobby}></ProfileCard>
                 <ProfileCard title = "Email" userInfo = {profilePage.email}></ProfileCard>
-
-
-
             </View>
         </View>
     );

@@ -1,41 +1,50 @@
 import React, { useState } from 'react';
-import {StyleSheet, View, Text, FlatList, Image} from 'react-native';
+import {StyleSheet, View, Text, FlatList, TextInput, Image} from 'react-native';
 import { globalStyles } from '../styles/global';
-import Card from "../shared/card";
-import { MaterialIcons } from '@expo/vector-icons';
+import ProfileCard from "../shared/profileCard";
 
+/*Created by Joe Pastucha*/
 
 /* Profile outputs the content of the Profile page */
-// originally written by Joe Pastucha, extended and altered by Andrew Baker to display general user information. 
-export default function BuddyDetails({route, navigation}) {
+export default function Profile({route, navigation}) {
 
-    const [profilePage, setProfilePage] = useState([
-        { title: 'Name:', data: route.params.name, key: '1' },
-        { title: 'Email:', data: route.params.email, key: '2' },
-        { title: 'Habits:', data: route.params.habit, key: '3' },
-        { title: 'Activities:', data: route.params.hobby, key: '4' },
-    ]);
+
+
+    /*Initialization the profile page with the user information*/
+    let [profilePage, setProfilePage] = useState(
+        {name: route.params.name,
+            category: route.params.category,
+            goal: route.params.goal,
+            hobby: route.params.hobby,
+            email: route.params.email,
+            pic: route.params.pic, key: '1'},
+    );
+
+
 
     return (
-        
-        <View style={styles.container}>
-            <View style={styles.containerLeft}>
-                <FlatList data={profilePage} renderItem={({ item }) => (
-                    <Card styles={styles.contentHolder}>
-                        <Text style={globalStyles.titleText}>{ item.title }  { item.data }</Text>
-                    </Card>
-
-                )} />
-            </View>
-            <View style={styles.containerRight}>
-                <View style={styles.profilePic}>
-                <Image source = {require('../assets/images/george.jpg')} style = {styles.profilePic}/> 
-                    {/* <Text>Profile Pic</Text> */}
+        <View style={globalStyles.wholePage}>
+            <View style={globalStyles.profContainer}>
+                <View style={globalStyles.profilePic}>
+                    <Image source = {require('../assets/images/george.jpg')} style = {{width: 110, height: 110, position: 'absolute'}}/>
                 </View>
+
+                <View style={globalStyles.userNamePlacement}>
+                    <Text style={globalStyles.userName}>{ profilePage.name }</Text>
+                </View>
+            </View>
+            <View style={globalStyles.userInfo}>
+                <ProfileCard title = "Category" userInfo = {profilePage.category}></ProfileCard>
+                <ProfileCard title = "Habit Goal" userInfo = {profilePage.goal}></ProfileCard>
+                <ProfileCard title = "Hobby" userInfo = {profilePage.hobby}></ProfileCard>
+                <ProfileCard title = "Email" userInfo = {profilePage.email}></ProfileCard>
             </View>
         </View>
     );
-};
+}
+
+
+
 
 const styles =  StyleSheet.create({
     container: {

@@ -1,17 +1,36 @@
 import React, {useState} from "react";
-import {StyleSheet, Text, View, TextInput, Button, Image, TouchableWithoutFeedback, Keyboard} from "react-native";
+
+import {
+    StyleSheet,
+    Text,
+    View,
+    TextInput,
+    Button,
+    Image,
+    TouchableWithoutFeedback,
+    Keyboard,
+    TouchableOpacity
+} from "react-native";
+
 import EditProfileCard from "../shared/editProfileCard";
 import ProfileCard from "../shared/profileCard";
 
 import {globalStyles} from "../styles/global";
 import {MaterialIcons} from "@expo/vector-icons";
 
-export default function EditProfile() {
+
+export default function EditProfile({ navigation }) {
+
 
 
     /*Initialization the profile page with the user information*/
     let [tempProfilePage, setTempProfilePage] = useState(
-        {name: 'Andrew Baker', habit: 'Attending chapel', hobby: 'Reading', email: 'email@gmail.com', pic: '../assets/images/george.jpg', key: '1'}
+        {name: 'Andrew Baker',
+            category: 'Spiritual',
+            goal: 'I want to attend chapel twice a week',
+            email: 'email@gmail.com',
+            pic: '../assets/images/george.jpg', key: '1'
+        }
     );
 
     return (
@@ -27,11 +46,16 @@ export default function EditProfile() {
                 </View>
             </View>
             <View style={globalStyles.userInfo}>
-                <ProfileCard title = "Habit" userInfo = {tempProfilePage.habit}></ProfileCard>
+                <ProfileCard title = "Habit" userInfo = {tempProfilePage.category}></ProfileCard>
+                <EditProfileCard title = "Habit Goal" placeholder = "Enter new habit goal"></EditProfileCard>
                 <EditProfileCard title = "Hobby" placeholder = "Enter new hobby"></EditProfileCard>
                 <EditProfileCard title = "Email" placeholder = "Enter new email"></EditProfileCard>
             </View>
-            <Button title='Confirm changes'/>
+            <View style={globalStyles.buttonPlacement}>
+                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('Profile')}>
+                    <Text style={globalStyles.loginButtonText}>Confirm Changes</Text>
+                </TouchableOpacity>
+            </View>
 
         </View>
         </TouchableWithoutFeedback>

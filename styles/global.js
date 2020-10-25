@@ -41,11 +41,11 @@ export const globalStyles = StyleSheet.create({
 	},
 	input: {
 		borderWidth: 1,
-		borderColor:'#777',
+		borderColor: '#777',
 		padding: 8,
 		margin: 10,
 		width: 200,
-	  },
+	},
 	buddyCardTitle: {
 		fontSize: 18,
 		fontWeight: 'bold',
@@ -77,41 +77,17 @@ export const globalStyles = StyleSheet.create({
 		justifyContent: 'center',
 		color: colorCodes.text,
 	},
-
-  loginContainer:{
-    backgroundColor: colorCodes.back,
-    alignItems: 'center',
-	  justifyContent: 'flex-start',
-	  height: '100%',
-  },
-	loginText: {
-		paddingTop: 30,
-		paddingBottom: 10,
-		fontSize: 16,
-		color: colorCodes.text,
-	},
-	loginButtonContainer: {
-		borderRadius: 10,
-		width: 120,
-		height: 40,
-		margin: 8,
-		backgroundColor: '#ffd699',
-		shadowOffset: { width: 1, height: 1 },
-		shadowColor: '#333',
-		shadowOpacity: 0.3,
-		shadowRadius: 2,
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
 	loginButtonText: {
 		fontWeight: 'bold',
 		color: colorCodes.text,
 		justifyContent: 'center',
 	},
-	emptyHabitContainer: {
-		flex: 1,
-		backgroundColor: colorCodes.back,
-		alignItems: 'center',
+	aboutText: {
+		paddingLeft: 20,
+		paddingRight: 20,
+		paddingTop: 10,
+		fontSize: 14,
+		justifyContent: 'center',
 	},
 	/*Profile page--------------------------------------------------*/
 	wholePage: {
@@ -203,4 +179,38 @@ export const globalStyles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center'
 	},
+	loginContainer: {
+		backgroundColor: colorCodes.back,
+		alignItems: 'center',
+		justifyContent: 'flex-start',
+		height: '100%',
+	},
+	loginText: {
+		paddingTop: 30,
+		paddingBottom: 10,
+		fontSize: 16,
+		color: colorCodes.text,
+	},
+	loginButtonContainer: {
+		borderRadius: 10,
+		width: 200,
+		height: 40,
+		backgroundColor: '#ffd699',
+		shadowOffset: { width: 1, height: 1 },
+		shadowColor: '#333',
+		shadowOpacity: 0.3,
+		shadowRadius: 2,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	buttonPlacement: {
+		justifyContent: 'center',
+		alignItems: 'center'
+	},
+	emptyHabitContainer: {
+		flex: 1,
+		backgroundColor: colorCodes.back,
+		alignItems: 'center',
+	},
+
 });

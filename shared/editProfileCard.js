@@ -41,15 +41,13 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         paddingHorizontal: 0,
     },
-    containerIcon: {
-        flex: .1,
-    },
     containerText: {
-        flex: .15,
+        flex: .2,
         paddingVertical: 3,
+        paddingLeft: 20,
     },
     containerSelection: {
-        flex: .70,
+        flex: .8,
         paddingVertical: 3,
     },
     text: {

@@ -6,11 +6,6 @@ import { colorCodes } from '../styles/global'
 export default function ProfileCard({icon, title, userInfo, page, navigation}) {
     return (
         <View style={styles.container}>
-
-
-                <View style={styles.containerIcon}>
-                    <Ionicons name={icon} size={24} color={colorCodes.text} />
-                </View>
                 <View style={styles.containerText}>
                     <Text style={styles.text}>
                         {title}
@@ -21,11 +16,9 @@ export default function ProfileCard({icon, title, userInfo, page, navigation}) {
                         {userInfo}
                     </Text>
                 </View>
-
         </View>
     );
 };
-
 const styles = StyleSheet.create({
     block: {
         flexDirection: 'row',
@@ -33,20 +26,18 @@ const styles = StyleSheet.create({
     },
     container: {
         display: 'flex',
-        height: 60,
         flexDirection: 'row',
         paddingVertical: 15,
-        paddingHorizontal: 0,
-    },
-    containerIcon: {
-        flex: .1,
+        flexWrap: 'wrap',
+        alignItems: 'center',
     },
     containerText: {
-        flex: .15,
+        flex: .3,
         paddingVertical: 3,
+        paddingLeft: 20,
     },
     containerSelection: {
-        flex: .70,
+        flex: .7,
         paddingVertical: 3,
     },
     text: {
