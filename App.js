@@ -7,10 +7,16 @@ import { globalStyles } from './styles/global';
 
 import Navigator from './routes/drawer';
 
+const globalState = {
+  text: 'foo',
+};
+
+export const globalStateContext = React.createContext(globalState);
+
 export default function App() {
   return (
     <NavigationContainer>
-       <Navigator />
+      <Navigator />
     </NavigationContainer>
   );
 }
