@@ -5,7 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { globalStyles } from './styles/global';
 
-import Navigator from './routes/drawer';
+import Navigator from './routes/mainStack';
 
 export default function App() {
   return (

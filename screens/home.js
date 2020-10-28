@@ -43,7 +43,7 @@ export default function Home({ navigation }) {
         greeting = "Hello";
     }
 
-    if(!LoggedIn) navigation.navigate('Login');
+    //if(!LoggedIn) navigation.navigate('Login');
 
     var andHome = true;
     // used to pick between two homescreen options. TEMPORARY
@@ -55,7 +55,7 @@ export default function Home({ navigation }) {
             <ImageBackground source={background} style={styles.image} blurRadius={0.6}>
 
                 <View style={styles.bar}>
-                <Text style={styles.barContent}>{greeting}</Text>
+                    <Text style={styles.barContent}>{greeting}</Text>
                 </View>
 
                 <View style={styles.container}>
@@ -238,6 +238,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
+        justifyContent: 'space-between',
     },
     // Container for rows within the columns. 
     containerAcross: {
@@ -307,5 +308,6 @@ const styles = StyleSheet.create({
         borderColor: '#777',
         alignSelf: 'stretch',
         fontSize: 12.5,
+        paddingHorizontal: 5,
     },
 })
