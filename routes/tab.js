@@ -5,7 +5,7 @@ import { Button, View } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Home from './homeStack';
 import Buddies from './buddiesStack';
@@ -28,19 +28,19 @@ export default function App({navigation}) {
                   let iconName;
       
                   if (route.name === 'Home') {
-                    iconName = 'md-home';
+                    iconName = focused ? 'home' : 'home-outline';
                   } else if (route.name === 'Settings') {
-                    iconName = 'md-settings'
+                    iconName = focused ? 'settings' : 'settings-outline';
                   } else if (route.name === 'Profile') {
-                    iconName = 'md-person';
+                    iconName = focused ? 'account' : 'account-outline';
                   } else if (route.name === 'Buddies') {
-                    iconName = 'md-people';
+                    iconName = focused ? 'account-multiple' : 'account-multiple-outline';
                   } else if (route.name === 'Habit Track') {
-                    iconName = 'md-calendar';
+                    iconName = focused ? 'calendar-month' : 'calendar-month-outline';
                   }
       
                   // You can return any component that you like here!
-                  return <Ionicons name={iconName} size={size} color={color} />;
+                  return <MaterialCommunityIcons name={iconName} size={size} color={color} />;
                 },
               })}
               tabBarOptions={{
