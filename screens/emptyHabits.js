@@ -3,7 +3,6 @@ import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyb
 import  RNPickerSelect from 'react-native-picker-select';
 import { globalStyles } from '../styles/global';
 
-
 /* emptyHabits lets you choose your habits for the first time 
 *  Written by Kelsey Yen
 */
@@ -22,10 +21,10 @@ export default function EmptyHabits({ navigation }) {
                         onValueChange={(val) => console.log(val)}
                         items={[
                             { label: 'Fitness', value: 'fitness'},
-                            { label: 'Studying', value: 'studying'},
-                            { label: 'Reading', value: 'reading'},
-                            { label: 'Writing', value: 'writing'},
-                            { label: 'Meditating', value: 'meditating'}
+                            { label: 'Health', value: 'health'},
+                            { label: 'School', value: 'school'},
+                            { label: 'Spiritual', value: 'spiritual'},
+                            { label: 'Leisure', value: 'leisure'}
                         ]}
                     />
                 </View>
