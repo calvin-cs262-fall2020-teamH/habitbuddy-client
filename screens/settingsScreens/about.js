@@ -2,6 +2,9 @@ import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { globalStyles, colorCodes } from '../../styles/global';
 
+// Written by Kelsey Yen
+// Based on Vision statement
+
 /* About outputs the content of the About page */
 export default function About() {
     return (
