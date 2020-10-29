@@ -16,30 +16,12 @@ import EditProfileCard from "../shared/editProfileCard";
 import ProfileCard from "../shared/profileCard";
 
 import {globalStyles} from "../styles/global";
-import {userInfo} from '../shared/globalVars';
 import {MaterialIcons} from "@expo/vector-icons";
 
 
 export default function EditProfile({ navigation }) {
 
-    //Functions to hook up with database
-    function updateProfile(title, data) {
-        switch(title) {
-            case 'Habbit Goal':
-                setTempProfilePage.goal = data; 
-                break;
-            case 'Hobby':
-                break;
-            case 'Email':
-                setTempProfilePage.email = data; 
-                break;
-        }
-    }
 
-    // function confirm() {
-    //     userInfo = tempProfilePage;
-    //     navigation.navigate('Profile');
-    // }
 
     /*Initialization the profile page with the user information*/
     let [tempProfilePage, setTempProfilePage] = useState(
@@ -70,7 +52,7 @@ export default function EditProfile({ navigation }) {
                 <EditProfileCard title = "Email" placeholder = "Enter new email"></EditProfileCard>
             </View>
             <View style={globalStyles.buttonPlacement}>
-                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={confirm()}>
+                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('Profile')}>
                     <Text style={globalStyles.loginButtonText}>Confirm Changes</Text>
                 </TouchableOpacity>
             </View>
@@ -79,4 +61,3 @@ export default function EditProfile({ navigation }) {
         </TouchableWithoutFeedback>
     );
 }
-
