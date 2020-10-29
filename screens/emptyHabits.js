@@ -8,7 +8,9 @@ import { globalStyles } from '../styles/global';
 *  Written by Kelsey Yen
 */
 
-export default function EmptyHabits({ navigation }) {
+export default function EmptyHabits({ navigation, route }) {
+    const {updateData} = route.params;
+
     const [personalGoal, setPersonalGoal] = useState('PersonalGoal');
     return (
         <TouchableWithoutFeedback onPress={() => {
@@ -35,7 +37,7 @@ export default function EmptyHabits({ navigation }) {
                     placeholder='i.e. walk for 20 minutes'
                     onChangeText={(val) => setPersonalGoal(val)}
                 />
-                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('HabitBuddy')}>
+                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => updateData()}>
                     <Text style={globalStyles.loginButtonText}>Go to Home</Text>
                 </TouchableOpacity>    
             </View>

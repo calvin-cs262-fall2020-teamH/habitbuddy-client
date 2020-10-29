@@ -22,6 +22,7 @@ import {MaterialIcons} from "@expo/vector-icons";
 
 export default function EditProfile({ navigation }) {
 
+    //Functions to hook up with database
     function updateProfile(title, data) {
         switch(title) {
             case 'Habbit Goal':

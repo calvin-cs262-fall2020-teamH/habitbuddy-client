@@ -7,6 +7,8 @@ import { globalStyles } from '../styles/global';
 */
 
 export default function Login({ navigation, route }) {
+    const {updateData} = route.params;
+
     const [username, setUsername] = useState('Username');
     const [password, setPassword] = useState('Password');
 
@@ -25,7 +27,7 @@ export default function Login({ navigation, route }) {
                     style={globalStyles.input}
                     placeholder='Password'
                     onChangeText={(val) => setPassword(val)} />
-                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('HabitBuddy')}>
+                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => updateData()}>
                     <Text style={globalStyles.loginButtonText}>Login</Text>   
                 </TouchableOpacity>
                 <Text style={globalStyles.loginText}>Don't have an account?</Text>

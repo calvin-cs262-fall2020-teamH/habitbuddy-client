@@ -5,18 +5,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { globalStyles } from './styles/global';
 
-import Navigator from './routes/drawer';
-
-const globalState = {
-  text: 'foo',
-};
-
-export const globalStateContext = React.createContext(globalState);
+import Navigator from './routes/authStack';
 
 export default function App() {
   return (
-    <NavigationContainer>
+    // <NavigationContainer>
       <Navigator />
-    </NavigationContainer>
+    // </NavigationContainer>
   );
 }
