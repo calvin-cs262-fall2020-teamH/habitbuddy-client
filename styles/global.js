@@ -59,7 +59,7 @@ export const globalStyles = StyleSheet.create({
 	},
 	buddyDisplayContainer: {      //used to display the buddy cards on the buddies page
 		flex: 1,
-		padding: 20,
+		paddingHorizontal: 20,
 		backgroundColor: colorCodes.front,
 		alignItems: 'stretch',
 		justifyContent: 'center',

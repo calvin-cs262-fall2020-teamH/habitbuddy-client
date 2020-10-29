@@ -12,7 +12,6 @@ import Habittrack from '../screens/habittrack';
 import BuddyDetails from '../screens/buddyDetails';
 
 const Stack = createStackNavigator();
-const LoggedIn = false;
 
 /*HomeStack creates a stack of screens with the default being the Home screen */
 export default function HomeStack( {navigation} ) {
@@ -32,27 +31,6 @@ export default function HomeStack( {navigation} ) {
                     title: 'HabitBuddy',
                     headerLeft: () =>  <Header navigation={navigation} />
                 }}
-            />
-            {/* Login and Sign Up Screens */}
-            <Stack.Screen
-                name='Login'
-                component={Login}
-                options = {{
-                    title: 'Login',
-                    headerLeft: null,
-                }}
-            />
-            <Stack.Screen
-                name='EmptyProfile'
-                component={EmptyProfile}
-                options={{
-                    title: 'Profile',
-                }}
-            />
-            <Stack.Screen
-                name='EmptyHabits'
-                component={EmptyHabits}
-                options={{title: 'Habits'}}
             />
             <Stack.Screen
                 name="Buddies"

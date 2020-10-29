@@ -23,7 +23,8 @@ export default function ProfileStack( {navigation} ) {
                 options={{
                     headerLeft: () =>  <Header navigation={navigation} />,
                     headerRight: () => (
-                           <MaterialIcons name="edit" size={27} color='#333' style={globalStyles.leftIcon} onPress={() => navigation.navigate('EditProfile')}/>
+                        <MaterialIcons name="edit" size={27} color='#333' style={globalStyles.leftIcon}
+                        onPress={() => navigation.navigate('EditProfile')}/>
                     ),
                 }}
             />

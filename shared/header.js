@@ -11,7 +11,7 @@ export default function Header({ navigation }) {
     return (
         <View>
 
-            <MaterialIcons name='menu' size={35} onPress={openMenu} style={{paddingLeft: 10}} />
+            {/* <MaterialIcons name='menu' size={35} onPress={openMenu} style={{paddingLeft: 10}} /> */}
 
         </View>
     );
