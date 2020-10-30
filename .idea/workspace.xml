@@ -22,18 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff28d36e-b9fd-42cf-b269-0e699892fc35" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/profileStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/profileStack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/buddies.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/buddies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/buddyDetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/buddyDetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/editProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/editProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/home.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/editProfileCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/shared/editProfileCard.js" afterDir="false" />
-    </list>
+    <list default="true" id="ff28d36e-b9fd-42cf-b269-0e699892fc35" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -91,6 +80,7 @@
       <workItem from="1602770164704" duration="21000" />
       <workItem from="1602780607119" duration="3047000" />
       <workItem from="1603820803178" duration="8548000" />
+      <workItem from="1604074867455" duration="6000" />
     </task>
     <servers />
   </component>
