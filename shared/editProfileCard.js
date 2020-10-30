@@ -42,12 +42,12 @@ const styles = StyleSheet.create({
         paddingHorizontal: 0,
     },
     containerText: {
-        flex: .2,
+        flex: .3,
         paddingVertical: 3,
         paddingLeft: 20,
     },
     containerSelection: {
-        flex: .8,
+        flex: .7,
         paddingVertical: 3,
     },
     text: {

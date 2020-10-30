@@ -63,13 +63,15 @@ export default function Home({ navigation }) {
                     <View style={styles.containerAcross}>
                         {/* The containerAcross creates a system of rows for data and cards. Add a containerAcross view to add an additional row */}
                         <View style={styles.corners}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
                             {/* Top card, for the sought out habit  */}
-                            <Card>
-                                <Text>Your Habit</Text>
-                                {/* Static at the moment. To be changed with back end. TEMPORARY */}
-                                <Text style={globalStyles.titleText}>Going to chapel</Text>
-                                <Text></Text>
+                                <Card>
+                                    <Text>Your Habit</Text>
+                                    {/* Static at the moment. To be changed with back end. TEMPORARY */}
+                                    <Text style={globalStyles.titleText}>Going to chapel</Text>
+                                    <Text></Text>
                             </Card>
+                            </TouchableOpacity>
                             
                         </View>
                         <View style={styles.corners}>
