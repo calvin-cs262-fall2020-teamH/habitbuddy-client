@@ -41,6 +41,7 @@ export default function Profile({route, navigation}) {
                 <TouchableOpacity onPress={() => Linking.openURL('mailto:' + profilePage.email)}>
                     <ProfileCard title = "Email" userInfo = {profilePage.email}></ProfileCard>
                 </TouchableOpacity>
+
                 <TouchableOpacity onPress={() => Linking.openURL('sms:' + profilePage.number)}>
                     <ProfileCard title = "Phone Number" userInfo = {profilePage.number}></ProfileCard>
                 </TouchableOpacity>
