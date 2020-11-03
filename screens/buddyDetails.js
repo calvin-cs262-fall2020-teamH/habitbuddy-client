@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import {StyleSheet, View, Text, FlatList, TextInput, Image, Linking, TouchableOpacity} from 'react-native';
 import { globalStyles } from '../styles/global';
 import ProfileCard from "../shared/profileCard";
+import ProfileLinkingCard from "../shared/profileLinkingCard";
+
 
 /*Created by Joe Pastucha/Dawson*/
 
@@ -39,10 +41,10 @@ export default function Profile({route, navigation}) {
                 <ProfileCard title = "Habit Goal" userInfo = {profilePage.goal}></ProfileCard>
                 <ProfileCard title = "Hobby" userInfo = {profilePage.hobby}></ProfileCard>
                 <TouchableOpacity onPress={() => Linking.openURL('mailto:' + profilePage.email)}>
-                    <ProfileCard title = "Email" userInfo = {profilePage.email}></ProfileCard>
+                    <ProfileLinkingCard title = "Email" userInfo = {profilePage.email}></ProfileLinkingCard>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => Linking.openURL('sms:' + profilePage.number)}>
-                    <ProfileCard title = "Phone Number" userInfo = {profilePage.number}></ProfileCard>
+                    <ProfileLinkingCard title = "Phone Number" userInfo = {profilePage.number}></ProfileLinkingCard>
                 </TouchableOpacity>
             </View>
         </View>
