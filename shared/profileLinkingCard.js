@@ -1,34 +1,24 @@
 import React from 'react';
-import { View, Text, StyleSheet,TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { colorCodes } from '../styles/global'
 
-export default function EditProfileCard({icon, title, placeholder, page, navigation}) {
+export default function ProfileLinkingCard({icon, title, userInfo, page, navigation}) {
     return (
         <View style={styles.container}>
-
-
-            <View style={styles.containerIcon}>
-                <Ionicons name={icon} size={24} color={colorCodes.text} />
-            </View>
             <View style={styles.containerText}>
                 <Text style={styles.text}>
                     {title}
                 </Text>
             </View>
             <View style={styles.containerSelection}>
-                <TextInput
-                    style={{textAlign: "right", paddingRight: 17, color: colorCodes.selected}}
-                    placeholder={placeholder}
-                />
-
+                <Text style={{textAlign: "right", paddingRight: 17, textDecorationLine: 'underline', color: 'blue'}}>
+                    {userInfo}
+                </Text>
             </View>
-
-
         </View>
     );
 };
-
 const styles = StyleSheet.create({
     block: {
         flexDirection: 'row',
@@ -36,15 +26,16 @@ const styles = StyleSheet.create({
     },
     container: {
         display: 'flex',
-        height: 60,
         flexDirection: 'row',
         paddingVertical: 15,
-        paddingHorizontal: 0,
+        flexWrap: 'wrap',
+        alignItems: 'center',
     },
     containerText: {
         flex: .3,
         paddingVertical: 3,
         paddingLeft: 20,
+        textDecorationLine: 'underline'
     },
     containerSelection: {
         flex: .7,
