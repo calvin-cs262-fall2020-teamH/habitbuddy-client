@@ -28,13 +28,11 @@ export default function ProfileStack( {navigation} ) {
                     ),
                 }}
             />
-
             <Stack.Screen
                 name="EditProfile"
                 component={EditProfile}
                 options={{title: 'Edit Profile'}}
             />
-
         </Stack.Navigator>
     );
 };

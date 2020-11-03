@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import {StyleSheet, View, Text, FlatList, TextInput, Image} from 'react-native';
 import { globalStyles } from '../styles/global';
 import ProfileCard from "../shared/profileCard";
@@ -16,7 +15,9 @@ export default function Profile({navigation}) {
         {name: 'Andrew Baker',
             category: 'Spiritual',
             goal: 'I want to attend chapel twice a week',
-            hobby: 'Reading', email: 'email@gmail.com',
+            hobby: 'Reading',
+            email: 'email@gmail.com',
+            number: 1234567890,
             pic: '../assets/images/george.jpg', key: '1'
         }
     );
@@ -39,6 +40,8 @@ export default function Profile({navigation}) {
                 <ProfileCard title = "Habit Goal" userInfo = {profilePage.goal}></ProfileCard>
                 <ProfileCard title = "Hobby" userInfo = {profilePage.hobby}></ProfileCard>
                 <ProfileCard title = "Email" userInfo = {profilePage.email}></ProfileCard>
+                <ProfileCard title = "Phone Number" userInfo = {profilePage.number}></ProfileCard>
+
             </View>
         </View>
     );

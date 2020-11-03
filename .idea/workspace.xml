@@ -22,19 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff28d36e-b9fd-42cf-b269-0e699892fc35" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.expo/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.expo/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/profileStack.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/profileStack.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/editProfile.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/editProfile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/profile.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/profile.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/profileCard.js" beforeDir="false" afterPath="$PROJECT_DIR$/shared/profileCard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/styles/global.js" beforeDir="false" afterPath="$PROJECT_DIR$/styles/global.js" afterDir="false" />
-    </list>
+    <list default="true" id="ff28d36e-b9fd-42cf-b269-0e699892fc35" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,6 +40,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -90,6 +79,9 @@
       <workItem from="1602621013634" duration="590000" />
       <workItem from="1602770164704" duration="21000" />
       <workItem from="1602780607119" duration="3047000" />
+      <workItem from="1603820803178" duration="8548000" />
+      <workItem from="1604074867455" duration="6000" />
+      <workItem from="1604416111498" duration="1989000" />
     </task>
     <servers />
   </component>
@@ -109,12 +101,11 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="503" y="112" key="FileChooserDialogImpl" timestamp="1602875750924">
+    <state x="511" y="219" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1602782171514" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1604073349320">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1601679054944" />
-    <state x="503" y="112" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1602875750924" />
-    <state x="511" y="219" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1602782171514" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/0.-1080.1920.1040@0.0.1536.824" timestamp="1604073349320" />
     <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1602782415997">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -154,7 +145,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/shared/profileCard.js</url>
-          <line>27</line>
+          <line>24</line>
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
