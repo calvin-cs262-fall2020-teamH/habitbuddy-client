@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, FlatList, Image, TextInput } from 'react-native';
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import Circle from '../shared/circleCard';
+import GlobalState from '../shared/globalVars'
 
 // Written by Andrew Baker
 // Date 10.8.20
@@ -23,6 +24,7 @@ export default function Home({ navigation }) {
     // Ripped out of the habittrack screen code. Will probably be discarded, leaving in for now. 
     const [chabit, setChabit] = useState('Current Habit');
     const [nhabit, setNhabit] = useState('New Habit')
+    const [state, setState] = useContext(GlobalState);
 
     var hour = new Date().getHours();
     var greeting = "";
@@ -34,7 +36,7 @@ export default function Home({ navigation }) {
     } else if (hour < 12) {
         greeting = "Good\nMorning";
     } else if (hour < 17) {
-        greeting = "Good\nAfternoon";
+        greeting = "Good Afternoon,\n";
     } else if (hour < 20) {
         greeting = "Good\nEvening";
     } else if (hour < 23) {
@@ -43,7 +45,7 @@ export default function Home({ navigation }) {
         greeting = "Hello";
     }
 
-    if(!LoggedIn) navigation.navigate('Login');
+    //if(!LoggedIn) navigation.navigate('Login');
 
     var andHome = true;
     // used to pick between two homescreen options. TEMPORARY
@@ -55,7 +57,7 @@ export default function Home({ navigation }) {
             <ImageBackground source={background} style={styles.image} blurRadius={0.6}>
 
                 <View style={styles.bar}>
-                <Text style={styles.barContent}>{greeting}</Text>
+                    <Text style={styles.barContent}>{greeting}</Text>
                 </View>
 
                 <View style={styles.container}>
@@ -161,7 +163,10 @@ export default function Home({ navigation }) {
                         </View>
 
                         <View style={styles.corners}>
-                            <TouchableOpacity onPress={() => navigation.navigate('Buddies')}>
+                            <TouchableOpacity onPress={() => {
+                                setState(state => ({...state, name: 'bruh'}), () => {console.log(state.name);});
+                                navigation.navigate('Buddies')
+                            }}>
                                 <Circle>
                                     <Text style={styles.title}>Buddies</Text>
                                     <Text />
@@ -240,6 +245,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
+        justifyContent: 'space-between',
     },
     // Container for rows within the columns. 
     containerAcross: {
@@ -309,5 +315,6 @@ const styles = StyleSheet.create({
         borderColor: '#777',
         alignSelf: 'stretch',
         fontSize: 12.5,
+        paddingHorizontal: 2,
     },
 })

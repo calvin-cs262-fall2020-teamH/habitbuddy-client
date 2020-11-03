@@ -59,7 +59,7 @@ export const globalStyles = StyleSheet.create({
 	},
 	buddyDisplayContainer: {      //used to display the buddy cards on the buddies page
 		flex: 1,
-		padding: 20,
+		paddingHorizontal: 20,
 		backgroundColor: colorCodes.front,
 		alignItems: 'stretch',
 		justifyContent: 'center',
@@ -67,12 +67,12 @@ export const globalStyles = StyleSheet.create({
 	aboutHeader: {
 		paddingBottom: 10,
 		fontWeight: 'bold',
-		fontSize: 20,
+		fontSize: 18,
 		justifyContent: 'center',
 		color: colorCodes.text,
 	},
 	aboutText: {
-		paddingTop: 10,
+		paddingBottom: 20,
 		fontSize: 14,
 		justifyContent: 'center',
 		color: colorCodes.text,
@@ -82,12 +82,8 @@ export const globalStyles = StyleSheet.create({
 		color: colorCodes.text,
 		justifyContent: 'center',
 	},
-	aboutText: {
-		paddingLeft: 20,
-		paddingRight: 20,
-		paddingTop: 10,
-		fontSize: 14,
-		justifyContent: 'center',
+	aboutScrollView: {
+		padding: 20,
 	},
 	/*Profile page--------------------------------------------------*/
 	wholePage: {

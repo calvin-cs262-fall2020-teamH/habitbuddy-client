@@ -7,7 +7,7 @@ import { globalStyles } from '../styles/global';
 */
 
 export default function EmptyProfile({ navigation }) {
-    const [FirstName, setFirstName] = useState('FirstName');
+    const [firstName, setFirstName] = useState('FirstName');
     const [lastName, setLastName] = useState('LastName');
     const [username, setUsername] = useState('Username');
     const [email, setEmail] = useState('Email');
