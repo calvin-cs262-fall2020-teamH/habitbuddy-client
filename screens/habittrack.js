@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, 
     TouchableWithoutFeedback, Keyboard } from 'react-native';
-import { globalStyles } from '../styles/stracking';
+import { colorCodes } from '../styles/global';
 import Card from '../shared/card';
 
 export default function Habittrack({ navigation }) {
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
 
-        backgroundColor: '#fff',
+        backgroundColor: colorCodes.back,
         padding: 10,
         //alignItems: 'center',
     },

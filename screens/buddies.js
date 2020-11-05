@@ -23,8 +23,8 @@ export default function Buddies({ navigation }) {
             <FlatList data={buddies} renderItem={({ item }) => (
                 <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>
                     {/* Allows for traversal into the buddy details page */}
-                    <Card>  
-                        <Image source = {require('../assets/images/george.jpg')} style = {{width: 50, height: 50, position: 'absolute', borderRadius: 6,}}/> 
+                    <Card style={{height: 100, marginHorizontal: 20}}>  
+                        <Image source = {require('../assets/images/george.jpg')} style = {{width: 60, height: 60, position: 'absolute', borderRadius: 6, marginLeft: -5}}/> 
 
                         {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
 

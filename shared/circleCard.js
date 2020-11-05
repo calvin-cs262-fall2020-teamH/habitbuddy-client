@@ -1,5 +1,7 @@
+import { withTheme } from '@material-ui/core';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
+import { colorCodes } from '../styles/global';
 
 export default function Circle(props) {
     return (
@@ -15,7 +17,7 @@ const styles = StyleSheet.create ({
     card: {
         borderRadius: 75,
         elevation: 3,
-        backgroundColor: '#ffd699',                 //#ffd699 is a light orange color
+        backgroundColor: colorCodes.card,                 //#ffd699 is a light orange color
         shadowOffset: {width: 1, height: 1},
         shadowColor: '#000',
         shadowOpacity: 0.3,
