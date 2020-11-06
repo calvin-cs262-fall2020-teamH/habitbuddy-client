@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
     },
     // Container for rows within the columns. 
     containerAcross: {

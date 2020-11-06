@@ -16,10 +16,6 @@ const Tab = createBottomTabNavigator();
 export default function App({navigation}) {
     return (
         <Tab.Navigator initialRouteName="Home"
-            // drawerStyle={{backgroundColor: colorCodes.front}}
-            // drawerContentOptions={{
-            //     inactiveTintColor: colorCodes.lightText
-            // }}
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
                   let iconName;
