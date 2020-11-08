@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
-import { globalStyles } from '../styles/global';
+import { globalStyles, colorCodes } from '../styles/global';
 
 /* emptyProfile lets you fill out your profile for the first time 
 * Written by Kelsey Yen
@@ -23,22 +23,27 @@ export default function EmptyProfile({ navigation }) {
                 <TextInput
                     style={globalStyles.input}
                     placeholder='First Name'
+                    placeholderTextColor= {colorCodes.lightText}
                     onChangeText={(val) => setFirstName(val)} />
                 <TextInput
                     style={globalStyles.input}
                     placeholder='Last Name'
+                    placeholderTextColor= {colorCodes.lightText}
                     onChangeText={(val) => setLastName(val)} />    
                 <TextInput
                     style={globalStyles.input}
                     placeholder='Username'
+                    placeholderTextColor= {colorCodes.lightText}
                     onChangeText={(val) => setUsername(val)} />
                 <TextInput
                     style={globalStyles.input}
                     placeholder='Email'
+                    placeholderTextColor= {colorCodes.lightText}
                     onChangeText={(val) => setEmail(val)} />
                 <TextInput
                     style={globalStyles.input}
                     placeholder='Password'
+                    placeholderTextColor= {colorCodes.lightText}
                     onChangeText={(val) => setPassword(val)} />
                 <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('EmptyHabits')}>
                         <Text style={globalStyles.loginButtonText}>Next</Text>

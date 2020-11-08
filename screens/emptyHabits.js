@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import  RNPickerSelect from 'react-native-picker-select';
-import { globalStyles } from '../styles/global';
+import { globalStyles, colorCodes } from '../styles/global';
 
 /* emptyHabits lets you choose your habits for the first time 
 *  Written by Kelsey Yen
@@ -34,6 +34,7 @@ export default function EmptyHabits({ navigation, route }) {
                 <TextInput
                     style={globalStyles.input}
                     placeholder='i.e. walk for 20 minutes'
+                    placeholderTextColor= {colorCodes.lightText}
                     onChangeText={(val) => setPersonalGoal(val)}
                 />
                 <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => updateData()}>

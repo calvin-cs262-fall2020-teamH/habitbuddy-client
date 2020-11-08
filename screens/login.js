@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
-import { globalStyles } from '../styles/global';
+import { globalStyles, colorCodes } from '../styles/global';
 
 /* Login lets you log into app and access your profile 
 * Written by Kelsey Yen
@@ -22,10 +22,12 @@ export default function Login({ navigation, route }) {
                 <TextInput
                     style={globalStyles.input}
                     placeholder='Username or Email'
+                    placeholderTextColor= {colorCodes.lightText}
                     onChangeText={(val) => setUsername(val)} />
                 <TextInput
                     style={globalStyles.input}
                     placeholder='Password'
+                    placeholderTextColor= {colorCodes.lightText}
                     onChangeText={(val) => setPassword(val)} />
                 <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => updateData()}>
                     <Text style={globalStyles.loginButtonText}>Login</Text>   

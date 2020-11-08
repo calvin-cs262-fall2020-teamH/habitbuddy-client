@@ -5,6 +5,7 @@ let light = {
 	back: '#eee', //near-white
 	front: '#fff', //white
 	text: '#222', //near-black
+	cardText: '#222', //near-black
 	lightText: '#666', //light gray
 	selected: 'gray', //gray
 	highlightBack: '#caebff', //lightBlue
@@ -16,20 +17,26 @@ let dark = {
 	back: '#303030', //dark gray
 	front: '#282828', //near-black
 	text: '#ddd', //near-white
+	cardText: '#222', //near-black
 	lightText: '#aaa', //light gray
 	selected: 'gray', //gray
 	highlightBack: '#1b86ff', //darkBlue
 	highlightFront: '#caebff', //lightBlue
-	card: '#83603c',
+	card: '#ffd699',
 };
 
-export let colorCodes = light;
+export let colorCodes = dark;
 
 export const globalStyles = StyleSheet.create({
 	titleText: {
 		fontSize: 18,
 		fontWeight: 'bold',
 		color: colorCodes.text,
+	},
+	cardTitle: {
+		fontSize: 18,
+		fontWeight: 'bold',
+		color: colorCodes.cardText,
 	},
 	paragraph: {
 		marginVertical: 8,
@@ -48,17 +55,18 @@ export const globalStyles = StyleSheet.create({
 		padding: 8,
 		margin: 10,
 		width: 200,
+		color: colorCodes.text,
 	},
 	buddyCardTitle: {
 		fontSize: 18,
 		fontWeight: 'bold',
-		color: colorCodes.text,
+		color: colorCodes.cardText,
 		marginLeft: 60,     //55 value used as a position over to make up for the profile picture
 		marginRight: -5,
 	},
 	buddyCardText: {
 		fontSize: 14,
-		color: colorCodes.text,
+		color: colorCodes.cardText,
 		marginLeft: 60,
 		marginRight: -5,
 	},
@@ -83,7 +91,7 @@ export const globalStyles = StyleSheet.create({
 	},
 	loginButtonText: {
 		fontWeight: 'bold',
-		color: colorCodes.text,
+		color: colorCodes.cardText,
 		justifyContent: 'center',
 	},
 	aboutScrollView: {

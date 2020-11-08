@@ -18,7 +18,8 @@ let LoggedIn = false; //temporary value to represent whether or not the user is 
 // const background = { uri: "https://pngimg.com/uploads/bamboo/bamboo_PNG51.png"};
 // const background = { uri: "http://pngimg.com/uploads/bamboo/bamboo_PNG29.png" };
 // const background = { uri: "https://calvinchimes.org/wp-content/uploads/2017/02/20160822calvin-summer-16-stephennorregaard-91-1498x1000.jpg" };
-const background = { uri: "https://calvin.edu/contentAsset/image/091f147d-bb7b-4a3b-b337-e872c7a19c3d/bannerImage/filter/Resize,Jpeg/resize_w/720/jpeg_q/80" };
+// const background = { uri: "https://calvin.edu/contentAsset/image/091f147d-bb7b-4a3b-b337-e872c7a19c3d/bannerImage/filter/Resize,Jpeg/resize_w/720/jpeg_q/80" };
+const background = { uri: "https://calvin.edu/contentAsset/image/25cbc0c3-c2c7-438b-8abf-4bd1ebb61d95/featureImage/filter/Jpeg/jpeg_q/80" };
 
 //Panda image
 const panda = { uri: "https://cdn.pixabay.com/photo/2016/10/07/22/12/panda-1722704_640.png" };
@@ -50,7 +51,7 @@ export default function Home({ navigation }) {
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <View style={{ flex: 1 }}>
-                <ImageBackground source={background} style={styles.image} blurRadius={0.6}>
+                <ImageBackground source={background} style={styles.image} blurRadius={5.0}>
 
                     <View style={styles.bar}>
                         <Text style={styles.barContent}>{greeting}</Text>
@@ -66,7 +67,7 @@ export default function Home({ navigation }) {
                                     <Card>
                                         <Text>Your Habit</Text>
                                         {/* Static at the moment. To be changed with back end. TEMPORARY */}
-                                        <Text style={globalStyles.titleText}>Going to chapel</Text>
+                                        <Text style={globalStyles.cardTitle}>Going to chapel</Text>
                                         <Text></Text>
                                     </Card>
                                 </TouchableOpacity>
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold',
         textAlign: 'center',
-        color: colorCodes.text,
+        color: colorCodes.cardText,
     },
     // Background image styling details.
     image: {
@@ -162,7 +163,7 @@ const styles = StyleSheet.create({
     title: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: colorCodes.text,
+        color: colorCodes.cardText,
         textAlign: 'center',
     },
 
@@ -178,7 +179,7 @@ const styles = StyleSheet.create({
         marginVertical: 20,
         fontSize: 18,
         fontWeight: 'bold',
-        color: colorCodes.text,
+        color: colorCodes.cardText,
         textAlign: 'center',
     },
     Hab: {
@@ -191,7 +192,7 @@ const styles = StyleSheet.create({
     titleText: {
         fontSize: 18,
         fontWeight: 'bold',
-        color: colorCodes.text,
+        color: colorCodes.cardText,
         fontStyle: 'italic',
     },
     inputBox: {
