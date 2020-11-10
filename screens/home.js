@@ -1,15 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, FlatList, Image, TextInput } from 'react-native';
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import Circle from '../shared/circleCard';
-import GlobalState from '../shared/globalVars'
 
 // Written by Andrew Baker
 // Date 10.8.20
 // Sets up the Home screen to display basic information and app traversal
-
-let LoggedIn = false; //temporary value to represent whether or not the user is logged in
 
 // Multiple possible background images. Haven't decided fully on one yet. Ditching the panda theme.
 // const background = { uri: "https://pngimg.com/uploads/bamboo/bamboo_PNG51.png"};
@@ -24,7 +21,6 @@ export default function Home({ navigation }) {
     // Ripped out of the habittrack screen code. Will probably be discarded, leaving in for now. 
     const [chabit, setChabit] = useState('Current Habit');
     const [nhabit, setNhabit] = useState('New Habit')
-    const [state, setState] = useContext(GlobalState);
 
     var hour = new Date().getHours();
     var greeting = "";
@@ -70,7 +66,7 @@ export default function Home({ navigation }) {
                                 <Card>
                                     <Text>Your Habit</Text>
                                     {/* Static at the moment. To be changed with back end. TEMPORARY */}
-                                    <Text style={globalStyles.titleText}>Going to chapel</Text>
+                                    <Text style={styles.titleText}>Going to chapel</Text>
                                     <Text></Text>
                             </Card>
                             </TouchableOpacity>
