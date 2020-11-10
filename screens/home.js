@@ -51,7 +51,7 @@ export default function Home({ navigation }) {
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <View style={{ flex: 1 }}>
-                <ImageBackground source={background} style={styles.image} blurRadius={5.0}>
+                <ImageBackground source={background} style={styles.image} blurRadius={2.0}>
 
                     <View style={styles.bar}>
                         <Text style={styles.barContent}>{greeting}</Text>

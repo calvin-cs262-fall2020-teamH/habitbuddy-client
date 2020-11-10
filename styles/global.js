@@ -25,7 +25,7 @@ let dark = {
 	card: '#ffd699',
 };
 
-export let colorCodes = dark;
+export let colorCodes = light;
 
 export const globalStyles = StyleSheet.create({
 	titleText: {
