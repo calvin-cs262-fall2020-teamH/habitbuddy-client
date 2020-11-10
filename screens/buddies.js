@@ -6,8 +6,18 @@ import Card from '../shared/card';
 // Written by Andrew Baker
 
 export default function Buddies({ navigation }) {
-    const [buddies, setReviews] = useState([
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
 
+    useEffect(() => {
+        fetch('')                                           // Web service will be entered once we have it fully available.
+          .then((response) => response.json())
+          .then((json) => setData(json))
+          .catch((error) => console.error(error))
+          .finally(() => setLoading(false));
+      }, []);
+
+    const [buddies, setReviews] = useState([
         // Basic static user data, used until backend is developed.
         {name: 'Andrew Baker', category: 'Spiritual', goal: 'I want to attend chapel twice a week', hobby: 'Reading', email: 'coolguy@yeet.com', number: 1234573885, pic: '../assets/images/george.jpg', key: '1'},
         {name: 'Dawson Buist', category: 'Education', goal: 'I want to read one book every week', hobby: 'Hacking', email: 'coolguy@yeet.com', number: 1234573885, pic: '../assets/images/george.jpg', key: '2'},
@@ -18,18 +28,18 @@ export default function Buddies({ navigation }) {
 
     ]);
 
-    return (
+    return (                                                                                                //WILL NOT WORK UNTIL THE BACKEND IS UP 
         <View style={globalStyles.buddyDisplayContainer}>
-            <FlatList data={buddies} renderItem={({ item }) => (
-                <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>
+            <FlatList data={buddies} renderItem={({ item }) => (                                            // To test the backend integration once done, replace the data={buddies} with data={data}
+                <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>                
                     {/* Allows for traversal into the buddy details page */}
                     <Card>  
-                        <Image source = {require('../assets/images/george.jpg')} style = {{width: 50, height: 50, position: 'absolute', borderRadius: 6,}}/> 
+                        <Image source = {{uri: item.profileURL}} style = {{width: 50, height: 50, position: 'absolute', borderRadius: 6,}}/> 
 
                         {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
 
-                        <Text style={globalStyles.buddyCardTitle}>{ item.name }</Text>
-                        <Text style={globalStyles.buddyCardText}>{ item.goal }</Text>
+                        <Text style={globalStyles.buddyCardTitle}>{ item.firstName }{ item.lastName }</Text>
+                        <Text style={globalStyles.buddyCardText}>{ item.habitGoal }</Text>
                     </Card>
                 </TouchableOpacity>
             )} />

@@ -13,14 +13,15 @@ export default function Profile({route, navigation}) {
 
 
     /*Initialization the profile page with the user information*/
-    let [profilePage, setProfilePage] = useState(
-        {name: route.params.name,
+    let [profilePage, setProfilePage] = useState(                               //THIS WILL NOT WORK UNTIL THE BACKEND IS UP AND RUNNING.
+        {name: route.params.firstName + route.params.lastName,
             category: route.params.category,
-            goal: route.params.goal,
+            goal: route.params.habitGoal,
             hobby: route.params.hobby,
             email: route.params.email,
-            number: route.params.number,
-            pic: route.params.pic, key: '1'},
+            number: route.params.phone,
+            pic: route.params.profileURL, 
+            key: '1'},
     );
 
 
@@ -29,7 +30,7 @@ export default function Profile({route, navigation}) {
         <View style={globalStyles.wholePage}>
             <View style={globalStyles.profContainer}>
                 <View style={globalStyles.profilePic}>
-                    <Image source = {require('../assets/images/george.jpg')} style = {{width: 110, height: 110, position: 'absolute'}}/>
+                    <Image source = {{uri: profilePage.pic}} style = {{width: 110, height: 110, position: 'absolute'}}/>
                 </View>
 
                 <View style={globalStyles.userNamePlacement}>
