@@ -24,6 +24,7 @@ export default function Login({ navigation, route }) {
                     placeholder='Username or Email'
                     onChangeText={(val) => setUsername(val)} />
                 <TextInput
+                    secureTextEntry={true} //Creates dots for privacy and protection
                     style={globalStyles.input}
                     placeholder='Password'
                     onChangeText={(val) => setPassword(val)} />
