@@ -32,17 +32,17 @@ export default function Home({ navigation }) {
     // Used to discern the time and pick an appropriate greeting. WORKS!
 
     if (hour < 5) {
-        greeting = "Good\nNight";
+        greeting = "Good Night!";
     } else if (hour < 12) {
-        greeting = "Good\nMorning";
+        greeting = "Good Morning!";
     } else if (hour < 17) {
-        greeting = "Good Afternoon,\n";
+        greeting = "Good Afternoon!,\n";
     } else if (hour < 20) {
-        greeting = "Good\nEvening";
+        greeting = "Good Evening!";
     } else if (hour < 23) {
-        greeting = "Good\nNight";
+        greeting = "Good Night!";
     } else {
-        greeting = "Hello";
+        greeting = "Hello!";
     }
 
     //if(!LoggedIn) navigation.navigate('Login');
@@ -79,6 +79,7 @@ export default function Home({ navigation }) {
                         <View style={styles.corners}>
                             <Card>
                                 <View style={styles.Hab}>
+                                    <Text>Habit Stacking</Text>
                                     <Text style={styles.titleText}>After I</Text>
                                         <TextInput   
                                             style={styles.inputBox}
@@ -156,7 +157,7 @@ export default function Home({ navigation }) {
                                     <Text style={styles.title}>Streak</Text>
                                     <Text />
                                     {/* Using static data until the backend is built to keep track of user data */}
-                                    <Text style={styles.counter}>2</Text>
+                                    <Text style={styles.counter}>20</Text>
                                     <Text />
                                 </Circle>
                             </TouchableOpacity>
@@ -297,17 +298,17 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     Hab:{
-        // flex:1,
+        //flex:1,
         alignItems: 'center',
         marginTop: 5,
         marginBottom: 10,
         height: 50,
+        justifyContent: 'center'
     },
     titleText: {
         fontSize: 18,
         fontWeight: 'bold',
         color: '#333',
-        fontStyle: 'italic',
     },
     inputBox: {
         flex: 1,
