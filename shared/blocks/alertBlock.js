@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
-import { colorCodes } from '../../styles/global'
+import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
+import { colorCodes, dyColorCodes } from '../../styles/global'
 
 //code modified from https://reactnative.dev/docs/alert
 
@@ -15,11 +16,13 @@ export default function AlertBlock({title, alertTitle, alertMsg, options}) {
         { cancelable: false }
         );
 
+    const dyStyles = useDynamicValue(styles);
+
     return (
-        <View style={styles.container}>
-            <TouchableOpacity onPress= {createAlert} style={styles.block}>
-                <View style={styles.containerText}>
-                    <Text style={styles.text}>
+        <View style={dyStyles.container}>
+            <TouchableOpacity onPress= {createAlert} style={dyStyles.block}>
+                <View style={dyStyles.containerText}>
+                    <Text style={dyStyles.text}>
                         {title}
                     </Text>
                 </View>          
@@ -28,7 +31,7 @@ export default function AlertBlock({title, alertTitle, alertMsg, options}) {
     );
 };
 
-const styles = StyleSheet.create({
+const styles = new DynamicStyleSheet({
     block: { 
         flexDirection: 'row', 
         flexBasis: '100%',
@@ -38,7 +41,7 @@ const styles = StyleSheet.create({
         height: 55,
         flexDirection: 'row',
         paddingHorizontal: 20,
-        backgroundColor: colorCodes.front,
+        backgroundColor: dyColorCodes.front,
     },
     containerIcon: {
         flex: .1,

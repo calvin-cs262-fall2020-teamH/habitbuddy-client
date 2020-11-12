@@ -1,36 +1,40 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; 
-import { colorCodes } from '../../styles/global'
+import { colorCodes, dyColorCodes } from '../../styles/global'
+import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
 export default function SettingsBlock({icon, title, selected, page, navigation}) {
+
+    const dyStyles = useDynamicValue(styles);
+
     return (
-        <View style={styles.container}>
+        <View style={dyStyles.container}>
             <TouchableOpacity onPress= { //Makes the blocks interactable
-                () => navigation.navigate(page, {name: {title}})} style={styles.block}>
+                () => navigation.navigate(page, {name: {title}})} style={dyStyles.block}>
                 
-                <View style={styles.containerIcon}>
-                    <Ionicons name={icon} size={24} color={colorCodes.text} />                
+                <View style={dyStyles.containerIcon}>
+                    <Ionicons name={icon} size={24} color={useDynamicValue(dyColorCodes.text)} />                
                 </View>
-                <View style={styles.containerText}>
-                    <Text style={styles.text}>
+                <View style={dyStyles.containerText}>
+                    <Text style={dyStyles.text}>
                         {title}
                     </Text>
                 </View>          
-                <View style={styles.containerSelection}>
-                    <Text style={{textAlign: "right", paddingRight: 15, color: colorCodes.selected}}>
+                <View style={dyStyles.containerSelection}>
+                    <Text style={{textAlign: "right", paddingRight: 15, color: useDynamicValue(dyColorCodes.lightText)}}>
                         {selected}
                     </Text>
                 </View>
-                <View style={styles.containerArrow}>
-                    <Ionicons name="ios-arrow-forward" size={20} color={colorCodes.selected} />
+                <View style={dyStyles.containerArrow}>
+                    <Ionicons name="ios-arrow-forward" size={20} color={useDynamicValue(dyColorCodes.text)} />
                 </View>
             </TouchableOpacity>
         </View>
     );
 };
 
-const styles = StyleSheet.create({
+const styles = new DynamicStyleSheet({
     block: { 
         flexDirection: 'row', 
         flexBasis: '100%',
@@ -40,7 +44,7 @@ const styles = StyleSheet.create({
         height: 55,
         flexDirection: 'row',
         paddingHorizontal: 20,
-        backgroundColor: colorCodes.front,
+        backgroundColor: dyColorCodes.front,
     },
     containerIcon: {
         flex: .1,
@@ -61,6 +65,6 @@ const styles = StyleSheet.create({
         paddingVertical: 18,
     },
     text: {
-        color: colorCodes.text,
+        color: dyColorCodes.text,
     }
 });

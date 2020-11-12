@@ -1,24 +1,27 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Switch } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { colorCodes } from '../../styles/global'
+import { colorCodes, dyColorCodes } from '../../styles/global'
+import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
 //Sample switch code taken and modified from https://reactnative.dev/docs/switch.html
 export default function SwitchBlock({ icon, title, }) {
     const [isEnabled, setIsEnabled] = useState(true); //sets the switch to be enabled by default
     const toggleSwitch = () => setIsEnabled(previousState => !previousState); //flips the switch state
 
+    const dyStyles = useDynamicValue(styles);
+
     return (
-        <View style={styles.container}>
-            <View style={styles.containerIcon}>
-                <Ionicons name={icon} size={24} color={colorCodes.text} />
+        <View style={dyStyles.container}>
+            <View style={dyStyles.containerIcon}>
+                <Ionicons name={icon} size={24} color={useDynamicValue(dyColorCodes.text)} />
             </View>
-            <View style={styles.containerText}>
-                <Text style={styles.text}>
+            <View style={dyStyles.containerText}>
+                <Text style={dyStyles.text}>
                     {title}
                 </Text>
             </View>
-            <View style={styles.containerArrow}>
+            <View style={dyStyles.containerArrow}>
                 <Switch //renders a switch which gets flipped when tapped
                     trackColor={{ false: "#767577", true: "#5be531" }} //changes background color
                     thumbColor="#f4f3f4" //sets the color of the actual switch
@@ -31,7 +34,7 @@ export default function SwitchBlock({ icon, title, }) {
     );
 };
 
-const styles = StyleSheet.create({
+const styles = new DynamicStyleSheet({
     block: {
         flexDirection: 'row',
         flexBasis: '100%',
@@ -41,7 +44,7 @@ const styles = StyleSheet.create({
         height: 55,
         flexDirection: 'row',
         paddingHorizontal: 20,
-        backgroundColor: colorCodes.front,
+        backgroundColor: dyColorCodes.front,
     },
     containerIcon: {
         flex: .1,
@@ -55,9 +58,9 @@ const styles = StyleSheet.create({
         flex: .1,
         position: "absolute",
         right: 20,
-        paddingVertical: 18,
+        paddingVertical: 12,
     },
     text: {
-        color: colorCodes.text,
+        color: dyColorCodes.text,
     }
 });

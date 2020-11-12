@@ -3,33 +3,37 @@ import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList,
     TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { globalStyles } from '../styles/stracking';
 import Card from '../shared/card';
+import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
+import { dyColorCodes } from '../styles/global';
 
 export default function Habittrack({ navigation }) {
     const [chabit, setChabit] = useState('Current Habit');
     const [nhabit, setNhabit] = useState('New Habit')
 
+    const dyStyles = useDynamicValue(styles);
+
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-            <View style={styles.container}>
-                <View style={styles.stack}>
-                    <View style={styles.currentH}>
-                        <Text style={styles.titleText}>After I</Text>
+            <View style={dyStyles.container}>
+                <View style={dyStyles.stack}>
+                    <View style={dyStyles.currentH}>
+                        <Text style={dyStyles.titleText}>After I</Text>
                         <TextInput   
-                            style={styles.inputBox}
+                            style={dyStyles.inputBox}
                             placeholder='CURRENT HABIT'
                             onChangeText={(val) => setChabit(val)}/>
                     </View>
-                    <View style={styles.newH}>
-                        <Text style={styles.titleText}>I will</Text>
+                    <View style={dyStyles.newH}>
+                        <Text style={dyStyles.titleText}>I will</Text>
                         <TextInput   
-                            style={styles.inputBox}
+                            style={dyStyles.inputBox}
                             placeholder='NEW HABIT'
                             onChangeText={(val) => setChabit(val)}/>
                     </View>
                 </View>
 
-                <View style={styles.track}>
-                    <Text style={styles.titleText}>Habit Tracking</Text>
+                <View style={dyStyles.track}>
+                    <Text style={dyStyles.titleText}>Habit Tracking</Text>
                 </View>
                 
 
@@ -49,11 +53,10 @@ export default function Habittrack({ navigation }) {
 
 }
 
-const styles = StyleSheet.create({
+const styles = new DynamicStyleSheet({
     container: {
         flex: 1,
-
-        backgroundColor: '#fff',
+        backgroundColor: dyColorCodes.back,
         padding: 10,
         //alignItems: 'center',
     },

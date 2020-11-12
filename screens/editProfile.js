@@ -15,13 +15,14 @@ import {
 import EditProfileCard from "../shared/editProfileCard";
 import ProfileCard from "../shared/profileCard";
 
-import {globalStyles} from "../styles/global";
+import {useDynamicValue} from 'react-native-dynamic'
+import {dynamicStyles} from "../styles/global";
 import {MaterialIcons} from "@expo/vector-icons";
 
 
 export default function EditProfile({ navigation }) {
 
-
+    const dyStyles = useDynamicValue(dynamicStyles);
 
     /*Initialization the profile page with the user information*/
     let [tempProfilePage, setTempProfilePage] = useState(
@@ -36,17 +37,17 @@ export default function EditProfile({ navigation }) {
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}> 
-        <View style={globalStyles.wholePage}>
-            <View style={globalStyles.profContainer}>
-                <View style={globalStyles.profilePic}>
+        <View style={dyStyles.wholePage}>
+            <View style={dyStyles.profContainer}>
+                <View style={dyStyles.profilePic}>
                     <Image source = {require('../assets/images/george.jpg')} style = {{width: 110, height: 110, position: 'absolute'}}/>
                 </View>
 
-                <View style={globalStyles.userNamePlacement}>
-                    <Text style={globalStyles.userName}>{ tempProfilePage.name }</Text>
+                <View style={dyStyles.userNamePlacement}>
+                    <Text style={dyStyles.userName}>{ tempProfilePage.name }</Text>
                 </View>
             </View>
-            <View style={globalStyles.userInfo}>
+            <View style={dyStyles.userInfo}>
                 <ProfileCard title = "Habit" userInfo = {tempProfilePage.category}></ProfileCard>
                 <EditProfileCard title = "Habit Goal" placeholder = "Enter new habit goal"></EditProfileCard>
                 <EditProfileCard title = "Hobby" placeholder = "Enter new hobby"></EditProfileCard>
@@ -54,9 +55,9 @@ export default function EditProfile({ navigation }) {
                 <EditProfileCard title = "Phone Number" placeholder = "Enter new phone number"></EditProfileCard>
 
             </View>
-            <View style={globalStyles.buttonPlacement}>
-                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('Profile')}>
-                    <Text style={globalStyles.loginButtonText}>Confirm Changes</Text>
+            <View style={dyStyles.buttonPlacement}>
+                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => navigation.navigate('Profile')}>
+                    <Text style={dyStyles.loginButtonText}>Confirm Changes</Text>
                 </TouchableOpacity>
             </View>
 

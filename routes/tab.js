@@ -12,11 +12,15 @@ import Buddies from './buddiesStack';
 import Profile from './profileStack';
 import Habittrack from './habittrackStack';
 import Settings from './settingsStack';
-import { colorCodes } from '../styles/global';
+import { colorCodes, dyColorCodes } from '../styles/global';
+import { useDynamicValue } from 'react-native-dynamic';
 
 const Tab = createBottomTabNavigator();
 
-export default function App({navigation}) {
+export default function Tabs({navigation, updateTheme}) {
+
+  console.log(updateTheme);
+
     return (
         <Tab.Navigator initialRouteName="Home"
             // drawerStyle={{backgroundColor: colorCodes.front}}
@@ -46,7 +50,7 @@ export default function App({navigation}) {
               tabBarOptions={{
                 activeTintColor: 'tomato',
                 inactiveTintColor: 'gray',
-                style:{height:50},
+                style:{height:50, backgroundColor: useDynamicValue(dyColorCodes.front)},
                 //showLabel: false,
               }}
         > 
@@ -54,7 +58,7 @@ export default function App({navigation}) {
             <Tab.Screen name="Buddies" component={Buddies} />
             <Tab.Screen name="Profile" component={Profile} />
             <Tab.Screen name="Habit Track" component={Habittrack}/>
-            <Tab.Screen name="Settings" component={Settings} />
+            <Tab.Screen name="Settings" component={Settings} initialParams={{updateTheme:{updateTheme}}}/>
 
         </Tab.Navigator>
     );

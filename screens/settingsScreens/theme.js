@@ -1,15 +1,22 @@
 import React from 'react';
 import { View } from 'react-native';
-import { colorCodes, globalStyles } from '../../styles/global';
+import { useColorSchemeContext, useDynamicValue } from 'react-native-dynamic';
+import { dyColorCodes } from '../../styles/global';
 import SelectionBlock from '../../shared/blocks/selectionBlock';
 
 /* Lets your change your theme */
-export default function Theme() {
+export default function Theme({route}) {
+
+    const {updateTheme} = route.params.updateTheme;
+    const mode = useColorSchemeContext();
+    
     return (
-        <View style = {{height: '100%', backgroundColor: colorCodes.back}}>
+        <View style = {{height: '100%', backgroundColor: useDynamicValue(dyColorCodes.back)}}>
             <SelectionBlock
                 data={[{ title: 'Light', id: 0, icon: "md-sunny" },
                     { title: 'Dark', id: 1, icon: "md-moon" }]}
+                update = {updateTheme}
+                selectedId = {({mode} === 'light' ? 0 : 1)}
             ></SelectionBlock>
         </View>
     );

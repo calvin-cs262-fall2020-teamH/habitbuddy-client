@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { StyleSheet, View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
-import { globalStyles } from '../styles/global';
+import { useDynamicValue } from 'react-native-dynamic';
+import { dynamicStyles } from '../styles/global';
 import Card from '../shared/card';
 
 // Written by Andrew Baker
 
 export default function Buddies({ navigation }) {
-    const [buddies, setReviews] = useState([
+    const [buddies, setBuddies] = useState([
 
         // Basic static user data, used until backend is developed.
         {name: 'Andrew Baker', category: 'Spiritual', goal: 'I want to attend chapel twice a week', hobby: 'Reading', email: 'coolguy@yeet.com', number: 1234573885, pic: '../assets/images/george.jpg', key: '1'},
@@ -18,8 +19,10 @@ export default function Buddies({ navigation }) {
 
     ]);
 
+    const dyStyles = useDynamicValue(dynamicStyles);
+
     return (
-        <View style={globalStyles.buddyDisplayContainer}>
+        <View style={dyStyles.buddyDisplayContainer}>
             <FlatList data={buddies} renderItem={({ item }) => (
                 <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>
                     {/* Allows for traversal into the buddy details page */}
@@ -28,8 +31,8 @@ export default function Buddies({ navigation }) {
 
                         {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
 
-                        <Text style={globalStyles.buddyCardTitle}>{ item.name }</Text>
-                        <Text style={globalStyles.buddyCardText}>{ item.goal }</Text>
+                        <Text style={dyStyles.buddyCardTitle}>{ item.name }</Text>
+                        <Text style={dyStyles.buddyCardText}>{ item.goal }</Text>
                     </Card>
                 </TouchableOpacity>
             )} />

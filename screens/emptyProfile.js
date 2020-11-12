@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
-import { globalStyles } from '../styles/global';
+import { useDynamicValue } from 'react-native-dynamic';
+import { dynamicStyles, dyColorCodes } from '../styles/global';
 
 /* emptyProfile lets you fill out your profile for the first time 
 * Written by Kelsey Yen
@@ -13,35 +14,43 @@ export default function EmptyProfile({ navigation }) {
     const [email, setEmail] = useState('Email');
     const [password, setPassword] = useState('Password');
     
+    const dyStyles = useDynamicValue(dynamicStyles);
+
     return (
         <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss();
             console.log('dismissed keyboard')
         }}>
-            <View style={globalStyles.loginContainer}>
-                <Text style={globalStyles.loginText}>Account Information</Text>
+            <View style={dyStyles.loginContainer}>
+                <Text style={dyStyles.loginText}>Account Information</Text>
                 <TextInput
-                    style={globalStyles.input}
+                    style={dyStyles.input}
+                    placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder='First Name'
                     onChangeText={(val) => setFirstName(val)} />
                 <TextInput
-                    style={globalStyles.input}
+                    style={dyStyles.input}
+                    placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder='Last Name'
                     onChangeText={(val) => setLastName(val)} />    
                 <TextInput
-                    style={globalStyles.input}
+                    style={dyStyles.input}
+                    placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder='Username'
                     onChangeText={(val) => setUsername(val)} />
                 <TextInput
-                    style={globalStyles.input}
+                    style={dyStyles.input}
+                    placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder='Email'
                     onChangeText={(val) => setEmail(val)} />
                 <TextInput
-                    style={globalStyles.input}
+                    style={dyStyles.input}
+                    placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder='Password'
+                    secureTextEntry={true}
                     onChangeText={(val) => setPassword(val)} />
-                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('EmptyHabits')}>
-                        <Text style={globalStyles.loginButtonText}>Next</Text>
+                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => navigation.navigate('EmptyHabits')}>
+                        <Text style={dyStyles.loginButtonText}>Next</Text>
                 </TouchableOpacity>    
             </View>
         </TouchableWithoutFeedback>

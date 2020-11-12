@@ -1,21 +1,25 @@
 import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
-import { globalStyles, colorCodes } from '../../styles/global';
+import { useDynamicValue } from 'react-native-dynamic';
+import { dynamicStyles } from '../../styles/global';
 
 // Written by Kelsey Yen
 // Based on Vision statement
 
 /* About outputs the content of the About page */
 export default function About() {
+
+    const dyStyles = useDynamicValue(dynamicStyles);
+
     return (
-        <ScrollView style={globalStyles.aboutScrollView}>
-            <Text style={globalStyles.aboutHeader}>Our Story</Text>
-            <Text style={globalStyles.aboutText}>Habit Buddy started as a semester-long project for our CS262-Software Engineering 
+        <ScrollView style={dyStyles.aboutScrollView}>
+            <Text style={dyStyles.aboutHeader}>Our Story</Text>
+            <Text style={dyStyles.aboutText}>Habit Buddy started as a semester-long project for our CS262-Software Engineering 
                 course at Calvin University. While learning the ways of ReactNative, Javacript, GitHub, and Trello, our team worked 
                 diligently to create an app that we hope inspires and encourages our clients to build good habits.
                 </Text>
-            <Text style={globalStyles.aboutHeader}>Our Vision</Text>
-            <Text style={globalStyles.aboutText}>
+            <Text style={dyStyles.aboutHeader}>Our Vision</Text>
+            <Text style={dyStyles.aboutText}>
                 Inspired by John Clear's book,
                 <Text style={{fontStyle: 'italic'}}> Atomic Habits</Text>
                 , HabitBuddy is based on four laws: {'\n'}

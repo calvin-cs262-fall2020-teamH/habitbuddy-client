@@ -11,7 +11,7 @@ import Navigator from './routes/authStack';
 export default function App() {
   return (
     // <NavigationContainer>
-    <ColorSchemeProvider>
+    <ColorSchemeProvider mode="light">
       <Navigator />
     </ColorSchemeProvider>
     // </NavigationContainer>

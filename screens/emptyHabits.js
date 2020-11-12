@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import  RNPickerSelect from 'react-native-picker-select';
-import { globalStyles } from '../styles/global';
+import { useDynamicValue } from 'react-native-dynamic';
+import { dynamicStyles, dyColorCodes } from '../styles/global';
 
 /* emptyHabits lets you choose your habits for the first time 
 *  Written by Kelsey Yen
@@ -11,14 +12,17 @@ export default function EmptyHabits({ navigation, route }) {
     const {updateData} = route.params;
 
     const [personalGoal, setPersonalGoal] = useState('PersonalGoal');
+
+    const dyStyles = useDynamicValue(dynamicStyles);
+
     return (
         <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss();
             console.log('dismissed keyboard')
         }}>
-            <View style={globalStyles.emptyHabitContainer}>
-                <Text style={globalStyles.loginText}>Choose your habit category</Text>
-                <View style={globalStyles.input}>
+            <View style={dyStyles.emptyHabitContainer}>
+                <Text style={dyStyles.loginText}>Choose your habit category</Text>
+                <View style={dyStyles.input}>
                     <RNPickerSelect
                         onValueChange={(val) => console.log(val)}
                         items={[
@@ -30,14 +34,15 @@ export default function EmptyHabits({ navigation, route }) {
                         ]}
                     />
                 </View>
-                <Text style={globalStyles.loginText}>Write your personal goal</Text>
+                <Text style={dyStyles.loginText}>Write your personal goal</Text>
                 <TextInput
-                    style={globalStyles.input}
+                    style={dyStyles.input}
+                    placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder='i.e. walk for 20 minutes'
                     onChangeText={(val) => setPersonalGoal(val)}
                 />
-                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => updateData()}>
-                    <Text style={globalStyles.loginButtonText}>Go to Home</Text>
+                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => updateData()}>
+                    <Text style={dyStyles.loginButtonText}>Go to Home</Text>
                 </TouchableOpacity>    
             </View>
         </TouchableWithoutFeedback>

@@ -1,8 +1,9 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
+import { ColorSchemeProvider } from 'react-native-dynamic';
 
-import TabScreen from './tab'
+import TabScreen from './tab';
 import Login from '../screens/login';
 import EmptyProfile from '../screens/emptyProfile'
 import EmptyHabits from '../screens/emptyHabits'
@@ -43,6 +44,7 @@ function AuthStackScreen({ update }) {
 export default () => {
     const [isLoading, setIsLoading] = React.useState(false);
     const [user, setUser] = React.useState(null); //null default
+    const [theme, setTheme] = React.useState('light');
 
     //   React.useEffect(() => {
     //     setTimeout(() => {
@@ -56,10 +58,20 @@ export default () => {
     //     }, 5000);
     //   }, []);
 
+    // React.useEffect(() => {
+    //     setTimeout(() => {
+    //       setTheme('light');
+    //     }, 5000);
+    //   }, []);
+
     function updateUser() {
         setUser({});
         console.log('test');
         //React.useEffect(() => { setUser({}) });
+    }
+
+    function updateTheme(themeVal) {
+        setTheme(themeVal)
     }
 
     return (
@@ -68,9 +80,13 @@ export default () => {
         <Loading />
       ) :  */}
             {user ? (
-                <TabScreen />
+                <ColorSchemeProvider mode={theme}>
+                    <TabScreen updateTheme={updateTheme}/>
+                </ColorSchemeProvider>
             ) : (
-                    <AuthStackScreen update={updateUser} />
+                    <ColorSchemeProvider mode='light'>
+                        <AuthStackScreen update={updateUser} />
+                    </ColorSchemeProvider>
                 )}
         </NavigationContainer>
     );

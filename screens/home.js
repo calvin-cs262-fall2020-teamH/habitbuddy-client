@@ -159,10 +159,7 @@ export default function Home({ navigation }) {
                         </View>
 
                         <View style={styles.corners}>
-                            <TouchableOpacity onPress={() => {
-                                setState(state => ({...state, name: 'bruh'}), () => {console.log(state.name);});
-                                navigation.navigate('Buddies')
-                            }}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Buddies')}>
                                 <Circle>
                                     <Text style={styles.title}>Buddies</Text>
                                     <Text />

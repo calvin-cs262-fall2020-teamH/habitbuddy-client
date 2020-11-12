@@ -1,25 +1,29 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { colorCodes } from '../styles/global'
+import { colorCodes, dyColorCodes } from '../styles/global'
+import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
 export default function ProfileCard({icon, title, userInfo, page, navigation}) {
+
+    const dyStyles = useDynamicValue(styles)
+
     return (
-        <View style={styles.container}>
-                <View style={styles.containerText}>
-                    <Text style={styles.text}>
+        <View style={dyStyles.container}>
+                <View style={dyStyles.containerText}>
+                    <Text style={dyStyles.text}>
                         {title}
                     </Text>
                 </View>
-                <View style={styles.containerSelection}>
-                    <Text style={{textAlign: "right", paddingRight: 17, color: colorCodes.selected}}>
+                <View style={dyStyles.containerSelection}>
+                    <Text style={dyStyles.selectedText}>
                         {userInfo}
                     </Text>
                 </View>
         </View>
     );
 };
-const styles = StyleSheet.create({
+const styles = new DynamicStyleSheet({
     block: {
         flexDirection: 'row',
         flexBasis: '100%',
@@ -41,6 +45,11 @@ const styles = StyleSheet.create({
         paddingVertical: 3,
     },
     text: {
-        color: colorCodes.text,
-    }
+        color: dyColorCodes.text,
+    },
+    selectedText: {
+        textAlign: "right",
+        paddingRight: 17,
+        color: dyColorCodes.lightText,
+    },
 });
