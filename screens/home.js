@@ -3,7 +3,6 @@ import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, FlatList, Im
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import Circle from '../shared/circleCard';
-import GlobalState from '../shared/globalVars';
 import { MaterialIcons } from '@expo/vector-icons';
 
 // Written by Andrew Baker
@@ -18,7 +17,6 @@ export default function Home({ navigation }) {
     // Ripped out of the habittrack screen code. Will probably be discarded, leaving in for now. 
     const [chabit, setChabit] = useState('Current Habit');
     const [nhabit, setNhabit] = useState('New Habit')
-    const [state, setState] = useContext(GlobalState);
 
     var hour = new Date().getHours();
     var greeting = "";
@@ -90,24 +88,6 @@ export default function Home({ navigation }) {
                             </Card>
                         </View>
                     </View>
-                    <View style={styles.corners}>
-                        <Card>
-                            <View style={styles.Hab}>
-                                <Text style={styles.titleText}>After I</Text>
-                                    <TextInput   
-                                        style={styles.inputBox}
-                                        placeholder=' CURRENT HABIT'
-                                        onChangeText={(val) => setChabit(val)}/>
-                            </View>
-                            <View style={styles.Hab}>
-                                <Text style={styles.titleText}>I will</Text>
-                                    <TextInput   
-                                        style={styles.inputBox}
-                                        placeholder=' NEW HABIT'
-                                        onChangeText={(val) => setChabit(val)}/>
-                            </View>
-                        </Card>
-                    </View> */}
 
                     {/* Circle cards to create buttons and display number of buddies and the streak of following the habit. */}
                     <View style={styles.containerAcross}>
@@ -126,7 +106,6 @@ export default function Home({ navigation }) {
 
                         <View style={styles.corners}>
                             <TouchableOpacity onPress={() => {
-                                setState(state => ({...state, name: 'bruh'}), () => {console.log(state.name);});
                                 navigation.navigate('Buddies')
                             }}>
                                 <Circle>
@@ -140,52 +119,6 @@ export default function Home({ navigation }) {
                     </View>
                 </View>
             </ImageBackground>
-
-        );
-    } else {
-        // Secondary design. TEMPORARY.
-        return (
-
-            <View style={styles.container}>
-                {/* Displays the panda art and and the bar with the habit information. */}
-                <View style={styles.containerAcross}>
-                    <Image source={panda} style={{width: 275, height: 275, position: 'relative'}}/>
-                    <View style={styles.container}>
-                        <Text style={{paddingBottom: 120}}/>
-                        <Text style={ styles.counter }>{greeting}</Text>
-                    </View>
-                </View>
-
-                {/* Circle cards to create buttons and display number of buddies and the streak of following the habit. */}
-                <View style={styles.containerAcross}>
-                    <View style={styles.corners}>
-                        <TouchableOpacity onPress={() => navigation.navigate('Habittrack')}>
-                            <Circle>
-                                <Text style={styles.title}>Streak</Text>
-                                <Text />
-                                {/* Using static data until the backend is built to keep track of user data */}
-                                <Text style={styles.counter}>2</Text>
-                                <Text />
-                            </Circle>
-                        </TouchableOpacity>
-                    </View>
-
-                    <View style={styles.corners}>
-                        <TouchableOpacity onPress={() => {
-                                setState(state => ({...state, name: 'bruh'}), () => {console.log(state.name);});
-                                navigation.navigate('Buddies')
-                            }}>
-                            <Circle>
-                                <Text style={styles.title}>Buddies</Text>
-                                <Text />
-                                <Text style={styles.counter}>6</Text>
-                                <Text />
-                            </Circle>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-            </View>
-        </ImageBackground>
     );
 }
 

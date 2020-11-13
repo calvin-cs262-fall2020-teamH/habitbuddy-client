@@ -61,19 +61,6 @@ export default function EditProfile({ navigation }) {
                         </TouchableOpacity>
                     </View>
                 </View>
-            <View style={globalStyles.userInfo}>
-                <ProfileCard title = "Category" userInfo = {tempProfilePage.category}></ProfileCard>
-                <EditProfileCard title = "Habit Goal" placeholder = "Enter new habit goal"></EditProfileCard>
-                <EditProfileCard title = "Hobby" placeholder = "Enter new hobby"></EditProfileCard>
-                <EditProfileCard title = "Email" placeholder = "Enter new email"></EditProfileCard>
-                <EditProfileCard title = "Phone Number" placeholder = "Enter new phone number"></EditProfileCard>
-
-            </View>
-            <View style={globalStyles.buttonPlacement}>
-                <TouchableOpacity style={globalStyles.EditProfileButtonContainer} onPress={() => navigation.navigate('Profile')}>
-                    <Text style={globalStyles.loginButtonText}>Confirm Changes</Text>
-                </TouchableOpacity>
-            </View>
             </KeyboardAwareScrollView>
         </TouchableWithoutFeedback>
     );
