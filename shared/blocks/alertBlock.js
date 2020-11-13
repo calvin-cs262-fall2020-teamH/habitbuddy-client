@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
-import { colorCodes } from '../../styles/global'
+import {Alert, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {colorCodes} from '../../styles/global'
 
 //code modified from https://reactnative.dev/docs/alert
 

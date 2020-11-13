@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet,TextInput, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { colorCodes } from '../styles/global'
+import {StyleSheet, Text, TextInput, View} from 'react-native';
+import {Ionicons} from '@expo/vector-icons';
+import {colorCodes} from '../styles/global'
 
-export default function EditProfileCard({icon, title, placeholder, page, navigation}) {
+export default function EditProfileCard({icon, title, placeholder}) {
     return (
         <View style={styles.container}>
 

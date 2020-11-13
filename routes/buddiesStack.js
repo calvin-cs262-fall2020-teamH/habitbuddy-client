@@ -10,10 +10,10 @@ import {Alert} from 'react-native';
 const Stack = createStackNavigator();
 
 /*BuddiesStack creates a stack of screens with the default being the Buddies screen */
-export default function BuddiesStack( {navigation} ) {
+export default function BuddiesStack({navigation}) {
     return (
         <Stack.Navigator screenOptions={{
-            headerStyle:{backgroundColor:'orange'}
+            headerStyle: {backgroundColor: 'orange'}
         }}>
             <Stack.Screen
                 name="Buddies"

@@ -1,12 +1,8 @@
 import React from 'react';
-import { Text, } from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Header from '../shared/header';
 import Home from '../screens/home';
-import Login from '../screens/login';
-import EmptyProfile from '../screens/emptyProfile'
-import EmptyHabits from '../screens/emptyHabits'
 import Buddies from '../screens/buddies';
 import Habittrack from '../screens/habittrack';
 import BuddyDetails from '../screens/buddyDetails';

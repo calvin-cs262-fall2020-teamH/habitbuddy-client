@@ -40,10 +40,11 @@ export default function Login({ navigation, route }) {
                         />
                     {/* </View> */}
                 <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => updateData()}>
-                    <Text style={globalStyles.loginButtonText}>Login</Text>   
+                    <Text style={globalStyles.loginButtonText}>Login</Text>
                 </TouchableOpacity>
                 <Text style={globalStyles.loginText}>Don't have an account?</Text>
-                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('EmptyProfile')}>
+                <TouchableOpacity style={globalStyles.loginButtonContainer}
+                                  onPress={() => navigation.navigate('EmptyProfile')}>
                     <Text style={globalStyles.loginButtonText}>Sign Up</Text>
                 </TouchableOpacity>
             </View>

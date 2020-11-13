@@ -9,7 +9,7 @@ import { globalStyles } from '../styles/global';
 * Written by Kelsey Yen
 */
 
-export default function EmptyProfile({ navigation }) {
+export default function EmptyProfile({navigation}) {
     const [firstName, setFirstName] = useState('FirstName');
     const [lastName, setLastName] = useState('LastName');
     const [username, setUsername] = useState('Username');

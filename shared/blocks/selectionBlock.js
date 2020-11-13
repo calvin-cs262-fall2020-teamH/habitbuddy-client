@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { colorCodes } from '../../styles/global'
+import React, {Component} from 'react';
+import {FlatList, StyleSheet, Text, TouchableOpacity, View,} from 'react-native';
+import {Ionicons} from '@expo/vector-icons';
+import {colorCodes} from '../../styles/global'
 
 {/* Sample code taken and modified from https://www.thetopsites.net/article/53403612.shtml */}
 export default class SelectionBlock extends Component {
@@ -57,13 +57,12 @@ export default class SelectionBlock extends Component {
     render() {
         return (
             //takes the data passed in and renders each item in the list using renderRow
-            <FlatList style={styles.container}
+            <FlatList style={[styles.container, { marginTop: 0, height: '100%' }]}
                 data={this.props.data}
                 renderItem={({ item }) => (
                     this.renderRow(item)
                 )}
                 keyExtractor={(item, index) => index.toString()}
-                style={{ marginTop: 0, height: '100%' }}
             />
         );
     }

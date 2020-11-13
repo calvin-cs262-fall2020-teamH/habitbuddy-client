@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { colorCodes } from '../styles/global'
+import {StyleSheet, Text, View} from 'react-native';
+import {colorCodes} from '../styles/global'
 
-export default function ProfileLinkingCard({icon, title, userInfo, page, navigation}) {
+export default function ProfileLinkingCard({title, userInfo}) {
     return (
         <View style={styles.container}>
             <View style={styles.containerText}>

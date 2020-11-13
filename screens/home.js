@@ -1,6 +1,6 @@
-import React, { useState, useContext } from 'react';
-import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, FlatList, Image, TextInput } from 'react-native';
-import { globalStyles } from '../styles/global';
+import React, {useState, useContext} from 'react';
+import {ImageBackground, StyleSheet, View, Text, TouchableOpacity, Image, TextInput} from 'react-native';
+import {globalStyles} from '../styles/global';
 import Card from '../shared/card';
 import Circle from '../shared/circleCard';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -67,7 +67,6 @@ export default function Home({ navigation }) {
                             <Card>
                                 <View style={{alignItems:'center'}}>
                                     <Text style={{justifyContent:'center'}}>Habit Stacking <MaterialIcons name="info-outline" size={20} color='#333' style={globalStyles.leftIcon}
-                        
                         /></Text> 
                                     
                                 </View>
