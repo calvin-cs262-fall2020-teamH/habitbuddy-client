@@ -6,12 +6,12 @@ import { TouchableHighlight, Alert } from 'react-native';
 // import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 import Header from '../shared/header';
-import HabitTrack from '../screens/habitTrack';
-import AboutHabitTrack from '../screens/aboutHabitTrack';
+import Habittrack from '../screens/habittrack';
+import AboutHabittrack from '../screens/aboutHabittrack';
 
 const Stack = createStackNavigator();
 
-export default function HabitTrackStack( {navigation} ) {
+export default function HabittrackStack( {navigation} ) {
    const alert = () => {
        Alert.alert(
            'Habit Track is a feature where you can track the days you do your habit. Simply click on a day to highlight it and watch your streaks grow!'
@@ -23,7 +23,7 @@ export default function HabitTrackStack( {navigation} ) {
         }}>
             <Stack.Screen
                 name="Habit Track"
-                component={HabitTrack}
+                component={Habittrack}
                 options={{
                     headerLeft: () =>  <Header navigation={navigation} />,
                     headerTitleAlign: {textAlign:'center'},
