@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { Input } from 'react-native-elements';
 import  RNPickerSelect from 'react-native-picker-select';
 import { globalStyles, colorCodes } from '../styles/global';
 
@@ -16,9 +17,9 @@ export default function EmptyHabits({ navigation, route }) {
             Keyboard.dismiss();
             console.log('dismissed keyboard')
         }}>
-            <View style={globalStyles.emptyHabitContainer}>
-                <Text style={globalStyles.loginText}>Choose your habit category</Text>
-                <View style={globalStyles.input}>
+            <View style={globalStyles.loginContainer}>
+                <Text style={globalStyles.loginText}>Choose a habit category</Text>
+                <View style={globalStyles.picker}>
                     <RNPickerSelect
                         onValueChange={(val) => console.log(val)}
                         items={[
@@ -30,15 +31,16 @@ export default function EmptyHabits({ navigation, route }) {
                         ]}
                     />
                 </View>
-                <Text style={globalStyles.loginText}>Write your personal goal</Text>
-                <TextInput
+                <Text style={globalStyles.loginText}>Write a personal goal</Text>
+                <Input
+                    containerStyle={{width: '75%'}}
                     style={globalStyles.input}
                     placeholder='i.e. walk for 20 minutes'
                     placeholderTextColor= {colorCodes.lightText}
                     onChangeText={(val) => setPersonalGoal(val)}
                 />
                 <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => updateData()}>
-                    <Text style={globalStyles.loginButtonText}>Go to Home</Text>
+                    <Text style={globalStyles.loginButtonText}>Finish</Text>
                 </TouchableOpacity>    
             </View>
         </TouchableWithoutFeedback>

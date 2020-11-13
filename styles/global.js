@@ -1,5 +1,4 @@
-import { StyleSheet } from 'react-native';
-import { back } from 'react-native/Libraries/Animated/src/Easing';
+import {StyleSheet} from 'react-native';
 
 let light = {
 	back: '#eee', //near-white
@@ -44,13 +43,12 @@ export const globalStyles = StyleSheet.create({
 	},
 	container: {
 		flex: 1,
-		padding: 20,
+		padding: 10,
 		backgroundColor: colorCodes.back,
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
 	},
 	input: {
-		borderWidth: 1,
 		borderColor: '#777',
 		padding: 8,
 		margin: 10,
@@ -92,6 +90,7 @@ export const globalStyles = StyleSheet.create({
 	loginButtonText: {
 		fontWeight: 'bold',
 		color: colorCodes.cardText,
+		fontSize:18,
 		justifyContent: 'center',
 	},
 	aboutScrollView: {
@@ -154,6 +153,10 @@ export const globalStyles = StyleSheet.create({
 		textAlign: 'right',
 		paddingRight: 15,
 	},
+	passwordIcon: {
+		textAlign: 'right',
+		padding: 10,
+	},
 	profileInfo: {
 		flexDirection: 'column',
 		flex: .6,
@@ -167,6 +170,18 @@ export const globalStyles = StyleSheet.create({
 		marginLeft: 10,
 		marginRight: 10,
 		borderRadius: 5,
+	},
+	EditProfileButtonContainer: {
+		borderRadius: 10,
+		width: 200,
+		height: 40,
+		backgroundColor: '#ffd699',
+		shadowOffset: {width: 1, height: 1},
+		shadowColor: '#333',
+		shadowOpacity: 0.3,
+		shadowRadius: 2,
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	editView: {
 		flexDirection: 'row',
@@ -187,24 +202,25 @@ export const globalStyles = StyleSheet.create({
 	editInfoText: {
 		flex: .9,
 		alignItems: 'center',
-		justifyContent: 'center'
+		justifyContent: 'center',
 	},
 	loginContainer: {
+		flex: 0.9,
 		backgroundColor: colorCodes.back,
 		alignItems: 'center',
-		justifyContent: 'flex-start',
+		justifyContent: 'center', 
 		height: '100%',
 	},
 	loginText: {
 		paddingTop: 30,
-		paddingBottom: 10,
-		fontSize: 16,
+		paddingBottom: 20,
+		fontSize: 18,
 		color: colorCodes.text,
 	},
 	loginButtonContainer: {
 		borderRadius: 10,
 		width: 200,
-		height: 40,
+		height: 50,
 		backgroundColor: '#ffd699',
 		shadowOffset: { width: 1, height: 1 },
 		shadowColor: '#333',
@@ -214,13 +230,23 @@ export const globalStyles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	buttonPlacement: {
+		marginTop: 'auto',
+		marginBottom: 20,
 		justifyContent: 'center',
-		alignItems: 'center'
+		alignItems: 'center',
+		bottom: 0, //Here is the trick
 	},
 	emptyHabitContainer: {
 		flex: 1,
 		backgroundColor: colorCodes.back,
 		alignItems: 'center',
 	},
-
+	picker: {
+		color: colorCodes.text,
+		height: 30,
+		width: 250,
+		padding: 8,
+		borderBottomWidth: 1,
+		borderColor: '#777',
+	}
 });

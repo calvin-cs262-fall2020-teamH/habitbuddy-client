@@ -7,16 +7,15 @@ export default function Circle(props) {
     return (
         <View style={styles.card}>
             <View style={styles.cardContent}>
-                { props.children }
+                {props.children}
             </View>
         </View>
     );
 }
 
-const styles = StyleSheet.create ({
+const styles = StyleSheet.create({
     card: {
         borderRadius: 75,
-        elevation: 3,
         backgroundColor: colorCodes.card,                 //#ffd699 is a light orange color
         shadowOffset: {width: 1, height: 1},
         shadowColor: '#000',

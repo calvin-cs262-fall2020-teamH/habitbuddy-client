@@ -1,12 +1,12 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import {
     ImageBackground, StyleSheet, View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard,
     FlatList, Image, TextInput
 } from 'react-native';
-import { globalStyles, colorCodes } from '../styles/global';
+import {globalStyles} from '../styles/global';
 import Card from '../shared/card';
 import Circle from '../shared/circleCard';
-import { blue } from '@material-ui/core/colors';
+import { MaterialIcons } from '@expo/vector-icons';
 
 // Written by Andrew Baker
 // Date 10.8.20
@@ -21,38 +21,34 @@ let LoggedIn = false; //temporary value to represent whether or not the user is 
 // const background = { uri: "https://calvin.edu/contentAsset/image/091f147d-bb7b-4a3b-b337-e872c7a19c3d/bannerImage/filter/Resize,Jpeg/resize_w/720/jpeg_q/80" };
 const background = { uri: "https://calvin.edu/contentAsset/image/25cbc0c3-c2c7-438b-8abf-4bd1ebb61d95/featureImage/filter/Jpeg/jpeg_q/80" };
 
-//Panda image
-const panda = { uri: "https://cdn.pixabay.com/photo/2016/10/07/22/12/panda-1722704_640.png" };
-
 export default function Home({ navigation }) {
     // Ripped out of the habittrack screen code. Will probably be discarded, leaving in for now. 
     const [chabit, setChabit] = useState('Current Habit');
     const [nhabit, setNhabit] = useState('New Habit')
 
-    var hour = new Date().getHours();
+    var hour = new Date().getHours();/'
     var greeting = "";
 
     // Used to discern the time and pick an appropriate greeting. WORKS!
 
     if (hour < 5) {
-        greeting = "Good\nNight";
+        greeting = "Good Night!";
     } else if (hour < 12) {
-        greeting = "Good\nMorning";
+        greeting = "Good Morning!";
     } else if (hour < 17) {
-        greeting = "Good Afternoon,\n";
+        greeting = "Good Afternoon!,\n";
     } else if (hour < 20) {
-        greeting = "Good\nEvening";
+        greeting = "Good Evening!";
     } else if (hour < 23) {
-        greeting = "Good\nNight";
+        greeting = "Good Night!";
     } else {
-        greeting = "Hello";
+        greeting = "Hello!";
     }
     // My primary thoughts and design for the home screen. Several cards with a background. Possibly a couple of bars for greeting and other information. 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <View style={{ flex: 1 }}>
                 <ImageBackground source={background} style={styles.image} blurRadius={2.0}>
-
                     <View style={styles.bar}>
                         <Text style={styles.barContent}>{greeting}</Text>
                     </View>
@@ -73,11 +69,16 @@ export default function Home({ navigation }) {
                                 </TouchableOpacity>
 
                             </View>
-                            <View style={styles.corners}>
-                                <Card>
-                                    <View style={styles.Hab}>
-                                        <Text style={styles.titleText}>After I</Text>
-                                        <TextInput
+                        <View style={styles.corners}>
+                            <Card>
+                                <View style={{alignItems:'center'}}>
+                                    <Text style={{justifyContent:'center'}}>Habit Stacking <MaterialIcons name="info-outline" size={20} color='#333' style={globalStyles.leftIcon}
+                        /></Text> 
+                                    
+                                </View>
+                                <View style={styles.Hab}>
+                                    <Text style={styles.titleText}>After I</Text>
+                                        <TextInput   
                                             style={styles.inputBox}
                                             placeholder=' CURRENT HABIT'
                                             onChangeText={(val) => setChabit(val)} />
@@ -113,7 +114,7 @@ export default function Home({ navigation }) {
                                     <Circle>
                                         <Text style={styles.title}>Buddies</Text>
                                         <Text />
-                                        <Text style={styles.counter}>6</Text>
+                                        <Text style={styles.counter}>20</Text>
                                         <Text />
                                     </Circle>
                                 </TouchableOpacity>
@@ -182,18 +183,18 @@ const styles = StyleSheet.create({
         color: colorCodes.cardText,
         textAlign: 'center',
     },
-    Hab: {
-        // flex:1,
+    Hab:{
+        //flex:1,
         alignItems: 'center',
         marginTop: 5,
         marginBottom: 10,
         height: 50,
+        justifyContent: 'center'
     },
     titleText: {
         fontSize: 18,
         fontWeight: 'bold',
         color: colorCodes.cardText,
-        fontStyle: 'italic',
     },
     inputBox: {
         flex: 1,

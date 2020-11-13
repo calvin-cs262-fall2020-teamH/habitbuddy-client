@@ -1,7 +1,6 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { color } from 'react-native-reanimated';
 import { colorCodes } from '../styles/global';
+import {StyleSheet, View} from 'react-native';
 
 export default function Card(props) {
     return (
@@ -25,9 +24,11 @@ const styles = StyleSheet.create ({
         shadowRadius: 2,
         marginHorizontal: 4,
         marginVertical: 6,
+        
     },
     cardContent: {
         marginHorizontal: 18,
         marginVertical: 20,
+        justifyContent:'center'
     }
 });

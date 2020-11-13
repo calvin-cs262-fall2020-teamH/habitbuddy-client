@@ -9,7 +9,6 @@ import Buddies from './buddiesStack';
 import Profile from './profileStack';
 import Habittrack from './habittrackStack';
 import Settings from './settingsStack';
-import { colorCodes } from '../styles/global';
 
 const Tab = createBottomTabNavigator();
 
