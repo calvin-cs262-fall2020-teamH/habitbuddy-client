@@ -61,7 +61,6 @@ export default function EditProfile({ navigation }) {
                         </TouchableOpacity>
                     </View>
                 </View>
-            </View>
             <View style={globalStyles.userInfo}>
                 <ProfileCard title = "Category" userInfo = {tempProfilePage.category}></ProfileCard>
                 <EditProfileCard title = "Habit Goal" placeholder = "Enter new habit goal"></EditProfileCard>
@@ -75,8 +74,6 @@ export default function EditProfile({ navigation }) {
                     <Text style={globalStyles.loginButtonText}>Confirm Changes</Text>
                 </TouchableOpacity>
             </View>
-
-        </View>
             </KeyboardAwareScrollView>
         </TouchableWithoutFeedback>
     );
