@@ -33,6 +33,7 @@ export default function HabittrackStack( {navigation} ) {
                         />
                         
                     ),
+
                 }}
             />
 
