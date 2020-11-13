@@ -34,17 +34,17 @@ export const globalStyles = StyleSheet.create({
 	},
 	container: {
 		flex: 1,
-		padding: 20,
+		padding: 10,
 		backgroundColor: colorCodes.back,
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
 	},
 	input: {
-		borderWidth: 1,
 		borderColor: '#777',
-		padding: 8,
-		margin: 10,
-		width: 200,
+		marginHorizontal: 20,
+		width: 10,
+		
+		
 	},
 	buddyCardTitle: {
 		fontSize: 18,
@@ -79,6 +79,7 @@ export const globalStyles = StyleSheet.create({
 	},
 	loginButtonText: {
 		fontWeight: 'bold',
+		fontSize:18,
 		color: colorCodes.text,
 		justifyContent: 'center',
 	},
@@ -177,6 +178,7 @@ export const globalStyles = StyleSheet.create({
 	},
 	loginContainer: {
 		backgroundColor: colorCodes.back,
+		marginHorizontal: 0,
 		alignItems: 'center',
 		justifyContent: 'flex-start',
 		height: '100%',
@@ -184,13 +186,13 @@ export const globalStyles = StyleSheet.create({
 	loginText: {
 		paddingTop: 30,
 		paddingBottom: 10,
-		fontSize: 16,
+		fontSize: 18,
 		color: colorCodes.text,
 	},
 	loginButtonContainer: {
 		borderRadius: 10,
 		width: 200,
-		height: 40,
+		height: 50,
 		backgroundColor: '#ffd699',
 		shadowOffset: { width: 1, height: 1 },
 		shadowColor: '#333',
@@ -208,5 +210,12 @@ export const globalStyles = StyleSheet.create({
 		backgroundColor: colorCodes.back,
 		alignItems: 'center',
 	},
-
+	picker: {
+		color: colorCodes.text,
+		height: 30,
+		width: 250,
+		padding: 8,
+		borderBottomWidth: 1,
+		borderColor: '#777',
+	}
 });
