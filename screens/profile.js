@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import {StyleSheet, View, Text, FlatList, TextInput, Image} from 'react-native';
-import { globalStyles } from '../styles/global';
+import React, {useState} from 'react';
+import {Image, Text, View} from 'react-native';
+import {globalStyles} from '../styles/global';
 import ProfileCard from "../shared/profileCard";
 
 /*Created by Joe Pastucha*/

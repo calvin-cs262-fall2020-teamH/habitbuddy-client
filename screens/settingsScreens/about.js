@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
-import { globalStyles, colorCodes } from '../../styles/global';
+import {ScrollView, Text} from 'react-native';
+import {globalStyles} from '../../styles/global';
 
 // Written by Kelsey Yen
 // Based on Vision statement

@@ -1,12 +1,11 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import TabScreen from './tab'
 import Login from '../screens/login';
 import EmptyProfile from '../screens/emptyProfile'
 import EmptyHabits from '../screens/emptyHabits'
-import Loading from '../screens/Loading';
 
 const AuthStack = createStackNavigator();
 

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, TouchableOpacity, FlatList, 
-    TouchableWithoutFeedback, Keyboard } from 'react-native';
-import { globalStyles } from '../styles/stracking';
-import Card from '../shared/card';
+import React, {useState} from 'react';
+import {
+    StyleSheet, View, Text, TextInput,
+    TouchableWithoutFeedback, Keyboard
+} from 'react-native';
 
-export default function Habittrack({ navigation }) {
+export default function Habittrack({navigation}) {
     const [chabit, setChabit] = useState('Current Habit');
     const [nhabit, setNhabit] = useState('New Habit')
 
@@ -14,14 +14,14 @@ export default function Habittrack({ navigation }) {
                 <View style={styles.stack}>
                     <View style={styles.currentH}>
                         <Text style={styles.titleText}>After I</Text>
-                        <TextInput   
+                        <TextInput
                             style={styles.inputBox}
                             placeholder='CURRENT HABIT'
                             onChangeText={(val) => setChabit(val)}/>
                     </View>
                     <View style={styles.newH}>
                         <Text style={styles.titleText}>I will</Text>
-                        <TextInput   
+                        <TextInput
                             style={styles.inputBox}
                             placeholder='NEW HABIT'
                             onChangeText={(val) => setChabit(val)}/>
@@ -31,7 +31,7 @@ export default function Habittrack({ navigation }) {
                 <View style={styles.track}>
                     <Text style={styles.titleText}>Habit Tracking</Text>
                 </View>
-                
+
 
                 {/* <FlatList data={reviews} renderItem={({ item }) => (
                     <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>
@@ -43,7 +43,7 @@ export default function Habittrack({ navigation }) {
                 )} /> */}
             </View>
         </TouchableWithoutFeedback>
-        
+
     );
 
 
@@ -57,16 +57,16 @@ const styles = StyleSheet.create({
         padding: 10,
         //alignItems: 'center',
     },
-    stack:{
+    stack: {
         flex: 1,
-       
-        backgroundColor:'#ffdab9', //mustard
+
+        backgroundColor: '#ffdab9', //mustard
         borderRadius: 10,
-        marginBottom:10,
-        
+        marginBottom: 10,
+
     },
-    currentH:{
-        flex:1,
+    currentH: {
+        flex: 1,
         alignItems: 'center',
         marginTop: 10,
         marginBottom: 5,
@@ -75,10 +75,10 @@ const styles = StyleSheet.create({
         //backgroundColor:'blue',
         //position:'absolute'
     },
-    newH:{
-        flex:1,
+    newH: {
+        flex: 1,
         alignItems: 'center',
-        marginBottom:10,
+        marginBottom: 10,
         height: 50,
         //position:'absolute'
         //justifyContent:'flex-end',
@@ -95,14 +95,14 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#777',
         //margin: 10,
-        width:200,
+        width: 200,
         height: 30,
         //padding:10,
         //position:'absolute',
     },
-    track:{
-        flex:2.5,
-        backgroundColor:'grey', 
+    track: {
+        flex: 2.5,
+        backgroundColor: 'grey',
         borderRadius: 10,
         alignItems: 'center',
 

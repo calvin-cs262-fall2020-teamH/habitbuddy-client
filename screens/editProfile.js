@@ -1,11 +1,8 @@
 import React, {useState} from "react";
 
 import {
-    StyleSheet,
     Text,
     View,
-    TextInput,
-    Button,
     Image,
     TouchableWithoutFeedback,
     Keyboard,
@@ -16,7 +13,7 @@ import EditProfileCard from "../shared/editProfileCard";
 import ProfileCard from "../shared/profileCard";
 
 import {globalStyles} from "../styles/global";
-import {MaterialIcons} from "@expo/vector-icons";
+
 
 
 export default function EditProfile({ navigation }) {

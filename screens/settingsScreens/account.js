@@ -1,6 +1,6 @@
 import React from 'react';
-import { globalStyles, colorCodes } from '../../styles/global';
-import { ScrollView } from 'react-native-gesture-handler';
+import {colorCodes} from '../../styles/global';
+import {ScrollView} from 'react-native-gesture-handler';
 import SettingsBlock from '../../shared/blocks/settingsBlock';
 import AlertBlock from '../../shared/blocks/alertBlock';
 

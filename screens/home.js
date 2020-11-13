@@ -1,9 +1,8 @@
-import React, { useState, useContext } from 'react';
-import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, FlatList, Image, TextInput } from 'react-native';
-import { globalStyles } from '../styles/global';
+import React, {useState, useContext} from 'react';
+import {ImageBackground, StyleSheet, View, Text, TouchableOpacity, Image, TextInput} from 'react-native';
+import {globalStyles} from '../styles/global';
 import Card from '../shared/card';
 import Circle from '../shared/circleCard';
-import GlobalState from '../shared/globalVars'
 
 // Written by Andrew Baker
 // Date 10.8.20
@@ -15,16 +14,15 @@ let LoggedIn = false; //temporary value to represent whether or not the user is 
 // const background = { uri: "https://pngimg.com/uploads/bamboo/bamboo_PNG51.png"};
 // const background = { uri: "http://pngimg.com/uploads/bamboo/bamboo_PNG29.png" };
 // const background = { uri: "https://calvinchimes.org/wp-content/uploads/2017/02/20160822calvin-summer-16-stephennorregaard-91-1498x1000.jpg" };
-const background = { uri: "https://calvin.edu/contentAsset/image/091f147d-bb7b-4a3b-b337-e872c7a19c3d/bannerImage/filter/Resize,Jpeg/resize_w/720/jpeg_q/80" };
+const background = {uri: "https://calvin.edu/contentAsset/image/091f147d-bb7b-4a3b-b337-e872c7a19c3d/bannerImage/filter/Resize,Jpeg/resize_w/720/jpeg_q/80"};
 
 //Panda image
-const panda = { uri: "https://cdn.pixabay.com/photo/2016/10/07/22/12/panda-1722704_640.png"};
+const panda = {uri: "https://cdn.pixabay.com/photo/2016/10/07/22/12/panda-1722704_640.png"};
 
-export default function Home({ navigation }) {
+export default function Home({navigation}) {
     // Ripped out of the habittrack screen code. Will probably be discarded, leaving in for now. 
     const [chabit, setChabit] = useState('Current Habit');
     const [nhabit, setNhabit] = useState('New Habit')
-    const [state, setState] = useContext(GlobalState);
 
     var hour = new Date().getHours();
     var greeting = "";
@@ -66,38 +64,38 @@ export default function Home({ navigation }) {
                         {/* The containerAcross creates a system of rows for data and cards. Add a containerAcross view to add an additional row */}
                         <View style={styles.corners}>
                             <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                            {/* Top card, for the sought out habit  */}
+                                {/* Top card, for the sought out habit  */}
                                 <Card>
                                     <Text>Your Habit</Text>
                                     {/* Static at the moment. To be changed with back end. TEMPORARY */}
                                     <Text style={globalStyles.titleText}>Going to chapel</Text>
                                     <Text></Text>
-                            </Card>
+                                </Card>
                             </TouchableOpacity>
-                            
+
                         </View>
                         <View style={styles.corners}>
                             <Card>
                                 <View style={styles.Hab}>
                                     <Text style={styles.titleText}>After I</Text>
-                                        <TextInput   
-                                            style={styles.inputBox}
-                                            placeholder=' CURRENT HABIT'
-                                            onChangeText={(val) => setChabit(val)}/>
+                                    <TextInput
+                                        style={styles.inputBox}
+                                        placeholder=' CURRENT HABIT'
+                                        onChangeText={(val) => setChabit(val)}/>
                                 </View>
                                 <View style={styles.Hab}>
                                     <Text style={styles.titleText}>I will</Text>
-                                        <TextInput   
-                                            style={styles.inputBox}
-                                            placeholder=' NEW HABIT'
-                                            onChangeText={(val) => setChabit(val)}/>
+                                    <TextInput
+                                        style={styles.inputBox}
+                                        placeholder=' NEW HABIT'
+                                        onChangeText={(val) => setChabit(val)}/>
                                 </View>
                             </Card>
                         </View>
                     </View>
 
                     {/* TEMP: uses bars to display the habit tracking information.*/}
-{/* 
+                    {/*
                     <View style={styles.containerAcross}>
 
                         <View style={styles.container}>
@@ -154,24 +152,21 @@ export default function Home({ navigation }) {
                             <TouchableOpacity onPress={() => navigation.navigate('Habittrack')}>
                                 <Circle>
                                     <Text style={styles.title}>Streak</Text>
-                                    <Text />
+                                    <Text/>
                                     {/* Using static data until the backend is built to keep track of user data */}
                                     <Text style={styles.counter}>2</Text>
-                                    <Text />
+                                    <Text/>
                                 </Circle>
                             </TouchableOpacity>
                         </View>
 
                         <View style={styles.corners}>
-                            <TouchableOpacity onPress={() => {
-                                setState(state => ({...state, name: 'bruh'}), () => {console.log(state.name);});
-                                navigation.navigate('Buddies')
-                            }}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Buddies')}>
                                 <Circle>
                                     <Text style={styles.title}>Buddies</Text>
-                                    <Text />
+                                    <Text/>
                                     <Text style={styles.counter}>6</Text>
-                                    <Text />
+                                    <Text/>
                                 </Circle>
                             </TouchableOpacity>
                         </View>
@@ -190,7 +185,7 @@ export default function Home({ navigation }) {
                     <Image source={panda} style={{width: 275, height: 275, position: 'relative'}}/>
                     <View style={styles.container}>
                         <Text style={{paddingBottom: 120}}/>
-                        <Text style={ styles.counter }>{greeting}</Text>
+                        <Text style={styles.counter}>{greeting}</Text>
                     </View>
                 </View>
 
@@ -213,10 +208,10 @@ export default function Home({ navigation }) {
                         <TouchableOpacity onPress={() => navigation.navigate('Habittrack')}>
                             <Circle>
                                 <Text style={styles.title}>Streak</Text>
-                                <Text />
+                                <Text/>
                                 {/* Using static data until the backend is built to keep track of user data */}
                                 <Text style={styles.counter}>2</Text>
-                                <Text />
+                                <Text/>
                             </Circle>
                         </TouchableOpacity>
                     </View>
@@ -225,15 +220,14 @@ export default function Home({ navigation }) {
                         <TouchableOpacity onPress={() => navigation.navigate('Buddies')}>
                             <Circle>
                                 <Text style={styles.title}>Buddies</Text>
-                                <Text />
+                                <Text/>
                                 <Text style={styles.counter}>6</Text>
-                                <Text />
+                                <Text/>
                             </Circle>
                         </TouchableOpacity>
                     </View>
                 </View>
             </View>
-
 
 
         );
@@ -296,7 +290,7 @@ const styles = StyleSheet.create({
         color: '#333',
         textAlign: 'center',
     },
-    Hab:{
+    Hab: {
         // flex:1,
         alignItems: 'center',
         marginTop: 5,

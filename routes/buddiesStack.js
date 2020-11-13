@@ -8,16 +8,16 @@ import BuddyDetails from '../screens/buddyDetails';
 const Stack = createStackNavigator();
 
 /*BuddiesStack creates a stack of screens with the default being the Buddies screen */
-export default function BuddiesStack( {navigation} ) {
+export default function BuddiesStack({navigation}) {
     return (
         <Stack.Navigator screenOptions={{
-            headerStyle:{backgroundColor:'orange'}
+            headerStyle: {backgroundColor: 'orange'}
         }}>
             <Stack.Screen
                 name="Buddies"
                 component={Buddies}
                 options={{
-                    headerLeft: () =>  <Header navigation={navigation} />
+                    headerLeft: () => <Header navigation={navigation}/>
                 }}
             />
             <Stack.Screen

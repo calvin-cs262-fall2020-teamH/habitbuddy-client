@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native';
+import {Keyboard, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View} from 'react-native';
 //import { Input } from 'react-native-elements';
-import { globalStyles, colorCodes } from '../../styles/global';
+import {globalStyles} from '../../styles/global';
 
 //Tabbing between inputs taken from https://thekevinscott.com/tabbing-through-input-fields/
 let inputs = {};

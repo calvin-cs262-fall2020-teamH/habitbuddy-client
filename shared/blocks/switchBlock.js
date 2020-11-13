@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Switch } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { colorCodes } from '../../styles/global'
+import React, {useState} from 'react';
+import {StyleSheet, Switch, Text, View} from 'react-native';
+import {Ionicons} from '@expo/vector-icons';
+import {colorCodes} from '../../styles/global'
 
 //Sample switch code taken and modified from https://reactnative.dev/docs/switch.html
 export default function SwitchBlock({ icon, title, }) {
