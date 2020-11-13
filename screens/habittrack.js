@@ -13,10 +13,10 @@ export default function Habittrack({ navigation }) {
                 data={[
                     {day:'1',select:false,key:'1'}, 
                     {day:'2',select:false,key:'2'},
-                    {day:'3',select:true,key:'3'},
+                    {day:'3',select:false,key:'3'},
                     {day:'4',select:false,key:'4'},
                     {day:'5',select:false,key:'5'},
-                    {day:'6',select:true,key:'6'},
+                    {day:'6',select:false,key:'6'},
                     {day:'7',select:false,key:'7'},
                     {day:'8',select:false,key:'8'},
                     {day:'9',select:false,key:'9'},
