@@ -4,13 +4,10 @@ import {globalStyles} from '../styles/global';
 import ProfileCard from "../shared/profileCard";
 import ProfileLinkingCard from "../shared/profileLinkingCard";
 
-
 /*Created by Joe Pastucha/Dawson*/
 
 /* Profile outputs the content of the Profile page */
 export default function Profile({route, navigation}) {
-
-
     /*Initialization the profile page with the user information*/
     let [profilePage, setProfilePage] = useState(
         {

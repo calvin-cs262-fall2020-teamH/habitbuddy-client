@@ -25,6 +25,9 @@ export default function HomeStack( {navigation} ) {
                 component={Home}
                 options={{
                     title: 'HabitBuddy',
+                    headerTitleAlign: {
+                        textAlign: 'center'
+                    },
                     headerLeft: () =>  <Header navigation={navigation} />
                 }}
             />
