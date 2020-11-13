@@ -12,6 +12,8 @@ import {
     TouchableOpacity
 } from "react-native";
 
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
+
 import EditProfileCard from "../shared/editProfileCard";
 import ProfileCard from "../shared/profileCard";
 
@@ -36,14 +38,28 @@ export default function EditProfile({ navigation }) {
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}> 
-        <View style={globalStyles.wholePage}>
-            <View style={globalStyles.profContainer}>
-                <View style={globalStyles.profilePic}>
-                    <Image source = {require('../assets/images/george.jpg')} style = {{width: 110, height: 110, position: 'absolute'}}/>
-                </View>
-
-                <View style={globalStyles.userNamePlacement}>
-                    <Text style={globalStyles.userName}>{ tempProfilePage.name }</Text>
+            <KeyboardAwareScrollView>
+                <View style={globalStyles.wholePage}>
+                    <View style={globalStyles.profContainer}>
+                        <View style={globalStyles.profilePic}>
+                            <Image source = {require('../assets/images/george.jpg')} style = {{width: 110, height: 110, position: 'absolute'}}/>
+                        </View>
+                        <View style={globalStyles.userNamePlacement}>
+                            <Text style={globalStyles.userName}>{ tempProfilePage.name }</Text>
+                        </View>
+                    </View>
+                    <View style={globalStyles.userInfo}>
+                        <ProfileCard title = "Habit" userInfo = {tempProfilePage.category}></ProfileCard>
+                        <EditProfileCard title = "Habit Goal" placeholder = "Enter new habit goal"></EditProfileCard>
+                        <EditProfileCard title = "Hobby" placeholder = "Enter new hobby"></EditProfileCard>
+                        <EditProfileCard title = "Email" placeholder = "Enter new email"></EditProfileCard>
+                        <EditProfileCard title = "Phone Number" placeholder = "Enter new phone number"></EditProfileCard>
+                    </View>
+                    <View style={globalStyles.buttonPlacement}>
+                        <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => navigation.navigate('Profile')}>
+                            <Text style={globalStyles.loginButtonText}>Confirm Changes</Text>
+                        </TouchableOpacity>
+                    </View>
                 </View>
             </View>
             <View style={globalStyles.userInfo}>
@@ -61,6 +77,7 @@ export default function EditProfile({ navigation }) {
             </View>
 
         </View>
+            </KeyboardAwareScrollView>
         </TouchableWithoutFeedback>
     );
 }
