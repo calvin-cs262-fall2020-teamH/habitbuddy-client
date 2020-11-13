@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { globalStyles } from '../styles/global';
 import { TouchableHighlight } from 'react-native';
 // import { colorCodes } from '../../styles/global';
-import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
+
 
 import Header from '../shared/header';
 import Habittrack from '../screens/habittrack';
@@ -23,12 +23,13 @@ export default function HabittrackStack( {navigation} ) {
                     headerLeft: () =>  <Header navigation={navigation} />,
                     headerTitleAlign: {textAlign:'center'},
                     headerRight: () => ( 
-                        <MaterialIcons name="edit" size={27} color='#333' style={globalStyles.leftIcon}
-                        onPress={() => navigation.navigate('EditProfile')}/>
+                        <MaterialIcons name="info-outline" size={27} color='#333' style={globalStyles.leftIcon}
+                        />
                         
                     ),
                 }}
             />
+
         </Stack.Navigator>
     );
 };

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { globalStyles, colorCodes } from '../../styles/global';
 
 /* About outputs the content of the About page */
-export default function AboutHabittrack() {
+export default function AboutHabittrack({navigation}) {
     return (
         <ScrollView style={globalStyles.aboutScrollView}>
             <Text style={globalStyles.aboutText}>
