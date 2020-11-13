@@ -12,14 +12,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 
 let LoggedIn = false; //temporary value to represent whether or not the user is logged in
 
-// Multiple possible background images. Haven't decided fully on one yet. Ditching the panda theme.
-// const background = { uri: "https://pngimg.com/uploads/bamboo/bamboo_PNG51.png"};
-// const background = { uri: "http://pngimg.com/uploads/bamboo/bamboo_PNG29.png" };
-// const background = { uri: "https://calvinchimes.org/wp-content/uploads/2017/02/20160822calvin-summer-16-stephennorregaard-91-1498x1000.jpg" };
 const background = { uri: "https://calvin.edu/contentAsset/image/091f147d-bb7b-4a3b-b337-e872c7a19c3d/bannerImage/filter/Resize,Jpeg/resize_w/720/jpeg_q/80" };
-
-//Panda image
-const panda = { uri: "https://cdn.pixabay.com/photo/2016/10/07/22/12/panda-1722704_640.png"};
 
 export default function Home({ navigation }) {
     // Ripped out of the habittrack screen code. Will probably be discarded, leaving in for now. 
@@ -48,19 +41,14 @@ export default function Home({ navigation }) {
 
     //if(!LoggedIn) navigation.navigate('Login');
 
-    var andHome = true;
-    // used to pick between two homescreen options. TEMPORARY
 
-    if (andHome) {
         // My primary thoughts and design for the home screen. Several cards with a background. Possibly a couple of bars for greeting and other information. 
-        return (
+    return (
+        <ImageBackground source={background} style={styles.image} blurRadius={0.6}>
 
-            <ImageBackground source={background} style={styles.image} blurRadius={0.6}>
-
-                <View style={styles.bar}>
-                    <Text style={styles.barContent}>{greeting}</Text>
-                </View>
-
+            <View style={styles.bar}>
+                <Text style={styles.barContent}>{greeting}</Text>
+            </View>
                 <View style={styles.container}>
                     {/* The container sets up the columns for the homescreen. Adding a basic view adds additional columns to the row*/}
                     <View style={styles.containerAcross}>
@@ -102,14 +90,8 @@ export default function Home({ navigation }) {
                             </Card>
                         </View>
                     </View>
-
-                    {/* TEMP: uses bars to display the habit tracking information.*/}
-{/* 
-                    <View style={styles.containerAcross}>
-
-                        <View style={styles.container}>
-
-                        <View style={styles.bar}>
+                    <View style={styles.corners}>
+                        <Card>
                             <View style={styles.Hab}>
                                 <Text style={styles.titleText}>After I</Text>
                                     <TextInput   
@@ -124,33 +106,6 @@ export default function Home({ navigation }) {
                                         placeholder=' NEW HABIT'
                                         onChangeText={(val) => setChabit(val)}/>
                             </View>
-                        </View>
-                        <View style={styles.bar}>
-                            <Text style={styles.title}>Habit Tracking</Text>
-                        </View>
-                        </View>
-                    </View> */}
-
-                    {/* Cards used to display the habit tracking/ stacking information. Tracking to be removed for just the tracking screen. */}
-                    {/* <View style={styles.containerAcross}>
-                        <Card>
-                        <View style={styles.Hab}>
-                            <Text style={styles.titleText}>After I</Text>
-                                <TextInput   
-                                    style={styles.inputBox}
-                                    placeholder=' CURRENT HABIT'
-                                    onChangeText={(val) => setChabit(val)}/>
-                        </View>
-                        <View style={styles.Hab}>
-                            <Text style={styles.titleText}>I will</Text>
-                                <TextInput   
-                                    style={styles.inputBox}
-                                    placeholder=' NEW HABIT'
-                                    onChangeText={(val) => setChabit(val)}/>
-                        </View>
-                        </Card>
-                        <Card>
-                            <Text style={styles.title}>Habit Tracking</Text>
                         </Card>
                     </View> */}
 
@@ -201,21 +156,8 @@ export default function Home({ navigation }) {
                     </View>
                 </View>
 
-                <View style={styles.bar}>
-                    <Text style={styles.barContent}>Your Habit</Text>
-                    <Text style={styles.title}>Going to chapel</Text>
-                    <Text></Text>
-                </View>
-
-                {/* <View>
-                    <View style={styles.bar}>
-                        <Text style={styles.barContent}>{greeting}</Text>
-                    </View>
-                </View> */}
-
-                {/* Buttons similar to the primary design. */}
+                {/* Circle cards to create buttons and display number of buddies and the streak of following the habit. */}
                 <View style={styles.containerAcross}>
-
                     <View style={styles.corners}>
                         <TouchableOpacity onPress={() => navigation.navigate('Habittrack')}>
                             <Circle>
@@ -229,7 +171,10 @@ export default function Home({ navigation }) {
                     </View>
 
                     <View style={styles.corners}>
-                        <TouchableOpacity onPress={() => navigation.navigate('Buddies')}>
+                        <TouchableOpacity onPress={() => {
+                                setState(state => ({...state, name: 'bruh'}), () => {console.log(state.name);});
+                                navigation.navigate('Buddies')
+                            }}>
                             <Circle>
                                 <Text style={styles.title}>Buddies</Text>
                                 <Text />
@@ -240,11 +185,8 @@ export default function Home({ navigation }) {
                     </View>
                 </View>
             </View>
-
-
-
-        );
-    }
+        </ImageBackground>
+    );
 }
 
 const styles = StyleSheet.create({

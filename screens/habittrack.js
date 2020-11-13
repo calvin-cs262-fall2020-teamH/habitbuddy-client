@@ -42,7 +42,6 @@ export default function Habittrack({ navigation }) {
                     {day:'29',select:false,key:'29'},
                     {day:'30',select:false,key:'30'},]}
             ></HabittrackBlock>
-
         </View>
     );
 }

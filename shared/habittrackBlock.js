@@ -24,7 +24,6 @@ export default class HabittrackBlock extends Component {
         this.setState({ lastSelect: (item.day + item.select).toString()});
     };
 
-    
     //renderRow renders each row for the selection
     renderRow = (item) => {
         const isSelected = item.select; //checks if the rendering item is selected
@@ -45,7 +44,6 @@ export default class HabittrackBlock extends Component {
                     <Text style={styles.text}>{item.day}</Text>
                 </View>
             </TouchableOpacity>                
-            
         );
     }
 
@@ -65,6 +63,7 @@ export default class HabittrackBlock extends Component {
                     width= {'100%'}
                 />
                 <Text>My Streak: {hstreak}</Text>
+
             </SafeAreaView>
         );
     }
@@ -89,3 +88,4 @@ const styles = StyleSheet.create({
         color: '#333',
     },
 }); 
+

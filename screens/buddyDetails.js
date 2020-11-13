@@ -29,7 +29,7 @@ export default function Profile({route, navigation}) {
         <View style={globalStyles.wholePage}>
             <View style={globalStyles.profContainer}>
                 <View style={globalStyles.profilePic}>
-                    <Image source = {require('../assets/images/george.jpg')} style = {{width: 110, height: 110, position: 'absolute'}}/>
+                    <Image source = {{uri: profilePage.pic}} style = {{width: 110, height: 110, position: 'absolute'}}/>
                 </View>
 
                 <View style={globalStyles.userNamePlacement}>
