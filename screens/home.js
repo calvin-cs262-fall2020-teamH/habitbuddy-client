@@ -3,7 +3,8 @@ import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, FlatList, Im
 import { globalStyles } from '../styles/global';
 import Card from '../shared/card';
 import Circle from '../shared/circleCard';
-import GlobalState from '../shared/globalVars'
+import GlobalState from '../shared/globalVars';
+import { MaterialIcons } from '@expo/vector-icons';
 
 // Written by Andrew Baker
 // Date 10.8.20
@@ -78,8 +79,13 @@ export default function Home({ navigation }) {
                         </View>
                         <View style={styles.corners}>
                             <Card>
+                                <View style={{alignItems:'center'}}>
+                                    <Text style={{justifyContent:'center'}}>Habit Stacking <MaterialIcons name="info-outline" size={20} color='#333' style={globalStyles.leftIcon}
+                        
+                        /></Text> 
+                                    
+                                </View>
                                 <View style={styles.Hab}>
-                                    <Text>Habit Stacking</Text>
                                     <Text style={styles.titleText}>After I</Text>
                                         <TextInput   
                                             style={styles.inputBox}

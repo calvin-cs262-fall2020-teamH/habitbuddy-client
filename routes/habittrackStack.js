@@ -13,8 +13,8 @@ const Stack = createStackNavigator();
 
 export default function HabittrackStack( {navigation} ) {
    const alert = () => {
-       Alert.alert(
-           'Habit Track is a feature where you can track the days you do your habit. Simply click on a day to highlight it and watch your streaks grow!'
+       Alert.alert('How to track my Habit?',
+           "Habit Track is a feature where you can cross off the days you do your habit. Each grey square represents a day. Simply click on a day to highlight it once you do your habit. Your streak shows you how many days in a row you have kept your habit. Get motivated to continue your habit as you watch your streaks grow!"
        )
    }
     return (
