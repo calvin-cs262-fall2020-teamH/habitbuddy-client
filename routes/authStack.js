@@ -22,18 +22,18 @@ function AuthStackScreen({ update }) {
                 headerStyle: { backgroundColor: 'orange' }
             }}
         >
-            <AuthStack.Screen name="Login" component={Login} initialParams={{ updateData: update }} />
+            <AuthStack.Screen name="HabitBuddy" component={Login} initialParams={{ updateData: update }} />
             <AuthStack.Screen
                 name='EmptyProfile'
                 component={EmptyProfile}
                 options={{
-                    title: 'Sign Up',
+                    title: 'Account Information',
                 }}
             />
             <AuthStack.Screen
                 name='EmptyHabits'
                 component={EmptyHabits}
-                options={{title: 'Sign Up'}}
+                options={{title: 'Habit Information'}}
                 initialParams={{ updateData: update }}
             />
         </AuthStack.Navigator>

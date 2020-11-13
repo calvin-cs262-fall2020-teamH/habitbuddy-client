@@ -17,7 +17,7 @@ export default function EmptyHabits({ navigation, route }) {
             Keyboard.dismiss();
             console.log('dismissed keyboard')
         }}>
-            <View style={globalStyles.emptyHabitContainer}>
+            <View style={globalStyles.loginContainer}>
                 <Text style={globalStyles.loginText}>Choose a habit category</Text>
                 <View style={globalStyles.picker}>
                     <RNPickerSelect

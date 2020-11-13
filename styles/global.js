@@ -41,10 +41,9 @@ export const globalStyles = StyleSheet.create({
 	},
 	input: {
 		borderColor: '#777',
-		marginHorizontal: 20,
+		// paddingTop: 30,
+		// marginHorizontal: 20,
 		width: 10,
-		
-		
 	},
 	buddyCardTitle: {
 		fontSize: 18,
@@ -141,6 +140,10 @@ export const globalStyles = StyleSheet.create({
 		textAlign: 'right',
 		paddingRight: 15,
 	},
+	passwordIcon: {
+		textAlign: 'right',
+		padding: 10,
+	},
 	profileInfo: {
 		flexDirection: 'column',
 		flex: .6,
@@ -174,18 +177,18 @@ export const globalStyles = StyleSheet.create({
 	editInfoText: {
 		flex: .9,
 		alignItems: 'center',
-		justifyContent: 'center'
+		justifyContent: 'center',
 	},
 	loginContainer: {
+		flex: 0.9,
 		backgroundColor: colorCodes.back,
-		marginHorizontal: 0,
 		alignItems: 'center',
-		justifyContent: 'flex-start',
+		justifyContent: 'center', 
 		height: '100%',
 	},
 	loginText: {
 		paddingTop: 30,
-		paddingBottom: 10,
+		paddingBottom: 20,
 		fontSize: 18,
 		color: colorCodes.text,
 	},

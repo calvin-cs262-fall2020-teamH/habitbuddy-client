@@ -1,25 +1,27 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Switch } from 'react-native';
 import { Input } from 'react-native-elements';
+import { MaterialIcons } from '@expo/vector-icons';
 import { globalStyles } from '../styles/global';
 
 /* Login lets you log into app and access your profile 
 * Written by Kelsey Yen
 */
 
-export default function Login({ navigation, route }) {
+export default function Login({ navigation, route }) {   
     const {updateData} = route.params;
 
     const [username, setUsername] = useState('Username');
-    const [password, setPassword] = useState('Password');
-
+    const [password, setPassword] = useState('Password');   
+    // const [showPassword, setShowPassword] = password;
+    
     return (
         <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss();
             console.log('dismissed keyboard')
         }}>
             <View style={globalStyles.loginContainer}>
-                <Text style={globalStyles.loginText}>Welcome to HabitBuddy!</Text>
+                {/* <Text style={globalStyles.loginText}>Welcome to HabitBuddy!</Text> */}
                     <Input
                         containerStyle={{width: '75%'}}
                         style={globalStyles.input}
@@ -29,10 +31,14 @@ export default function Login({ navigation, route }) {
                     <Input
                         containerStyle={{width: '75%'}}
                         style={globalStyles.input}
-                        //rightIcon={}
                         secureTextEntry={true}
                         placeholder='Password'
-                        onChangeText={(val) => setPassword(val)} />
+                        onChangeText={(val) => setPassword(val)} 
+                        rightIcon={
+                            <MaterialIcons name='remove-red-eye' size={27} color='#333' style={globalStyles.passwordIcon}
+                            onPress={() => this.setState( {hidden: !this.state.hidden}) }/>}
+                        />
+                    {/* </View> */}
                 <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => updateData()}>
                     <Text style={globalStyles.loginButtonText}>Login</Text>   
                 </TouchableOpacity>
@@ -44,3 +50,4 @@ export default function Login({ navigation, route }) {
         </TouchableWithoutFeedback>
     );
 }
+
