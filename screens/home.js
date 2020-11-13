@@ -3,6 +3,7 @@ import {ImageBackground, StyleSheet, View, Text, TouchableOpacity, Image, TextIn
 import {globalStyles} from '../styles/global';
 import Card from '../shared/card';
 import Circle from '../shared/circleCard';
+import { MaterialIcons } from '@expo/vector-icons';
 
 // Written by Andrew Baker
 // Date 10.8.20
@@ -23,17 +24,17 @@ export default function Home({ navigation }) {
     // Used to discern the time and pick an appropriate greeting. WORKS!
 
     if (hour < 5) {
-        greeting = "Good\nNight";
+        greeting = "Good Night!";
     } else if (hour < 12) {
-        greeting = "Good\nMorning";
+        greeting = "Good Morning!";
     } else if (hour < 17) {
-        greeting = "Good Afternoon,\n";
+        greeting = "Good Afternoon!,\n";
     } else if (hour < 20) {
-        greeting = "Good\nEvening";
+        greeting = "Good Evening!";
     } else if (hour < 23) {
-        greeting = "Good\nNight";
+        greeting = "Good Night!";
     } else {
-        greeting = "Hello";
+        greeting = "Hello!";
     }
 
     //if(!LoggedIn) navigation.navigate('Login');
@@ -46,73 +47,77 @@ export default function Home({ navigation }) {
             <View style={styles.bar}>
                 <Text style={styles.barContent}>{greeting}</Text>
             </View>
-
-            <View style={styles.container}>
-                {/* The container sets up the columns for the homescreen. Adding a basic view adds additional columns to the row*/}
-            <View style={styles.containerAcross}>
-                {/* The containerAcross creates a system of rows for data and cards. Add a containerAcross view to add an additional row */}
-                <View style={styles.corners}>
-                    <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                    {/* Top card, for the sought out habit  */}
-                        <Card>
-                            <Text>Your Habit</Text>
-                            {/* Static at the moment. To be changed with back end. TEMPORARY */}
-                            <Text style={globalStyles.titleText}>Going to chapel</Text>
-                            <Text></Text>
-                        </Card>
-                    </TouchableOpacity>
-                        
-                    </View>
-                    <View style={styles.corners}>
-                        <Card>
-                            <View style={styles.Hab}>
-                                <Text style={styles.titleText}>After I</Text>
-                                    <TextInput   
-                                        style={styles.inputBox}
-                                        placeholder=' CURRENT HABIT'
-                                        onChangeText={(val) => setChabit(val)}/>
-                            </View>
-                            <View style={styles.Hab}>
-                                <Text style={styles.titleText}>I will</Text>
-                                    <TextInput   
-                                        style={styles.inputBox}
-                                        placeholder=' NEW HABIT'
-                                        onChangeText={(val) => setChabit(val)}/>
-                            </View>
-                        </Card>
-                    </View>
-                </View>
-
-                {/* Circle cards to create buttons and display number of buddies and the streak of following the habit. */}
-                <View style={styles.containerAcross}>
-                    <View style={styles.corners}>
-                        <TouchableOpacity onPress={() => navigation.navigate('Habittrack')}>
-                            <Circle>
-                                <Text style={styles.title}>Streak</Text>
-                                <Text/>
-                                {/* Using static data until the backend is built to keep track of user data */}
-                                <Text style={styles.counter}>2</Text>
-                                <Text/>
-                            </Circle>
-                        </TouchableOpacity>
+                <View style={styles.container}>
+                    {/* The container sets up the columns for the homescreen. Adding a basic view adds additional columns to the row*/}
+                    <View style={styles.containerAcross}>
+                        {/* The containerAcross creates a system of rows for data and cards. Add a containerAcross view to add an additional row */}
+                        <View style={styles.corners}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+                            {/* Top card, for the sought out habit  */}
+                                <Card>
+                                    <Text>Your Habit</Text>
+                                    {/* Static at the moment. To be changed with back end. TEMPORARY */}
+                                    <Text style={globalStyles.titleText}>Going to chapel</Text>
+                                    <Text></Text>
+                            </Card>
+                            </TouchableOpacity>
+                            
+                        </View>
+                        <View style={styles.corners}>
+                            <Card>
+                                <View style={{alignItems:'center'}}>
+                                    <Text style={{justifyContent:'center'}}>Habit Stacking <MaterialIcons name="info-outline" size={20} color='#333' style={globalStyles.leftIcon}
+                        /></Text> 
+                                    
+                                </View>
+                                <View style={styles.Hab}>
+                                    <Text style={styles.titleText}>After I</Text>
+                                        <TextInput   
+                                            style={styles.inputBox}
+                                            placeholder=' CURRENT HABIT'
+                                            onChangeText={(val) => setChabit(val)}/>
+                                </View>
+                                <View style={styles.Hab}>
+                                    <Text style={styles.titleText}>I will</Text>
+                                        <TextInput   
+                                            style={styles.inputBox}
+                                            placeholder=' NEW HABIT'
+                                            onChangeText={(val) => setChabit(val)}/>
+                                </View>
+                            </Card>
+                        </View>
                     </View>
 
-                    <View style={styles.corners}>
-                        <TouchableOpacity onPress={() => {
-                                setState(state => ({...state, name: 'bruh'}), () => {console.log(state.name);});
+                    {/* Circle cards to create buttons and display number of buddies and the streak of following the habit. */}
+                    <View style={styles.containerAcross}>
+
+                        <View style={styles.corners}>
+                            <TouchableOpacity onPress={() => navigation.navigate('Habittrack')}>
+                                <Circle>
+                                    <Text style={styles.title}>Streak</Text>
+                                    <Text />
+                                    {/* Using static data until the backend is built to keep track of user data */}
+                                    <Text style={styles.counter}>20</Text>
+                                    <Text />
+                                </Circle>
+                            </TouchableOpacity>
+                        </View>
+
+                        <View style={styles.corners}>
+                            <TouchableOpacity onPress={() => {
                                 navigation.navigate('Buddies')
                             }}>
-                            <Circle>
-                                <Text style={styles.title}>Buddies</Text>
-                                <Text/>
-                                <Text style={styles.counter}>6</Text>
-                                <Text/>
-                            </Circle>
-                        </TouchableOpacity>
+                                <Circle>
+                                    <Text style={styles.title}>Buddies</Text>
+                                    <Text />
+                                    <Text style={styles.counter}>6</Text>
+                                    <Text />
+                                </Circle>
+                            </TouchableOpacity>
+                        </View>
                     </View>
                 </View>
-            </View>
-        </ImageBackground>
+            </ImageBackground>
     );
 }
 
@@ -172,18 +177,18 @@ const styles = StyleSheet.create({
         color: '#333',
         textAlign: 'center',
     },
-    Hab: {
-        // flex:1,
+    Hab:{
+        //flex:1,
         alignItems: 'center',
         marginTop: 5,
         marginBottom: 10,
         height: 50,
+        justifyContent: 'center'
     },
     titleText: {
         fontSize: 18,
         fontWeight: 'bold',
         color: '#333',
-        fontStyle: 'italic',
     },
     inputBox: {
         flex: 1,

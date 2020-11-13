@@ -3,9 +3,11 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
 
 let data;
+let streak = 0;
+let hstreak = 0;
 
 export default class HabittrackBlock extends Component {
-    
+
     //The constructor takes in props passed from outside and sets the default selected days to be none
     constructor(props) {
         super(props);
@@ -25,11 +27,17 @@ export default class HabittrackBlock extends Component {
     //renderRow renders each row for the selection
     renderRow = (item) => {
         const isSelected = item.select; //checks if the rendering item is selected
-        console.log(`Rendered item - ${item.day} for ${isSelected}`); //logs what is selected
-
+        console.log(`Rendered item - ${item.day} for ${isSelected} ${streak}`); //logs what is selected
+        if (isSelected == true) {
+            streak = streak + 1;
+            hstreak = streak; //let the hstreak(highest streak) be the final streak
+        } else {
+            streak = 0;
+        }
+        console.log(`Highest Streak- ${hstreak}`);
         //change background color depending on whether the day is selected or not
         const bgColor = item.select ? {backgroundColor: "#ffd699" } : {backgroundColor: "#D3D3D3"};
-        
+
         return (
             <TouchableOpacity onPress={() => this.onPressAction(item)}>
                 <View style={[bgColor, styles.cell]}>
@@ -54,6 +62,8 @@ export default class HabittrackBlock extends Component {
                     columnWrapperStyle={{ marginTop: 10 }}
                     width= {'100%'}
                 />
+                <Text>My Streak: {hstreak}</Text>
+
             </SafeAreaView>
         );
     }
@@ -77,4 +87,5 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: '#333',
     },
-});
+}); 
+

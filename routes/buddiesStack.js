@@ -19,10 +19,8 @@ export default function BuddiesStack({navigation}) {
                 name="Buddies"
                 component={Buddies}
                 options={{
-                    headerTitleAlign: {
-                        textAlign: 'center'
-                    },
-                    headerLeft: () =>  <Header navigation={navigation} />
+                    headerLeft: () =>  <Header navigation={navigation} />,
+                    headerTitleAlign: {textAlign:'center'},
                 }}
             />
             <Stack.Screen

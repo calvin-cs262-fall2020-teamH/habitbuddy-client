@@ -20,6 +20,7 @@ export default function ProfileStack( {navigation} ) {
                 component={Profile}
                 options={{
                     headerLeft: () =>  <Header navigation={navigation} />,
+                    headerTitleAlign: {textAlign:'center'},
                     headerRight: () => (
                         <MaterialIcons name="edit" size={27} color='#333' style={globalStyles.leftIcon}
                         onPress={() => navigation.navigate('EditProfile')}/>
