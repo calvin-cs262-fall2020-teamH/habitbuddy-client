@@ -20,6 +20,9 @@ export default function SettingsStack( {navigation} ) {
                 name="Settings"
                 component={Settings}
                 options={{
+                    headerTitleAlign: {
+                        textAlign: 'center'
+                    },
                     headerLeft: () =>  <Header navigation={navigation} />
                 }}
             />

@@ -15,6 +15,9 @@ export default function HabittrackStack( {navigation} ) {
                 name="Habittrack"
                 component={Habittrack}
                 options={{
+                    headerTitleAlign: {
+                        textAlign: 'center'
+                    },
                     headerLeft: () =>  <Header navigation={navigation} />
                 }}
             />

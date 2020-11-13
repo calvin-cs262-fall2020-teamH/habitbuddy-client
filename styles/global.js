@@ -158,6 +158,18 @@ export const globalStyles = StyleSheet.create({
 		marginRight: 10,
 		borderRadius: 5,
 	},
+	EditProfileButtonContainer: {
+		borderRadius: 10,
+		width: 200,
+		height: 40,
+		backgroundColor: '#ffd699',
+		shadowOffset: {width: 1, height: 1},
+		shadowColor: '#333',
+		shadowOpacity: 0.3,
+		shadowRadius: 2,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
 	editView: {
 		flexDirection: 'row',
 		width: 105,
@@ -205,8 +217,11 @@ export const globalStyles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	buttonPlacement: {
+		marginTop: 'auto',
+		marginBottom: 20,
 		justifyContent: 'center',
-		alignItems: 'center'
+		alignItems: 'center',
+		bottom: 0, //Here is the trick
 	},
 	emptyHabitContainer: {
 		flex: 1,
