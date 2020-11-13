@@ -4,20 +4,24 @@ let light = {
 	back: '#eee', //near-white
 	front: '#fff', //white
 	text: '#222', //near-black
+	cardText: '#222', //near-black
 	lightText: '#666', //light gray
 	selected: 'gray', //gray
 	highlightBack: '#caebff', //lightBlue
 	highlightFront: '#1b86ff', //darkBlue
+	card: '#ffd699',
 };
 
 let dark = {
 	back: '#303030', //dark gray
 	front: '#282828', //near-black
-	text: '#eee', //near-white
+	text: '#ddd', //near-white
+	cardText: '#222', //near-black
 	lightText: '#aaa', //light gray
 	selected: 'gray', //gray
 	highlightBack: '#1b86ff', //darkBlue
 	highlightFront: '#caebff', //lightBlue
+	card: '#ffd699',
 };
 
 export let colorCodes = light;
@@ -27,6 +31,11 @@ export const globalStyles = StyleSheet.create({
 		fontSize: 18,
 		fontWeight: 'bold',
 		color: colorCodes.text,
+	},
+	cardTitle: {
+		fontSize: 18,
+		fontWeight: 'bold',
+		color: colorCodes.cardText,
 	},
 	paragraph: {
 		marginVertical: 8,
@@ -41,24 +50,26 @@ export const globalStyles = StyleSheet.create({
 	},
 	input: {
 		borderColor: '#777',
-		// paddingTop: 30,
-		// marginHorizontal: 20,
-		width: 10,
+		padding: 8,
+		margin: 10,
+		width: 200,
+		color: colorCodes.text,
 	},
 	buddyCardTitle: {
 		fontSize: 18,
 		fontWeight: 'bold',
-		color: colorCodes.text,
-		marginLeft: 55,     //55 value used as a position over to make up for the profile picture
+		color: colorCodes.cardText,
+		marginLeft: 60,     //55 value used as a position over to make up for the profile picture
+		marginRight: -5,
 	},
 	buddyCardText: {
 		fontSize: 14,
-		color: colorCodes.text,
-		marginLeft: 55,
+		color: colorCodes.cardText,
+		marginLeft: 60,
+		marginRight: -5,
 	},
 	buddyDisplayContainer: {      //used to display the buddy cards on the buddies page
 		flex: 1,
-		paddingHorizontal: 20,
 		backgroundColor: colorCodes.front,
 		alignItems: 'stretch',
 		justifyContent: 'center',
@@ -78,16 +89,18 @@ export const globalStyles = StyleSheet.create({
 	},
 	loginButtonText: {
 		fontWeight: 'bold',
+		color: colorCodes.cardText,
 		fontSize:18,
-		color: colorCodes.text,
 		justifyContent: 'center',
 	},
 	aboutScrollView: {
 		padding: 20,
+		backgroundColor: colorCodes.back,
 	},
 	/*Profile page--------------------------------------------------*/
 	wholePage: {
-		flex: 1
+		flex: 1,
+		backgroundColor: colorCodes.back,
 	},
 	profContainer: {
 		flex: .4,
@@ -97,7 +110,7 @@ export const globalStyles = StyleSheet.create({
 	userName: {
 		fontSize: 27,
 		fontWeight: 'bold',
-		color: '#333',
+		color: colorCodes.text,
 		marginTop: 5
 	},
 	userNamePlacement: {

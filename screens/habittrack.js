@@ -2,6 +2,8 @@ import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import HabittrackBlock from '../shared/habittrackBlock';
 
+import { colorCodes } from '../styles/global'
+
 export default function Habittrack({ navigation }) {
     const grey = "#D3D3D3";
     const orange = '#ffd699';
@@ -49,11 +51,10 @@ export default function Habittrack({ navigation }) {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
         padding: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#eee' //need to change this to colorCodes.back
+        backgroundColor: colorCodes.back' //need to change this to colorCodes.back
     },
    
     titleText: {

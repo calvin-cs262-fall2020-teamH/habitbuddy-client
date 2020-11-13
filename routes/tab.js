@@ -1,8 +1,8 @@
 /* drawer.js creates the drawer in the top right which lists all the pages a user can access */
 
 import * as React from 'react';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {MaterialCommunityIcons} from '@expo/vector-icons';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import Home from './homeStack';
 import Buddies from './buddiesStack';
@@ -15,10 +15,6 @@ const Tab = createBottomTabNavigator();
 export default function App({navigation}) {
     return (
         <Tab.Navigator initialRouteName="Home"
-            // drawerStyle={{backgroundColor: colorCodes.front}}
-            // drawerContentOptions={{
-            //     inactiveTintColor: colorCodes.lightText
-            // }}
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
                   let iconName;

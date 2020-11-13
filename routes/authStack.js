@@ -49,12 +49,6 @@ export default () => {
     //     }, 500);
     //   }, []);
 
-    //   React.useEffect(() => {
-    //     setTimeout(() => {
-    //       setUser({});
-    //     }, 5000);
-    //   }, []);
-
     function updateUser() {
         setUser({});
         console.log('test');
