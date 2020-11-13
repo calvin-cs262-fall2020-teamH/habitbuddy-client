@@ -3,7 +3,7 @@ import {
     ImageBackground, StyleSheet, View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard,
     FlatList, Image, TextInput
 } from 'react-native';
-import {globalStyles} from '../styles/global';
+import {globalStyles, colorCodes} from '../styles/global';
 import Card from '../shared/card';
 import Circle from '../shared/circleCard';
 import { MaterialIcons } from '@expo/vector-icons';
@@ -26,8 +26,8 @@ export default function Home({ navigation }) {
     const [chabit, setChabit] = useState('Current Habit');
     const [nhabit, setNhabit] = useState('New Habit')
 
-    var hour = new Date().getHours();/'
-    var greeting = "";
+    let hour = new Date().getHours();
+    let greeting = "";
 
     // Used to discern the time and pick an appropriate greeting. WORKS!
 
@@ -114,7 +114,7 @@ export default function Home({ navigation }) {
                                     <Circle>
                                         <Text style={styles.title}>Buddies</Text>
                                         <Text />
-                                        <Text style={styles.counter}>20</Text>
+                                        <Text style={styles.counter}>6</Text>
                                         <Text />
                                     </Circle>
                                 </TouchableOpacity>

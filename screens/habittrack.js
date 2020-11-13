@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
         padding: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: colorCodes.back' //need to change this to colorCodes.back
+        backgroundColor: colorCodes.back, //need to change this to colorCodes.back
     },
    
     titleText: {

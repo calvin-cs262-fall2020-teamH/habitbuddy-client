@@ -57,12 +57,13 @@ export default class SelectionBlock extends Component {
     render() {
         return (
             //takes the data passed in and renders each item in the list using renderRow
-            <FlatList style={[styles.container, { marginTop: 0, height: '100%' }]}
+            <FlatList style={styles.container}
                 data={this.props.data}
                 renderItem={({ item }) => (
                     this.renderRow(item)
                 )}
                 keyExtractor={(item, index) => index.toString()}
+                style={{ marginTop: 0, height: '100%' }}
             />
         );
     }
