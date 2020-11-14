@@ -25,7 +25,7 @@ export default function Buddies({navigation}) {
                     {/* Allows for traversal into the buddy details page */}
                     <Card style={{height: 100, marginHorizontal: 20}}>  
                         {/* uri allows the app to search the url for the image needed. Width and height information are necessary for the pictures to function. Will not work without. */}
-                        <Image source = {{uri: item.pic}} style = {{width: 60, height: 60, position: 'absolute', borderRadius: 6, marginLeft: -5}}/> 
+                        <Image source = {{uri: item.pic}} style = {{width: 60, height: 60, position: 'absolute', borderRadius: 6, marginLeft: -5, top: 0}}/> 
 
                         {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
 
