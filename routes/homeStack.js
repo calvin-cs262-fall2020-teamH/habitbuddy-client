@@ -1,7 +1,8 @@
 import React from 'react';
 import { Text, } from 'react-native';
-import {createStackNavigator} from '@react-navigation/stack';
-
+import { createStackNavigator } from '@react-navigation/stack';
+import { MaterialIcons } from '@expo/vector-icons';
+import { globalStyles } from '../styles/global';
 import Header from '../shared/header';
 import Home from '../screens/home';
 import Login from '../screens/login';
@@ -14,7 +15,7 @@ import BuddyDetails from '../screens/buddyDetails';
 const Stack = createStackNavigator();
 
 /*HomeStack creates a stack of screens with the default being the Home screen */
-export default function HomeStack( {navigation} ) {
+export default function HomeStack({ navigation }) {
 
     // if(!LoggedIn) {
     //     navigation.navigate('Login');
@@ -22,31 +23,38 @@ export default function HomeStack( {navigation} ) {
 
     return (
         <Stack.Navigator screenOptions={{
-            headerStyle:{backgroundColor:'orange'}
+            headerStyle: { backgroundColor: 'orange' }
         }}>
             <Stack.Screen
                 name="HabitBuddy"
                 component={Home}
                 options={{
                     title: 'HabitBuddy',
-                    headerTitleAlign: {textAlign:'center'},
-                    headerLeft: () =>  <Header navigation={navigation} />
+                    headerTitleAlign: { textAlign: 'center' },
+                    headerLeft: () => <Header navigation={navigation} />
                 }}
             />
             <Stack.Screen
                 name="Buddies"
                 component={Buddies}
-                options={{title: 'Buddies'}}
+                options={{ title: 'Buddies' }}
             />
             <Stack.Screen
                 name="Habittrack"
                 component={Habittrack}
-                options={{title: 'Habit Tracker'}}
+                options={{
+                    title: 'Habit Tracker',
+                    headerRight: () => (
+                        <MaterialIcons name="info-outline" size={27} color='#333' style={globalStyles.leftIcon}
+                            onPress={alert}
+                        />
+                    ),
+                }}
             />
             <Stack.Screen
                 name="BuddyDetails"
                 component={BuddyDetails}
-                options={{title: 'Buddy Details'}}
+                options={{ title: 'Buddy Details' }}
             />
         </Stack.Navigator>
     );
