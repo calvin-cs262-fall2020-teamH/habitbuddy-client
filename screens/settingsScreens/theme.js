@@ -16,7 +16,7 @@ export default function Theme({route}) {
                 data={[{ title: 'Light', id: 0, icon: "md-sunny" },
                     { title: 'Dark', id: 1, icon: "md-moon" }]}
                 update = {updateTheme}
-                selectedId = {({mode} === 'light' ? 0 : 1)}
+                selectedId = {(mode === 'light' ? 0 : 1)}
             ></SelectionBlock>
         </View>
     );
