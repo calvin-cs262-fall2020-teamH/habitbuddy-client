@@ -13,7 +13,7 @@ export default function EditProfileCard({icon, title, placeholder, page, navigat
 
 
             <View style={dyStyles.containerIcon}>
-                <Ionicons name={icon} size={24} color={dyColorCodes.text} />
+                <Ionicons name={icon} size={24} color={useDynamicValue(dyColorCodes.text)} />
             </View>
             <View style={dyStyles.containerText}>
                 <Text style={dyStyles.text}>
