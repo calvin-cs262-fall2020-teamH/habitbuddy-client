@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { Text, ScrollView } from 'react-native';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles } from '../../styles/global';
 

@@ -1,10 +1,9 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { colorCodes, dyColorCodes } from '../styles/global'
+import { View, Text, } from 'react-native';
+import { dyColorCodes } from '../styles/global'
 import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
-export default function ProfileLinkingCard({icon, title, userInfo, page, navigation}) {
+export default function ProfileLinkingCard({ title, userInfo }) {
 
     const dyStyles = new useDynamicValue(styles);
 

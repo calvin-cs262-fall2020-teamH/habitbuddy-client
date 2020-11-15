@@ -1,24 +1,28 @@
 import { StyleSheet } from 'react-native';
-import { DynamicValue, DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic'
+import { DynamicValue, DynamicStyleSheet } from 'react-native-dynamic'
 
 let light = {
 	back: '#eee', //near-white
 	front: '#fff', //white
 	text: '#222', //near-black
+	cardText: '#222', //near-black
 	lightText: '#666', //light gray
 	selected: 'gray', //gray
 	highlightBack: '#caebff', //lightBlue
 	highlightFront: '#1b86ff', //darkBlue
+	card: '#ffd699',
 };
 
 let dark = {
 	back: '#303030', //dark gray
 	front: '#282828', //near-black
-	text: '#eee', //near-white
+	text: '#ddd', //near-white
+	cardText: '#222', //near-black
 	lightText: '#aaa', //light gray
 	selected: 'gray', //gray
 	highlightBack: '#1b86ff', //darkBlue
 	highlightFront: '#caebff', //lightBlue
+	card: '#ffd699',
 };
 
 export let dyColorCodes = {
@@ -57,7 +61,6 @@ export const dynamicStyles = new DynamicStyleSheet({
 		justifyContent: 'flex-start',
 	},
 	input: {
-		borderWidth: 1,
 		borderColor: '#777',
 		padding: 8,
 		margin: 10,
@@ -68,16 +71,15 @@ export const dynamicStyles = new DynamicStyleSheet({
 		fontSize: 18,
 		fontWeight: 'bold',
 		color: dyColorCodes.cardText,
-		marginLeft: 55,     //55 value used as a position over to make up for the profile picture
+		marginLeft: 60,     //60 value used as a position over to make up for the profile picture
 	},
 	buddyCardText: {
 		fontSize: 14,
 		color: dyColorCodes.cardText,
-		marginLeft: 55,
+		marginLeft: 60,
 	},
 	buddyDisplayContainer: {      //used to display the buddy cards on the buddies page
 		flex: 1,
-		paddingHorizontal: 20,
 		backgroundColor: dyColorCodes.front,
 		alignItems: 'stretch',
 		justifyContent: 'center',
@@ -200,6 +202,7 @@ export const dynamicStyles = new DynamicStyleSheet({
 		alignItems: 'center',
 		justifyContent: 'flex-start',
 		height: '100%',
+		paddingTop: 30,
 	},
 	loginText: {
 		paddingTop: 30,
@@ -236,38 +239,44 @@ export const globalStyles = StyleSheet.create({
 		fontWeight: 'bold',
 		color: colorCodes.text,
 	},
+	cardTitle: {
+		fontSize: 18,
+		fontWeight: 'bold',
+		color: colorCodes.cardText,
+	},
 	paragraph: {
 		marginVertical: 8,
 		lineHeight: 20,
 	},
 	container: {
 		flex: 1,
-		padding: 20,
+		padding: 10,
 		backgroundColor: colorCodes.back,
 		alignItems: 'flex-start',
 		justifyContent: 'flex-start',
 	},
 	input: {
-		borderWidth: 1,
 		borderColor: '#777',
 		padding: 8,
 		margin: 10,
 		width: 200,
+		color: colorCodes.text,
 	},
 	buddyCardTitle: {
 		fontSize: 18,
 		fontWeight: 'bold',
-		color: colorCodes.text,
-		marginLeft: 55,     //55 value used as a position over to make up for the profile picture
+		color: colorCodes.cardText,
+		marginLeft: 60,     //55 value used as a position over to make up for the profile picture
+		marginRight: -5,
 	},
 	buddyCardText: {
 		fontSize: 14,
-		color: colorCodes.text,
-		marginLeft: 55,
+		color: colorCodes.cardText,
+		marginLeft: 60,
+		marginRight: -5,
 	},
 	buddyDisplayContainer: {      //used to display the buddy cards on the buddies page
 		flex: 1,
-		paddingHorizontal: 20,
 		backgroundColor: colorCodes.front,
 		alignItems: 'stretch',
 		justifyContent: 'center',
@@ -287,15 +296,18 @@ export const globalStyles = StyleSheet.create({
 	},
 	loginButtonText: {
 		fontWeight: 'bold',
-		color: colorCodes.text,
+		color: colorCodes.cardText,
+		fontSize:18,
 		justifyContent: 'center',
 	},
 	aboutScrollView: {
 		padding: 20,
+		backgroundColor: colorCodes.back,
 	},
 	/*Profile page--------------------------------------------------*/
 	wholePage: {
-		flex: 1
+		flex: 1,
+		backgroundColor: colorCodes.back,
 	},
 	profContainer: {
 		flex: .4,
@@ -305,7 +317,7 @@ export const globalStyles = StyleSheet.create({
 	userName: {
 		fontSize: 27,
 		fontWeight: 'bold',
-		color: '#333',
+		color: colorCodes.text,
 		marginTop: 5
 	},
 	userNamePlacement: {
@@ -348,6 +360,10 @@ export const globalStyles = StyleSheet.create({
 		textAlign: 'right',
 		paddingRight: 15,
 	},
+	passwordIcon: {
+		textAlign: 'right',
+		padding: 10,
+	},
 	profileInfo: {
 		flexDirection: 'column',
 		flex: .6,
@@ -361,6 +377,18 @@ export const globalStyles = StyleSheet.create({
 		marginLeft: 10,
 		marginRight: 10,
 		borderRadius: 5,
+	},
+	EditProfileButtonContainer: {
+		borderRadius: 10,
+		width: 200,
+		height: 40,
+		backgroundColor: '#ffd699',
+		shadowOffset: {width: 1, height: 1},
+		shadowColor: '#333',
+		shadowOpacity: 0.3,
+		shadowRadius: 2,
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	editView: {
 		flexDirection: 'row',
@@ -381,24 +409,25 @@ export const globalStyles = StyleSheet.create({
 	editInfoText: {
 		flex: .9,
 		alignItems: 'center',
-		justifyContent: 'center'
+		justifyContent: 'center',
 	},
 	loginContainer: {
+		flex: 0.9,
 		backgroundColor: colorCodes.back,
 		alignItems: 'center',
-		justifyContent: 'flex-start',
+		justifyContent: 'center', 
 		height: '100%',
 	},
 	loginText: {
 		paddingTop: 30,
-		paddingBottom: 10,
-		fontSize: 16,
+		paddingBottom: 20,
+		fontSize: 18,
 		color: colorCodes.text,
 	},
 	loginButtonContainer: {
 		borderRadius: 10,
 		width: 200,
-		height: 40,
+		height: 50,
 		backgroundColor: '#ffd699',
 		shadowOffset: { width: 1, height: 1 },
 		shadowColor: '#333',
@@ -408,13 +437,23 @@ export const globalStyles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	buttonPlacement: {
+		marginTop: 'auto',
+		marginBottom: 20,
 		justifyContent: 'center',
-		alignItems: 'center'
+		alignItems: 'center',
+		bottom: 0, //Here is the trick
 	},
 	emptyHabitContainer: {
 		flex: 1,
 		backgroundColor: colorCodes.back,
 		alignItems: 'center',
 	},
-
+	picker: {
+		color: colorCodes.text,
+		height: 30,
+		width: 250,
+		padding: 8,
+		borderBottomWidth: 1,
+		borderColor: '#777',
+	}
 });

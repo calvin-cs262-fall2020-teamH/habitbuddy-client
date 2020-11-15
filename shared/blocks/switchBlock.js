@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Switch } from 'react-native';
+import { View, Text, Switch } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { colorCodes, dyColorCodes } from '../../styles/global'
+import { dyColorCodes } from '../../styles/global'
 import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
 //Sample switch code taken and modified from https://reactnative.dev/docs/switch.html

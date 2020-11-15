@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons'; 
-import { colorCodes, dyColorCodes } from '../../styles/global'
+import { dyColorCodes } from '../../styles/global'
 import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
 export default function SettingsBlock({icon, title, selected, page, navigation}) {

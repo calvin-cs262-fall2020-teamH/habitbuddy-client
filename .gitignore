@@ -12,6 +12,7 @@ npm-debug.*
 *.orig.*
 *.log
 web-build/
+.dccache
 
 # macOS
 .DS_Store

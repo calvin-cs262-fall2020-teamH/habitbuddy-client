@@ -6,7 +6,7 @@ import AlertBlock from '../../shared/blocks/alertBlock';
 import { dyColorCodes } from '../../styles/global';
 
 /* Lets you change your account settings */
-export default function Account({route, navigation}) {
+export default function Account({navigation}) {
     return (
         <ScrollView style = {{height: '100%', backgroundColor: useDynamicValue(dyColorCodes.back)}}>
             <SettingsBlock title = "Change Password" icon = "ios-key"

@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableWithoutFeedback, Keyboard, TouchableOpacity } from 'react-native';
-//import { Input } from 'react-native-elements';
+import {Keyboard, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View} from 'react-native';
+import { Input } from 'react-native-elements';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles, dyColorCodes } from '../../styles/global';
 
@@ -19,9 +19,9 @@ export default function ChangePassword({ navigation }) {
     return (
         //Dismiss keyboard if you tap off the input box or keyboard
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}> 
-            <View style={dyStyles.container}>
-                <Text style={dyStyles.text}>Enter Current Password:</Text>
-                <TextInput   
+            <View style={[dyStyles.wholePage, {paddingHorizontal: 20, paddingVertical: 20}]}>
+                <Text style={dyStyles.titleText}>Enter Current Password:</Text>
+                <Input   
                     style={dyStyles.input}
                     placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder='Current Password'
@@ -36,8 +36,8 @@ export default function ChangePassword({ navigation }) {
                       }}
                 />
                 
-                <Text style={dyStyles.text}>Enter New Password:</Text>
-                <TextInput   
+                <Text style={dyStyles.titleText}>Enter New Password:</Text>
+                <Input   
                     style={dyStyles.input}
                     placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder='New Password'
@@ -52,8 +52,8 @@ export default function ChangePassword({ navigation }) {
                     }}
                 />
 
-                <Text style={dyStyles.text}>Confirm New Password:</Text>
-                <TextInput   
+                <Text style={dyStyles.titleText}>Confirm New Password:</Text>
+                <Input   
                     style={dyStyles.input}
                     placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder='Confirm Password'

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { Input } from 'react-native-elements';
 import  RNPickerSelect from 'react-native-picker-select';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles, dyColorCodes } from '../styles/global';
@@ -34,15 +35,16 @@ export default function EmptyHabits({ navigation, route }) {
                         ]}
                     />
                 </View>
-                <Text style={dyStyles.loginText}>Write your personal goal</Text>
-                <TextInput
+                <Text style={dyStyles.loginText}>Write a personal goal</Text>
+                <Input
+                    containerStyle={{width: '75%'}}
                     style={dyStyles.input}
-                    placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder='i.e. walk for 20 minutes'
+                    placeholderTextColor= { useDynamicValue(dyColorCodes.lightText) }
                     onChangeText={(val) => setPersonalGoal(val)}
                 />
                 <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => updateData()}>
-                    <Text style={dyStyles.loginButtonText}>Go to Home</Text>
+                    <Text style={dyStyles.loginButtonText}>Finish</Text>
                 </TouchableOpacity>    
             </View>
         </TouchableWithoutFeedback>

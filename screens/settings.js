@@ -1,5 +1,4 @@
 import React from 'react';
-import { View, Text } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { colorCodes, dyColorCodes } from '../styles/global';
 import SettingsBlock from '../shared/blocks/settingsBlock';
@@ -18,9 +17,9 @@ export default function Settings({navigation}) {
                 page = "Theme" navigation = {navigation}></SettingsBlock>
             <SwitchBlock icon="md-notifications" title = "Notifications"></SwitchBlock>
             <SettingsBlock icon="md-person" title = "Account"
-                page = "Account" navigation = {navigation}></SettingsBlock>
+                page = "Account" navigation = {navigation}/>
             <SettingsBlock icon="md-information-circle-outline" title = "About" 
-                page = "About" navigation = {navigation}></SettingsBlock>
+                page = "About" navigation = {navigation}/>
         </ScrollView>
     );
 };

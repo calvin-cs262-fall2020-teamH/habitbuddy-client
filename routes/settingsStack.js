@@ -12,7 +12,6 @@ const Stack = createStackNavigator();
 
 /*SettingsStack creates a stack of screens with the default being the Settings screen */
 export default function SettingsStack( {navigation, route} ) {
-
     const {updateTheme} = route.params.updateTheme;
 
     return (
@@ -23,7 +22,8 @@ export default function SettingsStack( {navigation, route} ) {
                 name="Settings"
                 component={Settings}
                 options={{
-                    headerLeft: () =>  <Header navigation={navigation} />
+                    headerLeft: () =>  <Header navigation={navigation} />,
+                    headerTitleAlign: {textAlign:'center'},
                 }}
             />
             <Stack.Screen

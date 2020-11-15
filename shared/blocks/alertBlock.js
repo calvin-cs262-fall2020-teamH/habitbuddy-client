@@ -1,7 +1,7 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, Alert } from 'react-native';
 import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
-import { colorCodes, dyColorCodes } from '../../styles/global'
+import { dyColorCodes } from '../../styles/global'
 
 //code modified from https://reactnative.dev/docs/alert
 

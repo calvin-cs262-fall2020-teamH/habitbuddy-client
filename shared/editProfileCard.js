@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet,TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { colorCodes, dyColorCodes } from '../styles/global'
+import { dyColorCodes } from '../styles/global'
 import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
-export default function EditProfileCard({icon, title, placeholder, page, navigation}) {
+export default function EditProfileCard({ icon, title, placeholder }) {
 
     const dyStyles = useDynamicValue(styles);
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, } from 'react-native';
+import { Text, View, FlatList, TouchableOpacity, } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { dyColorCodes } from '../../styles/global'
 import { DynamicStyleSheet } from 'react-native-dynamic';
