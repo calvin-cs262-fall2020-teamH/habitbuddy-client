@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Switch } from 'react-native';
+import { View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { useDynamicValue } from 'react-native-dynamic';
 import { Input } from 'react-native-elements';
 import { MaterialIcons } from '@expo/vector-icons';
-import { globalStyles } from '../styles/global';
+import { dynamicStyles, dyColorCodes } from '../styles/global';
 
 /* Login lets you log into app and access your profile 
 * Written by Kelsey Yen
@@ -14,38 +15,42 @@ export default function Login({ navigation, route }) {
     const [username, setUsername] = useState('Username');
     const [password, setPassword] = useState('Password');   
     // const [showPassword, setShowPassword] = password;
-    
+
+    const dyStyles = useDynamicValue(dynamicStyles);
+
     return (
         <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss();
             console.log('dismissed keyboard')
         }}>
-            <View style={globalStyles.loginContainer}>
+            <View style={dyStyles.loginContainer}>
                 {/* <Text style={globalStyles.loginText}>Welcome to HabitBuddy!</Text> */}
                     <Input
                         containerStyle={{width: '75%'}}
-                        style={globalStyles.input}
+                        style={dyStyles.input}
+                        placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                         placeholder='Username or Email'
                         onChangeText={(val) => setUsername(val)}
                         />
                     <Input
                         containerStyle={{width: '75%'}}
-                        style={globalStyles.input}
+                        style={dyStyles.input}
+                        placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                         secureTextEntry={true}
                         placeholder='Password'
                         onChangeText={(val) => setPassword(val)} 
                         rightIcon={
-                            <MaterialIcons name='remove-red-eye' size={27} color='#333' style={globalStyles.passwordIcon}
+                            <MaterialIcons name='remove-red-eye' size={27} color='#333' style={dyStyles.passwordIcon}
                             onPress={() => this.setState( {hidden: !this.state.hidden}) }/>}
                         />
                     {/* </View> */}
-                <TouchableOpacity style={globalStyles.loginButtonContainer} onPress={() => updateData()}>
-                    <Text style={globalStyles.loginButtonText}>Login</Text>
+                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => updateData()}>
+                    <Text style={dyStyles.loginButtonText}>Login</Text>
                 </TouchableOpacity>
-                <Text style={globalStyles.loginText}>Don't have an account?</Text>
-                <TouchableOpacity style={globalStyles.loginButtonContainer}
+                <Text style={dyStyles.loginText}>Don't have an account?</Text>
+                <TouchableOpacity style={dyStyles.loginButtonContainer}
                                   onPress={() => navigation.navigate('EmptyProfile')}>
-                    <Text style={globalStyles.loginButtonText}>Sign Up</Text>
+                    <Text style={dyStyles.loginButtonText}>Sign Up</Text>
                 </TouchableOpacity>
             </View>
         </TouchableWithoutFeedback>

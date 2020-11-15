@@ -1,24 +1,28 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {colorCodes} from '../styles/global'
+import { View, Text, } from 'react-native';
+import { dyColorCodes } from '../styles/global'
+import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
-export default function ProfileCard({title, userInfo}) {
+export default function ProfileCard({ title, userInfo }) {
+
+    const dyStyles = useDynamicValue(styles)
+
     return (
-        <View style={styles.container}>
-                <View style={styles.containerText}>
-                    <Text style={styles.text}>
+        <View style={dyStyles.container}>
+                <View style={dyStyles.containerText}>
+                    <Text style={dyStyles.text}>
                         {title}
                     </Text>
                 </View>
-                <View style={styles.containerSelection}>
-                    <Text style={{textAlign: "right", paddingRight: 17, color: colorCodes.selected}}>
+                <View style={dyStyles.containerSelection}>
+                    <Text style={dyStyles.selectedText}>
                         {userInfo}
                     </Text>
                 </View>
         </View>
     );
 };
-const styles = StyleSheet.create({
+const styles = new DynamicStyleSheet({
     block: {
         flexDirection: 'row',
         flexBasis: '100%',
@@ -40,6 +44,11 @@ const styles = StyleSheet.create({
         paddingVertical: 3,
     },
     text: {
-        color: colorCodes.text,
-    }
+        color: dyColorCodes.text,
+    },
+    selectedText: {
+        textAlign: "right",
+        paddingRight: 17,
+        color: dyColorCodes.lightText,
+    },
 });

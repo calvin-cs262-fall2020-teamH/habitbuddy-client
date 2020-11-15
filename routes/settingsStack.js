@@ -11,7 +11,9 @@ import ChangePassword from '../screens/settingsScreens/changePassword';
 const Stack = createStackNavigator();
 
 /*SettingsStack creates a stack of screens with the default being the Settings screen */
-export default function SettingsStack( {navigation} ) {
+export default function SettingsStack( {navigation, route} ) {
+    const {updateTheme} = route.params.updateTheme;
+
     return (
         <Stack.Navigator screenOptions={{
             headerStyle:{backgroundColor:'orange'}
@@ -30,6 +32,7 @@ export default function SettingsStack( {navigation} ) {
                 options={{
                     title: "Theme"
                 }}
+                initialParams={{updateTheme:{updateTheme}}}
             />
             <Stack.Screen
                 name="Account"

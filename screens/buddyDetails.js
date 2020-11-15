@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
-import {StyleSheet, View, Text, Image, Linking, TouchableOpacity} from 'react-native';
-import {globalStyles} from '../styles/global';
+import React, { useState } from 'react';
+import { View, Text, Image, Linking, TouchableOpacity} from 'react-native';
+import { useDynamicValue } from 'react-native-dynamic';
+import { dynamicStyles } from '../styles/global';
 import ProfileCard from "../shared/profileCard";
 import ProfileLinkingCard from "../shared/profileLinkingCard";
 
@@ -21,23 +22,25 @@ export default function Profile({route, navigation}) {
         },
     );
 
+    const dyStyles = useDynamicValue(dynamicStyles);
 
     return (
-        <View style={globalStyles.wholePage}>
-            <View style={globalStyles.profContainer}>
-                <View style={globalStyles.profilePic}>
+        <View style={dyStyles.wholePage}>
+            <View style={dyStyles.profContainer}>
+                <View style={dyStyles.profilePic}>
                 <Image source = {{uri: profilePage.pic}} 
                     style = {{width: 110, height: 110, position: 'absolute'}}/>
                 </View>
 
-                <View style={globalStyles.userNamePlacement}>
-                    <Text style={globalStyles.userName}>{profilePage.name}</Text>
+                <View style={dyStyles.userNamePlacement}>
+                    <Text style={dyStyles.userName}>{ profilePage.name }</Text>
                 </View>
             </View>
-            <View style={globalStyles.userInfo}>
-                <ProfileCard title="Category" userInfo={profilePage.category}></ProfileCard>
-                <ProfileCard title="Habit Goal" userInfo={profilePage.goal}></ProfileCard>
-                <ProfileCard title="Hobby" userInfo={profilePage.hobby}></ProfileCard>
+            <View style={dyStyles.userInfo}>
+                <ProfileCard title = "Category" userInfo = {profilePage.category}></ProfileCard>
+                <ProfileCard title = "Habit Goal" userInfo = {profilePage.goal}></ProfileCard>
+                <ProfileCard title = "Hobby" userInfo = {profilePage.hobby}></ProfileCard>
+                
                 <TouchableOpacity onPress={() => Linking.openURL('mailto:' + profilePage.email)}>
                     <ProfileLinkingCard title="Email" userInfo={profilePage.email}></ProfileLinkingCard>
                 </TouchableOpacity>

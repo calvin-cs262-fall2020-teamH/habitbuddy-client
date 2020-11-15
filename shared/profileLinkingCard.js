@@ -1,24 +1,28 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
-import {colorCodes} from '../styles/global'
+import { View, Text, } from 'react-native';
+import { dyColorCodes } from '../styles/global'
+import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
-export default function ProfileLinkingCard({title, userInfo}) {
+export default function ProfileLinkingCard({ title, userInfo }) {
+
+    const dyStyles = new useDynamicValue(styles);
+
     return (
-        <View style={styles.container}>
-            <View style={styles.containerText}>
-                <Text style={styles.text}>
+        <View style={dyStyles.container}>
+            <View style={dyStyles.containerText}>
+                <Text style={dyStyles.text}>
                     {title}
                 </Text>
             </View>
-            <View style={styles.containerSelection}>
-                <Text style={{textAlign: "right", paddingRight: 17, textDecorationLine: 'underline', color: 'blue'}}>
+            <View style={dyStyles.containerSelection}>
+                <Text style={dyStyles.linkText}>
                     {userInfo}
                 </Text>
             </View>
         </View>
     );
 };
-const styles = StyleSheet.create({
+const styles = new DynamicStyleSheet({
     block: {
         flexDirection: 'row',
         flexBasis: '100%',
@@ -41,6 +45,12 @@ const styles = StyleSheet.create({
         paddingVertical: 3,
     },
     text: {
-        color: colorCodes.text,
+        color: dyColorCodes.text,
+    },
+    linkText: {
+        textAlign: "right",
+        paddingRight: 17,
+        textDecorationLine: 'underline',
+        color: dyColorCodes.link
     }
 });

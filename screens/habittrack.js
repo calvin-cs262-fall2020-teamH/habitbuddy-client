@@ -1,17 +1,25 @@
-import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import React, { useState } from 'react';
+import { View, Text} from 'react-native';
+import { DynamicStyleSheet, useDynamicValue, useColorSchemeContext} from 'react-native-dynamic';
+import { dyColorCodes } from '../styles/global';
+
 import HabittrackBlock from '../shared/habittrackBlock';
 
-import { colorCodes } from '../styles/global'
-
 export default function Habittrack({ navigation }) {
-    const grey = "#D3D3D3";
-    const orange = '#ffd699';
+
+    const dyStyles = useDynamicValue(styles);
+    const mode = useColorSchemeContext();
+    const lastMode = '';
+
+    const habitblockElement = React.createRef();
+
+    mode === lastMode ? () => { habitblockElement.current.changeTheme(mode); lastMode = mode; } : {};
 
     return (
-        <View style={styles.container}>
-            <Text style={styles.titleText}>Track My Habit</Text>
+        <View style={dyStyles.container}>
+            <Text style={dyStyles.titleText}>Track My Habit</Text>
             <HabittrackBlock
+                ref = {habitblockElement}
                 data={[
                     {day:'1',select:false,key:'1'}, 
                     {day:'2',select:false,key:'2'},
@@ -43,23 +51,26 @@ export default function Habittrack({ navigation }) {
                     {day:'28',select:false,key:'28'},
                     {day:'29',select:false,key:'29'},
                     {day:'30',select:false,key:'30'},]}
+                theme = {mode}
             ></HabittrackBlock>
         </View>
     );
 }
 
-const styles = StyleSheet.create({
+const styles = new DynamicStyleSheet({
     container: {
         flex: 1,
+        backgroundColor: dyColorCodes.back,
         padding: 10,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: colorCodes.back, //need to change this to colorCodes.back
     },
    
     titleText: {
 		fontSize: 18,
 		fontWeight: 'bold',
-		color: '#222',
+        color: dyColorCodes.text,
+        paddingVertical: 10,
+        top: 10,
     },
 });

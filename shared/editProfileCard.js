@@ -1,24 +1,29 @@
 import React from 'react';
-import {StyleSheet, Text, TextInput, View} from 'react-native';
-import {Ionicons} from '@expo/vector-icons';
-import {colorCodes} from '../styles/global'
+import { View, Text, TextInput, } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
+import { dyColorCodes } from '../styles/global'
+import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
-export default function EditProfileCard({icon, title, placeholder}) {
+export default function EditProfileCard({ icon, title, placeholder }) {
+
+    const dyStyles = useDynamicValue(styles);
+
     return (
-        <View style={styles.container}>
+        <View style={dyStyles.container}>
 
 
-            <View style={styles.containerIcon}>
-                <Ionicons name={icon} size={24} color={colorCodes.text} />
+            <View style={dyStyles.containerIcon}>
+                <Ionicons name={icon} size={24} color={useDynamicValue(dyColorCodes.text)} />
             </View>
-            <View style={styles.containerText}>
-                <Text style={styles.text}>
+            <View style={dyStyles.containerText}>
+                <Text style={dyStyles.text}>
                     {title}
                 </Text>
             </View>
-            <View style={styles.containerSelection}>
+            <View style={dyStyles.containerSelection}>
                 <TextInput
-                    style={{textAlign: "right", paddingRight: 17, color: colorCodes.selected}}
+                    style={dyStyles.textInput}
+                    placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder={placeholder}
                 />
 
@@ -29,7 +34,7 @@ export default function EditProfileCard({icon, title, placeholder}) {
     );
 };
 
-const styles = StyleSheet.create({
+const styles = new DynamicStyleSheet({
     block: {
         flexDirection: 'row',
         flexBasis: '100%',
@@ -51,6 +56,11 @@ const styles = StyleSheet.create({
         paddingVertical: 3,
     },
     text: {
-        color: colorCodes.text,
-    }
+        color: dyColorCodes.text,
+    },
+    textInput: {
+        textAlign: "right",
+        paddingRight: 17,
+        color: dyColorCodes.selected,
+    },
 });

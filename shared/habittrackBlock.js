@@ -1,6 +1,8 @@
 import { TextareaAutosize } from '@material-ui/core';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
+import { DynamicValue, DynamicStyleSheet } from 'react-native-dynamic';
+import { dyColorCodes } from '../styles/global'
 
 let data;
 let streak = 0;
@@ -15,7 +17,14 @@ export default class HabittrackBlock extends Component {
         data = props.data;
         this.state = {
             lastSelect: '',
+            theme: props.theme,
         };
+    }
+
+    static getDerivedStateFromProps(nextProps) {
+        return {
+            theme: nextProps.theme
+        }
     }
 
     //This function is called when a user taps on one of the days
@@ -26,6 +35,7 @@ export default class HabittrackBlock extends Component {
 
     //renderRow renders each row for the selection
     renderRow = (item) => {
+        const dyStyles = styles[this.state.theme];
         const isSelected = item.select; //checks if the rendering item is selected
         console.log(`Rendered item - ${item.day} for ${isSelected} ${streak}`); //logs what is selected
         if (isSelected == true) {
@@ -36,12 +46,13 @@ export default class HabittrackBlock extends Component {
         }
         console.log(`Highest Streak- ${hstreak}`);
         //change background color depending on whether the day is selected or not
-        const bgColor = item.select ? {backgroundColor: "#ffd699" } : {backgroundColor: "#D3D3D3"};
+        const bgColor = item.select ? {backgroundColor: selectedBlock[this.state.theme] } 
+            : {backgroundColor: unselectedBlock[this.state.theme]};
 
         return (
             <TouchableOpacity onPress={() => this.onPressAction(item)}>
-                <View style={[bgColor, styles.cell]}>
-                    <Text style={styles.text}>{item.day}</Text>
+                <View style={[bgColor, dyStyles.cell]}>
+                    <Text style={dyStyles.text}>{item.day}</Text>
                 </View>
             </TouchableOpacity>                
         );
@@ -59,17 +70,22 @@ export default class HabittrackBlock extends Component {
                     keyExtractor={(item, index) => index.toString()}
                     horizontal={false}
                     numColumns= {7}
-                    columnWrapperStyle={{ marginTop: 10 }}
+                    columnWrapperStyle={{ marginTop: 10}}
                     width= {'100%'}
                 />
-                <Text>My Streak: {hstreak}</Text>
+                <Text style={{top: -20, color: dyColorCodes.text[this.state.theme]}}>
+                    My Streak: {hstreak}
+                </Text>
 
             </SafeAreaView>
         );
     }
 }
 
-const styles = StyleSheet.create({
+const unselectedBlock = new DynamicValue('#D3D3D3', '#535353')
+const selectedBlock = new DynamicValue('#ffd699', '#cc7a00')
+
+const styles = new DynamicStyleSheet({
     cell: {
         height: 40, 
         width: 40, 
@@ -85,7 +101,7 @@ const styles = StyleSheet.create({
     },
     text:{
         fontSize: 15,
-        color: '#333',
+        color: dyColorCodes.text,
     },
 }); 
 
