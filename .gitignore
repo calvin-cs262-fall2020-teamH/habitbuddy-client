@@ -1,7 +1,5 @@
 node_modules/**/*
 # assets/images/*
-.expo/*
-.expo-shared/*
 .vscode/*
 npm-debug.*
 *.jks
