@@ -231,6 +231,14 @@ export const dynamicStyles = new DynamicStyleSheet({
 		backgroundColor: dyColorCodes.back,
 		alignItems: 'center',
 	},
+	pickerContainer: {
+		height: 50,
+		width: 265,
+		paddingBottom: 1, 
+		borderBottomWidth: 1,
+		borderColor: '#777',
+		justifyContent: 'space-around',
+	}
 });
 
 export const globalStyles = StyleSheet.create({
@@ -297,7 +305,7 @@ export const globalStyles = StyleSheet.create({
 	loginButtonText: {
 		fontWeight: 'bold',
 		color: colorCodes.cardText,
-		fontSize:18,
+		fontSize: 18,
 		justifyContent: 'center',
 	},
 	aboutScrollView: {
@@ -362,7 +370,7 @@ export const globalStyles = StyleSheet.create({
 	},
 	passwordIcon: {
 		textAlign: 'right',
-		padding: 10,
+		paddingBottom: 10,
 	},
 	profileInfo: {
 		flexDirection: 'column',
@@ -412,7 +420,6 @@ export const globalStyles = StyleSheet.create({
 		justifyContent: 'center',
 	},
 	loginContainer: {
-		flex: 0.9,
 		backgroundColor: colorCodes.back,
 		alignItems: 'center',
 		justifyContent: 'center', 
@@ -421,7 +428,7 @@ export const globalStyles = StyleSheet.create({
 	loginText: {
 		paddingTop: 30,
 		paddingBottom: 20,
-		fontSize: 18,
+		fontSize: 16,
 		color: colorCodes.text,
 	},
 	loginButtonContainer: {
@@ -449,11 +456,13 @@ export const globalStyles = StyleSheet.create({
 		alignItems: 'center',
 	},
 	picker: {
+		fontSize: 16,
 		color: colorCodes.text,
 		height: 30,
 		width: 250,
 		padding: 8,
-		borderBottomWidth: 1,
+		borderWidth: 1,
 		borderColor: '#777',
+		alignContent: 'flex-end', 
 	}
 });

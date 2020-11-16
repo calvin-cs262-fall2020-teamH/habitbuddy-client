@@ -3,9 +3,9 @@ import { View, Text} from 'react-native';
 import { DynamicStyleSheet, useDynamicValue, useColorSchemeContext} from 'react-native-dynamic';
 import { dyColorCodes } from '../styles/global';
 
-import HabittrackBlock from '../shared/habittrackBlock';
+import HabitTrackBlock from '../shared/habitTrackBlock';
 
-export default function Habittrack({ navigation }) {
+export default function HabitTrack({ navigation }) {
 
     const dyStyles = useDynamicValue(styles);
     const mode = useColorSchemeContext();
@@ -18,7 +18,7 @@ export default function Habittrack({ navigation }) {
     return (
         <View style={dyStyles.container}>
             <Text style={dyStyles.titleText}>Track My Habit</Text>
-            <HabittrackBlock
+            <HabitTrackBlock
                 ref = {habitblockElement}
                 data={[
                     {day:'1',select:false,key:'1'}, 
@@ -52,7 +52,7 @@ export default function Habittrack({ navigation }) {
                     {day:'29',select:false,key:'29'},
                     {day:'30',select:false,key:'30'},]}
                 theme = {mode}
-            ></HabittrackBlock>
+            ></HabitTrackBlock>
         </View>
     );
 }
