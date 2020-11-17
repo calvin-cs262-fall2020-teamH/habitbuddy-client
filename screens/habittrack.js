@@ -8,7 +8,7 @@ export default function Habittrack({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.titleText}>Track My Habit</Text>
+            <Text style={[styles.titleText,{paddingTop:10}]}>Track My Habit</Text>
             <HabittrackBlock
                 data={[
                     {day:'1',select:false,key:'1'}, 
@@ -40,7 +40,17 @@ export default function Habittrack({ navigation }) {
                     {day:'27',select:false,key:'27'},
                     {day:'28',select:false,key:'28'},
                     {day:'29',select:false,key:'29'},
-                    {day:'30',select:false,key:'30'},]}
+                    {day:'30',select:false,key:'30'},
+                    {day:'31',select:false,key:'31'},
+                    {day:'32',select:false,key:'32'},
+                    {day:'33',select:false,key:'33'},
+                    {day:'34',select:false,key:'34'},
+                    {day:'35',select:false,key:'35'},
+                    {day:'36',select:false,key:'36'},
+                    {day:'37',select:false,key:'37'},
+                    {day:'38',select:false,key:'38'},
+                    {day:'39',select:false,key:'39'},
+                    {day:'40',select:false,key:'40'},]}
             ></HabittrackBlock>
 
         </View>

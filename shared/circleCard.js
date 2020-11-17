@@ -13,7 +13,7 @@ export default function Circle(props) {
 
 const styles = StyleSheet.create ({
     card: {
-        borderRadius: 75,
+        borderRadius: 500,
         elevation: 3,
         backgroundColor: '#ffd699',                 //#ffd699 is a light orange color
         shadowOffset: {width: 1, height: 1},

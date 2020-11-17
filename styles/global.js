@@ -85,6 +85,18 @@ export const globalStyles = StyleSheet.create({
 	aboutScrollView: {
 		padding: 20,
 	},
+	/*HabitTrack----------------------------------------------------*/
+	buddiesStreakNameText: {
+		fontSize: 14,
+		justifyContent: 'center',
+		textAlign:'left',
+		color: colorCodes.text,
+	},
+	streak:{
+		textAlign:'right',
+		justifyContent:'center',
+		alignContent:'center'
+	},
 	/*Profile page--------------------------------------------------*/
 	wholePage: {
 		flex: 1
