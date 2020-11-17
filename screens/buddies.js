@@ -29,18 +29,6 @@ export default function Buddies({ navigation }) {
 
     ]);
 
-    // return (                                                                                                //WILL NOT WORK UNTIL THE BACKEND IS UP 
-    //     <View style={globalStyles.buddyDisplayContainer}>
-    //         <FlatList data={buddies} renderItem={({ item }) => (                                            // To test the backend integration once done, replace the data={buddies} with data={data}
-    //             <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>                
-    //                 {/* Allows for traversal into the buddy details page */}
-    //                 <Card>  
-    //                     <Image source = {{uri: item.profileURL}} style = {{width: 50, height: 50, position: 'absolute', borderRadius: 6,}}/> 
-
-    //                     {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
-
-    //                     <Text style={globalStyles.buddyCardTitle}>{ item.firstName }{ item.lastName }</Text>
-    //                     <Text style={globalStyles.buddyCardText}>{ item.habitGoal }</Text>
     const dyStyles = useDynamicValue(dynamicStyles);
 
     return (
