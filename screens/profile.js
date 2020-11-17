@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, Image, FlatList } from 'react-native';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dyColorCodes, dynamicStyles } from '../styles/global';
 import ProfileCard from "../shared/profileCard";
@@ -11,6 +11,17 @@ import { ScrollView } from 'react-native-gesture-handler';
 export default function Profile({ navigation }) {
 
     const dyStyles = useDynamicValue(dynamicStyles);
+
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('https://habit-buddy.herokuapp.com/user/1')                                           // Web service will be entered once we have it fully available.
+          .then((response) => response.json())
+          .then((json) => setData(json))
+          .catch((error) => console.error(error))
+          .finally(() => setLoading(false));
+      }, []);
 
     /*Initialization the profile page with the user information*/
     let [profilePage, setProfilePage] = useState(
@@ -28,6 +39,7 @@ export default function Profile({ navigation }) {
     return (
         <ScrollView style={{height: '100%', backgroundColor: useDynamicValue(dyColorCodes.back)}}>
             <View style={dyStyles.wholePage}>
+            
                 <View style={dyStyles.profContainer}>
                     <View style={dyStyles.profilePic}>
                         <Image source={require('../assets/images/george.jpg')} style={{ width: 110, height: 110, position: 'absolute' }} />
@@ -37,14 +49,17 @@ export default function Profile({ navigation }) {
                         <Text style={dyStyles.userName}>{profilePage.name}</Text>
                     </View>
                 </View>
-                <View style={dyStyles.userInfo}>
-                    <ProfileCard title="Category" userInfo={profilePage.category}></ProfileCard>
-                    <ProfileCard title="Habit Goal" userInfo={profilePage.goal}></ProfileCard>
-                    <ProfileCard title="Hobby" userInfo={profilePage.hobby}></ProfileCard>
-                    <ProfileCard title="Email" userInfo={profilePage.email}></ProfileCard>
-                    <ProfileCard title="Phone Number" userInfo={profilePage.number}></ProfileCard>
 
+            <FlatList data={data} renderItem={({ item }) => (
+                <View style={dyStyles.userInfo}>
+                    <ProfileCard title="Category" userInfo={item.category}></ProfileCard>
+                    <ProfileCard title="Habit Goal" userInfo={item.habitgoal}></ProfileCard>
+                    <ProfileCard title="Hobby" userInfo={item.hobby}></ProfileCard>
+                    <ProfileCard title="Email" userInfo={item.emailaddress}></ProfileCard>
+                    <ProfileCard title="Phone Number" userInfo={item.phone}></ProfileCard>
                 </View>
+            )}/>
+
             </View>
         </ScrollView>
     );
