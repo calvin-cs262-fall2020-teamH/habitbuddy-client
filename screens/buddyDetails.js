@@ -10,44 +10,25 @@ import ProfileLinkingCard from "../shared/profileLinkingCard";
 /* Profile outputs the content of the Profile page */
 export default function Profile({route, navigation}) {
     /*Initialization the profile page with the user information*/
-<<<<<<< HEAD
-    let [profilePage, setProfilePage] = useState(                               //THIS WILL NOT WORK UNTIL THE BACKEND IS UP AND RUNNING.
-        {name: route.params.firstName + route.params.lastName,
-=======
     let [profilePage, setProfilePage] = useState(
-        {
-            name: route.params.name,
->>>>>>> master
+        {name: route.params.firstname + " " + route.params.lastname,
             category: route.params.category,
-            goal: route.params.habitGoal,
+            goal: route.params.habitgoal,
             hobby: route.params.hobby,
-            email: route.params.email,
-<<<<<<< HEAD
+            email: route.params.emailaddress,
             number: route.params.phone,
-            pic: route.params.profileURL, 
+            pic: route.params.profileurl, 
             key: '1'},
-=======
-            number: route.params.number,
-            pic: route.params.pic, key: '1'
-        },
->>>>>>> master
     );
 
     const dyStyles = useDynamicValue(dynamicStyles);
 
     return (
-<<<<<<< HEAD
-        <View style={globalStyles.wholePage}>
-            <View style={globalStyles.profContainer}>
-                <View style={globalStyles.profilePic}>
-                    <Image source = {{uri: profilePage.pic}} style = {{width: 110, height: 110, position: 'absolute'}}/>
-=======
         <View style={dyStyles.wholePage}>
             <View style={dyStyles.profContainer}>
                 <View style={dyStyles.profilePic}>
                 <Image source = {{uri: profilePage.pic}} 
                     style = {{width: 110, height: 110, position: 'absolute'}}/>
->>>>>>> master
                 </View>
 
                 <View style={dyStyles.userNamePlacement}>

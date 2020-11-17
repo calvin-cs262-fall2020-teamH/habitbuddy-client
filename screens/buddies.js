@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles } from '../styles/global';
@@ -7,20 +7,16 @@ import Card from '../shared/card';
 // Written by Andrew Baker
 
 export default function Buddies({ navigation }) {
-<<<<<<< HEAD
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        fetch('')                                           // Web service will be entered once we have it fully available.
+        fetch('https://habit-buddy.herokuapp.com/buddies/1')                                           // Web service will be entered once we have it fully available.
           .then((response) => response.json())
           .then((json) => setData(json))
           .catch((error) => console.error(error))
           .finally(() => setLoading(false));
       }, []);
-=======
-    const [buddies, setBuddies] = useState([
->>>>>>> master
 
     const [buddies, setReviews] = useState([
         // Basic static user data, used until backend is developed.
@@ -33,35 +29,32 @@ export default function Buddies({ navigation }) {
 
     ]);
 
-<<<<<<< HEAD
-    return (                                                                                                //WILL NOT WORK UNTIL THE BACKEND IS UP 
-        <View style={globalStyles.buddyDisplayContainer}>
-            <FlatList data={buddies} renderItem={({ item }) => (                                            // To test the backend integration once done, replace the data={buddies} with data={data}
-                <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>                
-                    {/* Allows for traversal into the buddy details page */}
-                    <Card>  
-                        <Image source = {{uri: item.profileURL}} style = {{width: 50, height: 50, position: 'absolute', borderRadius: 6,}}/> 
+    // return (                                                                                                //WILL NOT WORK UNTIL THE BACKEND IS UP 
+    //     <View style={globalStyles.buddyDisplayContainer}>
+    //         <FlatList data={buddies} renderItem={({ item }) => (                                            // To test the backend integration once done, replace the data={buddies} with data={data}
+    //             <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>                
+    //                 {/* Allows for traversal into the buddy details page */}
+    //                 <Card>  
+    //                     <Image source = {{uri: item.profileURL}} style = {{width: 50, height: 50, position: 'absolute', borderRadius: 6,}}/> 
 
-                        {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
+    //                     {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
 
-                        <Text style={globalStyles.buddyCardTitle}>{ item.firstName }{ item.lastName }</Text>
-                        <Text style={globalStyles.buddyCardText}>{ item.habitGoal }</Text>
-=======
+    //                     <Text style={globalStyles.buddyCardTitle}>{ item.firstName }{ item.lastName }</Text>
+    //                     <Text style={globalStyles.buddyCardText}>{ item.habitGoal }</Text>
     const dyStyles = useDynamicValue(dynamicStyles);
 
     return (
         <View style={dyStyles.buddyDisplayContainer}>
-            <FlatList data={buddies} renderItem={({ item }) => (
+            <FlatList data={data} renderItem={({ item }) => (
                 <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>
                     {/* Allows for traversal into the buddy details page */}
                     <Card style={{height: 100, marginHorizontal: 20}}>  
                         {/* uri allows the app to search the url for the image needed. Width and height information are necessary for the pictures to function. Will not work without. */}
-                        <Image source = {{uri: item.pic}} style = {{width: 60, height: 60, position: 'absolute', borderRadius: 6, marginLeft: -5, top: 0}}/> 
+                        <Image source = {{uri: item.profileurl}} style = {{width: 60, height: 60, position: 'absolute', borderRadius: 6, marginLeft: -5, top: 0}}/> 
 
                         {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
-                        <Text style={dyStyles.buddyCardTitle}>{ item.name }</Text>
-                        <Text style={dyStyles.buddyCardText}>{ item.goal }</Text>
->>>>>>> master
+                        <Text style={dyStyles.buddyCardTitle}>{ item.firstname } { item.lastname }</Text>
+                        <Text style={dyStyles.buddyCardText}>{ item.habitgoal }</Text>
                     </Card>
                 </TouchableOpacity>
             )}/>
