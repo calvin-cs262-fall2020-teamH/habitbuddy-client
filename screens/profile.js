@@ -42,24 +42,20 @@ export default function Profile({ navigation }) {
             
                 <View style={dyStyles.profContainer}>
                     <View style={dyStyles.profilePic}>
-                        <Image source={require('../assets/images/george.jpg')} style={{ width: 110, height: 110, position: 'absolute' }} />
+                        <Image source={{uri: data.profileurl}} style={{ width: 110, height: 110, position: 'absolute' }} />
                     </View>
 
                     <View style={dyStyles.userNamePlacement}>
-                        <Text style={dyStyles.userName}>{profilePage.name}</Text>
+                        <Text style={dyStyles.userName}>{data.firstname} {data.lastname}</Text>
                     </View>
                 </View>
-
-            <FlatList data={data} renderItem={({ item }) => (
                 <View style={dyStyles.userInfo}>
-                    <ProfileCard title="Category" userInfo={item.category}></ProfileCard>
-                    <ProfileCard title="Habit Goal" userInfo={item.habitgoal}></ProfileCard>
-                    <ProfileCard title="Hobby" userInfo={item.hobby}></ProfileCard>
-                    <ProfileCard title="Email" userInfo={item.emailaddress}></ProfileCard>
-                    <ProfileCard title="Phone Number" userInfo={item.phone}></ProfileCard>
+                    <ProfileCard title="Category" userInfo={data.category}></ProfileCard>
+                    <ProfileCard title="Habit Goal" userInfo={data.habitgoal}></ProfileCard>
+                    <ProfileCard title="Hobby" userInfo={data.hobby}></ProfileCard>
+                    <ProfileCard title="Email" userInfo={data.emailaddress}></ProfileCard>
+                    <ProfileCard title="Phone Number" userInfo={data.phone}></ProfileCard>
                 </View>
-            )}/>
-
             </View>
         </ScrollView>
     );
