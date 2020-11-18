@@ -65,7 +65,6 @@ export default () => {
 
     function updateUser() {
         setUser({});
-        console.log('test');
         //React.useEffect(() => { setUser({}) });
     }
 
@@ -83,7 +82,7 @@ export default () => {
                     <TabScreen updateTheme={updateTheme}/>
                 </ColorSchemeProvider>
             ) : (
-                    <ColorSchemeProvider mode='light'>
+                    <ColorSchemeProvider>
                         <AuthStackScreen update={updateUser} />
                     </ColorSchemeProvider>
                 )}

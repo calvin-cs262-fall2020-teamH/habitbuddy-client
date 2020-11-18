@@ -29,7 +29,7 @@ export default function EditProfile({ navigation }) {
             goal: 'I want to attend chapel twice a week',
             email: 'email@gmail.com',
             number: 1234567890,
-            pic: '../assets/images/george.jpg', key: '1'
+            pic: '../assets/images/george.jpg'
         }
     );
 

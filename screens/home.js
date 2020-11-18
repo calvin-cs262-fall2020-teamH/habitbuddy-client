@@ -6,6 +6,7 @@ import {globalStyles, colorCodes} from '../styles/global';
 import Card from '../shared/card';
 import Circle from '../shared/circleCard';
 import { MaterialIcons } from '@expo/vector-icons';
+import CommonDataManager from '../data/CommonDataManager';
 
 // Written by Andrew Baker
 // Date 10.8.20
@@ -25,6 +26,10 @@ export default function Home({ navigation }) {
 
     let hour = new Date().getHours();
     let greeting = "";
+
+    let commonData = CommonDataManager.getInstance();
+    let userId = commonData.getUserID();
+    console.log(userId);
 
     // Used to discern the time and pick an appropriate greeting. WORKS!
 

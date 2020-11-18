@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useDynamicValue } from 'react-native-dynamic';
 import { Input } from 'react-native-elements';
 import { MaterialIcons } from '@expo/vector-icons';
 import { dynamicStyles, dyColorCodes } from '../styles/global';
+import CommonDataManager from '../data/CommonDataManager';
 
 /* Login lets you log into app and access your profile 
 * Written by Kelsey Yen
@@ -14,9 +15,33 @@ export default function Login({ navigation, route }) {
 
     const [username, setUsername] = useState('Username');
     const [password, setPassword] = useState('Password');   
-    // const [showPassword, setShowPassword] = password;
+    const [showPassword, setShowPassword] = useState(true);
+    //const [isLoading, setLoading] = useState(true);
 
     const dyStyles = useDynamicValue(dynamicStyles);
+
+    let commonData = CommonDataManager.getInstance();
+    //commonData.setUserID("User1");
+
+    function testLogin() {
+        fetch('https://habit-buddy.herokuapp.com/login/' + username + '/' + password)                                           // Web service will be entered once we have it fully available.
+            .then((response) => response.text())
+            .then((responseText) => {
+                if(responseText[0] !== 'N') {
+                    commonData.setUserID(JSON.parse(responseText).id);
+                    updateData();
+                }
+                else {
+                    
+                }
+            })
+            .catch((error) => console.error(error))
+            //.finally(() => setLoading(false));
+
+        console.log(commonData.getUserID());
+
+        //if(commonData.getUserID()) updateData();
+    }
 
     return (
         <TouchableWithoutFeedback onPress={() => {
@@ -36,15 +61,15 @@ export default function Login({ navigation, route }) {
                         containerStyle={{width: '75%'}}
                         style={dyStyles.input}
                         placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
-                        secureTextEntry={true}
+                        secureTextEntry={showPassword}
                         placeholder='Password'
                         onChangeText={(val) => setPassword(val)} 
                         rightIcon={
                             <MaterialIcons name='remove-red-eye' size={27} color='#333' style={dyStyles.passwordIcon}
-                            onPress={() => this.setState( {hidden: !this.state.hidden}) }/>}
+                            onPress={() => setShowPassword(!showPassword) }/>}
                         />
                     {/* </View> */}
-                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => updateData()}>
+                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => testLogin()}>
                     <Text style={dyStyles.loginButtonText}>Login</Text>
                 </TouchableOpacity>
                 <Text style={dyStyles.loginText}>Don't have an account?</Text>
