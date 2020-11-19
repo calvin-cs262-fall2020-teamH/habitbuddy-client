@@ -61,6 +61,7 @@ export default function Login({ navigation, route }) {
                         placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                         placeholder='Username or Email'
                         onChangeText={(val) => setUsername(val)}
+                        autoCapitalize = 'none'
                         />
                     <Input
                         containerStyle={{width: '75%'}}
@@ -68,7 +69,8 @@ export default function Login({ navigation, route }) {
                         placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                         secureTextEntry={showPassword}
                         placeholder='Password'
-                        onChangeText={(val) => setPassword(val)} 
+                        onChangeText={(val) => setPassword(val)}
+                        autoCapitalize = 'none'
                         rightIcon={
                             <MaterialIcons name='remove-red-eye' size={27} color='#333' style={dyStyles.passwordIcon}
                             onPress={() => setShowPassword(!showPassword) }/>}

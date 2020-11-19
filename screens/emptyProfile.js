@@ -48,13 +48,15 @@ export default function EmptyProfile({navigation}) {
                         style={dyStyles.input}
                         placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                         placeholder='Username'
-                        onChangeText={(val) => setUsername(val)} />
+                        onChangeText={(val) => setUsername(val)} 
+                        autoCapitalize = 'none' />
                     <Input
                         containerStyle={{width: '75%'}}
                         style={dyStyles.input}
                         placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                         placeholder='Email'
-                        onChangeText={(val) => setEmail(val)} />
+                        onChangeText={(val) => setEmail(val)} 
+                        autoCapitalize = 'none' />
                     <Input
                         containerStyle={{width: '75%'}}
                         style={dyStyles.input}
@@ -64,7 +66,8 @@ export default function EmptyProfile({navigation}) {
                             <MaterialIcons name='remove-red-eye' size={27} color='#333' style={dyStyles.leftIcon}
                             onPress={() => setPasswordText(password)}/>}
                         placeholder='Password'
-                        onChangeText={(val) => setPassword(val)} />
+                        onChangeText={(val) => setPassword(val)} 
+                        autoCapitalize = 'none' />
                     <Input
                         containerStyle={{width: '75%'}}
                         style={dyStyles.input}
@@ -74,7 +77,8 @@ export default function EmptyProfile({navigation}) {
                             <MaterialIcons name='remove-red-eye' size={27} color='#333' style={dyStyles.leftIcon}
                             onPress={(val) => setPasswordText(val)} />}
                         placeholder='Confirm Password'
-                        onChangeText={(val) => setConfirmPassword(val)} />
+                        onChangeText={(val) => setConfirmPassword(val)} 
+                        autoCapitalize = 'none' />
                     <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => navigation.navigate('EmptyHabits')}>
                         <Text style={dyStyles.loginButtonText}>Next</Text>
                     </TouchableOpacity>  
