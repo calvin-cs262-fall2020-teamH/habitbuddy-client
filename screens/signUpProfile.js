@@ -17,12 +17,10 @@ export default function SignUpProfile({ navigation }) {
     const [lastName, setLastName] = useState('LastName');
     const [username, setUsername] = useState('Username');
     const [email, setEmail] = useState('Email');
+    const [phoneNumber, setPhoneNumber] = useState('PhoneNumber')
     const [password, setPassword] = useState('Password');
 
     const dyStyles = useDynamicValue(dynamicStyles);
-
-    const [passwordText, setPasswordText] = useState('PasswordText');
-    const [confirmPassword, setConfirmPassword] = useState('ConfirmPassword');
 
     return (
         <TouchableWithoutFeedback onPress={() => {
@@ -54,7 +52,12 @@ export default function SignUpProfile({ navigation }) {
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                         placeholder='Email'
                         onChangeText={(val) => setEmail(val)} />
-                        
+                    <Input
+                        containerStyle={{ width: '70%' }}
+                        placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
+                        placeholder='Phone Number'
+                        keyboardType='number-pad'
+                        onChangeText={(val) => setEmail(val)} />
                     <PasswordInput
                         placeholder='Password'
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
