@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { Input } from 'react-native-elements';
 import RNPickerSelect from 'react-native-picker-select';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles, dyColorCodes } from '../styles/global';
 
-/* emptyHabits lets you choose your habits for the first time 
+/* signUpHabits lets you choose your habit and write a habit goal 
 *  Written by Kelsey Yen
 */
 
@@ -21,21 +21,17 @@ export default function SignUpHabit({ navigation, route }) {
             Keyboard.dismiss();
             console.log('dismissed keyboard')
         }}>
-            <View style={dyStyles.emptyHabitContainer}>
+            <View style={dyStyles.signUpHabitContainer}>
                 <Text style={dyStyles.loginText}>Choose your habit category</Text>
                 <View style={dyStyles.pickerContainer}>
                     <RNPickerSelect
-                    placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
-                    style={{
+                        placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
+                        style={{
                             inputIOS: {
                                 fontSize: 18,
-                                color: '#777',
-                                // placeholderTextColor: '#777',
                             },
                             inputAndroid: {
                                 fontSize: 18,
-                                color: '#777',
-                                // placeholderTextColor: '#777',
                             }
                         }}
                         onValueChange={(val) => console.log(val)}
@@ -50,7 +46,7 @@ export default function SignUpHabit({ navigation, route }) {
                 </View>
                 <Text style={dyStyles.loginText}>Write a personal goal</Text>
                 <Input
-                    containerStyle={{ width: '75%' }}
+                    containerStyle={{ width: '70%' }}
                     placeholder='i.e. walk for 20 minutes'
                     placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                     onChangeText={(val) => setPersonalGoal(val)}

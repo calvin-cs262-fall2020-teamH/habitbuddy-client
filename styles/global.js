@@ -62,9 +62,10 @@ export const dynamicStyles = new DynamicStyleSheet({
 	},
 	input: {
 		borderColor: '#777',
+		borderBottomWidth: 1,
 		padding: 8,
 		margin: 10,
-		width: 200,
+		width: 250,
 		color: dyColorCodes.text,
 	},
 	buddyCardTitle: {
@@ -226,15 +227,14 @@ export const dynamicStyles = new DynamicStyleSheet({
 		justifyContent: 'center',
 		alignItems: 'center'
 	},
-	emptyHabitContainer: {
+	signUpHabitContainer: {
 		flex: 1,
 		backgroundColor: dyColorCodes.back,
 		alignItems: 'center',
 	},
 	pickerContainer: {
-		height: 50,
-		width: 265,
-		paddingBottom: 1, 
+		height: 40,
+		width: 245,
 		borderBottomWidth: 1,
 		borderColor: '#777',
 		justifyContent: 'space-around',
@@ -369,8 +369,9 @@ export const globalStyles = StyleSheet.create({
 		paddingRight: 15,
 	},
 	passwordIcon: {
-		textAlign: 'right',
-		paddingBottom: 10,
+		// textAlign: 'right',
+		// paddingRight: 20,
+		// paddingBottom: 10,
 	},
 	profileInfo: {
 		flexDirection: 'column',
