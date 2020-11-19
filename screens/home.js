@@ -28,8 +28,6 @@ export default function Home({ navigation }) {
     let greeting = "";
 
     let commonData = CommonDataManager.getInstance();
-    let userId = commonData.getUserID();
-    console.log(userId);
 
     // Used to discern the time and pick an appropriate greeting. WORKS!
 
@@ -73,7 +71,7 @@ export default function Home({ navigation }) {
                         <View style={styles.corners}>
                             <Card>
                                 <View style={{alignItems:'center'}}>
-                                    <Text style={{justifyContent:'center'}}>Habit Stacking <MaterialIcons name="info-outline" size={20} color='#333' style={globalStyles.leftIcon}
+                                    <Text style={{justifyContent:'center', marginHorizontal: -5,}}>Habit Stacking <MaterialIcons name="info-outline" size={20} color='#333' style={globalStyles.leftIcon}
                         /></Text> 
                                     
                                 </View>

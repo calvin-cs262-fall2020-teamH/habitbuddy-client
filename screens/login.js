@@ -29,7 +29,7 @@ export default function Login({ navigation, route }) {
             .then((responseText) => {
                 if(responseText[0] !== 'N') {
                     commonData.setUserID(JSON.parse(responseText).id);
-                    updateData();
+                    updateData({});
                 }
                 else {
                     
@@ -38,10 +38,15 @@ export default function Login({ navigation, route }) {
             .catch((error) => console.error(error))
             //.finally(() => setLoading(false));
 
-        console.log(commonData.getUserID());
-
-        //if(commonData.getUserID()) updateData();
+        //console.log(commonData.getUserID());
     }
+
+    useEffect(()=>{
+        if(commonData.getUserID()) {
+            updateData({});
+        }
+    }, [])
+    
 
     return (
         <TouchableWithoutFeedback onPress={() => {

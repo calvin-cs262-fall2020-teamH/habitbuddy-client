@@ -43,7 +43,7 @@ export default function EmptyHabits({ navigation, route }) {
                     placeholderTextColor= { useDynamicValue(dyColorCodes.lightText) }
                     onChangeText={(val) => setPersonalGoal(val)}
                 />
-                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => updateData()}>
+                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => updateData({})}>
                     <Text style={dyStyles.loginButtonText}>Finish</Text>
                 </TouchableOpacity>    
             </View>
