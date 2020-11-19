@@ -51,7 +51,7 @@ export default function EditProfile({ navigation }) {
                         <EditProfileCard title = "Habit Goal" placeholder = "Enter new habit goal"></EditProfileCard>
                         <EditProfileCard title = "Hobby" placeholder = "Enter new hobby"></EditProfileCard>
                         <EditProfileCard title = "Email" placeholder = "Enter new email"></EditProfileCard>
-                        <EditProfileCard title = "Phone Number" placeholder = "Enter new phone number"></EditProfileCard>
+                        <EditProfileCard title = "Phone Number" placeholder = "Enter new phone number" keyboardType='number-pad'></EditProfileCard>
                     </View>
                     <View style={dyStyles.buttonPlacement}>
                         <TouchableOpacity style={dyStyles.loginButtonContainer} 
