@@ -6,6 +6,7 @@ import {globalStyles, colorCodes} from '../styles/global';
 import Card from '../shared/card';
 import Circle from '../shared/circleCard';
 import { MaterialIcons } from '@expo/vector-icons';
+import CommonDataManager from '../data/CommonDataManager';
 
 // Written by Andrew Baker
 // Date 10.8.20
@@ -22,8 +23,10 @@ export default function Home({ navigation }) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
+    let commonData = CommonDataManager.getInstance();
+
     useEffect(() => {
-        fetch('https://habit-buddy.herokuapp.com/home/1') //Change this once we have local storage of a active user
+        fetch('https://habit-buddy.herokuapp.com/home/' + commonData.getUserID()) //Change this once we have local storage of a active user
             .then((response) => response.json())
             .then((json) => setData(json))
             .catch((error) => console.error(error))
@@ -34,34 +37,23 @@ export default function Home({ navigation }) {
     const [chabit, setChabit] = useState('Current Habit');
     const [nhabit, setNhabit] = useState('New Habit')
 
-    const [isLoading, setLoading] = useState(true);
-    const [data, setData] = useState([]);
-
-    useEffect(() => {
-        fetch('https://habit-buddy.herokuapp.com/home/1')                                           // Web service will be entered once we have it fully available.
-          .then((response) => response.json())
-          .then((json) => setData(json))
-          .catch((error) => console.error(error))
-          .finally(() => setLoading(false));
-      }, []);
-
     let hour = new Date().getHours();
     let greeting = "";
 
     // Used to discern the time and pick an appropriate greeting. WORKS!
 
     if (hour < 5) {
-        greeting = "Good Night, ";
+        greeting = "Good Night,\n";
     } else if (hour < 12) {
-        greeting = "Good Morning, ";
+        greeting = "Good Morning,\n";
     } else if (hour < 17) {
         greeting = "Good Afternoon,\n";
     } else if (hour < 20) {
-        greeting = "Good Evening, ";
+        greeting = "Good Evening,\n";
     } else if (hour < 23) {
-        greeting = "Good Night, ";
+        greeting = "Good Night,\n";
     } else {
-        greeting = "Hello, ";
+        greeting = "Hello,\n";
     }
     // My primary thoughts and design for the home screen. Several cards with a background. Possibly a couple of bars for greeting and other information. 
     return (
@@ -90,7 +82,7 @@ export default function Home({ navigation }) {
                         <View style={styles.corners}>
                             <Card>
                                 <View style={{alignItems:'center'}}>
-                                    <Text style={{justifyContent:'center'}}>Habit Stacking <MaterialIcons name="info-outline" size={20} color='#333' style={globalStyles.leftIcon}
+                                    <Text style={{justifyContent:'center', marginHorizontal: -5,}}>Habit Stacking <MaterialIcons name="info-outline" size={20} color='#333' style={globalStyles.leftIcon}
                         /></Text> 
                                     
                                 </View>

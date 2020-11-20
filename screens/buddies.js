@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles } from '../styles/global';
 import Card from '../shared/card';
+import CommonDataManager from '../data/CommonDataManager';
 
 // Written by Andrew Baker
 
@@ -10,8 +11,10 @@ export default function Buddies({ navigation }) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
+    let commonData = CommonDataManager.getInstance();
+
     useEffect(() => {
-        fetch('https://habit-buddy.herokuapp.com/buddies/1')                                           // Web service will be entered once we have it fully available.
+        fetch('https://habit-buddy.herokuapp.com/buddies/' + commonData.getUserID())                                           // Web service will be entered once we have it fully available.
           .then((response) => response.json())
           .then((json) => setData(json))
           .catch((error) => console.error(error))

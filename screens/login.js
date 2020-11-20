@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { useDynamicValue } from 'react-native-dynamic';
 import { Input } from 'react-native-elements';
 import { dynamicStyles, dyColorCodes } from '../styles/global';
+import CommonDataManager from '../data/CommonDataManager';
 import PasswordInput from '../shared/passwordInput';
 
 /*Login lets you log into app and access your profile 
@@ -17,6 +18,34 @@ export default function Login({ navigation, route }) {
 
     const dyStyles = useDynamicValue(dynamicStyles);
 
+    let commonData = CommonDataManager.getInstance();
+    //commonData.setUserID("User1");
+
+    function testLogin() {
+        fetch('https://habit-buddy.herokuapp.com/login/' + username + '/' + password)                                           // Web service will be entered once we have it fully available.
+            .then((response) => response.text())
+            .then((responseText) => {
+                if(responseText[0] !== 'N') {
+                    commonData.setUserID(JSON.parse(responseText).id);
+                    updateData({});
+                }
+                else {
+                    
+                }
+            })
+            .catch((error) => console.error(error))
+            //.finally(() => setLoading(false));
+
+        //console.log(commonData.getUserID());
+    }
+
+    useEffect(()=>{
+        if(commonData.getUserID()) {
+            updateData({});
+        }
+    }, [])
+    
+
     return (
         <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss();
@@ -28,14 +57,16 @@ export default function Login({ navigation, route }) {
                     placeholder='Username'
                     placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                     onChangeText={(val) => setUsername(val)}
+                    autoCapitalize = 'none'
                 />
                 <PasswordInput
                     placeholder='Password'
                     placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                     secure={true}
                     onChangeText={(val) => { setPassword(val); }}
+                    autoCapitalize = 'none'
                 />
-                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => updateData()}>
+                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => testLogin()}>
                     <Text style={dyStyles.loginButtonText}>Login</Text>
                 </TouchableOpacity>
                 <Text style={dyStyles.loginText}>Don't have an account?</Text>

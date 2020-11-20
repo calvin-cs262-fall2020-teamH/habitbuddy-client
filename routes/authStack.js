@@ -7,12 +7,9 @@ import TabScreen from './tab';
 import Login from '../screens/login';
 import SignUpProfile from '../screens/signUpProfile'
 import SignUpHabit from '../screens/signUpHabit'
+import CommonDataManager from '../data/CommonDataManager';
 
 const AuthStack = createStackNavigator();
-
-function test() {
-    console.log('test');
-}
 
 function AuthStackScreen({ update }) {
 
@@ -63,15 +60,17 @@ export default () => {
     //     }, 5000);
     //   }, []);
 
-    function updateUser() {
-        setUser({});
-        console.log('test');
+    function updateUser(val) {
+        setUser(val);
         //React.useEffect(() => { setUser({}) });
     }
 
     function updateTheme(themeVal) {
         setTheme(themeVal)
     }
+
+    let commonData = CommonDataManager.getInstance();
+    commonData.setUpdateUser(updateUser);
 
     return (
         <NavigationContainer>
@@ -80,10 +79,10 @@ export default () => {
       ) :  */}
             {user ? (
                 <ColorSchemeProvider mode={theme}>
-                    <TabScreen updateTheme={updateTheme}/>
+                    <TabScreen updateTheme={updateTheme} />
                 </ColorSchemeProvider>
             ) : (
-                    <ColorSchemeProvider mode='light'>
+                    <ColorSchemeProvider>
                         <AuthStackScreen update={updateUser} />
                     </ColorSchemeProvider>
                 )}

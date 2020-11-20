@@ -31,6 +31,7 @@ export default function ChangePassword({ navigation }) {
                     }}
                     returnKeyType={ "next" }
                     onChangeText={(val) => {}}
+                    autoCapitalize = 'none'
                     ref={ input => {
                         inputs['one'] = input;
                       }}
@@ -47,6 +48,7 @@ export default function ChangePassword({ navigation }) {
                     }}
                     returnKeyType={ "next" }
                     onChangeText={(val) => {}}
+                    autoCapitalize = 'none'
                     ref={ input => {
                         inputs['two'] = input;
                     }}
@@ -63,6 +65,7 @@ export default function ChangePassword({ navigation }) {
                     }}
                     returnKeyType={ "done" }
                     onChangeText={(val) => {}}
+                    autoCapitalize = 'none'
                     ref={ input => {
                         inputs['three'] = input;
                     }}

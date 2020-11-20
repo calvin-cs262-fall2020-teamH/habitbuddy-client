@@ -46,29 +46,34 @@ export default function SignUpProfile({ navigation }) {
                         containerStyle={{ width: '70%' }}
                         placeholder='Username'
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
-                        onChangeText={(val) => setUsername(val)} />
+                        onChangeText={(val) => setUsername(val)} 
+                        autoCapitalize = 'none' />
                     <Input
                         containerStyle={{ width: '70%' }}
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                         placeholder='Email'
-                        onChangeText={(val) => setEmail(val)} />
+                        onChangeText={(val) => setEmail(val)} 
+                        autoCapitalize = 'none' />
                     <Input
                         containerStyle={{ width: '70%' }}
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                         placeholder='Phone Number'
                         keyboardType='number-pad'
-                        onChangeText={(val) => setEmail(val)} />
+                        onChangeText={(val) => setEmail(val)} 
+                        autoCapitalize = 'none' />
                     <PasswordInput
                         placeholder='Password'
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                         secure={true}
                         onChangeText={(val) => { setPassword(val); }}
+                        autoCapitalize = 'none'
                     />
                     <PasswordInput
                         placeholder='Confirm Password'
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                         secure={true}
                         onChangeText={(val) => { setPassword(val); }}
+                        autoCapitalize = 'none'
                     />
                     <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => navigation.navigate('SignUpHabit')}>
                         <Text style={dyStyles.loginButtonText}>Next</Text>

@@ -16,8 +16,6 @@ const Tab = createBottomTabNavigator();
 
 export default function Tabs({ navigation, updateTheme }) {
 
-	console.log(updateTheme);
-
 	return (
 		<Tab.Navigator initialRouteName="Home"
 			screenOptions={({ route }) => ({
