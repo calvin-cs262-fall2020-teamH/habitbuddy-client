@@ -7,10 +7,20 @@ import ProfileLinkingCard from "../shared/profileLinkingCard";
 
 /*Created by Joe Pastucha/Dawson*/
 
-/* Profile outputs the content of the Profile page */
-export default function Profile({route, navigation}) {
+/* Profile outputs the content of the Buddy Details page */
+export default function BuddyDetails({route, navigation}) {
     /*Initialization the profile page with the user information*/
-
+  
+    let [profilePage, setProfilePage] = useState(
+        {name: route.params.firstname + " " + route.params.lastname,
+            category: route.params.category,
+            goal: route.params.habitgoal,
+            hobby: route.params.hobby,
+            email: route.params.emailaddress,
+            number: route.params.phone,
+            pic: route.params.profileurl, 
+            key: '1'},
+    );
 
     const dyStyles = useDynamicValue(dynamicStyles);
 
@@ -23,20 +33,20 @@ export default function Profile({route, navigation}) {
                 </View>
 
                 <View style={dyStyles.userNamePlacement}>
-                    <Text style={dyStyles.userName}>{ route.params.firstname } {route.params.lastname}</Text>
+                    <Text style={dyStyles.userName}>{ profilePage.name }</Text>
                 </View>
             </View>
             <View style={dyStyles.userInfo}>
-                <ProfileCard title = "Category" userInfo = {route.params.category}></ProfileCard>
-                <ProfileCard title = "Habit Goal" userInfo = {route.params.habitgoal}></ProfileCard>
-                <ProfileCard title = "Hobby" userInfo = {route.params.hobby}></ProfileCard>
+                <ProfileCard title = "Category" userInfo = {profilePage.category}></ProfileCard>
+                <ProfileCard title = "Habit Goal" userInfo = {profilePage.habitgoal}></ProfileCard>
+                <ProfileCard title = "Hobby" userInfo = {profilePage.hobby}></ProfileCard>
                 
                 <TouchableOpacity onPress={() => Linking.openURL('mailto:' + profilePage.email)}>
-                    <ProfileLinkingCard title="Email" userInfo={route.params.emailaddress}></ProfileLinkingCard>
+                    <ProfileLinkingCard title="Email" userInfo={ profilePage.emailaddress }></ProfileLinkingCard>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => Linking.openURL('sms:' + profilePage.number)}>
-                    <ProfileLinkingCard title="Phone Number" userInfo={route.params.phone}></ProfileLinkingCard>
+                    <ProfileLinkingCard title="Phone Number" userInfo={profilePage.phone}></ProfileLinkingCard>
                 </TouchableOpacity>
             </View>
         </View>
