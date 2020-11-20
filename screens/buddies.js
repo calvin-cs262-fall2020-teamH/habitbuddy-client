@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, FlatList, Image } from 'react-native';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles } from '../styles/global';
@@ -7,6 +7,18 @@ import Card from '../shared/card';
 // Written by Andrew Baker
 
 export default function Buddies({ navigation }) {
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('https://habit-buddy.herokuapp.com/buddies/1') //Change this once we have local storage of a active user
+            .then((response) => response.json())
+            .then((json) => setData(json))
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    }, []);
+
+
     const [buddies, setBuddies] = useState([
 
         // Basic static user data, used until backend is developed.
@@ -23,16 +35,28 @@ export default function Buddies({ navigation }) {
 
     return (
         <View style={dyStyles.buddyDisplayContainer}>
-            <FlatList data={buddies} renderItem={({ item }) => (
-                <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>
+            <FlatList data={data}
+                      keyExtractor={({ id }, index) => id}
+                      renderItem={({ item }) => (
+                <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails',
+                    {id: item.id,
+                    firstname: item.firstname,
+                    lastname: item.lastname,
+                    emailaddress: item.emailaddress,
+                    phone: item.phone,
+                    profileurl: item.profileurl,
+                    hobby: item.hobby,
+                    category: item.category,
+                    habitgoal: item.habitgoal}
+                    )}>
                     {/* Allows for traversal into the buddy details page */}
                     <Card style={{height: 100, marginHorizontal: 20}}>  
                         {/* uri allows the app to search the url for the image needed. Width and height information are necessary for the pictures to function. Will not work without. */}
-                        <Image source = {{uri: item.pic}} style = {{width: 60, height: 60, position: 'absolute', borderRadius: 6, marginLeft: -5, top: 0}}/> 
+                        <Image source = {{uri: item.profileurl}} style = {{width: 60, height: 60, position: 'absolute', borderRadius: 6, marginLeft: -5, top: 0}}/>
 
                         {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
-                        <Text style={dyStyles.buddyCardTitle}>{ item.name }</Text>
-                        <Text style={dyStyles.buddyCardText}>{ item.goal }</Text>
+                        <Text style={dyStyles.buddyCardTitle}>{ item.firstname } {item.lastname}</Text>
+                        <Text style={dyStyles.buddyCardText}>{ item.habitgoal }</Text>
                     </Card>
                 </TouchableOpacity>
             )}/>

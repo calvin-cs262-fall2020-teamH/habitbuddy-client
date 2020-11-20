@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard, 
     TextInput } from 'react-native';
@@ -19,6 +19,17 @@ import { MaterialIcons } from '@expo/vector-icons';
 const background = { uri: "https://calvin.edu/contentAsset/image/25cbc0c3-c2c7-438b-8abf-4bd1ebb61d95/featureImage/filter/Jpeg/jpeg_q/80" };
 
 export default function Home({ navigation }) {
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('https://habit-buddy.herokuapp.com/home/1') //Change this once we have local storage of a active user
+            .then((response) => response.json())
+            .then((json) => setData(json))
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    }, []);
+
     // Ripped out of the habittrack screen code. Will probably be discarded, leaving in for now. 
     const [chabit, setChabit] = useState('Current Habit');
     const [nhabit, setNhabit] = useState('New Habit')
@@ -60,7 +71,7 @@ export default function Home({ navigation }) {
                                     <Card>
                                         <Text>Your Habit</Text>
                                         {/* Static at the moment. To be changed with back end. TEMPORARY */}
-                                        <Text style={globalStyles.cardTitle}>Going to chapel</Text>
+                                        <Text style={globalStyles.cardTitle}>{data.habit}</Text>
                                         <Text></Text>
                                     </Card>
                                 </TouchableOpacity>
@@ -99,7 +110,7 @@ export default function Home({ navigation }) {
                                         <Text style={styles.title}>Streak</Text>
                                         <Text />
                                         {/* Using static data until the backend is built to keep track of user data */}
-                                        <Text style={styles.counter}>2</Text>
+                                        <Text style={styles.counter}>{data.streak}</Text>
                                         <Text />
                                     </Circle>
                                 </TouchableOpacity>
@@ -109,7 +120,7 @@ export default function Home({ navigation }) {
                                     <Circle>
                                         <Text style={styles.title}>Buddies</Text>
                                         <Text />
-                                        <Text style={styles.counter}>6</Text>
+                                        <Text style={styles.counter}>{data.totalbuddies}</Text>
                                         <Text />
                                     </Circle>
                                 </TouchableOpacity>
