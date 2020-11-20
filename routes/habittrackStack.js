@@ -3,7 +3,6 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { createStackNavigator } from '@react-navigation/stack';
 import { globalStyles } from '../styles/global';
 import { Alert } from 'react-native';
-// import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined';
 
 import Header from '../shared/header';
 import HabitTrack from '../screens/habitTrack';

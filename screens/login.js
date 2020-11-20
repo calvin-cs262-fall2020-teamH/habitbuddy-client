@@ -33,7 +33,7 @@ export default function Login({ navigation, route }) {
                     placeholder='Password'
                     placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                     secure={true}
-                    onChangeText={(val) => { return setPassword(val); }}
+                    onChangeText={(val) => { setPassword(val); }}
                 />
                 <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => updateData()}>
                     <Text style={dyStyles.loginButtonText}>Login</Text>

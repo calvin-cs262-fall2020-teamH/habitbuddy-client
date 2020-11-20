@@ -1,6 +1,5 @@
-import { TextareaAutosize } from '@material-ui/core';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
+import { Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
 import { DynamicValue, DynamicStyleSheet } from 'react-native-dynamic';
 import { dyColorCodes } from '../styles/global'
 

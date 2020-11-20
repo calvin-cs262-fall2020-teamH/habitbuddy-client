@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { View, Text} from 'react-native';
 import { DynamicStyleSheet, useDynamicValue, useColorSchemeContext} from 'react-native-dynamic';
 import { dyColorCodes } from '../styles/global';

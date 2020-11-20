@@ -62,13 +62,13 @@ export default function SignUpProfile({ navigation }) {
                         placeholder='Password'
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                         secure={true}
-                        onChangeText={(val) => { return setPassword(val); }}
+                        onChangeText={(val) => { setPassword(val); }}
                     />
                     <PasswordInput
                         placeholder='Confirm Password'
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                         secure={true}
-                        onChangeText={(val) => { return setPassword(val); }}
+                        onChangeText={(val) => { setPassword(val); }}
                     />
                     <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => navigation.navigate('SignUpHabit')}>
                         <Text style={dyStyles.loginButtonText}>Next</Text>
