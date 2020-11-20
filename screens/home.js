@@ -19,6 +19,17 @@ import { MaterialIcons } from '@expo/vector-icons';
 const background = { uri: "https://calvin.edu/contentAsset/image/25cbc0c3-c2c7-438b-8abf-4bd1ebb61d95/featureImage/filter/Jpeg/jpeg_q/80" };
 
 export default function Home({ navigation }) {
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('https://habit-buddy.herokuapp.com/home/1') //Change this once we have local storage of a active user
+            .then((response) => response.json())
+            .then((json) => setData(json))
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    }, []);
+
     // Ripped out of the habittrack screen code. Will probably be discarded, leaving in for now. 
     const [chabit, setChabit] = useState('Current Habit');
     const [nhabit, setNhabit] = useState('New Habit')

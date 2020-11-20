@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, Image, FlatList } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dyColorCodes, dynamicStyles } from '../styles/global';
 import ProfileCard from "../shared/profileCard";
@@ -9,9 +9,20 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 /* Profile outputs the content of the Profile page */
 export default function Profile({ navigation }) {
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        fetch('https://habit-buddy.herokuapp.com/user/1') //Change this once we have local storage of a active user
+            .then((response) => response.json())
+            .then((json) => setData(json))
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    }, []);
+
 
     const dyStyles = useDynamicValue(dynamicStyles);
-
+  
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
@@ -35,7 +46,7 @@ export default function Profile({ navigation }) {
             pic: '../assets/images/george.jpg', key: '1'
         }
     );
-
+  
     return (
         <ScrollView style={{height: '100%', backgroundColor: useDynamicValue(dyColorCodes.back)}}>
             <View style={dyStyles.wholePage}>

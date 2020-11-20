@@ -7,9 +7,10 @@ import ProfileLinkingCard from "../shared/profileLinkingCard";
 
 /*Created by Joe Pastucha/Dawson*/
 
-/* Profile outputs the content of the Profile page */
-export default function Profile({route, navigation}) {
+/* Profile outputs the content of the Buddy Details page */
+export default function BuddyDetails({route, navigation}) {
     /*Initialization the profile page with the user information*/
+  
     let [profilePage, setProfilePage] = useState(
         {name: route.params.firstname + " " + route.params.lastname,
             category: route.params.category,
@@ -27,7 +28,7 @@ export default function Profile({route, navigation}) {
         <View style={dyStyles.wholePage}>
             <View style={dyStyles.profContainer}>
                 <View style={dyStyles.profilePic}>
-                <Image source = {{uri: profilePage.pic}} 
+                <Image source = {{uri: route.params.profileurl}}
                     style = {{width: 110, height: 110, position: 'absolute'}}/>
                 </View>
 
@@ -37,15 +38,15 @@ export default function Profile({route, navigation}) {
             </View>
             <View style={dyStyles.userInfo}>
                 <ProfileCard title = "Category" userInfo = {profilePage.category}></ProfileCard>
-                <ProfileCard title = "Habit Goal" userInfo = {profilePage.goal}></ProfileCard>
+                <ProfileCard title = "Habit Goal" userInfo = {profilePage.habitgoal}></ProfileCard>
                 <ProfileCard title = "Hobby" userInfo = {profilePage.hobby}></ProfileCard>
                 
                 <TouchableOpacity onPress={() => Linking.openURL('mailto:' + profilePage.email)}>
-                    <ProfileLinkingCard title="Email" userInfo={profilePage.email}></ProfileLinkingCard>
+                    <ProfileLinkingCard title="Email" userInfo={ profilePage.emailaddress }></ProfileLinkingCard>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => Linking.openURL('sms:' + profilePage.number)}>
-                    <ProfileLinkingCard title="Phone Number" userInfo={profilePage.number}></ProfileLinkingCard>
+                    <ProfileLinkingCard title="Phone Number" userInfo={profilePage.phone}></ProfileLinkingCard>
                 </TouchableOpacity>
             </View>
         </View>
