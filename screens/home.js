@@ -116,7 +116,7 @@ export default function Home({ navigation }) {
                         <View style={styles.containerAcross}>
 
                             <View style={styles.corners}>
-                                <TouchableOpacity onPress={() => navigation.navigate('Habit Track')}>
+                                <TouchableOpacity onPress={() => navigation.navigate('Habit Tracker')}>
                                     <Circle>
                                         <Text style={styles.title}>Streak</Text>
                                         <Text />

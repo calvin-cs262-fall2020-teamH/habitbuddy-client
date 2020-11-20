@@ -8,7 +8,7 @@ import { useDynamicValue } from 'react-native-dynamic';
 import Home from './homeStack';
 import Buddies from './buddiesStack';
 import Profile from './profileStack';
-import Habittrack from './habittrackStack';
+import HabitTrack from './habitTrackStack';
 import Settings from './settingsStack';
 import { dyColorCodes } from '../styles/global';
 
@@ -32,7 +32,7 @@ export default function Tabs({ navigation, updateTheme }) {
 						iconName = focused ? 'account' : 'account-outline';
 					} else if (route.name === 'Buddies') {
 						iconName = focused ? 'account-multiple' : 'account-multiple-outline';
-					} else if (route.name === 'Habit Track') {
+					} else if (route.name === 'Habit Tracker') {
 						iconName = focused ? 'calendar-month' : 'calendar-month-outline';
 					}
 
@@ -58,7 +58,7 @@ export default function Tabs({ navigation, updateTheme }) {
 					tabBarVisible: getTabBarVisibility(route)
 				})}
 			/>
-			<Tab.Screen name="Habit Track" component={Habittrack} />
+			<Tab.Screen name="Habit Tracker" component={HabitTrack} />
 			<Tab.Screen name="Settings" component={Settings}
 				initialParams={{ updateTheme: { updateTheme } }}
 				options={({ route }) => ({
