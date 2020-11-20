@@ -392,7 +392,7 @@ export const globalStyles = StyleSheet.create({
 		width: 200,
 		height: 40,
 		backgroundColor: '#ffd699',
-		shadowOffset: {width: 1, height: 1},
+		shadowOffset: { width: 1, height: 1 },
 		shadowColor: '#333',
 		shadowOpacity: 0.3,
 		shadowRadius: 2,
@@ -423,7 +423,7 @@ export const globalStyles = StyleSheet.create({
 	loginContainer: {
 		backgroundColor: colorCodes.back,
 		alignItems: 'center',
-		justifyContent: 'center', 
+		justifyContent: 'center',
 		height: '100%',
 	},
 	loginText: {
@@ -464,6 +464,6 @@ export const globalStyles = StyleSheet.create({
 		padding: 8,
 		borderWidth: 1,
 		borderColor: '#777',
-		alignContent: 'flex-end', 
+		alignContent: 'flex-end',
 	}
 });
