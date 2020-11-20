@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect} from 'react';
 
 import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard, 
     TextInput } from 'react-native';
@@ -20,6 +20,19 @@ import CommonDataManager from '../data/CommonDataManager';
 const background = { uri: "https://calvin.edu/contentAsset/image/25cbc0c3-c2c7-438b-8abf-4bd1ebb61d95/featureImage/filter/Jpeg/jpeg_q/80" };
 
 export default function Home({ navigation }) {
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
+
+    let commonData = CommonDataManager.getInstance();
+
+    useEffect(() => {
+        fetch('https://habit-buddy.herokuapp.com/home/' + commonData.getUserID()) //Change this once we have local storage of a active user
+            .then((response) => response.json())
+            .then((json) => setData(json))
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    }, []);
+
     // Ripped out of the habittrack screen code. Will probably be discarded, leaving in for now. 
     const [chabit, setChabit] = useState('Current Habit');
     const [nhabit, setNhabit] = useState('New Habit')
@@ -27,22 +40,20 @@ export default function Home({ navigation }) {
     let hour = new Date().getHours();
     let greeting = "";
 
-    let commonData = CommonDataManager.getInstance();
-
     // Used to discern the time and pick an appropriate greeting. WORKS!
 
     if (hour < 5) {
-        greeting = "Good Night!";
+        greeting = "Good Night,\n";
     } else if (hour < 12) {
-        greeting = "Good Morning!";
+        greeting = "Good Morning,\n";
     } else if (hour < 17) {
-        greeting = "Good Afternoon!,\n";
+        greeting = "Good Afternoon,\n";
     } else if (hour < 20) {
-        greeting = "Good Evening!";
+        greeting = "Good Evening,\n";
     } else if (hour < 23) {
-        greeting = "Good Night!";
+        greeting = "Good Night,\n";
     } else {
-        greeting = "Hello!";
+        greeting = "Hello,\n";
     }
     // My primary thoughts and design for the home screen. Several cards with a background. Possibly a couple of bars for greeting and other information. 
     return (
@@ -50,7 +61,7 @@ export default function Home({ navigation }) {
             <View style={{ flex: 1 }}>
                 <ImageBackground source={background} style={styles.image} blurRadius={2.0}>
                     <View style={styles.bar}>
-                        <Text style={styles.barContent}>{greeting}</Text>
+                        <Text style={styles.barContent}>{greeting}{ data.firstname }</Text>
                     </View>
 
                     <View style={styles.container}>
@@ -63,7 +74,7 @@ export default function Home({ navigation }) {
                                     <Card>
                                         <Text>Your Habit</Text>
                                         {/* Static at the moment. To be changed with back end. TEMPORARY */}
-                                        <Text style={globalStyles.cardTitle}>Going to chapel</Text>
+                                        <Text style={globalStyles.cardTitle}>{ data.habit }</Text>
                                         <Text></Text>
                                     </Card>
                                 </TouchableOpacity>
@@ -97,12 +108,12 @@ export default function Home({ navigation }) {
                         <View style={styles.containerAcross}>
 
                             <View style={styles.corners}>
-                                <TouchableOpacity onPress={() => navigation.navigate('Habit Track')}>
+                                <TouchableOpacity onPress={() => navigation.navigate('Habit Tracker')}>
                                     <Circle>
                                         <Text style={styles.title}>Streak</Text>
                                         <Text />
                                         {/* Using static data until the backend is built to keep track of user data */}
-                                        <Text style={styles.counter}>2</Text>
+                                        <Text style={styles.counter}>{ data.streak }</Text>
                                         <Text />
                                     </Circle>
                                 </TouchableOpacity>
@@ -112,7 +123,7 @@ export default function Home({ navigation }) {
                                     <Circle>
                                         <Text style={styles.title}>Buddies</Text>
                                         <Text />
-                                        <Text style={styles.counter}>6</Text>
+                                        <Text style={styles.counter}>{ data.totalbuddies }</Text>
                                         <Text />
                                     </Circle>
                                 </TouchableOpacity>

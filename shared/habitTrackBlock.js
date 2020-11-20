@@ -1,6 +1,5 @@
-import { TextareaAutosize } from '@material-ui/core';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
+import { Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
 import { DynamicValue, DynamicStyleSheet } from 'react-native-dynamic';
 import { dyColorCodes } from '../styles/global'
 
@@ -8,7 +7,7 @@ let data;
 let streak = 0;
 let hstreak = 0;
 
-export default class HabittrackBlock extends Component {
+export default class HabitTrackBlock extends Component {
 
     //The constructor takes in props passed from outside and sets the default selected days to be none
     constructor(props) {

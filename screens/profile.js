@@ -1,49 +1,50 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Image } from 'react-native';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dyColorCodes, dynamicStyles } from '../styles/global';
 import ProfileCard from "../shared/profileCard";
 import { ScrollView } from 'react-native-gesture-handler';
+import CommonDataManager from '../data/CommonDataManager';
 
 /*Created by Joe Pastucha*/
 
 /* Profile outputs the content of the Profile page */
 export default function Profile({ navigation }) {
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
+
+    let commonData = CommonDataManager.getInstance();
+
+    useEffect(() => {
+        fetch('https://habit-buddy.herokuapp.com/user/' + commonData.getUserID()) //Change this once we have local storage of a active user
+            .then((response) => response.json())
+            .then((json) => setData(json))
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    }, []);
+
 
     const dyStyles = useDynamicValue(dynamicStyles);
-
-    /*Initialization the profile page with the user information*/
-    let [profilePage, setProfilePage] = useState(
-        {
-            name: 'Andrew Baker',
-            category: 'Spiritual',
-            goal: 'I want to attend chapel twice a week',
-            hobby: 'Reading',
-            email: 'email@gmail.com',
-            number: 1234567890,
-            pic: '../assets/images/george.jpg', key: '1'
-        }
-    );
-
+  
     return (
         <ScrollView style={{height: '100%', backgroundColor: useDynamicValue(dyColorCodes.back)}}>
             <View style={dyStyles.wholePage}>
+            
                 <View style={dyStyles.profContainer}>
                     <View style={dyStyles.profilePic}>
-                        <Image source={require('../assets/images/george.jpg')} style={{ width: 110, height: 110, position: 'absolute' }} />
+                        <Image source={{uri: data.profileurl}} style={{ width: 110, height: 110, position: 'absolute' }} />
                     </View>
 
                     <View style={dyStyles.userNamePlacement}>
-                        <Text style={dyStyles.userName}>{profilePage.name}</Text>
+                        <Text style={dyStyles.userName}>{data.firstname} {data.lastname}</Text>
                     </View>
                 </View>
                 <View style={dyStyles.userInfo}>
-                    <ProfileCard title="Category" userInfo={profilePage.category}></ProfileCard>
-                    <ProfileCard title="Habit Goal" userInfo={profilePage.goal}></ProfileCard>
-                    <ProfileCard title="Hobby" userInfo={profilePage.hobby}></ProfileCard>
-                    <ProfileCard title="Email" userInfo={profilePage.email}></ProfileCard>
-                    <ProfileCard title="Phone Number" userInfo={profilePage.number}></ProfileCard>
-
+                    <ProfileCard title="Category" userInfo={data.category}></ProfileCard>
+                    <ProfileCard title="Habit Goal" userInfo={data.habitgoal}></ProfileCard>
+                    <ProfileCard title="Hobby" userInfo={data.hobby}></ProfileCard>
+                    <ProfileCard title="Email" userInfo={data.emailaddress}></ProfileCard>
+                    <ProfileCard title="Phone Number" userInfo={data.phone}></ProfileCard>
                 </View>
             </View>
         </ScrollView>

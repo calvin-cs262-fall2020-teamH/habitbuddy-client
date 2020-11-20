@@ -5,8 +5,8 @@ import { ColorSchemeProvider } from 'react-native-dynamic';
 
 import TabScreen from './tab';
 import Login from '../screens/login';
-import EmptyProfile from '../screens/emptyProfile'
-import EmptyHabits from '../screens/emptyHabits'
+import SignUpProfile from '../screens/signUpProfile'
+import SignUpHabit from '../screens/signUpHabit'
 import CommonDataManager from '../data/CommonDataManager';
 
 const AuthStack = createStackNavigator();
@@ -21,15 +21,15 @@ function AuthStackScreen({ update }) {
         >
             <AuthStack.Screen name="HabitBuddy" component={Login} initialParams={{ updateData: update }} />
             <AuthStack.Screen
-                name='EmptyProfile'
-                component={EmptyProfile}
+                name='SignUpProfile'
+                component={SignUpProfile}
                 options={{
                     title: 'Account Information',
                 }}
             />
             <AuthStack.Screen
-                name='EmptyHabits'
-                component={EmptyHabits}
+                name='SignUpHabit'
+                component={SignUpHabit}
                 options={{title: 'Habit Information'}}
                 initialParams={{ updateData: update }}
             />
