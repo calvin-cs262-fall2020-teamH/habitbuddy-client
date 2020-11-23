@@ -30,20 +30,20 @@ export default class HabitTrackBlock extends Component {
     onPressAction = (item) => {
         item.select = !item.select;
         this.setState({ lastSelect: (item.day + item.select).toString()});
+        console.log(`Highest Streak- ${hstreak}`);
     };
 
     //renderRow renders each row for the selection
     renderRow = (item) => {
         const dyStyles = styles[this.state.theme];
         const isSelected = item.select; //checks if the rendering item is selected
-        console.log(`Rendered item - ${item.day} for ${isSelected} ${streak}`); //logs what is selected
+        //console.log(`Rendered item - ${item.day} for ${isSelected} ${streak}`); //logs what is selected
         if (isSelected == true) {
             streak = streak + 1;
             hstreak = streak; //let the hstreak(highest streak) be the final streak
         } else {
             streak = 0;
         }
-        console.log(`Highest Streak- ${hstreak}`);
         //change background color depending on whether the day is selected or not
         const bgColor = item.select ? {backgroundColor: selectedBlock[this.state.theme] } 
             : {backgroundColor: unselectedBlock[this.state.theme]};

@@ -4,12 +4,16 @@ import { Ionicons } from '@expo/vector-icons';
 import { dyColorCodes } from '../../styles/global'
 import { DynamicStyleSheet } from 'react-native-dynamic';
 
+import CommonDataManager from '../../data/CommonDataManager';
+
 {/* Sample code taken and modified from https://www.thetopsites.net/article/53403612.shtml */}
 export default class SelectionBlock extends Component {
     
     //The constructor takes in props passed from outside and sets the default selected item (Light)
     constructor(props) {
         super(props);
+
+        this.commonData = CommonDataManager.getInstance()
 
         this.state = {
             selectedItem: props.selectedId,
@@ -25,7 +29,7 @@ export default class SelectionBlock extends Component {
             selectedItem: rowItem.id,
             title: rowItem.title.toLowerCase(),
         });
-        this.props.update(rowItem.title.toLowerCase())
+        this.commonData.updateTheme(rowItem.title.toLowerCase());
     }
 
     //renderRow renders each row for the selection

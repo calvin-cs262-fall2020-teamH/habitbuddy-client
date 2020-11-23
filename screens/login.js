@@ -10,8 +10,7 @@ import PasswordInput from '../shared/passwordInput';
 * Written by Kelsey Yen
 */
 
-export default function Login({ navigation, route }) {
-    const { updateData } = route.params;
+export default function Login({ navigation }) {
 
     const [username, setUsername] = useState('Username');
     const [password, setPassword] = useState('Password');
@@ -27,7 +26,6 @@ export default function Login({ navigation, route }) {
             .then((responseText) => {
                 if(responseText[0] !== 'N') {
                     commonData.setUserID(JSON.parse(responseText).id);
-                    updateData({});
                 }
                 else {
                     
@@ -41,7 +39,7 @@ export default function Login({ navigation, route }) {
 
     useEffect(()=>{
         if(commonData.getUserID()) {
-            updateData({});
+            commonData.updateUser({});
         }
     }, [])
     

@@ -4,7 +4,6 @@ import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, TouchableWit
     TextInput } from 'react-native';
 import {globalStyles, colorCodes} from '../styles/global';
 import Card from '../shared/card';
-import Circle from '../shared/circleCard';
 import { MaterialIcons } from '@expo/vector-icons';
 import CommonDataManager from '../data/CommonDataManager';
 
@@ -109,23 +108,23 @@ export default function Home({ navigation }) {
 
                             <View style={styles.corners}>
                                 <TouchableOpacity onPress={() => navigation.navigate('Habit Tracker')}>
-                                    <Circle>
+                                    <Card type='circle'>
                                         <Text style={styles.title}>Streak</Text>
                                         <Text />
                                         {/* Using static data until the backend is built to keep track of user data */}
                                         <Text style={styles.counter}>{ data.streak }</Text>
                                         <Text />
-                                    </Circle>
+                                    </Card>
                                 </TouchableOpacity>
                             </View>
                             <View style={styles.corners}>
                                 <TouchableOpacity onPress={() => navigation.navigate('Buddies')}>
-                                    <Circle>
+                                    <Card type='circle'>
                                         <Text style={styles.title}>Buddies</Text>
                                         <Text />
                                         <Text style={styles.counter}>{ data.totalbuddies }</Text>
                                         <Text />
-                                    </Circle>
+                                    </Card>
                                 </TouchableOpacity>
                             </View>
                         </View>

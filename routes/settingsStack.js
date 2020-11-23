@@ -12,7 +12,6 @@ const Stack = createStackNavigator();
 
 /*SettingsStack creates a stack of screens with the default being the Settings screen */
 export default function SettingsStack( {navigation, route} ) {
-    const {updateTheme} = route.params.updateTheme;
 
     return (
         <Stack.Navigator screenOptions={{
@@ -32,7 +31,6 @@ export default function SettingsStack( {navigation, route} ) {
                 options={{
                     title: "Theme"
                 }}
-                initialParams={{updateTheme:{updateTheme}}}
             />
             <Stack.Screen
                 name="Account"

@@ -68,6 +68,12 @@ export const dynamicStyles = new DynamicStyleSheet({
 		width: 250,
 		color: dyColorCodes.text,
 	},
+	inputBox: {
+		padding: 8,
+		margin: 10,
+		width: 250,
+		color: dyColorCodes.text,
+    },
 	buddyCardTitle: {
 		fontSize: 18,
 		fontWeight: 'bold',

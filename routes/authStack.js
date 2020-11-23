@@ -71,6 +71,7 @@ export default () => {
 
     let commonData = CommonDataManager.getInstance();
     commonData.setUpdateUser(updateUser);
+    commonData.setUpdateTheme(updateTheme);
 
     return (
         <NavigationContainer>
@@ -79,11 +80,11 @@ export default () => {
       ) :  */}
             {user ? (
                 <ColorSchemeProvider mode={theme}>
-                    <TabScreen updateTheme={updateTheme} />
+                    <TabScreen/>
                 </ColorSchemeProvider>
             ) : (
                     <ColorSchemeProvider>
-                        <AuthStackScreen update={updateUser} />
+                        <AuthStackScreen/>
                     </ColorSchemeProvider>
                 )}
         </NavigationContainer>
