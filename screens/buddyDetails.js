@@ -38,15 +38,15 @@ export default function BuddyDetails({route, navigation}) {
             </View>
             <View style={dyStyles.userInfo}>
                 <ProfileCard title = "Category" userInfo = {profilePage.category}></ProfileCard>
-                <ProfileCard title = "Habit Goal" userInfo = {profilePage.habitgoal}></ProfileCard>
+                <ProfileCard title = "Habit Goal" userInfo = {profilePage.goal}></ProfileCard>
                 <ProfileCard title = "Hobby" userInfo = {profilePage.hobby}></ProfileCard>
                 
                 <TouchableOpacity onPress={() => Linking.openURL('mailto:' + profilePage.email)}>
-                    <ProfileLinkingCard title="Email" userInfo={ profilePage.emailaddress }></ProfileLinkingCard>
+                    <ProfileLinkingCard title="Email" userInfo={ profilePage.email }></ProfileLinkingCard>
                 </TouchableOpacity>
 
                 <TouchableOpacity onPress={() => Linking.openURL('sms:' + profilePage.number)}>
-                    <ProfileLinkingCard title="Phone Number" userInfo={profilePage.phone}></ProfileLinkingCard>
+                    <ProfileLinkingCard title="Phone Number" userInfo={profilePage.number}></ProfileLinkingCard>
                 </TouchableOpacity>
             </View>
         </View>
