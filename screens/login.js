@@ -19,21 +19,23 @@ export default function Login({ navigation, route }) {
     const dyStyles = useDynamicValue(dynamicStyles);
 
     let commonData = CommonDataManager.getInstance();
-    //commonData.setUserID("User1");
+    // commonData.setUserID("7");
 
     function testLogin() {
-        fetch('https://habit-buddy.herokuapp.com/login/' + username + '/' + password)                                           // Web service will be entered once we have it fully available.
-            .then((response) => response.text())
-            .then((responseText) => {
-                if(responseText[0] !== 'N') {
-                    commonData.setUserID(JSON.parse(responseText).id);
-                    updateData({});
-                }
-                else {
+        commonData.setUserID("7");
+        updateData({});
+        // fetch('https://habit-buddy.herokuapp.com/login/' + username + '/' + password)                                           // Web service will be entered once we have it fully available.
+        //     .then((response) => response.text())
+        //     .then((responseText) => {
+        //         if(responseText[0] !== 'N') {
+        //             commonData.setUserID(JSON.parse(responseText).id);
+        //             updateData({});
+        //         }
+        //         else {
                     
-                }
-            })
-            .catch((error) => console.error(error))
+        //         }
+        //     })
+        //     .catch((error) => console.error(error))
             //.finally(() => setLoading(false));
 
         //console.log(commonData.getUserID());
