@@ -1,25 +1,11 @@
 import { TextareaAutosize } from '@material-ui/core';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
-import BuddiesStreak from '../shared/buddiesStreakCard';
-import { colorCodes, globalStyles } from '../styles/global';
+
 
 let data;
-let streak = 0;
 let hstreak = 0;
 let lastBlock = false;
-
-let buddies = [
-
-    // Basic static user data, used until backend is developed.
-    { name: 'Andrew Baker', streak: '4', key: '1' },
-    { name: 'Dawson Buist', streak: '6', key: '2' },
-    { name: 'Kelsey Yen', streak: '10', key: '3' },
-    { name: 'Belina Sainju', streak: '15', key: '4' },
-    { name: 'Joe Pastucha', streak: '60', key: '5' },
-    { name: 'Nathan Strain', streak: '90', key: '6' },
-
-];
 
 export default class HabittrackBlock extends Component {
 
@@ -43,6 +29,8 @@ export default class HabittrackBlock extends Component {
         if (!this.props.data[0].select) {
             hstreak = 0;
         }
+
+        // Adds streak if each block in a row is selected
         this.props.data.forEach(element => {
             if (element.select) {
                 if (!lastBlock) {
@@ -60,13 +48,14 @@ export default class HabittrackBlock extends Component {
     //renderRow renders each row for the selection
     renderRow = (item) => {
         const isSelected = item.select; //checks if the rendering item is selected
-        console.log(`Rendered item - ${item.day} for ${isSelected} ${streak}`); //logs what is selected
-        console.log(`Highest Streak- ${hstreak}`);
-        
+        console.log(`Rendered item - ${item.day} for ${isSelected}`); //logs what is selected
+        console.log(`Highest Streak- ${hstreak}`); //logs highest streak
+
         //change background color depending on whether the day is selected or not
         const bgColor = item.select ? { backgroundColor: "#ffd699" } : { backgroundColor: "#D3D3D3" };
 
         return (
+            // Creates a cell for each day
             <TouchableOpacity onPress={() => this.onPressAction(item)}>
                 <View style={[bgColor, styles.cell]}>
                     <Text style={styles.text}>{item.day}</Text>
@@ -80,7 +69,7 @@ export default class HabittrackBlock extends Component {
         return (
             //takes the data passed in and renders each item in the list using renderRow
             <SafeAreaView style={styles.container}>
-                <View style={{ flex: 1, borderRadius: 5, alignItems:'center', justifyContent:'center',borderBottomWidth: 0.5, borderBottomColor: 'gray', shadowRadius: 5 }}>
+                <View style={{ flex: 1, borderRadius: 5, alignItems: 'center', justifyContent: 'center', borderBottomWidth: 0.5, borderBottomColor: 'gray', shadowRadius: 5 }}>
                     <FlatList
                         data={data}
                         renderItem={({ item }) => (
