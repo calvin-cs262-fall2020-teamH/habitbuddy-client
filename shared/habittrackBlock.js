@@ -2,7 +2,7 @@ import { TextareaAutosize } from '@material-ui/core';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
 import BuddiesStreak from '../shared/buddiesStreakCard';
-import { globalStyles } from '../styles/global';
+import { colorCodes, globalStyles } from '../styles/global';
 
 let data;
 let streak = 0;
@@ -61,13 +61,8 @@ export default class HabittrackBlock extends Component {
     renderRow = (item) => {
         const isSelected = item.select; //checks if the rendering item is selected
         console.log(`Rendered item - ${item.day} for ${isSelected} ${streak}`); //logs what is selected
-        // if (item.select) {
-        //     streak = streak + 1;
-        //     hstreak = streak; //let the hstreak(highest streak) be the final streak
-        // } else {
-        //     streak = 0;
-        // }
         console.log(`Highest Streak- ${hstreak}`);
+        
         //change background color depending on whether the day is selected or not
         const bgColor = item.select ? { backgroundColor: "#ffd699" } : { backgroundColor: "#D3D3D3" };
 
@@ -85,7 +80,7 @@ export default class HabittrackBlock extends Component {
         return (
             //takes the data passed in and renders each item in the list using renderRow
             <SafeAreaView style={styles.container}>
-                <View style={{flex:7}}>
+                <View style={{ flex: 1, borderRadius: 5, alignItems:'center', justifyContent:'center',borderBottomWidth: 0.5, borderBottomColor: 'gray', shadowRadius: 5 }}>
                     <FlatList
                         data={data}
                         renderItem={({ item }) => (
@@ -98,32 +93,6 @@ export default class HabittrackBlock extends Component {
                         width={'100%'}
                     />
                 </View>
-                
-                <View style={{ flex: 1.5, marginTop:10, borderColor: 'gray', borderWidth: 2, marginBottom:10, borderRadius: 5, backgroundColor: '#ffd699', alignItems: 'center', justifyContent: 'center' }}>
-                    <Text style={globalStyles.titleText}>My Streak: <Text style={[globalStyles.titleText, globalStyles.streak]}>{hstreak}</Text></Text>
-                </View>
-                <View style={{ flex: 6, backgroundColor: '#D3D3D3', borderRadius: 5, borderColor: 'gray', borderWidth: 2, height: 50 }}>
-                    <View style={{ flex: 4.5, borderRadius: 10, paddingLeft: 5, paddingRight: 5 }}>
-                        <View style={{ flex: 1.5, alignItems: 'center', borderRadius: 10, justifyContent: 'center' }}>
-                            <Text style={styles.text}>Buddies</Text>
-                        </View>
-                        <View style={{ flex: 4.5, paddingBottom: 15, borderRadius: 5, alignItems: 'stretch', justifyContent: 'center' }}>
-                            <FlatList data={buddies} renderItem={({ item }) => (
-                                <TouchableOpacity>
-                                    {/* Allows for traversal into the buddy details page */}
-                                    <BuddiesStreak>
-                                        {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
-                                        <Text style={globalStyles.buddiesStreakNameText}>{item.name}{item.streak}</Text>
-
-                                    </BuddiesStreak>
-                                </TouchableOpacity>
-                            )} />
-                        </View>
-
-                    </View>
-
-                </View>
-
             </SafeAreaView>
         );
     }
@@ -134,6 +103,7 @@ const styles = StyleSheet.create({
         height: 40,
         width: 40,
         margin: 5,
+        marginTop: -1,
         flex: 1,
         flexDirection: 'column',
         alignItems: 'center',
@@ -143,9 +113,11 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
+        padding: 10
     },
     text: {
         fontSize: 15,
         color: '#333',
     },
+
 }); 

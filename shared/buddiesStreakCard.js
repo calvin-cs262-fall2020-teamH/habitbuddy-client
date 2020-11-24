@@ -30,6 +30,8 @@ const styles = StyleSheet.create ({
         // marginHorizontal: 18,
         // marginVertical: 20,
         padding: 10,
-        justifyContent:'center'        
+        justifyContent:'center',
+        flex:1,
+        flexDirection: 'row'        
     }
 });

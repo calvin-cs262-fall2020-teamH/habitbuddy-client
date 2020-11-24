@@ -19,7 +19,7 @@ let LoggedIn = false; //temporary value to represent whether or not the user is 
 const background = { uri: "https://calvin.edu/contentAsset/image/091f147d-bb7b-4a3b-b337-e872c7a19c3d/bannerImage/filter/Resize,Jpeg/resize_w/720/jpeg_q/80" };
 
 //Panda image
-const panda = { uri: "https://cdn.pixabay.com/photo/2016/10/07/22/12/panda-1722704_640.png"};
+const panda = { uri: "https://cdn.pixabay.com/photo/2016/10/07/22/12/panda-1722704_640.png" };
 
 export default function Home({ navigation }) {
     // Ripped out of the habittrack screen code. Will probably be discarded, leaving in for now. 
@@ -63,48 +63,48 @@ export default function Home({ navigation }) {
 
                 <View style={styles.container}>
                     {/* The container sets up the columns for the homescreen. Adding a basic view adds additional columns to the row*/}
-                    <View style={styles.containerAcross}>
+                    <View style={styles.containerColumn}>
                         {/* The containerAcross creates a system of rows for data and cards. Add a containerAcross view to add an additional row */}
-                        <View style={styles.corners}>
+                        <View style={[styles.corners, {padding:10, flex: 1, backgroundColor:'blue', marginBottom:5 }]}>
                             <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
-                            {/* Top card, for the sought out habit  */}
+                                {/* Top card, for the sought out habit  */}
                                 <Card>
-                                    <Text>Your Habit</Text>
-                                    {/* Static at the moment. To be changed with back end. TEMPORARY */}
-                                    <Text style={globalStyles.titleText}>Going to chapel</Text>
-                                    <Text></Text>
-                            </Card>
+                                    <View style={{ alignItems: 'center' }}>
+                                        <Text>My Habit</Text>
+                                        {/* Static at the moment. To be changed with back end. TEMPORARY */}
+                                        <Text style={globalStyles.titleText}>Going to chapel</Text>
+                                    </View>
+
+                                </Card>
                             </TouchableOpacity>
-                            
                         </View>
-                        <View style={styles.corners}>
-                            <Card>
-                                <View style={{alignItems:'center'}}>
-                                    <Text style={{justifyContent:'center'}}>Habit Stacking <MaterialIcons name="info-outline" size={20} color='#333' style={globalStyles.leftIcon}
-                        
-                        /></Text> 
-                                    
+                        <View style={{ flex: 2,backgroundColor:'red', alignItems:'stretch', justifyContent: 'center', padding:10 }}>
+                            <Card style={{height: 170}}>
+                                <View style={{ alignItems: 'center', flex:1, justifyContent: 'center', margin:5, padding:10 }}>
+                                    <Text style={{}}>Habit Stacking <MaterialIcons name="info-outline" size={20} color='#333' style={globalStyles.leftIcon}
+
+                                    /></Text>
+
                                 </View>
-                                <View style={styles.Hab}>
-                                    <Text style={styles.titleText}>After I</Text>
-                                        <TextInput   
-                                            style={styles.inputBox}
-                                            placeholder=' CURRENT HABIT'
-                                            onChangeText={(val) => setChabit(val)}/>
-                                </View>
-                                <View style={styles.Hab}>
-                                    <Text style={styles.titleText}>I will</Text>
-                                        <TextInput   
-                                            style={styles.inputBox}
-                                            placeholder=' NEW HABIT'
-                                            onChangeText={(val) => setChabit(val)}/>
+                                <View style={{flex:5, margin:5, padding:10, flexDirection:'column', alignItems: 'center', margin:10, justifyContent: 'center'}}>
+                                    <Text style={[styles.text,{padding:5}]}>After I</Text>
+                                    <TextInput
+                                        style={styles.inputBox}
+                                        placeholder=' CURRENT HABIT'
+                                        onChangeText={(val) => setChabit(val)} />
+
+                                    <Text style={[styles.text,{padding:5}]}>I will</Text>
+                                    <TextInput
+                                        style={styles.inputBox}
+                                        placeholder=' NEW HABIT'
+                                        onChangeText={(val) => setChabit(val)} />
                                 </View>
                             </Card>
                         </View>
                     </View>
 
                     {/* TEMP: uses bars to display the habit tracking information.*/}
-{/* 
+                    {/* 
                     <View style={styles.containerAcross}>
 
                         <View style={styles.container}>
@@ -155,7 +155,7 @@ export default function Home({ navigation }) {
                     </View> */}
 
                     {/* Circle cards to create buttons and display number of buddies and the streak of following the habit. */}
-                    <View style={styles.containerAcross}>
+                    <View style={styles.containerRow}>
 
                         <View style={styles.corners}>
                             <TouchableOpacity onPress={() => navigation.navigate('Habittrack')}>
@@ -171,7 +171,7 @@ export default function Home({ navigation }) {
 
                         <View style={styles.corners}>
                             <TouchableOpacity onPress={() => {
-                                setState(state => ({...state, name: 'bruh'}), () => {console.log(state.name);});
+                                setState(state => ({ ...state, name: 'bruh' }), () => { console.log(state.name); });
                                 navigation.navigate('Buddies')
                             }}>
                                 <Circle>
@@ -194,10 +194,10 @@ export default function Home({ navigation }) {
             <View style={styles.container}>
                 {/* Displays the panda art and and the bar with the habit information. */}
                 <View style={styles.containerAcross}>
-                    <Image source={panda} style={{width: 275, height: 275, position: 'relative'}}/>
+                    <Image source={panda} style={{ width: 275, height: 275, position: 'relative' }} />
                     <View style={styles.container}>
-                        <Text style={{paddingBottom: 120}}/>
-                        <Text style={ styles.counter }>{greeting}</Text>
+                        <Text style={{ paddingBottom: 120 }} />
+                        <Text style={styles.counter}>{greeting}</Text>
                     </View>
                 </View>
 
@@ -255,14 +255,18 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     // Container for rows within the columns. 
-    containerAcross: {
-        flex: 0.4,
+    containerColumn: {
+        flex: 1,
+        flexDirection: 'column',
+        alignItems: 'stretch'
+    },
+    containerRow: {
+        flex: 0.8,
         flexDirection: 'row',
         alignItems: 'center',
     },
     // Creates 'corners' for within the rows. Essentially creates elements within rows. 
     corners: {
-        flex: 1,
         alignItems: 'stretch',
         padding: 10,
     },
@@ -303,12 +307,10 @@ const styles = StyleSheet.create({
         color: '#333',
         textAlign: 'center',
     },
-    Hab:{
-        //flex:1,
+    Hab: {
+        flex:5,
         alignItems: 'center',
-        marginTop: 5,
-        marginBottom: 10,
-        height: 50,
+        margin:10,
         justifyContent: 'center'
     },
     titleText: {
@@ -317,11 +319,13 @@ const styles = StyleSheet.create({
         color: '#333',
     },
     inputBox: {
-        flex: 1,
+        // flex: 1,
         borderWidth: 1,
         borderColor: '#777',
         alignSelf: 'stretch',
         fontSize: 12.5,
         paddingHorizontal: 2,
+        height:30,
+        margin:5
     },
 })
