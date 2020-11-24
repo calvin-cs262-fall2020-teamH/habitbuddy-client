@@ -74,7 +74,7 @@ export default function Home({ navigation }) {
                                     <Card>
                                         <Text>Your Habit</Text>
                                         {/* Static at the moment. To be changed with back end. TEMPORARY */}
-                                        <Text style={globalStyles.cardTitle}>{ data.habit }</Text>
+                                        <Text style={globalStyles.cardTitle}>{ data.habitgoal }</Text>
                                         <Text></Text>
                                     </Card>
                                 </TouchableOpacity>

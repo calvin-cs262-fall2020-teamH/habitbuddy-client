@@ -22,21 +22,21 @@ export default function Login({ navigation, route }) {
     // commonData.setUserID("7");
 
     function testLogin() {
-        commonData.setUserID("7");
+        // commonData.setUserID("7");
         updateData({});
-        // fetch('https://habit-buddy.herokuapp.com/login/' + username + '/' + password)                                           // Web service will be entered once we have it fully available.
-        //     .then((response) => response.text())
-        //     .then((responseText) => {
-        //         if(responseText[0] !== 'N') {
-        //             commonData.setUserID(JSON.parse(responseText).id);
-        //             updateData({});
-        //         }
-        //         else {
+        fetch('https://habit-buddy.herokuapp.com/login/' + username + '/' + password)                                           // Web service will be entered once we have it fully available.
+            .then((response) => response.text())
+            .then((responseText) => {
+                if(responseText[0] !== 'N') {
+                    commonData.setUserID(JSON.parse(responseText).id);
+                    updateData({});
+                }
+                else {
                     
-        //         }
-        //     })
-        //     .catch((error) => console.error(error))
-            //.finally(() => setLoading(false));
+                }
+            })
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
 
         //console.log(commonData.getUserID());
     }
