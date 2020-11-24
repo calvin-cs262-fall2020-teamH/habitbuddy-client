@@ -24,7 +24,6 @@ export default function Login({ navigation, route }) {
 
     function testLogin() {
         // commonData.setUserID("7");
-        updateData({});
         fetch('https://habit-buddy.herokuapp.com/login/' + username + '/' + password)                                           // Web service will be entered once we have it fully available.
             .then((response) => response.text())
             .then((responseText) => {
