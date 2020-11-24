@@ -15,6 +15,7 @@ export default function Login({ navigation, route }) {
 
     const [username, setUsername] = useState('Username');
     const [password, setPassword] = useState('Password');
+    const [Loading, setLoading] = React.useState(false);
 
     const dyStyles = useDynamicValue(dynamicStyles);
 
