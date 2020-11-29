@@ -26,7 +26,7 @@ export default function Buddies({ navigation }) {
     return (
         <View style={dyStyles.buddyDisplayContainer}>
             <FlatList data={data} 
-                keyExtractor={(item, index) => 'list-item-${index}'}
+                keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => (
                 <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>
                     {/* Allows for traversal into the buddy details page */}
