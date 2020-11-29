@@ -93,6 +93,7 @@ export default class HabittrackBlock extends Component {
                         numColumns={7}
                         columnWrapperStyle={{ marginTop: 10 }}
                         width={'100%'}
+                        scrollEnabled={false}
                     />
                 </View>
             </SafeAreaView>
