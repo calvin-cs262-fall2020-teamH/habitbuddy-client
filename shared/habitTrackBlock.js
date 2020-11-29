@@ -47,8 +47,8 @@ export default class HabittrackBlock extends Component {
     //renderRow renders each row for the selection
     renderRow = (item) => {
         const isSelected = item.select; //checks if the rendering item is selected
-        console.log(`Rendered item - ${item.day} for ${isSelected}`); //logs what is selected
-        console.log(`Highest Streak- ${hstreak}`); //logs highest streak
+        //console.log(`Rendered item - ${item.day} for ${isSelected}`); //logs what is selected
+        //console.log(`Highest Streak- ${hstreak}`); //logs highest streak
         //change background color depending on whether the day is selected or not
         const bgColor = item.select ? { backgroundColor: "#ffd699" } : { backgroundColor: "#D3D3D3" };
 
