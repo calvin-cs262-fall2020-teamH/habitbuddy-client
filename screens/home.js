@@ -1,5 +1,4 @@
-import React, { useState, useEffect} from 'react';
-
+import React, { useState, useEffect } from 'react';
 import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard, 
     TextInput, Alert } from 'react-native';
 import {globalStyles, colorCodes} from '../styles/global';
@@ -31,7 +30,6 @@ export default function Home({ navigation }) {
             ],
         )
     }
-
 
     let commonData = CommonDataManager.getInstance();
 
@@ -73,7 +71,7 @@ export default function Home({ navigation }) {
             <View style={{ flex: 1 }}>
                 <ImageBackground source={background} style={styles.image} blurRadius={2.0}>
                     <View style={styles.bar}>
-                        <Text style={styles.barContent}>{greeting}{ data.firstname }</Text>
+                        <Text style={styles.barContent}>{greeting}{data.firstname}</Text>
                     </View>
 
                     <View style={styles.container}>
@@ -86,7 +84,7 @@ export default function Home({ navigation }) {
                                     <Card>
                                         <Text>Your Habit</Text>
                                         {/* Static at the moment. To be changed with back end. TEMPORARY */}
-                                        <Text style={globalStyles.cardTitle}>{ data.habit }</Text>
+                                        <Text style={globalStyles.cardTitle}>{data.habit}</Text>
                                         <Text></Text>
                                     </Card>
                                 </TouchableOpacity>
@@ -114,8 +112,8 @@ export default function Home({ navigation }) {
                                             placeholder=' CURRENT HABIT'
                                             onChangeText={(val) => setChabit(val)} />
                                     </View>
-                                    <View style={styles.Hab}>
-                                        <Text style={styles.titleText}>I will</Text>
+                                    <View style={[styles.Hab]}>
+                                        <Text style={[styles.text,{fontWeight:'bold'}]}>I will</Text>
                                         <TextInput
                                             style={styles.inputBox}
                                             placeholder=' NEW HABIT'
@@ -134,7 +132,7 @@ export default function Home({ navigation }) {
                                         <Text style={styles.title}>Streak</Text>
                                         <Text />
                                         {/* Using static data until the backend is built to keep track of user data */}
-                                        <Text style={styles.counter}>{ data.streak }</Text>
+                                        <Text style={styles.counter}>{data.streak}</Text>
                                         <Text />
                                     </Circle>
                                 </TouchableOpacity>
@@ -144,7 +142,7 @@ export default function Home({ navigation }) {
                                     <Circle>
                                         <Text style={styles.title}>Buddies</Text>
                                         <Text />
-                                        <Text style={styles.counter}>{ data.totalbuddies }</Text>
+                                        <Text style={styles.counter}>{data.totalbuddies}</Text>
                                         <Text />
                                     </Circle>
                                 </TouchableOpacity>
@@ -213,7 +211,13 @@ const styles = StyleSheet.create({
         color: colorCodes.cardText,
         textAlign: 'center',
     },
-    Hab:{
+    titleText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: colorCodes.cardText,
+    },
+    // HabitStack content styles
+    Hab: {
         //flex:1,
         alignItems: 'center',
         marginTop: 5,
@@ -221,17 +225,13 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center'
     },
-    titleText: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: colorCodes.cardText,
-    },
     inputBox: {
         flex: 1,
         borderWidth: 1,
         borderColor: '#777',
         alignSelf: 'stretch',
-        fontSize: 12.5,
+        textAlign:'center',
+        fontSize: 14,
         paddingHorizontal: 2,
         color: colorCodes.lightText,
     },
