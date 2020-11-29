@@ -1,8 +1,10 @@
-import React, { useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard, 
-    TextInput } from 'react-native';
-import {globalStyles, colorCodes} from '../styles/global';
+import {
+    ImageBackground, StyleSheet, View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard,
+    TextInput, Alert
+} from 'react-native';
+import { globalStyles, colorCodes } from '../styles/global';
 import Card from '../shared/card';
 import { MaterialIcons } from '@expo/vector-icons';
 import CommonDataManager from '../data/CommonDataManager';
@@ -21,6 +23,15 @@ const background = { uri: "https://calvin.edu/contentAsset/image/25cbc0c3-c2c7-4
 export default function Home({ navigation }) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
+
+    const alert = () => {
+        Alert.alert('What is Habit Stacking?',
+            "One of the best ways to build a new habit is to identify a current habit you already do each day and stack your new behavior on top. This is Habit Stacking.\n\nJust like waking up in the morning is a cue for you to brush your teeth.\n\nUse your current habit as a cue to do your new habit!",
+            [
+                { text: "Got it!" }
+            ],
+        )
+    }
 
     let commonData = CommonDataManager.getInstance();
 
@@ -60,7 +71,7 @@ export default function Home({ navigation }) {
             <View style={{ flex: 1 }}>
                 <ImageBackground source={background} style={styles.image} blurRadius={2.0}>
                     <View style={styles.bar}>
-                        <Text style={styles.barContent}>{greeting}{ data.firstname }</Text>
+                        <Text style={styles.barContent}>{greeting}{data.firstname}</Text>
                     </View>
 
                     <View style={styles.container}>
@@ -73,27 +84,36 @@ export default function Home({ navigation }) {
                                     <Card>
                                         <Text>Your Habit</Text>
                                         {/* Static at the moment. To be changed with back end. TEMPORARY */}
-                                        <Text style={globalStyles.cardTitle}>{ data.habit }</Text>
+                                        <Text style={globalStyles.cardTitle}>{data.habit}</Text>
                                         <Text></Text>
                                     </Card>
                                 </TouchableOpacity>
                             </View>
-                        <View style={styles.corners}>
-                            <Card>
-                                <View style={{alignItems:'center'}}>
-                                    <Text style={{justifyContent:'center', marginHorizontal: -5,}}>Habit Stacking <MaterialIcons name="info-outline" size={20} color='#333' style={globalStyles.leftIcon}
-                        /></Text> 
-                                    
-                                </View>
-                                <View style={styles.Hab}>
-                                    <Text style={styles.titleText}>After I</Text>
-                                        <TextInput   
+                            {/* Habit Stacking card */}
+                            <View style={styles.corners}>
+                                <Card style={{height:200}}>
+                                    {/* info icon on the right when clicked opens an alert box with information */}
+                                    <View>
+                                        <MaterialIcons name="info-outline" size={20} color='#333' style={styles.habitStackInfoIcon} onPress={alert}
+                                        />
+
+                                    </View>
+                                    {/* Habit Stacking title */}
+                                    <View style={{ alignItems: 'center'}}>
+                                        <Text style={{ justifyContent: 'center' }}>
+                                            Habit Stacking
+                                        </Text>
+                                    </View>
+                                    {/* Habit Stacking content */}
+                                    <View style={[styles.Hab]}>
+                                        <Text style={[styles.text,{fontWeight:'bold'}]}>After I</Text>
+                                        <TextInput
                                             style={styles.inputBox}
                                             placeholder=' CURRENT HABIT'
                                             onChangeText={(val) => setChabit(val)} />
                                     </View>
-                                    <View style={styles.Hab}>
-                                        <Text style={styles.titleText}>I will</Text>
+                                    <View style={[styles.Hab]}>
+                                        <Text style={[styles.text,{fontWeight:'bold'}]}>I will</Text>
                                         <TextInput
                                             style={styles.inputBox}
                                             placeholder=' NEW HABIT'
@@ -112,7 +132,7 @@ export default function Home({ navigation }) {
                                         <Text style={styles.title}>Streak</Text>
                                         <Text />
                                         {/* Using static data until the backend is built to keep track of user data */}
-                                        <Text style={styles.counter}>{ data.streak }</Text>
+                                        <Text style={styles.counter}>{data.streak}</Text>
                                         <Text />
                                     </Card>
                                 </TouchableOpacity>
@@ -122,7 +142,7 @@ export default function Home({ navigation }) {
                                     <Card type='circle'>
                                         <Text style={styles.title}>Buddies</Text>
                                         <Text />
-                                        <Text style={styles.counter}>{ data.totalbuddies }</Text>
+                                        <Text style={styles.counter}>{data.totalbuddies}</Text>
                                         <Text />
                                     </Card>
                                 </TouchableOpacity>
@@ -191,7 +211,13 @@ const styles = StyleSheet.create({
         color: colorCodes.cardText,
         textAlign: 'center',
     },
-    Hab:{
+    titleText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: colorCodes.cardText,
+    },
+    // HabitStack content styles
+    Hab: {
         //flex:1,
         alignItems: 'center',
         marginTop: 5,
@@ -199,18 +225,20 @@ const styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center'
     },
-    titleText: {
-        fontSize: 18,
-        fontWeight: 'bold',
-        color: colorCodes.cardText,
-    },
     inputBox: {
         flex: 1,
         borderWidth: 1,
         borderColor: '#777',
         alignSelf: 'stretch',
-        fontSize: 12.5,
+        textAlign:'center',
+        fontSize: 14,
         paddingHorizontal: 2,
         color: colorCodes.lightText,
     },
+    habitStackInfoIcon:{
+        alignSelf:'flex-end', 
+        marginTop:-15, 
+        marginRight:-10
+    }
+    
 })
