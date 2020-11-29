@@ -86,14 +86,14 @@ export default function Home({ navigation }) {
                                     <Card>
                                         <Text>Your Habit</Text>
                                         {/* Static at the moment. To be changed with back end. TEMPORARY */}
-                                        <Text style={globalStyles.cardTitle}>Study for 1 hour</Text>
+                                        <Text style={globalStyles.cardTitle}>{ data.habit }</Text>
                                         <Text></Text>
                                     </Card>
                                 </TouchableOpacity>
                             </View>
                             {/* Habit Stacking card */}
                             <View style={styles.corners}>
-                                <Card style={{height:200}}>
+                                <Card style={{height:190}}>
                                     {/* info icon on the right when clicked opens an alert box with information */}
                                     <View>
                                         <MaterialIcons name="info-outline" size={20} color='#333' style={styles.habitStackInfoIcon} onPress={alert}
@@ -237,7 +237,10 @@ const styles = StyleSheet.create({
     },
     habitStackInfoIcon:{
         alignSelf:'flex-end',
-        marginTop:-15,
-        marginRight:-10
+        marginTop:-10,
+        marginRight:-20,
+        marginBottom: -5,
+        width: 30,
+        height: 30,
     }
 })
