@@ -52,7 +52,7 @@ export default function SignUpHabit() {
                     placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                     onChangeText={(val) => setPersonalGoal(val)}
                 />
-                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => {commonData.setUserID('7'); updateData({}); }}>
+                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => {commonData.setUserID('7'); commonData.updateUser({}); }}>
 
                     <Text style={dyStyles.loginButtonText}>Finish</Text>
                 </TouchableOpacity>
