@@ -108,14 +108,14 @@ export default function Home({ navigation }) {
                                         <Text style={styles.titleText}>After I</Text>
                                         <TextInput   
                                             style={styles.inputBox}
-                                            placeholder=' CURRENT HABIT'
+                                            placeholder='CURRENT HABIT'
                                             onChangeText={(val) => setChabit(val)} />
                                     </View>
                                     <View style={[styles.Hab]}>
                                         <Text style={[styles.text,{fontWeight:'bold'}]}>I will</Text>
                                         <TextInput
                                             style={styles.inputBox}
-                                            placeholder=' NEW HABIT'
+                                            placeholder='NEW HABIT'
                                             onChangeText={(val) => setNhabit(val)} />
                                     </View>
                                 </Card>
@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
         borderColor: '#777',
         alignSelf: 'stretch',
         textAlign:'center',
-        fontSize: 14,
+        fontSize: 13,
         paddingHorizontal: 2,
         color: colorCodes.lightText,
     },

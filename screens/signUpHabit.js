@@ -6,8 +6,6 @@ import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles, dyColorCodes } from '../styles/global';
 import CommonDataManager from '../data/CommonDataManager'
 
-import CommonDataManager from '../data/CommonDataManager';
-
 /* signUpHabits lets you choose your habit and write a habit goal 
 *  Written by Kelsey Yen
 */
@@ -15,11 +13,9 @@ import CommonDataManager from '../data/CommonDataManager';
 export default function SignUpHabit() {
     const [personalGoal, setPersonalGoal] = useState('PersonalGoal');
 
-    let commonData = CommonDataManager.getInstance();
+    const commonData = CommonDataManager.getInstance();
 
     const dyStyles = useDynamicValue(dynamicStyles);
-
-    const commonData = CommonDataManager.getInstance();
 
     return (
         <TouchableWithoutFeedback onPress={() => {
@@ -56,9 +52,7 @@ export default function SignUpHabit() {
                     placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                     onChangeText={(val) => setPersonalGoal(val)}
                 />
-                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => {updateData({}); commonData.setUserID('7')}}>
-
-               // <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => commonData.uptateUser({})}>
+                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => {commonData.setUserID('7'); updateData({}); }}>
 
                     <Text style={dyStyles.loginButtonText}>Finish</Text>
                 </TouchableOpacity>
