@@ -51,12 +51,12 @@ export default function HabitTrack({ navigation }) {
                 
                 {/* Daily Streak Board Title */}
                 <View style={dyStyles.streakBoardTitle}>
-                    <Text style={dyStyles.text}>Daily Streak Board</Text>
+                    <Text style={dyStyles.cardText}>Daily Streak Board</Text>
                 </View>
 
                 {/* My streak container */}
                 <View style={dyStyles.myStreakContainer}>
-                    <Text style={[dyStyles.text, { fontWeight: 'bold' }]}>My Streak </Text>
+                    <Text style={[dyStyles.cardText, { fontWeight: 'bold' }]}>My Streak </Text>
                     <Text style={[dyStyles.streak, { fontWeight: 'bold' }]}>0</Text>
                 </View>
 
@@ -66,7 +66,7 @@ export default function HabitTrack({ navigation }) {
                         <TouchableOpacity>
                             {/* Allows for traversal into the buddy details page */}
                             <BuddiesStreak>
-                                <Text style={dyStyles.text}>
+                                <Text style={dyStyles.cardText}>
                                     {item.name}
                                 </Text>
                                 <Text style={dyStyles.streak}>
@@ -84,7 +84,6 @@ export default function HabitTrack({ navigation }) {
 const styles = new DynamicStyleSheet({
     container: {
         flex: 1,
-        backgroundColor: '#fff',
         padding: 10,
         alignItems: 'stretch',
         justifyContent: 'center',
@@ -131,7 +130,11 @@ const styles = new DynamicStyleSheet({
     },
     text: {
         fontSize: 15,
-        color: '#333',
+        color: dyColorCodes.text,
+    },
+    cardText: {
+        fontSize: 15,
+        color: dyColorCodes.cardText,
     },
     namePlacement: {
         flexDirection: 'row',
