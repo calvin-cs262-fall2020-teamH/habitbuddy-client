@@ -19,7 +19,7 @@ export default function BuddyDetails({route, navigation}) {
             email: route.params.emailaddress,
             number: route.params.phone,
             pic: route.params.profileurl, 
-            key: '1'},
+            key: route.params.id},
     );
 
     const dyStyles = useDynamicValue(dynamicStyles);

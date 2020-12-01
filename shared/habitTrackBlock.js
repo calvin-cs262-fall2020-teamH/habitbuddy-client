@@ -52,16 +52,14 @@ export default class HabittrackBlock extends Component {
             }
             lastBlock = element.select;
         });
-
     };
 
     //renderRow renders each row for the selection
     renderRow = (item) => {
         const dyStyles = styles[this.state.theme];
         const isSelected = item.select; //checks if the rendering item is selected
-        console.log(`Rendered item - ${item.day} for ${isSelected}`); //logs what is selected
-        console.log(`Highest Streak- ${hstreak}`); //logs highest streak
-
+        //console.log(`Rendered item - ${item.day} for ${isSelected}`); //logs what is selected
+        //console.log(`Highest Streak- ${hstreak}`); //logs highest streak
         //change background color depending on whether the day is selected or not
         const bgColor = item.select ? {backgroundColor: selectedBlock[this.state.theme] } 
         : {backgroundColor: unselectedBlock[this.state.theme]};
