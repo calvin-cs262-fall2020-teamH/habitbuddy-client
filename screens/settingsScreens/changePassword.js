@@ -1,5 +1,5 @@
 import React from 'react';
-import {Keyboard, StyleSheet, Text, TextInput, TouchableOpacity, TouchableWithoutFeedback, View} from 'react-native';
+import {Keyboard, Text, TouchableOpacity, TouchableWithoutFeedback, View} from 'react-native';
 import { Input } from 'react-native-elements';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles, dyColorCodes } from '../../styles/global';
@@ -22,7 +22,7 @@ export default function ChangePassword({ navigation }) {
             <View style={[dyStyles.wholePage, {paddingHorizontal: 20, paddingVertical: 20}]}>
                 <Text style={dyStyles.titleText}>Enter Current Password:</Text>
                 <Input   
-                    style={dyStyles.input}
+                    style={dyStyles.inputBox}
                     placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder='Current Password'
                     secureTextEntry={true}
@@ -39,7 +39,7 @@ export default function ChangePassword({ navigation }) {
                 
                 <Text style={dyStyles.titleText}>Enter New Password:</Text>
                 <Input   
-                    style={dyStyles.input}
+                    style={dyStyles.inputBox}
                     placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder='New Password'
                     secureTextEntry={true}
@@ -56,7 +56,7 @@ export default function ChangePassword({ navigation }) {
 
                 <Text style={dyStyles.titleText}>Confirm New Password:</Text>
                 <Input   
-                    style={dyStyles.input}
+                    style={dyStyles.inputBox}
                     placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder='Confirm Password'
                     secureTextEntry={true}
@@ -80,13 +80,3 @@ export default function ChangePassword({ navigation }) {
         </TouchableWithoutFeedback>
     );
 };
-
-const styles = StyleSheet.create({
-    inputBox: {
-        borderWidth: 2,
-        borderColor: '#6fcefd',
-        width:'100%',
-        height: 30,
-        marginVertical:10,
-    },
-});

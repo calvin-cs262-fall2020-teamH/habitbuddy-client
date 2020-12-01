@@ -14,7 +14,7 @@ import { dyColorCodes } from '../styles/global';
 
 const Tab = createBottomTabNavigator();
 
-export default function Tabs({ navigation, updateTheme }) {
+export default function Tabs() {
 
 	return (
 		<Tab.Navigator initialRouteName="Home"
@@ -58,7 +58,6 @@ export default function Tabs({ navigation, updateTheme }) {
 			/>
 			<Tab.Screen name="Habit Tracker" component={HabitTrack} />
 			<Tab.Screen name="Settings" component={Settings}
-				initialParams={{ updateTheme: { updateTheme } }}
 				options={({ route }) => ({
 					tabBarVisible: getTabBarVisibility(route)
 				})}

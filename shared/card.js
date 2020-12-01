@@ -9,7 +9,7 @@ export default function Card(props) {
 
     return (
         //props.style allows you to pass in custom styles
-        <View style={[dyStyles.card, props.style]}> 
+        <View style={[(props.type === 'circle' ? dyStyles.circleCard : dyStyles.card), props.style]}> 
             <View style={dyStyles.cardContent}>
                 { props.children }
             </View>
@@ -29,6 +29,17 @@ const styles = new DynamicStyleSheet ({
         marginHorizontal: 4,
         marginVertical: 6,
         
+    },
+    circleCard: {
+        borderRadius: 75,
+        backgroundColor: colorCodes.card,                 //#ffd699 is a light orange color
+        shadowOffset: {width: 1, height: 1},
+        shadowColor: '#000',
+        shadowOpacity: 0.3,
+        shadowRadius: 4,
+        elevation: 5,
+        marginHorizontal: 4,
+        marginVertical: 6,
     },
     cardContent: {
         marginHorizontal: 18,

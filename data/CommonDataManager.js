@@ -10,6 +10,7 @@ export default class CommonDataManager {
 
     _userID = null;
     _updateUser = () => {};
+    _updateTheme = () => {};
 
     storage = new Storage({
         // maximum capacity, default 1000 key-ids
@@ -21,7 +22,7 @@ export default class CommonDataManager {
 
         // expire time, default: 1 day (1000 * 3600 * 24 milliseconds).
         // can be null, which means never expire.
-        defaultExpires: 1000 * 3600 * 24,
+        defaultExpires: 1000 * 3600 * 24, //1000 milliseconds/second, 3600 seconds/hour, 24 hours/day
 
         // cache data in the memory. default is true.
         enableCache: true,
@@ -117,13 +118,24 @@ export default class CommonDataManager {
             this._updateUser(null);
             this._userID = null;
         }
+        else {
+            this._updateUser({});
+        }
     }
 
-    getUpdateUser() {
-        return this._updateUser;
+    updateUser(data) {
+        this._updateUser(data);
     }
 
     setUpdateUser(func) {
         this._updateUser = func;
+    }
+
+    updateTheme(theme) {
+        this._updateTheme(theme);
+    }
+    
+    setUpdateTheme(func) {
+        this._updateTheme = func;
     }
 }
