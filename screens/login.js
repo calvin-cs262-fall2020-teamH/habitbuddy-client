@@ -14,13 +14,15 @@ export default function Login({ navigation }) {
 
     const [username, setUsername] = useState('Username');
     const [password, setPassword] = useState('Password');
+    const [Loading, setLoading] = React.useState(false);
 
     const dyStyles = useDynamicValue(dynamicStyles);
 
     let commonData = CommonDataManager.getInstance();
-    //commonData.setUserID("User1");
+    // commonData.setUserID("7");
 
     function testLogin() {
+        // commonData.setUserID("7");
         fetch('https://habit-buddy.herokuapp.com/login/' + username + '/' + password)                                           // Web service will be entered once we have it fully available.
             .then((response) => response.text())
             .then((responseText) => {
@@ -32,7 +34,7 @@ export default function Login({ navigation }) {
                 }
             })
             .catch((error) => console.error(error))
-            //.finally(() => setLoading(false));
+            .finally(() => setLoading(false));
 
         //console.log(commonData.getUserID());
     }

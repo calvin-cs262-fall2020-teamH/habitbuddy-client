@@ -116,6 +116,7 @@ export default class CommonDataManager {
 
         if(!id) {
             this._updateUser(null);
+            this._userID = null;
         }
         else {
             this._updateUser({});

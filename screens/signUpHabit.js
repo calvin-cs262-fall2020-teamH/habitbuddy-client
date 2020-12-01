@@ -4,6 +4,7 @@ import { Input } from 'react-native-elements';
 import RNPickerSelect from 'react-native-picker-select';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles, dyColorCodes } from '../styles/global';
+import CommonDataManager from '../data/CommonDataManager'
 
 import CommonDataManager from '../data/CommonDataManager';
 
@@ -17,6 +18,8 @@ export default function SignUpHabit() {
     let commonData = CommonDataManager.getInstance();
 
     const dyStyles = useDynamicValue(dynamicStyles);
+
+    const commonData = CommonDataManager.getInstance();
 
     return (
         <TouchableWithoutFeedback onPress={() => {
@@ -53,7 +56,10 @@ export default function SignUpHabit() {
                     placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                     onChangeText={(val) => setPersonalGoal(val)}
                 />
-                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => commonData.uptateUser({})}>
+                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => {updateData({}); commonData.setUserID('7')}}>
+
+               // <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => commonData.uptateUser({})}>
+
                     <Text style={dyStyles.loginButtonText}>Finish</Text>
                 </TouchableOpacity>
             </View>

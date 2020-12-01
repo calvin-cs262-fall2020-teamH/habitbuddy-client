@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react';
-
-import {
-    ImageBackground, StyleSheet, View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard,
-    TextInput, Alert
-} from 'react-native';
-import { globalStyles, colorCodes } from '../styles/global';
+import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard, 
+    TextInput, Alert } from 'react-native';
+import {globalStyles, colorCodes} from '../styles/global';
 import Card from '../shared/card';
 import { MaterialIcons } from '@expo/vector-icons';
 import CommonDataManager from '../data/CommonDataManager';
@@ -34,6 +31,8 @@ export default function Home({ navigation }) {
     }
 
     let commonData = CommonDataManager.getInstance();
+
+    console.log(commonData.getUserID());
 
     useEffect(() => {
         fetch('https://habit-buddy.herokuapp.com/home/' + commonData.getUserID()) //Change this once we have local storage of a active user
@@ -91,7 +90,7 @@ export default function Home({ navigation }) {
                             </View>
                             {/* Habit Stacking card */}
                             <View style={styles.corners}>
-                                <Card style={{height:200}}>
+                                <Card style={{height:190}}>
                                     {/* info icon on the right when clicked opens an alert box with information */}
                                     <View>
                                         <MaterialIcons name="info-outline" size={20} color='#333' style={styles.habitStackInfoIcon} onPress={alert}
@@ -106,8 +105,8 @@ export default function Home({ navigation }) {
                                     </View>
                                     {/* Habit Stacking content */}
                                     <View style={[styles.Hab]}>
-                                        <Text style={[styles.text,{fontWeight:'bold'}]}>After I</Text>
-                                        <TextInput
+                                        <Text style={styles.titleText}>After I</Text>
+                                        <TextInput   
                                             style={styles.inputBox}
                                             placeholder=' CURRENT HABIT'
                                             onChangeText={(val) => setChabit(val)} />
@@ -236,9 +235,11 @@ const styles = StyleSheet.create({
         color: colorCodes.lightText,
     },
     habitStackInfoIcon:{
-        alignSelf:'flex-end', 
-        marginTop:-15, 
-        marginRight:-10
+        alignSelf:'flex-end',
+        marginTop:-10,
+        marginRight:-20,
+        marginBottom: -5,
+        width: 30,
+        height: 30,
     }
-    
 })
