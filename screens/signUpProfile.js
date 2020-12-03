@@ -22,6 +22,29 @@ export default function SignUpProfile({ navigation }) {
 
     const dyStyles = useDynamicValue(dynamicStyles);
 
+    async function createUser() {
+        fetch(`http://habit-buddy.herokuapp.com/user`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                firstName: 'Test',
+                lastName: 'Man',
+                emailAddress: 'testman@mail.com',
+                phone: '123-456-7890',
+                username: 'teman',
+                password: 'password',
+                profileURL: 'https://www.dictionary.com/e/wp-content/uploads/2018/03/PogChamp.jpg',
+                hobby: 'guitar',
+            })
+        })
+        .then(response => response.text())
+        .then(data => {
+        console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+    }
+
     return (
         <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss();
@@ -77,6 +100,10 @@ export default function SignUpProfile({ navigation }) {
                     />
                     <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => navigation.navigate('SignUpHabit')}>
                         <Text style={dyStyles.loginButtonText}>Next</Text>
+                    </TouchableOpacity>
+
+                    <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => createUser()}>
+                        <Text style={dyStyles.loginButtonText}>Test</Text>
                     </TouchableOpacity>
                 </View>
             </KeyboardAwareScrollView>
