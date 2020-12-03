@@ -22,11 +22,26 @@ import CommonDataManager from "../data/CommonDataManager";
 export default function EditProfile({ navigation }) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
+    const [habitgoal, setHabitgoal]=useState('');
+    const [hobby, setHobby] = useState('');
+    const [email, setEmail] = useState('');
 
     let commonData = CommonDataManager.getInstance();
 
+    function editProfileById(id) {
+        return fetch(`https://habit-buddy.herokuapp.com/user/`+ commonData.getUserID(), {
+            method: 'PUT', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                habitgoal
+            })
+        })
+            .catch((error) => {
+                console.error(error);
+            });
+    }
+
     useEffect(() => {
-        fetch('https://habit-buddy.herokuapp.com/user/' + commonData.getUserID()) //Change this once we have local storage of a active user
+        fetch('https://habit-buddy.herokuapp.com/user/' + commonData.getUserID())
             .then((response) => response.json())
             .then((json) => setData(json))
             .catch((error) => console.error(error))
@@ -51,14 +66,20 @@ export default function EditProfile({ navigation }) {
                     </View>
                     <View style={dyStyles.userInfo}>
                         <ProfileCard title = "Habit" userInfo = {data.category}></ProfileCard>
-                        <EditProfileCard title = "Habit Goal" placeholder = "Enter new habit goal"></EditProfileCard>
+                        <EditProfileCard title = "Habit Goal" placeholder = "Enter new habit goal" onChangeText={habitgoal => setHabitgoal(habitgoal)} value={habitgoal}></EditProfileCard>
                         <EditProfileCard title = "Hobby" placeholder = "Enter new hobby"></EditProfileCard>
                         <EditProfileCard title = "Email" placeholder = "Enter new email"></EditProfileCard>
                         <EditProfileCard title = "Phone Number" placeholder = "Enter new phone number" keyboardType='number-pad'></EditProfileCard>
                     </View>
                     <View style={dyStyles.buttonPlacement}>
                         <TouchableOpacity style={dyStyles.loginButtonContainer} 
-                            onPress={() => navigation.navigate('Profile')}>
+                            onPress={() => {
+                                editProfileById(data.id),
+                                navigation.navigate('Profile') }
+
+                            }
+                        >
+                                
                             <Text style={dyStyles.loginButtonText}>Confirm Changes</Text>
                         </TouchableOpacity>
                     </View>

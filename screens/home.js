@@ -100,7 +100,7 @@ export default function Home({ navigation }) {
                                     {/* Habit Stacking title */}
                                     <View style={{ alignItems: 'center'}}>
                                         <Text style={{ justifyContent: 'center' }}>
-                                            Habit Stacking
+                                            Habit Stacking 
                                         </Text>
                                     </View>
                                     {/* Habit Stacking content */}
