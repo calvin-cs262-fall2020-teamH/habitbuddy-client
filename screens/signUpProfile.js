@@ -22,32 +22,6 @@ export default function SignUpProfile({ navigation }) {
 
     const dyStyles = useDynamicValue(dynamicStyles);
 
-    //sample createUser function
-    async function createUser() {
-        fetch(`http://habit-buddy.herokuapp.com/user`, {
-            method: 'POST', headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                firstName: 'Better',
-                lastName: 'Man',
-                emailAddress: 'betterman@mail.com',
-                phone: '420-420-4242',
-                username: 'beman',
-                password: 'password',
-                profileURL: 'https://www.dictionary.com/e/wp-content/uploads/2018/03/PogChamp.jpg',
-                hobby: 'bettering',
-                habit: 'being better everyday',
-                category: 'Leisure'
-            })
-        })
-        .then(response => response.text())
-        .then(data => {
-        console.log('Success:', data);
-        })
-        .catch((error) => {
-            console.error(error);
-        });
-    }
-
     return (
         <TouchableWithoutFeedback onPress={() => {
             Keyboard.dismiss();
@@ -85,7 +59,7 @@ export default function SignUpProfile({ navigation }) {
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                         placeholder='Phone Number'
                         keyboardType='number-pad'
-                        onChangeText={(val) => setEmail(val)} 
+                        onChangeText={(val) => setPhoneNumber(val)} 
                         autoCapitalize = 'none' />
                     <PasswordInput
                         placeholder='Password'
@@ -101,12 +75,17 @@ export default function SignUpProfile({ navigation }) {
                         onChangeText={(val) => { setPassword(val); }}
                         autoCapitalize = 'none'
                     />
-                    <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => navigation.navigate('SignUpHabit')}>
+                    <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => navigation.navigate('SignUpHabit', 
+                        {data: {
+                            firstName: firstName,
+                            lastName: lastName,
+                            emailAddress: email,
+                            phone: phoneNumber,
+                            username: username,
+                            password: password,
+                            profileURL: 'https://th.bing.com/th/id/OIP.K6XYBPwgLPhvWH9BxDYfXAHaEN?pid=Api&rs=1'
+                        }})}>
                         <Text style={dyStyles.loginButtonText}>Next</Text>
-                    </TouchableOpacity>
-
-                    <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => createUser()}>
-                        <Text style={dyStyles.loginButtonText}>Test</Text>
                     </TouchableOpacity>
                 </View>
             </KeyboardAwareScrollView>
