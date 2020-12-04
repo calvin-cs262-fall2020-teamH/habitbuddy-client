@@ -3,7 +3,6 @@ import { View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from
 import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles, dyColorCodes } from '../styles/global';
 import { Input } from 'react-native-elements';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import PasswordInput from '../shared/passwordInput';
 
@@ -59,7 +58,7 @@ export default function SignUpProfile({ navigation }) {
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                         placeholder='Phone Number'
                         keyboardType='number-pad'
-                        onChangeText={(val) => setEmail(val)} 
+                        onChangeText={(val) => setPhoneNumber(val)} 
                         autoCapitalize = 'none' />
                     <PasswordInput
                         placeholder='Password'
