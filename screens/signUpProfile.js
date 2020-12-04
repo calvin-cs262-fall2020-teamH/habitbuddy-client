@@ -22,18 +22,21 @@ export default function SignUpProfile({ navigation }) {
 
     const dyStyles = useDynamicValue(dynamicStyles);
 
+    //sample createUser function
     async function createUser() {
         fetch(`http://habit-buddy.herokuapp.com/user`, {
             method: 'POST', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                firstName: 'Test',
+                firstName: 'Better',
                 lastName: 'Man',
-                emailAddress: 'testman@mail.com',
-                phone: '123-456-7890',
-                username: 'teman',
+                emailAddress: 'betterman@mail.com',
+                phone: '420-420-4242',
+                username: 'beman',
                 password: 'password',
                 profileURL: 'https://www.dictionary.com/e/wp-content/uploads/2018/03/PogChamp.jpg',
-                hobby: 'guitar',
+                hobby: 'bettering',
+                habit: 'being better everyday',
+                category: 'Leisure'
             })
         })
         .then(response => response.text())
