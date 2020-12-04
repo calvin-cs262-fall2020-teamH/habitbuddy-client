@@ -31,7 +31,8 @@ export default function PasswordInput(props) {
                 <MaterialCommunityIcons
                     name={secure ? 'eye' : 'eye-off'}
                     size={25}
-                    onPress={() => setSecure(!secure)} />
+                    onPress={() => setSecure(!secure)}
+                    color={useDynamicValue(dyColorCodes.text)} />
             }
             {
                 !props.secure &&

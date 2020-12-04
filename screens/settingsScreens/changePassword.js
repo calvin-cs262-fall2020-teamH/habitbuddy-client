@@ -24,7 +24,7 @@ export default function ChangePassword({ navigation }) {
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             {/* <View style={[dyStyles.wholePage, { paddingHorizontal: 20, paddingVertical: 20 }]}> */}
             <View style={dyStyles.loginContainer}>
-                <Text style={dyStyles.text, {fontWeight: 'bold', fontSize: 18, paddingVertical: 10, paddingRight: 30}}>Enter Current Password:</Text>
+                <Text style={[dyStyles.text, {fontWeight: 'bold', fontSize: 18, paddingVertical: 10, paddingRight: 30}]}>Enter Current Password:</Text>
                 <PasswordInput
                     placeholder='Current Password'
                     placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
@@ -36,7 +36,7 @@ export default function ChangePassword({ navigation }) {
                     ref={input => {inputs['one'] = input;}}
                     />
 
-                <Text style={dyStyles.text, {fontWeight: 'bold', fontSize: 18, paddingVertical: 10, paddingRight: 60}}>Enter New Password:</Text>
+                <Text style={[dyStyles.text, {fontWeight: 'bold', fontSize: 18, paddingVertical: 10, paddingRight: 60}]}>Enter New Password:</Text>
                 <PasswordInput
                     placeholder='New Password'
                     placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
@@ -48,7 +48,7 @@ export default function ChangePassword({ navigation }) {
                     ref={input => {inputs['two'] = input;}}
                     />
 
-                <Text style={dyStyles.text, {fontWeight: 'bold', fontSize: 18, paddingVertical: 10, paddingRight: 37}}>Confirm New Password:</Text>
+                <Text style={[dyStyles.text, {fontWeight: 'bold', fontSize: 18, paddingVertical: 10, paddingRight: 37}]}>Confirm New Password:</Text>
                 <PasswordInput
                     placeholder='New Password'
                     placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
