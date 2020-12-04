@@ -91,7 +91,7 @@ const styles = new DynamicStyleSheet({
     },
     streakBoardContainer:{ 
         flex: 6, 
-        backgroundColor: dyColorCodes.front,
+        backgroundColor: dyColorCodes.frontCard,
         paddingHorizontal: 7, 
         marginTop: 20, 
         marginHorizontal: 7, 

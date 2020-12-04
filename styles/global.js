@@ -28,6 +28,7 @@ let dark = {
 export let dyColorCodes = {
 	back: new DynamicValue('#eee', '#303030'), //for the background of a screen
 	front: new DynamicValue('#fff', '#282828'), //for an object in the foreground of the screen
+	frontCard: new DynamicValue('#D3D3D3', '#282828'),
 	text: new DynamicValue('#222', '#eee'), //for text which isn't on a card
 	cardText: new DynamicValue('#000', '#000'), //for text that is on a card
 	lightText: new DynamicValue('#666', '#aaa'), //for placeholder text
