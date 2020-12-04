@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { dyColorCodes } from '../styles/global'
 import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
-export default function EditProfileCard({ icon, title, placeholder, keyboardType }) {
+export default function EditProfileCard({ icon, title, placeholder, keyboardType, setValue }) {
 
     const dyStyles = useDynamicValue(styles);
 
@@ -25,6 +25,7 @@ export default function EditProfileCard({ icon, title, placeholder, keyboardType
                     style={dyStyles.textInput}
                     placeholderTextColor = { useDynamicValue(dyColorCodes.lightText) }
                     placeholder={placeholder}
+                    onChangeText={(val)=>setValue}
                     keyboardType={keyboardType}
                 />
 
