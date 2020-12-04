@@ -51,13 +51,13 @@ export default function HabitTrack({ navigation }) {
                 
                 {/* Daily Streak Board Title */}
                 <View style={dyStyles.streakBoardTitle}>
-                    <Text style={dyStyles.cardText}>Daily Streak Board</Text>
+                    <Text style={dyStyles.text}>Daily Streak Board</Text>
                 </View>
 
                 {/* My streak container */}
                 <View style={dyStyles.myStreakContainer}>
                     <Text style={[dyStyles.cardText, { fontWeight: 'bold' }]}>My Streak </Text>
-                    <Text style={[dyStyles.streak, { fontWeight: 'bold' }]}>0</Text>
+                    <Text style={[dyStyles.cardStreak, { fontWeight: 'bold' }]}>0</Text>
                 </View>
 
                 {/* Buddies' streak container, uses BuddiesStreak card for each buddy */}
@@ -66,7 +66,7 @@ export default function HabitTrack({ navigation }) {
                         <TouchableOpacity>
                             {/* Allows for traversal into the buddy details page */}
                             <BuddiesStreak>
-                                <Text style={dyStyles.cardText}>
+                                <Text style={dyStyles.text}>
                                     {item.name}
                                 </Text>
                                 <Text style={dyStyles.streak}>
@@ -91,7 +91,7 @@ const styles = new DynamicStyleSheet({
     },
     streakBoardContainer:{ 
         flex: 6, 
-        backgroundColor: '#D3D3D3', 
+        backgroundColor: dyColorCodes.front,
         paddingHorizontal: 7, 
         marginTop: 20, 
         marginHorizontal: 7, 
@@ -121,7 +121,7 @@ const styles = new DynamicStyleSheet({
         paddingBottom: 15, 
         borderRadius: 5, 
         alignItems: 'stretch', 
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     titleText: {
         fontSize: 18,
@@ -141,6 +141,12 @@ const styles = new DynamicStyleSheet({
         flex: 1,
     },
     streak: {
+        textAlign: "right",
+        marginLeft: 'auto',
+        alignItems: 'flex-end',
+        color: dyColorCodes.text,
+    },
+    cardStreak: {
         textAlign: "right",
         marginLeft: 'auto',
         alignItems: 'flex-end'

@@ -36,6 +36,7 @@ export let dyColorCodes = {
 	highlightBack: new DynamicValue('#caebff', '#1b86ff'), //for the background of selection block
 	highlightFront: new DynamicValue('#1b86ff', '#caebff'), //for the text of selection block
 	card: new DynamicValue('#ffd699', '#ffd699'), //for the background of cards
+	simpleCard: new DynamicValue('#fff', '#444'),
 }
 
 export let colorCodes = light;
