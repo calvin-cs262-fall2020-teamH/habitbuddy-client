@@ -14,7 +14,7 @@ export default function BuddyDetails({route, navigation}) {
     let [profilePage, setProfilePage] = useState(
         {name: route.params.firstname + " " + route.params.lastname,
             category: route.params.category,
-            goal: route.params.habitgoal,
+            goal: route.params.habit,
             hobby: route.params.hobby,
             email: route.params.emailaddress,
             number: route.params.phone,

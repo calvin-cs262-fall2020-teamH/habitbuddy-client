@@ -36,7 +36,7 @@ export default function Buddies({ navigation }) {
 
                         {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
                         <Text style={dyStyles.buddyCardTitle}>{ item.firstname } { item.lastname }</Text>
-                        <Text style={dyStyles.buddyCardText}>{ item.habitgoal }</Text>
+                        <Text style={dyStyles.buddyCardText}>{ item.habit }</Text>
                     </Card>
                 </TouchableOpacity>
             )}/>
