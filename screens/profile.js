@@ -41,7 +41,7 @@ export default function Profile({ navigation }) {
                 </View>
                 <View style={dyStyles.userInfo}>
                     <ProfileCard title="Category" userInfo={data.category}></ProfileCard>
-                    <ProfileCard title="Habit Goal" userInfo={data.habitgoal}></ProfileCard>
+                    <ProfileCard title="Habit Goal" userInfo={data.habit}></ProfileCard>
                     <ProfileCard title="Hobby" userInfo={data.hobby}></ProfileCard>
                     <ProfileCard title="Email" userInfo={data.emailaddress}></ProfileCard>
                     <ProfileCard title="Phone Number" userInfo={data.phone}></ProfileCard>
