@@ -14,7 +14,7 @@ export default function BuddiesStack({navigation}) {
     // Alert box for HabitTracking info icon
     const alert = () => {
         Alert.alert('What are Buddies?',
-            "Buddies are other user that have the same habit category as you! By tapping on any of their names, you are directed to their profile page where you can connect and grow your community",
+            "Buddies are other users that have the same habit category as you! By tapping on a buddy, you will be directed to their profile page where you can connect with them and grow your community.",
             [
                 { text: "Got it!" }
             ]
