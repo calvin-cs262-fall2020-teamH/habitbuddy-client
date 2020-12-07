@@ -19,6 +19,7 @@ export default function PasswordInput(props) {
         <View style={[{ width: '70%', flexDirection: 'row', justifyContent: 'flex-start' }, props.style]}>
             <Input
                 containerStyle={{ flexDirction: 'row', }}
+                // returnKeyType={'next'}
                 onChangeText={text => props.onChangeText(text)}
                 secureTextEntry={secure}
                 style={dyStyles.textInput}
@@ -30,7 +31,8 @@ export default function PasswordInput(props) {
                 <MaterialCommunityIcons
                     name={secure ? 'eye' : 'eye-off'}
                     size={25}
-                    onPress={() => setSecure(!secure)} />
+                    onPress={() => setSecure(!secure)}
+                    color={useDynamicValue(dyColorCodes.text)} />
             }
             {
                 !props.secure &&

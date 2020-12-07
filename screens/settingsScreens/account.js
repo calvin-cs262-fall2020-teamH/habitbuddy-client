@@ -26,8 +26,7 @@ export default function Account({navigation}) {
                 options={[
                 { text: "No", style: "cancel", },
                 { text: "Yes", onPress: () => logOut()},
-                ]}>   
-            </AlertBlock>
+                ]}></AlertBlock>
         </ScrollView>
     );
 };
