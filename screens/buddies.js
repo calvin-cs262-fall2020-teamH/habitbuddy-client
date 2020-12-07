@@ -25,6 +25,7 @@ export default function Buddies({ navigation }) {
 
     return (
         <View style={dyStyles.buddyDisplayContainer}>
+            <Text style={dyStyles.title_text}>Tap your buddy for more info!</Text>
             <FlatList data={data} 
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => (

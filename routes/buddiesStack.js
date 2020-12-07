@@ -11,6 +11,16 @@ const Stack = createStackNavigator();
 
 /*BuddiesStack creates a stack of screens with the default being the Buddies screen */
 export default function BuddiesStack({navigation}) {
+    // Alert box for HabitTracking info icon
+    const alert = () => {
+        Alert.alert('What are Buddies?',
+            "Buddies are other user that have the same habit category as you! By tapping on any of their names, you are directed to their profile page where you can connect and grow your community",
+            [
+                { text: "Got it!" }
+            ]
+        )
+    }
+
     return (
         <Stack.Navigator screenOptions={{
             headerStyle: {backgroundColor: 'orange'}
@@ -21,6 +31,12 @@ export default function BuddiesStack({navigation}) {
                 options={{
                     headerLeft: () =>  <Header navigation={navigation} />,
                     headerTitleAlign: {textAlign:'center'},
+                    headerRight: () => (
+                        <MaterialIcons name="info-outline" size={27} color='#333' style={globalStyles.leftIcon}
+                                       onPress={alert}
+                        />
+
+                    ),
                 }}
             />
             <Stack.Screen

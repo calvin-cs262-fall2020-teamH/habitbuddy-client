@@ -43,6 +43,15 @@ export let dyColorCodes = {
 export let colorCodes = light;
 
 export const dynamicStyles = new DynamicStyleSheet({
+	title_text: {
+		fontSize: 14,
+		marginTop: 10,
+		marginBottom: 7,
+		textAlign: 'center',
+		alignItems: 'center',
+		justifyContent: 'center',
+		color: dyColorCodes.text,
+	},
 	text: {
 		color: dyColorCodes.text,
 	},
