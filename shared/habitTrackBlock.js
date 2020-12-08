@@ -44,7 +44,7 @@ export default class HabittrackBlock extends Component {
         let hstreak = 0;
 
         // Adds streak if each block in a row is selected
-        this.data.forEach(element => {
+        this.state.data.forEach(element => {
             if (element.select) {
                 if (!lastBlock) {
                     hstreak = 1;
@@ -56,8 +56,7 @@ export default class HabittrackBlock extends Component {
             lastBlock = element.select;
         });
 
-        this.commonData.setStreak(this.data);
-        console.log("Highest streak: " + hstreak);
+        this.commonData.setStreak(this.state.data);
 
         fetch(`http://habit-buddy.herokuapp.com/streak/` + this.commonData.getUserID(), {
             method: 'PUT', headers: { 'Content-Type': 'application/json' },
