@@ -14,7 +14,8 @@ export default class CommonDataManager {
     static myInstance = null;
 
     _userID = null;
-    _streak = 0;
+    _streak = null;
+    _streakWeek = null;
     _updateUser = () => {};
     _updateTheme = () => {};
     _updateStreak = () => {};
@@ -115,9 +116,9 @@ export default class CommonDataManager {
 
     getStreak() {
         if(this._streak === 0) {
-            return 0;
+            return this._streak;
         }
-        else if(!this._streak) {
+        if(!this._streak) {
             this.storage
             .load({
                 key: 'streak',
@@ -130,10 +131,22 @@ export default class CommonDataManager {
                 }
             })
             .then(ret => {
-                console.log(ret.streak);
                 if(ret.streak) {
-                    this._streak = ret.streak;
-                    this._updateStreak(ret.streak);
+                    let hstreak = 0;
+                    let lastBlock = true;
+                    ret.streak.forEach(element => {
+                        if (element.select) {
+                            if (!lastBlock) {
+                                hstreak = 1;
+                            }
+                            else {
+                                hstreak += 1;
+                            }
+                        }
+                        lastBlock = element.select;
+                    });
+                    this._streak = hstreak;
+                    this._updateStreak(hstreak);
                 }
                 return this._streak;
             })
@@ -146,8 +159,50 @@ export default class CommonDataManager {
         }
     }
 
+    getStreakWeek() {
+        if(!this._streakWeek) {
+            this.storage
+            .load({
+                key: 'streak',
+                autoSync: true,
+                syncInBackground: true,
+                syncParams: {
+                    extraFetchOptions: {
+                    },
+                    someFlag: true
+                }
+            })
+            .then(ret => {
+                this._streakWeek = ret.streak;
+                return this._streakWeek;
+            })
+            .catch(err => {
+                console.warn(err.message);
+            });
+        }
+        else {
+            return this._streakWeek;
+        }
+    }
+
     setStreak(data) {
-        this._streak = data;
+        let hstreak = 0;
+        let lastBlock = true;
+        data.forEach(element => {
+            if (element.select) {
+                if (!lastBlock) {
+                    hstreak = 1;
+                }
+                else {
+                    hstreak += 1;
+                }
+            }
+            lastBlock = element.select;
+        });
+
+        this._streak = hstreak;
+        this._streakWeek = data;
+        console.log("Streak: " + data);
 
         this.storage.save({
             key: 'streak',
@@ -157,7 +212,7 @@ export default class CommonDataManager {
             expires: null,
         });
 
-        this._updateStreak(data);
+        this._updateStreak(hstreak);
     }
 
     updateUser(data) {

@@ -1,50 +1,37 @@
-import { TextareaAutosize } from '@material-ui/core';
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
+import { Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
 import { DynamicStyleSheet, DynamicValue } from 'react-native-dynamic';
 import CommonDataManager from '../data/CommonDataManager';
-import { colorCodes, dyColorCodes } from '../styles/global';
+import { dyColorCodes } from '../styles/global';
 import BuddiesStreak from '../shared/buddiesStreakCard';
 
 
 let data;
-let hstreak = 0;
 let lastBlock = true;
-let missedDay = false;
-
-let buddies = [
-
-    // Basic static user data, used until backend is developed.
-    { name: 'Andrew Baker', streak: '4', key: '1' },
-    { name: 'Dawson Buist', streak: '6', key: '2' },
-    // { name: 'Kelsey Yen', streak: '10', key: '3' },
-    // { name: 'Belina Sainju', streak: '15', key: '4' },
-    // { name: 'Joe Pastucha', streak: '60', key: '5' },
-    // { name: 'Nathan Strain', streak: '90', key: '6' },
-
-];
 
 export default class HabittrackBlock extends Component {
-
-
 
     //The constructor takes in props passed from outside and sets the default selected days to be none
     constructor(props) {
         super(props);
 
-        data = props.data;
+        //this.data = props.data;
+        this.commonData = CommonDataManager.getInstance();
         this.state = {
             lastSelect: '',
             theme: props.theme,
+            buddies: props.buddies.sort((a, b) => (a.streak > b.streak) ? 1 : 0),
+            hstreak: this.commonData.getStreak(),
+            data: props.data,
         };
-
-        this.commonData = CommonDataManager.getInstance();
     }
 
     
     static getDerivedStateFromProps(nextProps) {
         return {
-            theme: nextProps.theme
+            theme: nextProps.theme,
+            buddies: nextProps.buddies.sort((a, b) => (a.streak > b.streak) ? 1 : 0),
+            data: nextProps.data,
         }
     }
 
@@ -54,10 +41,10 @@ export default class HabittrackBlock extends Component {
         item.select = !item.select;
         this.setState({ lastSelect: (item.day + item.select).toString() });
 
-        hstreak = 0;
+        let hstreak = 0;
 
         // Adds streak if each block in a row is selected
-        this.props.data.forEach(element => {
+        this.data.forEach(element => {
             if (element.select) {
                 if (!lastBlock) {
                     hstreak = 1;
@@ -69,7 +56,19 @@ export default class HabittrackBlock extends Component {
             lastBlock = element.select;
         });
 
-        this.commonData.setStreak(hstreak);
+        this.commonData.setStreak(this.data);
+        console.log("Highest streak: " + hstreak);
+
+        fetch(`http://habit-buddy.herokuapp.com/streak/` + this.commonData.getUserID(), {
+            method: 'PUT', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                streak: hstreak
+            })
+        })
+        //.then(response => console.log(response.text()))
+        .catch((error) => {
+            console.error(error);
+        });
     };
 
     //renderRow renders each row for the selection
@@ -95,12 +94,13 @@ export default class HabittrackBlock extends Component {
 
     render() {
         const dyStyles = styles[this.state.theme];
+
         return (
             //takes the data passed in and renders each item in the list using renderRow
             <SafeAreaView style={dyStyles.container}>
                 <View style={{ flex: 1, borderRadius: 5, alignItems: 'center', justifyContent: 'center', borderBottomWidth: 0.5, borderBottomColor: 'gray', shadowRadius: 5 }}>
                     <FlatList
-                        data={data}
+                        data={this.state.data}
                         renderItem={({ item }) => (
                             this.renderRow(item)
                         )}
@@ -128,12 +128,14 @@ export default class HabittrackBlock extends Component {
 
                 {/* Buddies' streak container, uses BuddiesStreak card for each buddy */}
                 <View style={dyStyles.buddiesStreakContainer}>
-                    <FlatList data={buddies} renderItem={({ item }) => (
+                    <FlatList data={this.state.buddies} 
+                    keyExtractor={(item, index) => index.toString()}
+                    renderItem={({ item }) => (
                         <TouchableOpacity>
                             {/* Allows for traversal into the buddy details page */}
                             <BuddiesStreak>
                                 <Text style={dyStyles.text}>
-                                    {item.name}
+                                    {item.firstname} {item.lastname}
                                 </Text>
                                 <Text style={dyStyles.streak}>
                                     {item.streak}
@@ -164,16 +166,6 @@ const styles = new DynamicStyleSheet({
         alignItems: 'center',
         justifyContent: 'center',
 
-    },
-    container: {
-        flex: 1,
-        justifyContent: 'center',
-        padding: 10,
-
-    },
-    text: {
-        fontSize: 15,
-        color: dyColorCodes.text,
     },
     container: {
         flex: 1,
