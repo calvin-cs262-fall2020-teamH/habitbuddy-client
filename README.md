@@ -16,7 +16,7 @@ To run the app on Expo, use the following commands:
 npm install
 npm start
 ```
-In the web browser, scan the QR code with your device or Android/IOS simulator to run the app.
+which will open your default web browser. Scan the QR code with your device or Android/IOS simulator to use the app.
 
 To login into the app under a sample acount, use the following credentials:
 ```
