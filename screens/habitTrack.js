@@ -28,7 +28,8 @@ export default function HabitTrack({ navigation }) {
 
     return (
         <View style={dyStyles.container}>
-            <Text style={[dyStyles.text, { marginVertical: 3, alignSelf: 'center' }]}>My Week</Text>
+            <Text style={[dyStyles.text, { marginVertical: 3, alignSelf: 'center', fontWeight: 'bold' }]}>My Week</Text>
+            <Text style={[dyStyles.text, { marginVertical: 3, alignSelf: 'center' }]}>Tap the day to log your progress</Text>
 
             {/* This block is for the 7 blocks representing a week */}
             <HabitTrackBlock
@@ -44,11 +45,12 @@ export default function HabitTrack({ navigation }) {
                 
                 ]}
                 theme = {mode}
+
+
             ></HabitTrackBlock>
 
             {/* This is for the Daily Streak Board */}
             <View style={dyStyles.streakBoardContainer}>
-                
                 {/* Daily Streak Board Title */}
                 <View style={dyStyles.streakBoardTitle}>
                     <Text style={dyStyles.text}>Daily Streak Board</Text>
