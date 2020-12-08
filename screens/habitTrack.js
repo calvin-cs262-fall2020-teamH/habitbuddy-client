@@ -1,30 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import HabitTrackBlock from '../shared/habitTrackBlock';
 import BuddiesStreak from '../shared/buddiesStreakCard';
 import { DynamicStyleSheet, useDynamicValue, useColorSchemeContext} from 'react-native-dynamic';
 import { dyColorCodes } from '../styles/global';
+import CommonDataManager from '../data/CommonDataManager';
 
 export default function HabitTrack({ navigation }) {
     const dyStyles = useDynamicValue(styles);
     const mode = useColorSchemeContext();
     const lastMode = '';
+    const [isLoading, setLoading] = useState(true);
+    const [data, setData] = useState([]);
 
     const habitblockElement = React.createRef();
 
+    let commonData = CommonDataManager.getInstance();
+
     mode === lastMode ? () => { habitblockElement.current.changeTheme(mode); lastMode = mode; } : {};
     
-    let buddies = [
-
-        // Basic static user data, used until backend is developed.
-        { name: 'Andrew Baker', streak: '4', key: '1' },
-        { name: 'Dawson Buist', streak: '6', key: '2' },
-        // { name: 'Kelsey Yen', streak: '10', key: '3' },
-        // { name: 'Belina Sainju', streak: '15', key: '4' },
-        // { name: 'Joe Pastucha', streak: '60', key: '5' },
-        // { name: 'Nathan Strain', streak: '90', key: '6' },
-
-    ];
+    useEffect(() => {
+        fetch('https://habit-buddy.herokuapp.com/buddies/' + commonData.getUserID())
+          .then((response) => response.json())
+          .then((json) => setData(json))
+          .catch((error) => console.error(error))
+          .finally(() => setLoading(false));
+      }, []);
 
     return (
         <View style={dyStyles.container}>
@@ -45,9 +46,7 @@ export default function HabitTrack({ navigation }) {
                 
                 ]}
                 theme = {mode}
-
-
-            ></HabitTrackBlock>
+            />
 
             {/* This is for the Daily Streak Board */}
             <View style={dyStyles.streakBoardContainer}>
@@ -64,12 +63,12 @@ export default function HabitTrack({ navigation }) {
 
                 {/* Buddies' streak container, uses BuddiesStreak card for each buddy */}
                 <View style={dyStyles.buddiesStreakContainer}>
-                    <FlatList data={buddies} renderItem={({ item }) => (
-                        <TouchableOpacity>
+                    <FlatList data={data} renderItem={({ item }) => (
+                        <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>
                             {/* Allows for traversal into the buddy details page */}
                             <BuddiesStreak>
                                 <Text style={dyStyles.text}>
-                                    {item.name}
+                                    {item.firstname} {item.lastname}
                                 </Text>
                                 <Text style={dyStyles.streak}>
                                     {item.streak}
