@@ -3,7 +3,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import { createStackNavigator } from '@react-navigation/stack';
 import { globalStyles } from '../styles/global';
 import { Alert } from 'react-native';
-
+import BuddyDetails from '../screens/buddyDetails';
 import Header from '../shared/header';
 import HabitTrack from '../screens/habitTrack';
 
@@ -37,7 +37,33 @@ export default function HabitTrackStack({ navigation }) {
                     ),
                 }}
             />
+            <Stack.Screen
+                name="BuddyDetails"
+                component={BuddyDetails}
+                options={{title: 'Buddy Details',
+                    headerTitleAlign: {
+                        textAlign: 'center'
+                    },
+                    headerRight: () => (
+                        <MaterialIcons name="delete" size={27} color='#333' style={globalStyles.leftIcon}
+                                       onPress={() => Alert.alert(
+                                           "Delete Buddy",
+                                           "Are you sure you want to delete your buddy?",
+                                           [
+                                               {
+                                                   text: "Cancel",
+                                                   onPress: () => console.log("Cancel Pressed"),
+                                                   style: "cancel"
+                                               },
+                                               { text: "Delete", onPress: () => console.log("OK Pressed") } //delete the buddy here
+                                           ],
+                                           { cancelable: false }
+                                       )
+                                       }/>
 
+                    ),
+                }}
+            />
 
         </Stack.Navigator>
     );
