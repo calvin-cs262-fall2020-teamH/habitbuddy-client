@@ -41,6 +41,7 @@ export default () => {
     const [isLoading, setIsLoading] = React.useState(false);
     const [user, setUser] = React.useState(null); //null default
     const [theme, setTheme] = React.useState('light');
+    const [streak, setStreak] = React.useState(0);
 
     //   React.useEffect(() => {
     //     setTimeout(() => {
@@ -66,12 +67,21 @@ export default () => {
     }
 
     function updateTheme(themeVal) {
-        setTheme(themeVal)
+        setTheme(themeVal);
+    }
+
+    function updateStreak(stateVal) {
+        setStreak(stateVal);
+    }
+    function getStreak() {
+        return streak;
     }
 
     let commonData = CommonDataManager.getInstance();
     commonData.setUpdateUser(updateUser);
     commonData.setUpdateTheme(updateTheme);
+    //commonData.setUpdateStreak(updateStreak);
+    commonData.setGetStreak(getStreak);
 
     return (
         <NavigationContainer>
@@ -80,7 +90,7 @@ export default () => {
       ) :  */}
             {user ? (
                 <ColorSchemeProvider mode={theme}>
-                    <TabScreen/>
+                    <TabScreen streak={streak}/>
                 </ColorSchemeProvider>
             ) : (
                     <ColorSchemeProvider>

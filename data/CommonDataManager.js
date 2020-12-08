@@ -6,11 +6,19 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 export default class CommonDataManager {
 
+    //TODO: Add week streak to store current week's streak data (list of days selected)
+    //TODO: Combine week streak val with streak val to get total streak (streak val doesn't include week streak)
+    //Store value of week start date to see what calculations need to be done on the streak
+    //
+
     static myInstance = null;
 
     _userID = null;
+    _streak = 0;
     _updateUser = () => {};
     _updateTheme = () => {};
+    _updateStreak = () => {};
+    _getStreak = () => {};
 
     storage = new Storage({
         // maximum capacity, default 1000 key-ids
@@ -51,29 +59,15 @@ export default class CommonDataManager {
             this.storage
             .load({
                 key: 'loginState',
-
-                // autoSync (default: true) means if data is not found or has expired,
-                // then invoke the corresponding sync method
                 autoSync: true,
-
-                // syncInBackground (default: true) means if data expired,
-                // return the outdated data first while invoking the sync method.
-                // If syncInBackground is set to false, and there is expired data,
-                // it will wait for the new data and return only after the sync completed.
-                // (This, of course, is slower)
                 syncInBackground: true,
-
-                // you can pass extra params to the sync method
-                // see sync example below
                 syncParams: {
                     extraFetchOptions: {
-                        // blahblah
                     },
                     someFlag: true
                 }
             })
             .then(ret => {
-                // found data go to then()
                 console.log(ret.userid);
                 if(ret.userid) {
                     this._userID = ret.userid;
@@ -104,14 +98,10 @@ export default class CommonDataManager {
         this._userID = id;
 
         this.storage.save({
-            key: 'loginState', // Note: Do not use underscore("_") in key!
-            data: { //can put any data here
+            key: 'loginState',
+            data: { 
                 userid: id,
             },
-
-            // if expires not specified, the defaultExpires will be applied instead.
-            // if set to null, then it will never expire.
-            //expires: 1000 * 3600
         });
 
         if(!id) {
@@ -121,6 +111,53 @@ export default class CommonDataManager {
         else {
             this._updateUser({});
         }
+    }
+
+    getStreak() {
+        if(this._streak === 0) {
+            return 0;
+        }
+        else if(!this._streak) {
+            this.storage
+            .load({
+                key: 'streak',
+                autoSync: true,
+                syncInBackground: true,
+                syncParams: {
+                    extraFetchOptions: {
+                    },
+                    someFlag: true
+                }
+            })
+            .then(ret => {
+                console.log(ret.streak);
+                if(ret.streak) {
+                    this._streak = ret.streak;
+                    this._updateStreak(ret.streak);
+                }
+                return this._streak;
+            })
+            .catch(err => {
+                console.warn(err.message);
+            });
+        }
+        else {
+            return this._streak;
+        }
+    }
+
+    setStreak(data) {
+        this._streak = data;
+
+        this.storage.save({
+            key: 'streak',
+            data: { 
+                streak: data,
+            },
+            expires: null,
+        });
+
+        this._updateStreak(data);
     }
 
     updateUser(data) {
@@ -137,5 +174,13 @@ export default class CommonDataManager {
     
     setUpdateTheme(func) {
         this._updateTheme = func;
+    }
+
+    setUpdateStreak(func) {
+        this._updateStreak = func;
+    }
+
+    setGetStreak(func) {
+        this._getStreak = func;
     }
 }

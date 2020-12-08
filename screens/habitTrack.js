@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 import HabitTrackBlock from '../shared/habitTrackBlock';
 import BuddiesStreak from '../shared/buddiesStreakCard';
-import { DynamicStyleSheet, useDynamicValue, useColorSchemeContext} from 'react-native-dynamic';
+import { DynamicStyleSheet, useDynamicValue, useColorSchemeContext } from 'react-native-dynamic';
 import { dyColorCodes } from '../styles/global';
+import CommonDataManager from '../data/CommonDataManager';
 
 export default function HabitTrack({ navigation }) {
     const dyStyles = useDynamicValue(styles);
@@ -12,20 +13,10 @@ export default function HabitTrack({ navigation }) {
 
     const habitblockElement = React.createRef();
 
+    const commonData = CommonDataManager.getInstance();
+
     mode === lastMode ? () => { habitblockElement.current.changeTheme(mode); lastMode = mode; } : {};
     
-    let buddies = [
-
-        // Basic static user data, used until backend is developed.
-        { name: 'Andrew Baker', streak: '4', key: '1' },
-        { name: 'Dawson Buist', streak: '6', key: '2' },
-        // { name: 'Kelsey Yen', streak: '10', key: '3' },
-        // { name: 'Belina Sainju', streak: '15', key: '4' },
-        // { name: 'Joe Pastucha', streak: '60', key: '5' },
-        // { name: 'Nathan Strain', streak: '90', key: '6' },
-
-    ];
-
     return (
         <View style={dyStyles.container}>
             <Text style={[dyStyles.text, { marginVertical: 3, alignSelf: 'center', fontWeight: 'bold' }]}>My Week</Text>
@@ -33,7 +24,7 @@ export default function HabitTrack({ navigation }) {
 
             {/* This block is for the 7 blocks representing a week */}
             <HabitTrackBlock
-                ref = {habitblockElement}
+                ref={habitblockElement}
                 data={[
                     { day: 'S', select: false, key: '1' },
                     { day: 'M', select: false, key: '2' },
@@ -42,43 +33,12 @@ export default function HabitTrack({ navigation }) {
                     { day: 'Th', select: false, key: '5' },
                     { day: 'F', select: false, key: '6' },
                     { day: 'S', select: false, key: '7' },
-                
+
                 ]}
-                theme = {mode}
+                theme={mode}
 
 
             ></HabitTrackBlock>
-
-            {/* This is for the Daily Streak Board */}
-            <View style={dyStyles.streakBoardContainer}>
-                {/* Daily Streak Board Title */}
-                <View style={dyStyles.streakBoardTitle}>
-                    <Text style={dyStyles.text}>Daily Streak Board</Text>
-                </View>
-
-                {/* My streak container */}
-                <View style={dyStyles.myStreakContainer}>
-                    <Text style={[dyStyles.cardText, { fontWeight: 'bold' }]}>My Streak </Text>
-                    <Text style={[dyStyles.cardStreak, { fontWeight: 'bold' }]}>0</Text>
-                </View>
-
-                {/* Buddies' streak container, uses BuddiesStreak card for each buddy */}
-                <View style={dyStyles.buddiesStreakContainer}>
-                    <FlatList data={buddies} renderItem={({ item }) => (
-                        <TouchableOpacity>
-                            {/* Allows for traversal into the buddy details page */}
-                            <BuddiesStreak>
-                                <Text style={dyStyles.text}>
-                                    {item.name}
-                                </Text>
-                                <Text style={dyStyles.streak}>
-                                    {item.streak}
-                                </Text>
-                            </BuddiesStreak>
-                        </TouchableOpacity>
-                    )} />
-                </View>
-            </View>
         </View>
     );
 }
@@ -89,40 +49,40 @@ const styles = new DynamicStyleSheet({
         padding: 10,
         alignItems: 'stretch',
         justifyContent: 'center',
-        backgroundColor: dyColorCodes.back 
+        backgroundColor: dyColorCodes.back
     },
-    streakBoardContainer:{ 
-        flex: 6, 
+    streakBoardContainer: {
+        flex: 6,
         backgroundColor: dyColorCodes.frontCard,
-        paddingHorizontal: 7, 
-        marginTop: 20, 
-        marginHorizontal: 7, 
-        borderRadius: 5, 
-        height: 50 
+        paddingHorizontal: 7,
+        marginTop: 20,
+        marginHorizontal: 7,
+        borderRadius: 5,
+        height: 50
     },
-    streakBoardTitle:{
-        flex: 1.5, 
-        paddingHorizontal: 7, 
-        paddingVertical: 5, 
-        alignItems: 'center', 
-        borderRadius: 10, 
-        justifyContent: 'center' 
+    streakBoardTitle: {
+        flex: 1.5,
+        paddingHorizontal: 7,
+        paddingVertical: 5,
+        alignItems: 'center',
+        borderRadius: 10,
+        justifyContent: 'center'
     },
-    myStreakContainer:{
-        flex: 1, 
-        margin: 3, 
-        paddingHorizontal: 10, 
-        alignItems: 'center', 
-        flexDirection: 'row', 
-        borderRadius: 5, 
-        backgroundColor: '#ffd699', 
-        justifyContent: 'center' 
+    myStreakContainer: {
+        flex: 1,
+        margin: 3,
+        paddingHorizontal: 10,
+        alignItems: 'center',
+        flexDirection: 'row',
+        borderRadius: 5,
+        backgroundColor: '#ffd699',
+        justifyContent: 'center'
     },
-    buddiesStreakContainer:{
-        flex: 8, 
-        paddingBottom: 15, 
-        borderRadius: 5, 
-        alignItems: 'stretch', 
+    buddiesStreakContainer: {
+        flex: 8,
+        paddingBottom: 15,
+        borderRadius: 5,
+        alignItems: 'stretch',
         justifyContent: 'center',
     },
     titleText: {

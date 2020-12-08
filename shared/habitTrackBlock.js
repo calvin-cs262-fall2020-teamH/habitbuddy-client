@@ -2,12 +2,27 @@ import { TextareaAutosize } from '@material-ui/core';
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
 import { DynamicStyleSheet, DynamicValue } from 'react-native-dynamic';
+import CommonDataManager from '../data/CommonDataManager';
 import { colorCodes, dyColorCodes } from '../styles/global';
+import BuddiesStreak from '../shared/buddiesStreakCard';
 
 
 let data;
 let hstreak = 0;
-let lastBlock = false;
+let lastBlock = true;
+let missedDay = false;
+
+let buddies = [
+
+    // Basic static user data, used until backend is developed.
+    { name: 'Andrew Baker', streak: '4', key: '1' },
+    { name: 'Dawson Buist', streak: '6', key: '2' },
+    // { name: 'Kelsey Yen', streak: '10', key: '3' },
+    // { name: 'Belina Sainju', streak: '15', key: '4' },
+    // { name: 'Joe Pastucha', streak: '60', key: '5' },
+    // { name: 'Nathan Strain', streak: '90', key: '6' },
+
+];
 
 export default class HabittrackBlock extends Component {
 
@@ -22,6 +37,8 @@ export default class HabittrackBlock extends Component {
             lastSelect: '',
             theme: props.theme,
         };
+
+        this.commonData = CommonDataManager.getInstance();
     }
 
     
@@ -36,9 +53,8 @@ export default class HabittrackBlock extends Component {
 
         item.select = !item.select;
         this.setState({ lastSelect: (item.day + item.select).toString() });
-        if (!this.props.data[0].select) {
-            hstreak = 0;
-        }
+
+        hstreak = 0;
 
         // Adds streak if each block in a row is selected
         this.props.data.forEach(element => {
@@ -52,6 +68,8 @@ export default class HabittrackBlock extends Component {
             }
             lastBlock = element.select;
         });
+
+        this.commonData.setStreak(hstreak);
     };
 
     //renderRow renders each row for the selection
@@ -94,7 +112,40 @@ export default class HabittrackBlock extends Component {
                         scrollEnabled={false}
                     />
                 </View>
+
+                {/* This is for the Daily Streak Board */}
+            <View style={dyStyles.streakBoardContainer}>
+                {/* Daily Streak Board Title */}
+                <View style={dyStyles.streakBoardTitle}>
+                    <Text style={dyStyles.text}>Daily Streak Board</Text>
+                </View>
+
+                {/* My streak container */}
+                <View style={dyStyles.myStreakContainer}>
+                    <Text style={[dyStyles.cardText, { fontWeight: 'bold' }]}>My Streak </Text>
+                    <Text style={[dyStyles.cardStreak, { fontWeight: 'bold' }]}>{ this.commonData.getStreak() }</Text>
+                </View>
+
+                {/* Buddies' streak container, uses BuddiesStreak card for each buddy */}
+                <View style={dyStyles.buddiesStreakContainer}>
+                    <FlatList data={buddies} renderItem={({ item }) => (
+                        <TouchableOpacity>
+                            {/* Allows for traversal into the buddy details page */}
+                            <BuddiesStreak>
+                                <Text style={dyStyles.text}>
+                                    {item.name}
+                                </Text>
+                                <Text style={dyStyles.streak}>
+                                    {item.streak}
+                                </Text>
+                            </BuddiesStreak>
+                        </TouchableOpacity>
+                    )} />
+                </View>
+            </View>
             </SafeAreaView>
+
+            
         );
     }
 }
@@ -124,5 +175,73 @@ const styles = new DynamicStyleSheet({
         fontSize: 15,
         color: dyColorCodes.text,
     },
-
+    container: {
+        flex: 1,
+        padding: 10,
+        alignItems: 'stretch',
+        justifyContent: 'center',
+        backgroundColor: dyColorCodes.back
+    },
+    streakBoardContainer: {
+        flex: 6,
+        backgroundColor: dyColorCodes.frontCard,
+        paddingHorizontal: 7,
+        marginTop: 20,
+        marginHorizontal: 7,
+        borderRadius: 5,
+        height: 50
+    },
+    streakBoardTitle: {
+        flex: 1.5,
+        paddingHorizontal: 7,
+        paddingVertical: 5,
+        alignItems: 'center',
+        borderRadius: 10,
+        justifyContent: 'center'
+    },
+    myStreakContainer: {
+        flex: 1,
+        margin: 3,
+        paddingHorizontal: 10,
+        alignItems: 'center',
+        flexDirection: 'row',
+        borderRadius: 5,
+        backgroundColor: '#ffd699',
+        justifyContent: 'center'
+    },
+    buddiesStreakContainer: {
+        flex: 8,
+        paddingBottom: 15,
+        borderRadius: 5,
+        alignItems: 'stretch',
+        justifyContent: 'center',
+    },
+    titleText: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: dyColorCodes.text,
+    },
+    text: {
+        fontSize: 15,
+        color: dyColorCodes.text,
+    },
+    cardText: {
+        fontSize: 15,
+        color: dyColorCodes.cardText,
+    },
+    namePlacement: {
+        flexDirection: 'row',
+        flex: 1,
+    },
+    streak: {
+        textAlign: "right",
+        marginLeft: 'auto',
+        alignItems: 'flex-end',
+        color: dyColorCodes.text,
+    },
+    cardStreak: {
+        textAlign: "right",
+        marginLeft: 'auto',
+        alignItems: 'flex-end'
+    }
 }); 
