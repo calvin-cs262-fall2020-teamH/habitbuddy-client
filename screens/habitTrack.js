@@ -5,12 +5,12 @@ import BuddiesStreak from '../shared/buddiesStreakCard';
 import { DynamicStyleSheet, useDynamicValue, useColorSchemeContext } from 'react-native-dynamic';
 import { dyColorCodes } from '../styles/global';
 import CommonDataManager from '../data/CommonDataManager';
-import { common } from '@material-ui/core/colors';
 
 export default function HabitTrack({ navigation }) {
     const dyStyles = useDynamicValue(styles);
     const mode = useColorSchemeContext();
     const lastMode = '';
+    const [isLoading, setLoading] = useState(true);
 
     const habitblockElement = React.createRef();
 
@@ -38,16 +38,6 @@ export default function HabitTrack({ navigation }) {
             {/* This block is for the 7 blocks representing a week */}
             <HabitTrackBlock
                 ref={habitblockElement}
-                // data={[
-                //     { day: 'S', select: false, key: '1' },
-                //     { day: 'M', select: false, key: '2' },
-                //     { day: 'T', select: false, key: '3' },
-                //     { day: 'W', select: false, key: '4' },
-                //     { day: 'Th', select: false, key: '5' },
-                //     { day: 'F', select: false, key: '6' },
-                //     { day: 'S', select: false, key: '7' },
-
-                // ]}
                 data = {data}
                 theme={mode}
                 buddies = {buddies}
