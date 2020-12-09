@@ -119,6 +119,18 @@ export default class CommonDataManager {
             return this._streak;
         }
         if(!this._streak) {
+
+            this._streakWeek = [
+                { day: 'S', select: false, key: '1' },
+                { day: 'M', select: false, key: '2' },
+                { day: 'T', select: false, key: '3' },
+                { day: 'W', select: false, key: '4' },
+                { day: 'Th', select: false, key: '5' },
+                { day: 'F', select: false, key: '6' },
+                { day: 'S', select: false, key: '7' },
+
+            ];
+
             this.storage
             .load({
                 key: 'streak',
@@ -131,21 +143,7 @@ export default class CommonDataManager {
                 }
             })
             .then(ret => {
-                if(!ret.streak) {
-                    this._streakWeek = [
-                            { day: 'S', select: false, key: '1' },
-                            { day: 'M', select: false, key: '2' },
-                            { day: 'T', select: false, key: '3' },
-                            { day: 'W', select: false, key: '4' },
-                            { day: 'Th', select: false, key: '5' },
-                            { day: 'F', select: false, key: '6' },
-                            { day: 'S', select: false, key: '7' },
-        
-                        ];
-                }
-                else {
-                    this._streakWeek = ret.streak;
-                }
+                this._streakWeek = ret.streak;
                 let hstreak = 0;
                 let lastBlock = true;
                 this._streakWeek.forEach(element => {
@@ -186,21 +184,7 @@ export default class CommonDataManager {
                 }
             })
             .then(ret => {
-                if(!ret.streak) {
-                    this._streakWeek = [
-                            { day: 'S', select: false, key: '1' },
-                            { day: 'M', select: false, key: '2' },
-                            { day: 'T', select: false, key: '3' },
-                            { day: 'W', select: false, key: '4' },
-                            { day: 'Th', select: false, key: '5' },
-                            { day: 'F', select: false, key: '6' },
-                            { day: 'S', select: false, key: '7' },
-        
-                        ];
-                }
-                else {
-                    this._streakWeek = ret.streak;
-                }
+                this._streakWeek = ret.streak;
                 return this._streakWeek;
             })
             .catch(err => {
