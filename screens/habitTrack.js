@@ -10,7 +10,6 @@ export default function HabitTrack({ navigation }) {
     const dyStyles = useDynamicValue(styles);
     const mode = useColorSchemeContext();
     const lastMode = '';
-    const [isLoading, setLoading] = useState(true);
 
     const habitblockElement = React.createRef();
 
