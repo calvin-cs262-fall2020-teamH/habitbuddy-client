@@ -105,17 +105,17 @@ export default function Home({ navigation }) {
                                     </View>
                                     {/* Habit Stacking content */}
                                     <View style={[styles.Hab]}>
-                                        <Text style={styles.titleText}>After I</Text>
+                                        <Text style={[styles.text,{fontWeight:'bold'}]}>After I</Text>
                                         <TextInput   
                                             style={styles.inputBox}
-                                            placeholder='CURRENT HABIT'
+                                            placeholder='Cue/Current Habit'
                                             onChangeText={(val) => setChabit(val)} />
                                     </View>
                                     <View style={[styles.Hab]}>
                                         <Text style={[styles.text,{fontWeight:'bold'}]}>I will</Text>
                                         <TextInput
                                             style={styles.inputBox}
-                                            placeholder='NEW HABIT'
+                                            placeholder='Your Habit'
                                             onChangeText={(val) => setNhabit(val)} />
                                     </View>
                                 </Card>
