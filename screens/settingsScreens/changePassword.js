@@ -1,5 +1,5 @@
-import React from 'react';
-import { Keyboard, Text, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import React, { useState } from 'react';
+import { Keyboard, Text, TouchableOpacity, TouchableWithoutFeedback, View, Alert } from 'react-native';
 import { Input } from 'react-native-elements';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles, dyColorCodes } from '../../styles/global';
@@ -16,7 +16,9 @@ function focusNextField(id) {
 /* The Change Password screen allows the user to change their password*/
 export default function ChangePassword({ navigation }) {
     // let commonData = CommonDataManager.getInstance();
-
+    const [password, setPassword] = useState('Password');
+    const [passwordConfirm, setPasswordConfirm] = useState('Password');
+    const [passwordNew, setPasswordNew] = useState('Password');
     const dyStyles = useDynamicValue(dynamicStyles);
 
     return (
@@ -29,7 +31,7 @@ export default function ChangePassword({ navigation }) {
                     placeholder='Current Password'
                     placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                     secure={true}
-                    onChangeText={(val) => {}}
+                    onChangeText={(val) => { setPassword(val); }}
                     autoCapitalize='none'
                     returnKeyType={'next'}
                     onSubmitEditing={() => {focusNextField('two');}} 
@@ -41,7 +43,7 @@ export default function ChangePassword({ navigation }) {
                     placeholder='New Password'
                     placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                     secure={true}
-                    onChangeText={(val) => { }}
+                    onChangeText={(val) => { setPasswordNew(val); }}
                     autoCapitalize='none'
                     returnKeyType={'next'}
                     onSubmitEditing={() => {focusNextField('three');}} 
@@ -53,7 +55,7 @@ export default function ChangePassword({ navigation }) {
                     placeholder='New Password'
                     placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                     secure={true}
-                    onChangeText={(val) => { }}
+                    onChangeText={(val) => { setPasswordConfirm(val); }}
                     autoCapitalize='none'
                     returnKeyType={'done'}
                     ref={input => {inputs['three'] = input;}} />
@@ -102,7 +104,12 @@ export default function ChangePassword({ navigation }) {
                     }} /> */}
                 <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                     <TouchableOpacity style={dyStyles.loginButtonContainer}
-                        onPress={() => navigation.navigate('Settings')}>
+                        onPress={() => {
+                            if (passwordNew == passwordConfirm){ navigation.navigate('Settings')} 
+                            else {Alert.alert('Password Issue',
+                            "You have enter different passwords. Please enter the same password.",
+                            [ { text: "Okay" } ]
+                    )}} }>
                         <Text style={dyStyles.loginButtonText}>Confirm</Text>
                     </TouchableOpacity>
                 </View>

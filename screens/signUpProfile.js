@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard, Alert } from 'react-native';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles, dyColorCodes } from '../styles/global';
 import { Input } from 'react-native-elements';
@@ -18,6 +18,7 @@ export default function SignUpProfile({ navigation }) {
     const [email, setEmail] = useState('Email');
     const [phoneNumber, setPhoneNumber] = useState('PhoneNumber')
     const [password, setPassword] = useState('Password');
+    const [passwordConfirm, setPasswordConfirm] = useState('Password');
 
     const dyStyles = useDynamicValue(dynamicStyles);
 
@@ -71,10 +72,19 @@ export default function SignUpProfile({ navigation }) {
                         placeholder='Confirm Password'
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                         secure={true}
-                        onChangeText={(val) => { setPassword(val); }}
+                        onChangeText={(val) => { setPasswordConfirm(val); }}
                         autoCapitalize = 'none'
                     />
-                    <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => navigation.navigate('SignUpHabit')}>
+                    <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => {
+                        // Creates an alert when the entered passwords are different.
+                        if (password == passwordConfirm){ navigation.navigate('SignUpHabit')} 
+                        else {Alert.alert('Password Issue',
+                        "You have enter different passwords. Please enter the same password.",
+                        [
+                            { text: "Okay" }
+                        ]
+                    )}} }>
+
                         <Text style={dyStyles.loginButtonText}>Next</Text>
                     </TouchableOpacity>
                 </View>
