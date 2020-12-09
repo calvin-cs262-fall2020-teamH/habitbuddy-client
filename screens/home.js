@@ -23,7 +23,7 @@ export default function Home({ navigation }) {
 
     const alert = () => {
         Alert.alert('What is Habit Stacking?',
-            "One of the best ways to build a new habit is to identify a current habit you already do each day and stack your new behavior on top. This is Habit Stacking.\n\nJust like waking up in the morning is a cue for you to brush your teeth.\n\nUse your current habit as a cue to do your new habit!",
+            "One of the best ways to build a new habit is to identify a current habit you already do each day and stack your new behavior on top. This is Habit Stacking.\n\nJust like waking up in the morning is a cue for you to brush your teeth.\n\nUse your current habit as a cue to do your new habit!\n\n1.Type your cue in the Current Habit box.\n2.Type your new habit in the New Habit box.",
             [
                 { text: "Got it!" }
             ],

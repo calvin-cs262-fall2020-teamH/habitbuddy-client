@@ -13,7 +13,7 @@ export default function HabitTrackStack({ navigation }) {
     // Alert box for HabitTracking info icon
     const alert = () => {
         Alert.alert('How to track my Habit?',
-            "Habit Track is a feature you can use to cross off the days you do your habit. Each grey block represents a day. Simply click on a day to highlight it orange once you do your habit. Each week all your blocks get refreshed into grey color.\n\nYour streak shows you how many days in a row you have kept your habit (including the days from previous weeks!). The Daily Streak Board lets you compare your streak with your buddies as well.\n\nGet motivated to stick to your habit as you watch your streaks grow!",
+            "Suppose you want to track your habit for the day.\n\n1. Go to Home Screen and tap on the “Streak“ card to go to “Habit Track” screen.\n2. Then, tap on the day of the week.\n3. Watch “My Streak“ count in the “Streak Leaderboard“ increase. Watch “My Streak“ count in the “Streak Leaderboard“ increase. “My Streak” shows the number of consecutive days your habit was completed.\n",
             [
                 { text: "Got it!" }
             ]
