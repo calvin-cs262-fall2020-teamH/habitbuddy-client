@@ -21,6 +21,16 @@ export default function Home({ navigation }) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
+    const [streak, setStreak] = useState(0);
+
+	function updateStreak(data) {
+		setStreak(data);
+		console.log(data);
+	}
+
+	const commonData = CommonDataManager.getInstance();
+	commonData.setUpdateStreak(updateStreak);
+
     const alert = () => {
         Alert.alert('What is Habit Stacking?',
             "One of the best ways to build a new habit is to identify a current habit you already do each day and stack your new behavior on top. This is Habit Stacking.\n\nJust like waking up in the morning is a cue for you to brush your teeth.\n\nUse your current habit as a cue to do your new habit!",
@@ -29,8 +39,6 @@ export default function Home({ navigation }) {
             ],
         )
     }
-
-    let commonData = CommonDataManager.getInstance();
 
     console.log(commonData.getUserID());
 
@@ -130,8 +138,7 @@ export default function Home({ navigation }) {
                                     <Card type='circle'>
                                         <Text style={styles.title}>Streak</Text>
                                         <Text />
-                                        {/* Using static data until the backend is built to keep track of user data */}
-                                        <Text style={styles.counter}>{data.streak}</Text>
+                                        <Text style={styles.counter}>{commonData.getStreak()}</Text>
                                         <Text />
                                     </Card>
                                 </TouchableOpacity>

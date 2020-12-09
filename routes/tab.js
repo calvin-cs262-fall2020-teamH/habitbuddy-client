@@ -11,6 +11,7 @@ import Profile from './profileStack';
 import HabitTrack from './habitTrackStack';
 import Settings from './settingsStack';
 import { dyColorCodes } from '../styles/global';
+import CommonDataManager from '../data/CommonDataManager';
 
 const Tab = createBottomTabNavigator();
 
