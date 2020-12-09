@@ -22,17 +22,36 @@ import CommonDataManager from "../data/CommonDataManager";
 export default function EditProfile({ navigation }) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
+    const [habit, setHabit] = useState('Habit');
+    const [hobby, setHobby] = useState('Hobby');
+    const [email, setEmail] = useState('Email');
+    const [phoneNumber, setPhoneNumber] = useState('PhoneNumber')
 
     let commonData = CommonDataManager.getInstance();
 
     useEffect(() => {
-        fetch('https://habit-buddy.herokuapp.com/user/' + commonData.getUserID()) //Change this once we have local storage of a active user
+        fetch('https://habit-buddy.herokuapp.com/user/' + commonData.getUserID())
             .then((response) => response.json())
             .then((json) => setData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
     }, []);
 
+    async function updateUser(){
+        await fetch ('http://habit-buddy.herokuapp.com/user' + commonData.getUserID(), {
+            method: 'PUT', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                habit: personalGoal,
+                hobby: hobby,
+                phone: data.phone,
+                emailAddress: data.emailAddress,
+            })
+        })
+        .then(async response => await response.json())
+        .catch((error) => {
+            console.error(error);
+        });
+    }
 
     const dyStyles = useDynamicValue(dynamicStyles);
 
@@ -50,11 +69,11 @@ export default function EditProfile({ navigation }) {
                         </View>
                     </View>
                     <View style={dyStyles.userInfo}>
-                        <ProfileCard title = "Habit" userInfo = {data.category}></ProfileCard>
-                        <EditProfileCard title = "Habit Goal" placeholder = "Enter new habit goal"></EditProfileCard>
-                        <EditProfileCard title = "Hobby" placeholder = "Enter new hobby"></EditProfileCard>
-                        <EditProfileCard title = "Email" placeholder = "Enter new email"></EditProfileCard>
-                        <EditProfileCard title = "Phone Number" placeholder = "Enter new phone number" keyboardType='number-pad'></EditProfileCard>
+                        <ProfileCard title = "Habit" userInfo = {data.category}/>
+                        <EditProfileCard title = "Habit Goal" placeholder = "Enter new habit goal" change = {setHabit} ></EditProfileCard>
+                        <EditProfileCard title = "Hobby" placeholder = "Enter new hobby" change ={setHobby} ></EditProfileCard>
+                        <EditProfileCard title = "Email" placeholder = "Enter new email" change ={setEmail} ></EditProfileCard>
+                        <EditProfileCard title = "Phone Number" placeholder = "Enter new phone number" keyboardType='number-pad' change ={setPhoneNumber} ></EditProfileCard>
                     </View>
                     <View style={dyStyles.buttonPlacement}>
                         <TouchableOpacity style={dyStyles.loginButtonContainer} 
