@@ -46,7 +46,7 @@ export default function EditProfile({ navigation, route }) {
                 habit: (habit ? habit : data.habit),
                 hobby: (hobby ? hobby : data.hobby),
                 phone: (phone ? phone : data.phone),
-                emailAddress: (email ? email : data.emailAddress),
+                emailAddress: (email ? email : data.emailaddress),
             })
         })
             .then(async response => await response.json())
