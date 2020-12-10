@@ -71,7 +71,7 @@ export default function SignUpHabit({route}) {
                         }}
                         onValueChange={(val) => setCategory(val)}
                         items={[
-                            { label: 'Fitness', value: 'Fitness' },
+                            { label: 'Exercise', value: 'Exercise' },
                             { label: 'Health', value: 'Health' },
                             { label: 'School', value: 'School' },
                             { label: 'Spiritual', value: 'Spiritual' },
