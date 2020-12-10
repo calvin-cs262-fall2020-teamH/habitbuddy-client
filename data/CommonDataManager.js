@@ -276,6 +276,7 @@ export default class CommonDataManager {
 
     setUpdateProfile(func) {
         this._updateProfile = func;
+    }
       
     setUpdateStreak(func) {
         this._updateStreak = func;
