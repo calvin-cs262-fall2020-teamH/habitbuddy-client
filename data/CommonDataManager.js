@@ -16,10 +16,15 @@ export default class CommonDataManager {
     _userID = null;
     _streak = null;
     _streakWeek = null;
+    _viewingBuddy = 0;
+
     _updateUser = () => {};
     _updateTheme = () => {};
+    _updateProfile = () => {};
     _updateStreak = () => {};
     _getStreak = () => {};
+    _deleteBuddyBuddies = () => {};
+    _deleteBuddyDetails = () => {};
 
     storage = new Storage({
         // maximum capacity, default 1000 key-ids
@@ -226,6 +231,29 @@ export default class CommonDataManager {
         this._updateStreak(hstreak);
     }
 
+    //returns the id of the buddy the user is viewing
+    getViewingBuddy() {
+        return this._viewingBuddy;
+    }
+
+    //sets the id of the buddy the user is viewing
+    setViewingBuddy(id) {
+        this._viewingBuddy = id;
+    }
+
+    deleteBuddy() {
+        this._deleteBuddyDetails();
+        this._deleteBuddyBuddies(this._viewingBuddy);
+    }
+
+    setDeleteBuddyBuddies(func) {
+        this._deleteBuddyBuddies = func;
+    }
+
+    setDeleteBuddyDetails(func) {
+        this._deleteBuddyDetails = func;
+    }
+
     updateUser(data) {
         this._updateUser(data);
     }
@@ -242,6 +270,14 @@ export default class CommonDataManager {
         this._updateTheme = func;
     }
 
+    updateProfile() {
+        this._updateProfile();
+    }
+
+    setUpdateProfile(func) {
+        this._updateProfile = func;
+    }
+      
     setUpdateStreak(func) {
         this._updateStreak = func;
     }

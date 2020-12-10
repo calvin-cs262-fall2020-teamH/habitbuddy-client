@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {MaterialIcons} from '@expo/vector-icons';
 import {globalStyles} from '../styles/global';
@@ -11,6 +11,7 @@ const Stack = createStackNavigator();
 
 /*ProfileStack creates a stack of screens with the default being the Profile screen */
 export default function ProfileStack( {navigation} ) {
+
     return (
         <Stack.Navigator screenOptions={{
             headerStyle:{backgroundColor:'orange'}
