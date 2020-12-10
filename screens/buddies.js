@@ -33,11 +33,11 @@ export default function Buddies({ navigation }) {
 
     useEffect(() => {
         fetch('https://habit-buddy.herokuapp.com/buddies/' + commonData.getUserID())
-          .then((response) => response.json())
-          .then((json) => setData(json))
-          .catch((error) => console.error(error))
-          .finally(() => setLoading(false));
-      }, []);
+            .then((response) => response.json())
+            .then((json) => setData(json))
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    }, []);
 
     //   setData()
 
@@ -46,21 +46,21 @@ export default function Buddies({ navigation }) {
     return (
         <View style={dyStyles.buddyDisplayContainer}>
             <Text style={dyStyles.title_text}>Tap your buddy for more info!</Text>
-            <FlatList data={data} 
+            <FlatList data={data}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => (
-                <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>
-                    {/* Allows for traversal into the buddy details page */}
-                    <Card style={{height: 100, marginHorizontal: 20}}>  
-                        {/* uri allows the app to search the url for the image needed. Width and height information are necessary for the pictures to function. Will not work without. */}
-                        <Image source = {{uri: item.profileurl}} style = {{width: 60, height: 60, position: 'absolute', borderRadius: 6, marginLeft: -5, top: 0}}/> 
+                    <TouchableOpacity onPress={() => navigation.navigate('BuddyDetails', item)}>
+                        {/* Allows for traversal into the buddy details page */}
+                        <Card style={{ height: 100, marginHorizontal: 20 }}>
+                            {/* uri allows the app to search the url for the image needed. Width and height information are necessary for the pictures to function. Will not work without. */}
+                            <Image source={{ uri: item.profileurl }} style={{ width: 60, height: 60, position: 'absolute', borderRadius: 6, marginLeft: -5, top: 0 }} />
 
-                        {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
-                        <Text style={dyStyles.buddyCardTitle}>{ item.firstname } { item.lastname }</Text>
-                        <Text style={dyStyles.buddyCardText}>{ item.habit }</Text>
-                    </Card>
-                </TouchableOpacity>
-            )}/>
+                            {/* image width and height 50 by 50. position absolute to keep picture and text in the same line. basic user profile */}
+                            <Text style={dyStyles.buddyCardTitle}>{item.firstname} {item.lastname}</Text>
+                            <Text style={dyStyles.buddyCardText}>{item.habit}</Text>
+                        </Card>
+                    </TouchableOpacity>
+                )} />
         </View>
     );
 } 

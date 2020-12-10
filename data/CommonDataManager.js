@@ -20,6 +20,7 @@ export default class CommonDataManager {
 
     _updateUser = () => {};
     _updateTheme = () => {};
+    _updateProfile = () => {};
     _updateStreak = () => {};
     _getStreak = () => {};
     _deleteBuddyBuddies = () => {};
@@ -269,6 +270,14 @@ export default class CommonDataManager {
         this._updateTheme = func;
     }
 
+    updateProfile() {
+        this._updateProfile();
+    }
+
+    setUpdateProfile(func) {
+        this._updateProfile = func;
+    }
+      
     setUpdateStreak(func) {
         this._updateStreak = func;
     }

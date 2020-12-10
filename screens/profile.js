@@ -12,27 +12,37 @@ import CommonDataManager from '../data/CommonDataManager';
 export default function Profile({ navigation }) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
+    const [updated, setUpdated] = useState(false);
 
     let commonData = CommonDataManager.getInstance();
 
     useEffect(() => {
-        fetch('https://habit-buddy.herokuapp.com/user/' + commonData.getUserID()) //Change this once we have local storage of a active user
+        fetch('https://habit-buddy.herokuapp.com/user/' + commonData.getUserID())
             .then((response) => response.json())
             .then((json) => setData(json))
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
     }, []);
 
+    function update() {
+        fetch('https://habit-buddy.herokuapp.com/user/' + commonData.getUserID())
+            .then((response) => response.json())
+            .then((json) => setData(json))
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    }
+
+    commonData.setUpdateProfile(update);
 
     const dyStyles = useDynamicValue(dynamicStyles);
-  
+
     return (
-        <ScrollView style={{height: '100%', backgroundColor: useDynamicValue(dyColorCodes.back)}}>
+        <ScrollView style={{ height: '100%', backgroundColor: useDynamicValue(dyColorCodes.back) }}>
             <View style={dyStyles.wholePage}>
-            
+
                 <View style={dyStyles.profContainer}>
                     <View style={dyStyles.profilePic}>
-                        <Image source={{uri: data.profileurl}} style={{ width: 110, height: 110, position: 'absolute' }} />
+                        <Image source={{ uri: data.profileurl }} style={{ width: 110, height: 110, position: 'absolute' }} />
                     </View>
 
                     <View style={dyStyles.userNamePlacement}>
