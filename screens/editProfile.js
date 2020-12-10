@@ -21,7 +21,13 @@ import CommonDataManager from "../data/CommonDataManager";
 
 export default function EditProfile({ navigation }) {
     const [isLoading, setLoading] = useState(true);
+    const [habit, setHabit] = useState(null);
+    const [hobby, setHobby] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [phone, setPhoneNumber] = useState(null)
     const [data, setData] = useState([]);
+
+
     useEffect(() => {
         fetch('https://habit-buddy.herokuapp.com/user/' + commonData.getUserID())
             .then((response) => response.json())
@@ -30,11 +36,6 @@ export default function EditProfile({ navigation }) {
             .finally(() => setLoading(false));
     }, []);
 
-    const [habit, setHabit] = useState(data.habit);
-    const [hobby, setHobby] = useState(data.hobby);
-    const [email, setEmail] = useState(data.emailaddress);
-    const [phone, setPhoneNumber] = useState(data.phone)
-
     let commonData = CommonDataManager.getInstance();
 
 
@@ -42,10 +43,10 @@ export default function EditProfile({ navigation }) {
         await fetch('http://habit-buddy.herokuapp.com/user/' + commonData.getUserID(), {
             method: 'PUT', headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                habit: habit,
-                hobby: hobby,
-                phone: phone,
-                emailAddress: email,
+                habit: (habit ? habit : data.habit),
+                hobby: (hobby ? hobby : data.hobby),
+                phone: (phone ? phone : data.phone),
+                emailAddress: (email ? email : data.emailAddress),
             })
         })
             .then(async response => await response.json())
