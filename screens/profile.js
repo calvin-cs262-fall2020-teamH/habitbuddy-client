@@ -12,19 +12,11 @@ import CommonDataManager from '../data/CommonDataManager';
 export default function Profile({ navigation }) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
-    const [updated, setUpdated] = useState(false);
 
     let commonData = CommonDataManager.getInstance();
 
-    useEffect(() => {
-        fetch('https://habit-buddy.herokuapp.com/user/' + commonData.getUserID())
-            .then((response) => response.json())
-            .then((json) => setData(json))
-            .catch((error) => console.error(error))
-            .finally(() => setLoading(false));
-    }, []);
-
-    function update() {
+    async function update() {
+        setLoading(true);
         fetch('https://habit-buddy.herokuapp.com/user/' + commonData.getUserID())
             .then((response) => response.json())
             .then((json) => setData(json))
@@ -33,6 +25,14 @@ export default function Profile({ navigation }) {
     }
 
     commonData.setUpdateProfile(update);
+
+    useEffect(() => {
+        fetch('https://habit-buddy.herokuapp.com/user/' + commonData.getUserID())
+            .then((response) => response.json())
+            .then((json) => setData(json))
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    }, []);
 
     const dyStyles = useDynamicValue(dynamicStyles);
 

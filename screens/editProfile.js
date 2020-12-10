@@ -79,12 +79,12 @@ export default function EditProfile({ navigation, route }) {
                     </View>
                     <View style={dyStyles.buttonPlacement}>
                         <TouchableOpacity style={dyStyles.loginButtonContainer}
-                            onPress={() => {
+                            onPress={async () => {
                                 console.log(habit);
                                 console.log(hobby);
                                 console.log(phone);
                                 console.log(email);
-                                updateUser();
+                                await updateUser();
                                 commonData.updateProfile();
                                 navigation.navigate('Profile');
                             }}>
