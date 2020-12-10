@@ -77,14 +77,22 @@ export default function SignUpProfile({ navigation }) {
                     />
                     <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => {
                         // Creates an alert when the entered passwords are different.
-                        if (password == passwordConfirm){ navigation.navigate('SignUpHabit')} 
+                        if (password == passwordConfirm){ navigation.navigate('SignUpHabit', 
+                        {data: {
+                            firstName: firstName,
+                            lastName: lastName,
+                            emailAddress: email,
+                            phone: phoneNumber,
+                            username: username,
+                            password: password,
+                            profileURL: 'https://th.bing.com/th/id/OIP.K6XYBPwgLPhvWH9BxDYfXAHaEN?pid=Api&rs=1'
+                        }})} 
                         else {Alert.alert('Password Issue',
                         "You have enter different passwords. Please enter the same password.",
                         [
                             { text: "Okay" }
                         ]
                     )}} }>
-
                         <Text style={dyStyles.loginButtonText}>Next</Text>
                     </TouchableOpacity>
                 </View>
