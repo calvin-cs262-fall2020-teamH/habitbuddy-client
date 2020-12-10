@@ -25,13 +25,14 @@ export default function BuddiesStack({ navigation }) {
     const commonData = CommonDataManager.getInstance();
 
     async function deleteBuddy() {
-        let id = undefined;
-        await fetch(`http://habit-buddy.herokuapp.com/user` + commonData.getUserID() + '/' + route.params.id, {
+        await fetch(`http://habit-buddy.herokuapp.com/user/` + commonData.getUserID() + '/' + commonData.getViewingBuddy(), {
             method: 'DELETE', headers: { 'Content-Type': 'application/json' }
         })
             .catch((error) => {
                 console.error(error);
             });
+
+        commonData.deleteBuddy();
     }
 
     return (

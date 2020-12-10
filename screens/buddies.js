@@ -11,7 +11,25 @@ export default function Buddies({ navigation }) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
+    // {
+    //     profileurl:  'https://www.gravatar.com/avatar/40cb73e7277b429d299c985a4f315d57?s=48&d=identicon&r=PG&f=1',
+    //     firstname: 'Dawson',
+    //     lastname: 'Buist',
+    //     habit: 'habit',
+    //     hobby: 'hobby',
+    //     phone: '6165704083',
+    //     emailaddress: 'dawsonbuist@gmail.com'
+    //  }
+
+    let [deleted, setDeleted] = useState(-1);
+
+    function deleteBuddy(id) {
+        setDeleted(id);
+    }
+
     let commonData = CommonDataManager.getInstance();
+
+    commonData.setDeleteBuddyBuddies(deleteBuddy);
 
     useEffect(() => {
         fetch('https://habit-buddy.herokuapp.com/buddies/' + commonData.getUserID())
@@ -20,6 +38,8 @@ export default function Buddies({ navigation }) {
           .catch((error) => console.error(error))
           .finally(() => setLoading(false));
       }, []);
+
+    //   setData()
 
     const dyStyles = useDynamicValue(dynamicStyles);
 
