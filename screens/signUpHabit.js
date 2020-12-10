@@ -10,12 +10,46 @@ import CommonDataManager from '../data/CommonDataManager'
 *  Written by Kelsey Yen
 */
 
-export default function SignUpHabit() {
+export default function SignUpHabit({route}) {
+    const [category, setCategory] = useState('category');
     const [personalGoal, setPersonalGoal] = useState('PersonalGoal');
+    const [hobby, setHobby] = useState('hobby');
 
     const commonData = CommonDataManager.getInstance();
 
     const dyStyles = useDynamicValue(dynamicStyles);
+
+    const data = route.params.data;
+    console.log(data);
+
+    async function createUser() {
+        let id = undefined;
+        await fetch(`http://habit-buddy.herokuapp.com/user`, {
+            method: 'POST', headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                firstName: data.firstName,
+                lastName: data.lastName,
+                emailAddress: data.emailAddress,
+                phone: data.phone,
+                username: data.username,
+                password: data.password,
+                profileURL: data.profileURL,
+                hobby: hobby,
+                habit: personalGoal,
+                category: category,
+            })
+        })
+        .then(async response => await response.json())
+        .then(data => {
+            id = data.id;
+        })
+        .catch((error) => {
+            console.error(error);
+        });
+
+        commonData.setUserID(id);
+        commonData.updateUser({});
+    }
 
     return (
         <TouchableWithoutFeedback onPress={() => {
@@ -35,13 +69,13 @@ export default function SignUpHabit() {
                                 fontSize: 18,
                             }
                         }}
-                        onValueChange={(val) => console.log(val)}
+                        onValueChange={(val) => setCategory(val)}
                         items={[
-                            { label: 'Fitness', value: 'fitness' },
-                            { label: 'Health', value: 'health' },
-                            { label: 'School', value: 'school' },
-                            { label: 'Spiritual', value: 'spiritual' },
-                            { label: 'Leisure', value: 'leisure' }
+                            { label: 'Fitness', value: 'Fitness' },
+                            { label: 'Health', value: 'Health' },
+                            { label: 'School', value: 'School' },
+                            { label: 'Spiritual', value: 'Spiritual' },
+                            { label: 'Leisure', value: 'Leisure' }
                         ]}
                     />
                 </View>
@@ -52,7 +86,15 @@ export default function SignUpHabit() {
                     placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                     onChangeText={(val) => setPersonalGoal(val)}
                 />
-                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => { commonData.setUserID('7'); commonData.updateUser({}); }}>
+
+                <Text style={dyStyles.loginText}>Write a hobby you have</Text>
+                <Input
+                    containerStyle={{ width: '70%' }}
+                    placeholder='i.e. painting'
+                    placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
+                    onChangeText={(val) => setHobby(val)}
+                />
+                <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => createUser()}>
 
                     <Text style={dyStyles.loginButtonText}>Finish</Text>
                 </TouchableOpacity>

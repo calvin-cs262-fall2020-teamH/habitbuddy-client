@@ -4,6 +4,7 @@ import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles } from '../styles/global';
 import ProfileCard from "../shared/profileCard";
 import ProfileLinkingCard from "../shared/profileLinkingCard";
+import CommonDataManager from '../data/CommonDataManager';
 
 /*Created by Joe Pastucha/Dawson*/
 
@@ -23,6 +24,16 @@ export default function BuddyDetails({route, navigation}) {
     );
 
     const dyStyles = useDynamicValue(dynamicStyles);
+
+    function deleteBuddy() {
+        navigation.navigate('Buddies');
+    }
+
+    const commonData = CommonDataManager.getInstance();
+
+    commonData.setDeleteBuddyDetails(deleteBuddy);
+
+    commonData.setViewingBuddy(route.params.id);
 
     return (
         <View style={dyStyles.wholePage}>

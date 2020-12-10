@@ -6,12 +6,25 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 export default class CommonDataManager {
 
+    //TODO: Add week streak to store current week's streak data (list of days selected)
+    //TODO: Combine week streak val with streak val to get total streak (streak val doesn't include week streak)
+    //Store value of week start date to see what calculations need to be done on the streak
+    //
+
     static myInstance = null;
 
     _userID = null;
+    _streak = null;
+    _streakWeek = null;
+    _viewingBuddy = 0;
+
     _updateUser = () => {};
     _updateTheme = () => {};
     _updateProfile = () => {};
+    _updateStreak = () => {};
+    _getStreak = () => {};
+    _deleteBuddyBuddies = () => {};
+    _deleteBuddyDetails = () => {};
 
     storage = new Storage({
         // maximum capacity, default 1000 key-ids
@@ -52,29 +65,15 @@ export default class CommonDataManager {
             this.storage
             .load({
                 key: 'loginState',
-
-                // autoSync (default: true) means if data is not found or has expired,
-                // then invoke the corresponding sync method
                 autoSync: true,
-
-                // syncInBackground (default: true) means if data expired,
-                // return the outdated data first while invoking the sync method.
-                // If syncInBackground is set to false, and there is expired data,
-                // it will wait for the new data and return only after the sync completed.
-                // (This, of course, is slower)
                 syncInBackground: true,
-
-                // you can pass extra params to the sync method
-                // see sync example below
                 syncParams: {
                     extraFetchOptions: {
-                        // blahblah
                     },
                     someFlag: true
                 }
             })
             .then(ret => {
-                // found data go to then()
                 console.log(ret.userid);
                 if(ret.userid) {
                     this._userID = ret.userid;
@@ -105,14 +104,10 @@ export default class CommonDataManager {
         this._userID = id;
 
         this.storage.save({
-            key: 'loginState', // Note: Do not use underscore("_") in key!
-            data: { //can put any data here
+            key: 'loginState',
+            data: { 
                 userid: id,
             },
-
-            // if expires not specified, the defaultExpires will be applied instead.
-            // if set to null, then it will never expire.
-            //expires: 1000 * 3600
         });
 
         if(!id) {
@@ -122,6 +117,141 @@ export default class CommonDataManager {
         else {
             this._updateUser({});
         }
+    }
+
+    getStreak() {
+        if(this._streak === 0) {
+            return this._streak;
+        }
+        if(!this._streak) {
+
+            this._streakWeek = [
+                { day: 'S', select: false, key: '1' },
+                { day: 'M', select: false, key: '2' },
+                { day: 'T', select: false, key: '3' },
+                { day: 'W', select: false, key: '4' },
+                { day: 'Th', select: false, key: '5' },
+                { day: 'F', select: false, key: '6' },
+                { day: 'S', select: false, key: '7' },
+
+            ];
+
+            this.storage
+            .load({
+                key: 'streak',
+                autoSync: true,
+                syncInBackground: true,
+                syncParams: {
+                    extraFetchOptions: {
+                    },
+                    someFlag: true
+                }
+            })
+            .then(ret => {
+                this._streakWeek = ret.streak;
+                let hstreak = 0;
+                let lastBlock = true;
+                this._streakWeek.forEach(element => {
+                    if (element.select) {
+                        if (!lastBlock) {
+                            hstreak = 1;
+                        }
+                        else {
+                            hstreak += 1;
+                        }
+                    }
+                    lastBlock = element.select;
+                });
+                this._streak = hstreak;
+                this._updateStreak(hstreak);
+                return this._streak;
+            })
+            .catch(err => {
+                console.warn(err.message);
+            });
+        }
+        else {
+            return this._streak;
+        }
+    }
+
+    getStreakWeek() {
+        if(!this._streakWeek) {
+            this.storage
+            .load({
+                key: 'streak',
+                autoSync: true,
+                syncInBackground: true,
+                syncParams: {
+                    extraFetchOptions: {
+                    },
+                    someFlag: true
+                }
+            })
+            .then(ret => {
+                this._streakWeek = ret.streak;
+                return this._streakWeek;
+            })
+            .catch(err => {
+                console.warn(err.message);
+            });
+        }
+        else {
+            return this._streakWeek;
+        }
+    }
+
+    setStreak(data) {
+        let hstreak = 0;
+        let lastBlock = true;
+        data.forEach(element => {
+            if (element.select) {
+                if (!lastBlock) {
+                    hstreak = 1;
+                }
+                else {
+                    hstreak += 1;
+                }
+            }
+            lastBlock = element.select;
+        });
+
+        this._streak = hstreak;
+        this._streakWeek = data;
+        console.log("Streak: " + data);
+
+        this.storage.save({
+            key: 'streak',
+            data: { 
+                streak: data,
+            },
+            expires: null,
+        });
+
+        this._updateStreak(hstreak);
+    }
+
+    //returns the id of the buddy the user is viewing
+    getViewingBuddy() {
+        return this._viewingBuddy;
+    }
+
+    //sets the id of the buddy the user is viewing
+    setViewingBuddy(id) {
+        this._viewingBuddy = id;
+    }
+
+    deleteBuddy() {
+        this._deleteBuddyDetails();
+        this._deleteBuddyBuddies(this._viewingBuddy);
+    }
+
+    setDeleteBuddyBuddies(func) {
+        this._deleteBuddyBuddies = func;
+    }
+
+    setDeleteBuddyDetails(func) {
+        this._deleteBuddyDetails = func;
     }
 
     updateUser(data) {
@@ -146,5 +276,12 @@ export default class CommonDataManager {
 
     setUpdateProfile(func) {
         this._updateProfile = func;
+      
+    setUpdateStreak(func) {
+        this._updateStreak = func;
+    }
+
+    setGetStreak(func) {
+        this._getStreak = func;
     }
 }
