@@ -19,7 +19,7 @@ import { dyColorCodes, dynamicStyles } from "../styles/global";
 import CommonDataManager from "../data/CommonDataManager";
 
 
-export default function EditProfile({ navigation }) {
+export default function EditProfile({ navigation, route }) {
     const [isLoading, setLoading] = useState(true);
     const [habit, setHabit] = useState(null);
     const [hobby, setHobby] = useState(null);
@@ -85,7 +85,8 @@ export default function EditProfile({ navigation }) {
                                 console.log(phone);
                                 console.log(email);
                                 updateUser();
-                                navigation.navigate('Profile')
+                                commonData.updateProfile();
+                                navigation.navigate('Profile');
                             }}>
                             <Text style={dyStyles.loginButtonText}>Confirm Changes</Text>
                         </TouchableOpacity>

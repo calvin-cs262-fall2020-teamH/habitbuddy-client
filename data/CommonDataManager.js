@@ -11,6 +11,7 @@ export default class CommonDataManager {
     _userID = null;
     _updateUser = () => {};
     _updateTheme = () => {};
+    _updateProfile = () => {};
 
     storage = new Storage({
         // maximum capacity, default 1000 key-ids
@@ -137,5 +138,13 @@ export default class CommonDataManager {
     
     setUpdateTheme(func) {
         this._updateTheme = func;
+    }
+
+    updateProfile() {
+        this._updateProfile();
+    }
+
+    setUpdateProfile(func) {
+        this._updateProfile = func;
     }
 }
