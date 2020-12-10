@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { ImageBackground, StyleSheet, View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard, 
-    TextInput, Alert } from 'react-native';
-import {globalStyles, colorCodes} from '../styles/global';
+import {
+    ImageBackground, StyleSheet, View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard,
+    TextInput, Alert
+} from 'react-native';
+import { globalStyles, colorCodes } from '../styles/global';
 import Card from '../shared/card';
 import { MaterialIcons } from '@expo/vector-icons';
 import CommonDataManager from '../data/CommonDataManager';
@@ -10,12 +12,15 @@ import CommonDataManager from '../data/CommonDataManager';
 // Date 10.8.20
 // Sets up the Home screen to display basic information and app traversal
 
-// Multiple possible background images. Haven't decided fully on one yet. Ditching the panda theme.
-// const background = { uri: "https://pngimg.com/uploads/bamboo/bamboo_PNG51.png"};
-// const background = { uri: "http://pngimg.com/uploads/bamboo/bamboo_PNG29.png" };
-// const background = { uri: "https://calvinchimes.org/wp-content/uploads/2017/02/20160822calvin-summer-16-stephennorregaard-91-1498x1000.jpg" };
+// Multiple possible background images. Haven't decided fully on one yet.
+// const background = { uri: "https://libreshot.com/wp-content/uploads/2017/02/christmas-lights-decoration.jpg" };
 // const background = { uri: "https://calvin.edu/contentAsset/image/091f147d-bb7b-4a3b-b337-e872c7a19c3d/bannerImage/filter/Resize,Jpeg/resize_w/720/jpeg_q/80" };
-const background = { uri: "https://calvin.edu/contentAsset/image/25cbc0c3-c2c7-438b-8abf-4bd1ebb61d95/featureImage/filter/Jpeg/jpeg_q/80" };
+
+// const background = { uri: "https://calvin.edu/contentAsset/image/25cbc0c3-c2c7-438b-8abf-4bd1ebb61d95/featureImage/filter/Jpeg/jpeg_q/80" };
+const background = { uri: "https://cdn.pixabay.com/photo/2017/11/18/22/09/christmas-2961385_1280.jpg" };
+// const background = { uri: "https://upload.wikimedia.org/wikipedia/commons/4/43/Khreshchatyk_street_%28winter%2C_eveningtime%29._Kiev%2C_Ukraine%2C_Eastern_Europe.jpg" };
+// const background = { uri: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Spring_Sunrise_-_Flickr_-_Jaykhuang_%281%29.jpg" };
+// const background = { uri: "https://snappygoat.com/b/e779c42cdc526ecf5dd96ec9e3763aa32736b238" };
 
 export default function Home({ navigation }) {
     const [isLoading, setLoading] = useState(true);
@@ -23,13 +28,13 @@ export default function Home({ navigation }) {
 
     const [streak, setStreak] = useState(0);
 
-	function updateStreak(data) {
-		setStreak(data);
-		console.log(data);
-	}
+    function updateStreak(data) {
+        setStreak(data);
+        console.log(data);
+    }
 
-	const commonData = CommonDataManager.getInstance();
-	commonData.setUpdateStreak(updateStreak);
+    const commonData = CommonDataManager.getInstance();
+    commonData.setUpdateStreak(updateStreak);
 
     const alert = () => {
         Alert.alert('What is Habit Stacking?',
@@ -55,9 +60,10 @@ export default function Home({ navigation }) {
     const [nhabit, setNhabit] = useState('New Habit')
 
     let hour = new Date().getHours();
+    // let month = new Date().getMonth();
     let greeting = "";
 
-    // Used to discern the time and pick an appropriate greeting. WORKS!
+    // Used to discern the time and pick an appropriate greeting. 
 
     if (hour < 5) {
         greeting = "Good Night,\n";
@@ -72,6 +78,21 @@ export default function Home({ navigation }) {
     } else {
         greeting = "Hello,\n";
     }
+    /// Possible background switcher. Not important at all. Disregard until a later date.
+    // if (month > 3){
+    //     let background = { uri: "https://upload.wikimedia.org/wikipedia/commons/4/43/Khreshchatyk_street_%28winter%2C_eveningtime%29._Kiev%2C_Ukraine%2C_Eastern_Europe.jpg" };
+    // } else if (month > 6){
+    //     let background = { uri: "https://upload.wikimedia.org/wikipedia/commons/5/5e/Spring_Sunrise_-_Flickr_-_Jaykhuang_%281%29.jpg" };
+    // } else if (month > 9){
+    //     let background = { uri: "https://calvin.edu/contentAsset/image/25cbc0c3-c2c7-438b-8abf-4bd1ebb61d95/featureImage/filter/Jpeg/jpeg_q/80" };
+    // } else if (month > 10){
+    //     let background = { uri: "https://snappygoat.com/b/e779c42cdc526ecf5dd96ec9e3763aa32736b238" };
+    // } else if (month = 11){
+    //     let background = { uri: "https://cdn.pixabay.com/photo/2017/11/18/22/09/christmas-2961385_1280.jpg" };
+    // } else {
+    //     const background = { uri: "https://calvin.edu/contentAsset/image/091f147d-bb7b-4a3b-b337-e872c7a19c3d/bannerImage/filter/Resize,Jpeg/resize_w/720/jpeg_q/80" };
+    // }
+
     // My primary thoughts and design for the home screen. Several cards with a background. Possibly a couple of bars for greeting and other information. 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -98,7 +119,7 @@ export default function Home({ navigation }) {
                             </View>
                             {/* Habit Stacking card */}
                             <View style={styles.corners}>
-                                <Card style={{height:190}}>
+                                <Card style={{ height: 190 }}>
                                     {/* info icon on the right when clicked opens an alert box with information */}
                                     <View>
                                         <MaterialIcons name="info-outline" size={20} color='#333' style={styles.habitStackInfoIcon} onPress={alert}
@@ -106,7 +127,7 @@ export default function Home({ navigation }) {
 
                                     </View>
                                     {/* Habit Stacking title */}
-                                    <View style={{ alignItems: 'center'}}>
+                                    <View style={{ alignItems: 'center' }}>
                                         <Text style={{ justifyContent: 'center' }}>
                                             Habit Stacking
                                         </Text>
@@ -114,13 +135,13 @@ export default function Home({ navigation }) {
                                     {/* Habit Stacking content */}
                                     <View style={[styles.Hab]}>
                                         <Text style={styles.titleText}>After I</Text>
-                                        <TextInput   
+                                        <TextInput
                                             style={styles.inputBox}
                                             placeholder='CURRENT HABIT'
                                             onChangeText={(val) => setChabit(val)} />
                                     </View>
                                     <View style={[styles.Hab]}>
-                                        <Text style={[styles.text,{fontWeight:'bold'}]}>I will</Text>
+                                        <Text style={[styles.text, { fontWeight: 'bold' }]}>I will</Text>
                                         <TextInput
                                             style={styles.inputBox}
                                             placeholder='NEW HABIT'
@@ -236,15 +257,15 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#777',
         alignSelf: 'stretch',
-        textAlign:'center',
+        textAlign: 'center',
         fontSize: 13,
         paddingHorizontal: 2,
         color: colorCodes.lightText,
     },
-    habitStackInfoIcon:{
-        alignSelf:'flex-end',
-        marginTop:-10,
-        marginRight:-20,
+    habitStackInfoIcon: {
+        alignSelf: 'flex-end',
+        marginTop: -10,
+        marginRight: -20,
         marginBottom: -5,
         width: 30,
         height: 30,
