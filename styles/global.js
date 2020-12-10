@@ -28,6 +28,7 @@ let dark = {
 export let dyColorCodes = {
 	back: new DynamicValue('#eee', '#303030'), //for the background of a screen
 	front: new DynamicValue('#fff', '#282828'), //for an object in the foreground of the screen
+	frontCard: new DynamicValue('#D3D3D3', '#282828'),
 	text: new DynamicValue('#222', '#eee'), //for text which isn't on a card
 	cardText: new DynamicValue('#000', '#000'), //for text that is on a card
 	lightText: new DynamicValue('#666', '#aaa'), //for placeholder text
@@ -36,11 +37,21 @@ export let dyColorCodes = {
 	highlightBack: new DynamicValue('#caebff', '#1b86ff'), //for the background of selection block
 	highlightFront: new DynamicValue('#1b86ff', '#caebff'), //for the text of selection block
 	card: new DynamicValue('#ffd699', '#ffd699'), //for the background of cards
+	simpleCard: new DynamicValue('#fff', '#444'),
 }
 
 export let colorCodes = light;
 
 export const dynamicStyles = new DynamicStyleSheet({
+	title_text: {
+		fontSize: 14,
+		marginTop: 10,
+		marginBottom: 7,
+		textAlign: 'center',
+		alignItems: 'center',
+		justifyContent: 'center',
+		color: dyColorCodes.text,
+	},
 	text: {
 		color: dyColorCodes.text,
 	},

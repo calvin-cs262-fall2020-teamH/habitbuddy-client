@@ -14,7 +14,7 @@ export default function Buddies({ navigation }) {
     let commonData = CommonDataManager.getInstance();
 
     useEffect(() => {
-        fetch('https://habit-buddy.herokuapp.com/buddies/' + commonData.getUserID())                                           // Web service will be entered once we have it fully available.
+        fetch('https://habit-buddy.herokuapp.com/buddies/' + commonData.getUserID())
           .then((response) => response.json())
           .then((json) => setData(json))
           .catch((error) => console.error(error))
@@ -25,6 +25,7 @@ export default function Buddies({ navigation }) {
 
     return (
         <View style={dyStyles.buddyDisplayContainer}>
+            <Text style={dyStyles.title_text}>Tap your buddy for more info!</Text>
             <FlatList data={data} 
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={({ item }) => (
