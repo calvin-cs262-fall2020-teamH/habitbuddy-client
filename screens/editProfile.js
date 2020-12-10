@@ -29,7 +29,7 @@ export default function EditProfile({ navigation }) {
             .catch((error) => console.error(error))
             .finally(() => setLoading(false));
     }, []);
-    
+
     const [habit, setHabit] = useState(data.habit);
     const [hobby, setHobby] = useState(data.hobby);
     const [email, setEmail] = useState(data.emailaddress);
@@ -45,8 +45,7 @@ export default function EditProfile({ navigation }) {
                 habit: habit,
                 hobby: hobby,
                 phone: phone,
-                email: email,
-                URL: 'https://th.bing.com/th/id/OIP.K6XYBPwgLPhvWH9BxDYfXAHaEN?pid=Api&rs=1',
+                emailAddress: email,
             })
         })
             .then(async response => await response.json())
@@ -81,6 +80,9 @@ export default function EditProfile({ navigation }) {
                         <TouchableOpacity style={dyStyles.loginButtonContainer}
                             onPress={() => {
                                 console.log(habit);
+                                console.log(hobby);
+                                console.log(phone);
+                                console.log(email);
                                 updateUser();
                                 navigation.navigate('Profile')
                             }}>

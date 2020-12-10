@@ -25,14 +25,14 @@ export default function Profile({ navigation }) {
 
 
     const dyStyles = useDynamicValue(dynamicStyles);
-  
+
     return (
-        <ScrollView style={{height: '100%', backgroundColor: useDynamicValue(dyColorCodes.back)}}>
+        <ScrollView style={{ height: '100%', backgroundColor: useDynamicValue(dyColorCodes.back) }}>
             <View style={dyStyles.wholePage}>
-            
+
                 <View style={dyStyles.profContainer}>
                     <View style={dyStyles.profilePic}>
-                        <Image source={{uri: data.profileurl}} style={{ width: 110, height: 110, position: 'absolute' }} />
+                        <Image source={{ uri: data.profileurl }} style={{ width: 110, height: 110, position: 'absolute' }} />
                     </View>
 
                     <View style={dyStyles.userNamePlacement}>

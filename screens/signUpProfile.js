@@ -46,44 +46,47 @@ export default function SignUpProfile({ navigation }) {
                         containerStyle={{ width: '70%' }}
                         placeholder='Username'
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
-                        onChangeText={(val) => setUsername(val)} 
-                        autoCapitalize = 'none' />
+                        onChangeText={(val) => setUsername(val)}
+                        autoCapitalize='none' />
                     <Input
                         containerStyle={{ width: '70%' }}
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                         placeholder='Email'
-                        onChangeText={(val) => setEmail(val)} 
-                        autoCapitalize = 'none' />
+                        onChangeText={(val) => setEmail(val)}
+                        autoCapitalize='none' />
                     <Input
                         containerStyle={{ width: '70%' }}
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                         placeholder='Phone Number'
                         keyboardType='number-pad'
-                        onChangeText={(val) => setPhoneNumber(val)} 
-                        autoCapitalize = 'none' />
+                        onChangeText={(val) => setPhoneNumber(val)}
+                        autoCapitalize='none' />
                     <PasswordInput
                         placeholder='Password'
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                         secure={true}
                         onChangeText={(val) => { setPassword(val); }}
-                        autoCapitalize = 'none'
+                        autoCapitalize='none'
                     />
                     <PasswordInput
                         placeholder='Confirm Password'
                         placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
                         secure={true}
                         onChangeText={(val) => { setPasswordConfirm(val); }}
-                        autoCapitalize = 'none'
+                        autoCapitalize='none'
                     />
                     <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => {
                         // Creates an alert when the entered passwords are different.
-                        if (password == passwordConfirm){ navigation.navigate('SignUpHabit')} 
-                        else {Alert.alert('Password Issue',
-                        "You have enter different passwords. Please enter the same password.",
-                        [
-                            { text: "Okay" }
-                        ]
-                    )}} }>
+                        if (password == passwordConfirm) { navigation.navigate('SignUpHabit') }
+                        else {
+                            Alert.alert('Password Issue',
+                                "You have enter different passwords. Please enter the same password.",
+                                [
+                                    { text: "Okay" }
+                                ]
+                            )
+                        }
+                    }}>
 
                         <Text style={dyStyles.loginButtonText}>Next</Text>
                     </TouchableOpacity>

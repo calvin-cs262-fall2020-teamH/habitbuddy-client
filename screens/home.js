@@ -32,7 +32,7 @@ export default function Home({ navigation }) {
 
     let commonData = CommonDataManager.getInstance();
 
-    console.log(commonData.getUserID());
+    // console.log(commonData.getUserID());
 
     useEffect(() => {
         fetch('https://habit-buddy.herokuapp.com/home/' + commonData.getUserID()) //Change this once we have local storage of a active user
