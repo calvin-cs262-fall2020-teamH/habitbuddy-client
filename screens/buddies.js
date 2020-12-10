@@ -23,11 +23,16 @@ export default function Buddies({ navigation }) {
 
     let [deleted, setDeleted] = useState(-1);
 
-    function deleteBuddy(id) {
-        setDeleted(id);
-    }
-
     let commonData = CommonDataManager.getInstance();
+
+    
+    function deleteBuddy() {
+        fetch('https://habit-buddy.herokuapp.com/buddies/' + commonData.getUserID())
+            .then((response) => response.json())
+            .then((json) => setData(json))
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    }
 
     commonData.setDeleteBuddyBuddies(deleteBuddy);
 

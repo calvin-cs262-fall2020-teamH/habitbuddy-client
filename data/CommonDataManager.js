@@ -243,7 +243,7 @@ export default class CommonDataManager {
 
     deleteBuddy() {
         this._deleteBuddyDetails();
-        this._deleteBuddyBuddies(this._viewingBuddy);
+        this._deleteBuddyBuddies();
     }
 
     setDeleteBuddyBuddies(func) {
