@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, TouchableOpacity, TouchableWithoutFeedback, Keyboard, StyleSheet, ImageBackground } from 'react-native';
 import { useDynamicValue } from 'react-native-dynamic';
 import { Input } from 'react-native-elements';
-import { dynamicStyles, dyColorCodes } from '../styles/global';
+import { dynamicStyles, dyColorCodes, colorCodes } from '../styles/global';
 import CommonDataManager from '../data/CommonDataManager';
 import PasswordInput from '../shared/passwordInput';
+import { block } from 'react-native-reanimated';
 
 /*Login lets you log into app and access your profile 
 * Written by Kelsey Yen
@@ -53,15 +54,18 @@ export default function Login({ navigation }) {
             console.log('dismissed keyboard')
         }}>
             <View style={{ flex: 1 }}>
-            <ImageBackground source={background} style={styles.image} blurRadius={2.0}>
+            <ImageBackground source={background} style={dyStyles.background} blurRadius={20.0}>
                     <View style={dyStyles.loginContainer}>
-                        <Input
-                            containerStyle={{ width: '70%' }}
-                            placeholder='Username'
-                            placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
-                            onChangeText={(val) => setUsername(val)}
-                            autoCapitalize='none'
-                        />
+                        <View style={{backgroundColor: useDynamicValue(dyColorCodes.back), width: '70%', borderRadius: 15, height: '8%', marginVertical: 10}}>
+                            <Input
+                                containerStyle={{ width: '100%' }}
+                                placeholder='Username'
+                                placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
+                                onChangeText={(val) => setUsername(val)}
+                                autoCapitalize='none'
+                            />
+                        </View>
+                        <View style={{backgroundColor: useDynamicValue(dyColorCodes.back), width: '70%', borderRadius: 15, height: '8%', marginVertical: 10}}>
                         <PasswordInput
                             placeholder='Password'
                             placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
@@ -69,6 +73,7 @@ export default function Login({ navigation }) {
                             onChangeText={(val) => { setPassword(val); }}
                             autoCapitalize='none'
                         />
+                        </View>
                         <TouchableOpacity style={dyStyles.loginButtonContainer} onPress={() => testLogin()}>
                             <Text style={dyStyles.loginButtonText}>Login</Text>
                         </TouchableOpacity>

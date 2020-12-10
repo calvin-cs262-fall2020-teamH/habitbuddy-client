@@ -216,7 +216,7 @@ export const dynamicStyles = new DynamicStyleSheet({
 		justifyContent: 'center'
 	},
 	loginContainer: {
-		backgroundColor: dyColorCodes.back,
+		//backgroundColor: dyColorCodes.back,
 		alignItems: 'center',
 		justifyContent: 'flex-start',
 		height: '100%',
@@ -226,7 +226,7 @@ export const dynamicStyles = new DynamicStyleSheet({
 		paddingTop: 30,
 		paddingBottom: 10,
 		fontSize: 16,
-		color: dyColorCodes.text,
+		color: '#fff',
 	},
 	loginButtonContainer: {
 		borderRadius: 10,
@@ -255,7 +255,14 @@ export const dynamicStyles = new DynamicStyleSheet({
 		borderBottomWidth: 1,
 		borderColor: '#777',
 		justifyContent: 'space-around',
-	}
+	},
+	background: {
+        flex: 1,
+        // resizeMode: 'cover',
+        justifyContent: 'center',
+        width: '100%',
+        height: '100%',
+    }
 });
 
 export const globalStyles = StyleSheet.create({
