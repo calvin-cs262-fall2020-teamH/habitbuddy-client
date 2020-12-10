@@ -13,7 +13,7 @@ export default function HabitTrackStack({ navigation }) {
     // Alert box for HabitTracking info icon
     const alert = () => {
         Alert.alert('How to track my Habit?',
-            "Suppose you want to track your habit for the day.\n\n1. Go to Home Screen and tap on the “Streak“ card to go to “Habit Track” screen.\n2. Then, tap on the day of the week.\n3. Watch “My Streak“ count in the “Streak Leaderboard“ increase. Watch “My Streak“ count in the “Streak Leaderboard“ increase. “My Streak” shows the number of consecutive days your habit was completed.\n",
+            "Suppose you want to track your habit for the day.\n\n1. Each grey block represents a day. Tap on the day of the week you did your habit.\n2. Watch “My Streak“ count in the “Streak Leaderboard“ increase. “My Streak” shows the number of consecutive days your habit was completed (including the days from previous weeks!).\n   Each week all your blocks get refreshed into grey color.\n\nGet motivated to stick to your habit as you watch your streaks grow!",
             [
                 { text: "Got it!" }
             ]
