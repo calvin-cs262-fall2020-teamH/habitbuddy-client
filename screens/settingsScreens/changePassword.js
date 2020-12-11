@@ -5,6 +5,7 @@ import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles, dyColorCodes } from '../../styles/global';
 // import SelectionBlock from '../../shared/blocks/selectionBlock';
 import PasswordInput from '../../shared/passwordInput';
+import CommonDataManager from "../../data/CommonDataManager";
 
 //Tabbing between inputs taken from https://thekevinscott.com/tabbing-through-input-fields/
 let inputs = {};
@@ -20,6 +21,17 @@ export default function ChangePassword({ navigation }) {
     const [passwordConfirm, setPasswordConfirm] = useState('Password');
     const [passwordNew, setPasswordNew] = useState('Password');
     const dyStyles = useDynamicValue(dynamicStyles);
+
+    let commonData = CommonDataManager.getInstance();
+
+    async function updatePassword() {
+        await fetch('http://habit-buddy.herokuapp.com/password/' + password + '/' + passwordNew + '/' + commonData.getUserID(), {
+            method: 'PUT', headers: { 'Content-Type': 'application/json' }})
+            .then(async response => await response.json())
+            .catch((error) => {
+                console.error(error);
+            });
+    }
 
     return (
         //Dismiss keyboard if you tap off the input box or keyboard
@@ -105,7 +117,10 @@ export default function ChangePassword({ navigation }) {
                 <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                     <TouchableOpacity style={dyStyles.loginButtonContainer}
                         onPress={() => {
-                            if (passwordNew == passwordConfirm){ navigation.navigate('Settings')} 
+                            if (passwordNew == passwordConfirm){
+                                updatePassword();
+                                navigation.navigate('Settings')
+                            } 
                             else {Alert.alert('Password Issue',
                             "You have enter different passwords. Please enter the same password.",
                             [ { text: "Okay" } ]
