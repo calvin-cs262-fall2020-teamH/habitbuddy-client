@@ -10,7 +10,6 @@ import { dynamicStyles } from '../../styles/global';
  * @return {Text} About screen text based on project vision statement
  */
 export default function About() {
-
     const dyStyles = useDynamicValue(dynamicStyles);
 
     return (

@@ -7,7 +7,8 @@ import ProfileCard from "../shared/profileCard";
 import { dyColorCodes, dynamicStyles } from "../styles/global";
 import CommonDataManager from "../data/CommonDataManager";
 
-/** EditProfile outputs the editable content of Profile screen
+/**
+ * EditProfile outputs the editable content of Profile screen
  * @author Joe Pastucha (JoePastucha)
  * @param {any} navigation
  * @return {EditProfileCard} editable cards with "Habit Goal", "Hobby", "Phone Number", "Email" info
