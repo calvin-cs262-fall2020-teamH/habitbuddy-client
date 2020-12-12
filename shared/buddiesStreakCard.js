@@ -1,10 +1,15 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { View } from 'react-native';
 import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 import { dyColorCodes } from '../styles/global';
 
+/** 
+ * AlertBlock brings up an alert block when pressed which can have up to three options
+ * @param {any} prop 
+ * @param {any} styles
+ * @return {Card} Card with Habit Tracker streaks of buddies
+ */
 export default function BuddiesStreak(props, {styling}) {
-
     const dystyles = useDynamicValue(styles);
 
     return (

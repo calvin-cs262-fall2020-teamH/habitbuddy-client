@@ -8,7 +8,7 @@ import CommonDataManager from '../data/CommonDataManager';
 
 /**
  * Profile outputs the content of Profile screen
- * @author Joe Pastucha (JoePastucha)
+ * @author Joe Pastucha (JoePastucha) and Andrew Baker (andrewJamesBaker)
  * @param none
  * @return {ProfileCard} cards with "Category", "Habit Goal", "Hobby", "Phone Number", "Email" info
  */

@@ -6,7 +6,6 @@ import Header from '../shared/header';
 import Profile from '../screens/profile';
 import EditProfile from "../screens/editProfile";
 
-
 const Stack = createStackNavigator();
 
 /** 

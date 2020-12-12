@@ -29,7 +29,7 @@ export default function HabitTrackStack({ navigation }) {
             headerStyle: { backgroundColor: 'orange' }
         }}>
             <Stack.Screen
-                name="Habit Track"
+                name="Habit Tracker"
                 component={HabitTrack}
                 options={{
                     headerLeft: () => <Header navigation={navigation} />,

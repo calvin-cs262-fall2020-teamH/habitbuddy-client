@@ -3,8 +3,13 @@ import { colorCodes, dyColorCodes } from '../styles/global';
 import { View } from 'react-native';
 import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
+/**
+ * Card constructs different styles of cards 
+ * @author Andrew Baker (andrewJamesBaker)
+ * @param {any} props
+ * @return {View} card content for either circle or regular card
+ */
 export default function Card(props) {
-
     const dyStyles = useDynamicValue(styles);
 
     return (

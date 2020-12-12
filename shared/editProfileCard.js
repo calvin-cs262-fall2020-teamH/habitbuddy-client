@@ -4,14 +4,21 @@ import { Ionicons } from '@expo/vector-icons';
 import { dyColorCodes } from '../styles/global'
 import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
+/** 
+ * EditProfileCard constructs card used in EditProfile screen 
+ * @author Joe Pastucha (JoePastucha)
+ * @param {any} icon
+ * @param {any} title 
+ * @param {any} placeholder
+ * @param {any} keyboardType
+ * @param {any} change
+ * @return {Input} Card with text input to edit profile information
+ */
 export default function EditProfileCard({ icon, title, placeholder, keyboardType, change }) {
-
     const dyStyles = useDynamicValue(styles);
 
     return (
         <View style={dyStyles.container}>
-
-
             <View style={dyStyles.containerIcon}>
                 <Ionicons name={icon} size={24} color={useDynamicValue(dyColorCodes.text)} />
             </View>
@@ -28,10 +35,7 @@ export default function EditProfileCard({ icon, title, placeholder, keyboardType
                     keyboardType={keyboardType}
                     onChangeText={(val) => change(val)}
                 />
-
             </View>
-
-
         </View>
     );
 };
