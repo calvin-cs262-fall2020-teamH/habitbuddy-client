@@ -1,13 +1,17 @@
 import React from 'react';
-import { ScrollView, View } from 'react-native-gesture-handler';
+import { ScrollView } from 'react-native-gesture-handler';
 import { colorCodes, dyColorCodes } from '../styles/global';
 import { useDynamicValue, useColorSchemeContext } from 'react-native-dynamic'
 import SettingsBlock from '../shared/blocks/settingsBlock';
-import SwitchBlock from '../shared/blocks/switchBlock';
 import AlertBlock from '../shared/blocks/alertBlock';
 import CommonDataManager from '../data/CommonDataManager';
 
-/* About outputs the content of the Settings page */
+/**
+ * Settings outputs the content of Settings screen 
+ * @author Dawson Buist (Bongo9911) and Kelsey Yen (kny4)
+ * @param {any} navigation
+ * @return {Block} SettingsBlocks for "Theme", "Change Password", and "About" and AlertBlock for "Logout"
+ */
 export default function Settings({ navigation }) {
     let commonData = CommonDataManager.getInstance();
 
@@ -23,7 +27,6 @@ export default function Settings({ navigation }) {
         <ScrollView style={{ height: '100%', backgroundColor: useDynamicValue(dyColorCodes.back) }}>
             <SettingsBlock icon="md-color-palette" title="Theme" selected={selectedTheme}
                 page="Theme" navigation={navigation}></SettingsBlock>
-            {/* <SwitchBlock icoSn="md-notifications" title="Notifications"></SwitchBlock> */}
             <SettingsBlock icon="ios-lock" title="Change Password"
                 page="Change Password" navigation={navigation} />
             <SettingsBlock icon="md-information-circle-outline" title="About"

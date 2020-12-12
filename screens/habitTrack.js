@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, FlatList, TouchableOpacity } from 'react-native';
-import HabitTrackBlock from '../shared/habitTrackBlock';
-import BuddiesStreak from '../shared/buddiesStreakCard';
+import { View, Text } from 'react-native';
 import { DynamicStyleSheet, useDynamicValue, useColorSchemeContext } from 'react-native-dynamic';
 import { dyColorCodes } from '../styles/global';
 import CommonDataManager from '../data/CommonDataManager';
+import HabitTrackBlock from '../shared/habitTrackBlock';
 
-export default function HabitTrack({ navigation }) {
+/**
+ * HabitTrack displays the Habit Track feature
+ * @author Belina Sainju (zeph01)
+ * @param none
+ * @return {HabitTrackBlock} Touchable blocks representing days of the week
+ */
+export default function HabitTrack() {
     const dyStyles = useDynamicValue(styles);
     const mode = useColorSchemeContext();
     const lastMode = '';
@@ -15,14 +20,14 @@ export default function HabitTrack({ navigation }) {
 
     const [buddies, setBuddies] = useState([]);
     const [isLoading, setLoading] = useState(true);
-    
+
     useEffect(() => {
         fetch('https://habit-buddy.herokuapp.com/streak/' + commonData.getUserID())                                           // Web service will be entered once we have it fully available.
-          .then((response) => response.json())
-          .then((json) => setBuddies(json))
-          .catch((error) => console.error(error))
-          .finally(() => setLoading(false));
-      }, []);
+            .then((response) => response.json())
+            .then((json) => setBuddies(json))
+            .catch((error) => console.error(error))
+            .finally(() => setLoading(false));
+    }, []);
 
     const commonData = CommonDataManager.getInstance();
     const data = commonData.getStreakWeek();
@@ -31,16 +36,16 @@ export default function HabitTrack({ navigation }) {
 
     return (
         <View style={dyStyles.container}>
-            <Text style={[dyStyles.text, { marginVertical: 3, alignSelf: 'center', fontWeight: 'bold' }]}>My Week</Text>
-            <Text style={[dyStyles.text, { marginVertical: 3, alignSelf: 'center' }]}>Tap the day to log your progress</Text>
-
+            <Text style={[dyStyles.text, { marginVertical: 3, alignSelf: 'center', fontWeight: 'bold' }]}>
+                My Week</Text>
+            <Text style={[dyStyles.text, { marginVertical: 3, alignSelf: 'center' }]}>
+                Tap the day to log your progress</Text>
             {/* This block is for the 7 blocks representing a week */}
             <HabitTrackBlock
                 ref={habitblockElement}
-                data = {data}
+                data={data}
                 theme={mode}
-                buddies = {buddies}
-
+                buddies={buddies}
             ></HabitTrackBlock>
         </View>
     );

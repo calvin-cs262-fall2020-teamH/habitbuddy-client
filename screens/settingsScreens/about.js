@@ -3,7 +3,8 @@ import { Text, ScrollView } from 'react-native';
 import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles } from '../../styles/global';
 
-/** About outputs the content of the About page 
+/**
+ * About outputs the content of the About page 
  * @author Kelsey Yen (kny4)
  * @param none
  * @return {Text} About screen text based on project vision statement

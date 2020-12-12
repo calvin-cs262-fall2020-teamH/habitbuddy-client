@@ -7,19 +7,14 @@ import CommonDataManager from '../data/CommonDataManager';
 
 // Written by Andrew Baker
 
+/** About outputs the content of the About page 
+ * @author Andrew Baker (andrewJamesBaker)
+ * @param {any} navigation
+ * @return {Card} Buddies cards that are touchable to navigate to buddyDetails
+ */
 export default function Buddies({ navigation }) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
-
-    // {
-    //     profileurl:  'https://www.gravatar.com/avatar/40cb73e7277b429d299c985a4f315d57?s=48&d=identicon&r=PG&f=1',
-    //     firstname: 'Dawson',
-    //     lastname: 'Buist',
-    //     habit: 'habit',
-    //     hobby: 'hobby',
-    //     phone: '6165704083',
-    //     emailaddress: 'dawsonbuist@gmail.com'
-    //  }
 
     let [deleted, setDeleted] = useState(-1);
 

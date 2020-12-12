@@ -4,7 +4,9 @@ import { useColorSchemeContext, useDynamicValue } from 'react-native-dynamic';
 import { dyColorCodes } from '../../styles/global';
 import SelectionBlock from '../../shared/blocks/selectionBlock';
 
-/** Theme lets user change theme 
+/**
+ * Theme lets user change theme 
+ * @author Dawson Buist (Bongo9911)
  * @param none
  * @return {SelectionBlock} to choose light or dark color theme 
  */

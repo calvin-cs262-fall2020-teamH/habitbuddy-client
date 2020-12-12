@@ -7,9 +7,12 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import PasswordInput from '../shared/passwordInput';
 
 
-/* emptyProfile lets you fill out your profile for the first time 
-* Written by Kelsey Yen
-*/
+/**
+ * SignUpProfile displays empty Profile inputs for first time users and create new user in database
+ * @author Kelsey Yen (kny4) and Dawson Buist (Bongo9911)
+ * @param {any} navigation
+ * @return {Input} Text inputs for "First Name", "Last Name", "Username", "Email", "Phone Number", and "Password"
+ */
 
 export default function SignUpProfile({ navigation }) {
     const [firstName, setFirstName] = useState('FirstName');

@@ -6,10 +6,6 @@ import Card from '../shared/card';
 import { MaterialIcons } from '@expo/vector-icons';
 import CommonDataManager from '../data/CommonDataManager';
 
-// Written by Andrew Baker
-// Date 10.8.20
-// Sets up the Home screen to display basic information and app traversal
-
 // Multiple possible background images. Haven't decided fully on one yet. Ditching the panda theme.
 // const background = { uri: "https://pngimg.com/uploads/bamboo/bamboo_PNG51.png"};
 // const background = { uri: "http://pngimg.com/uploads/bamboo/bamboo_PNG29.png" };
@@ -17,6 +13,12 @@ import CommonDataManager from '../data/CommonDataManager';
 // const background = { uri: "https://calvin.edu/contentAsset/image/091f147d-bb7b-4a3b-b337-e872c7a19c3d/bannerImage/filter/Resize,Jpeg/resize_w/720/jpeg_q/80" };
 const background = { uri: "https://calvin.edu/contentAsset/image/25cbc0c3-c2c7-438b-8abf-4bd1ebb61d95/featureImage/filter/Jpeg/jpeg_q/80" };
 
+/**
+ * Home displays Home screen
+ * @author Andrew Baker (andrewJamesBaker)
+ * @param {any} navigation
+ * @return {HomeStack} Home screen with info based on user info
+ */
 export default function Home({ navigation }) {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
@@ -33,7 +35,7 @@ export default function Home({ navigation }) {
 
     const alert = () => {
         Alert.alert('What is Habit Stacking?',
-            "One of the best ways to build a new habit is to identify a current habit you already do each day and stack your new behavior on top. This is Habit Stacking.\n\nJust like waking up in the morning is a cue for you to brush your teeth.\n\nUse your current habit as a cue to do your new habit!\n\n1.Type your cue in the Current Habit box.\n2.Type your new habit in the Habit Goal box.",
+            "One of the best ways to build a new habit is to identify a current habit you already do each day and stack your new behavior on top. This is Habit Stacking.\n\nJust like waking up in the morning is a cue for you to brush your teeth, use your current habit as a cue to do your new habit!\n\n1.Type your cue in the Current Habit box.\n2.Type your new habit in the Habit Goal box.",
             [
                 { text: "Got it!" }
             ],
@@ -55,20 +57,19 @@ export default function Home({ navigation }) {
     let hour = new Date().getHours();
     let greeting = "";
 
-    // Used to discern the time and pick an appropriate greeting. WORKS!
-
+    // Used to discern the time and pick an appropriate greeting.
     if (hour < 5) {
-        greeting = "Good Night,\n";
+        greeting = "Good Night, ";
     } else if (hour < 12) {
-        greeting = "Good Morning,\n";
+        greeting = "Good Morning, ";
     } else if (hour < 17) {
-        greeting = "Good Afternoon,\n";
+        greeting = "Good Afternoon, ";
     } else if (hour < 20) {
-        greeting = "Good Evening,\n";
+        greeting = "Good Evening, ";
     } else if (hour < 23) {
-        greeting = "Good Night,\n";
+        greeting = "Good Night, ";
     } else {
-        greeting = "Hello,\n";
+        greeting = "Hello, ";
     }
     // My primary thoughts and design for the home screen. Several cards with a background. Possibly a couple of bars for greeting and other information. 
     return (

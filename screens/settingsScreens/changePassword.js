@@ -13,9 +13,11 @@ function focusNextField(id) {
     inputs[id].focus();
 }
 
-/** ChangePassword allows user to change their current password 
+/**
+ * ChangePassword allows user to change their current password 
+ * @author Dawson Buist (Bongo9911) and Kelsey Yen (kny4)
  * @param {any} navigation
- * @return
+ * @return {Input} Text inputs for "Current Password" and "New Password"
  */
 export default function ChangePassword({ navigation }) {
     // let commonData = CommonDataManager.getInstance();
