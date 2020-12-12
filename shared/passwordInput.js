@@ -2,15 +2,17 @@ import React from 'react';
 import { View } from 'react-native';
 import { Input } from 'react-native-elements';
 import { useDynamicValue } from 'react-native-dynamic';
-import { dynamicStyles, dyColorCodes } from '../styles/global';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { dynamicStyles, dyColorCodes } from '../styles/global';
 
-/* passwordInput is a textInput specifically for passwords 
-*  Written by Kelsey Yen
-*  Modified from https://swairaq.medium.com/password-textinput-in-react-native-5ac3e89bcf4f 
-*/
+/**
+ * PasswordInput is Input modified for passwords 
+ * @author Kelsey Yen (kny4)
+ * Modified from https://swairaq.medium.com/password-textinput-in-react-native-5ac3e89bcf4f 
+ * @param {any} props
+ * @return {Input} Text input with secure state and visibility icon
+ */
 export default function PasswordInput(props) {
-
     const dyStyles = useDynamicValue(dynamicStyles);
 
     const [secure, setSecure] = React.useState(props.secure);

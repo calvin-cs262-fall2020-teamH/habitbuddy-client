@@ -4,6 +4,16 @@ import { Ionicons } from '@expo/vector-icons';
 import { dyColorCodes } from '../../styles/global'
 import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
+/** 
+ * SettingsBlock constructs blocks used on Settings screen
+ * @author Dawson Buist (Bongo9911)
+ * @param {any} icon
+ * @param {any} title 
+ * @param {any} selected
+ * @param {any} page
+ * @param {any} navigation
+ * @return {SettingsBlock} Block with right-side arrow that navigates to Settings screen features
+ */
 export default function SettingsBlock({icon, title, selected, page, navigation}) {
 
     const dyStyles = useDynamicValue(styles);

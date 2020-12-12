@@ -4,8 +4,15 @@ import { Ionicons } from '@expo/vector-icons';
 import { dyColorCodes } from '../../styles/global'
 import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
-//Sample switch code taken and modified from https://reactnative.dev/docs/switch.html
-export default function SwitchBlock({ icon, title, }) {
+/** 
+ * SelectionBlock brings up an alert block when pressed which can have up to three options
+ * @author Dawson Buist (Bongo9911)
+ * Modified from https://reactnative.dev/docs/switch.html
+ * @param {any} icon
+ * @param {any} title
+ * @return {SwitchBlock} Block with a "flippable" switch
+ */
+export default function SwitchBlock({ icon, title }) {
     const [isEnabled, setIsEnabled] = useState(true); //sets the switch to be enabled by default
     const toggleSwitch = () => setIsEnabled(previousState => !previousState); //flips the switch state
 
