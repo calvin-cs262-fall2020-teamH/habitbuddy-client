@@ -75,8 +75,8 @@ export default function Tabs() {
 
 /** 
  * GetTabBarVisibility implements tab visibility based on route
- * @param route
- * @return {boolean} default == true
+ * @param {any} route
+ * @return {void} nothing
  */
 function getTabBarVisibility(route) {
 	const routeName = route.state ? route.state.routes[route.state.index].name : '';
