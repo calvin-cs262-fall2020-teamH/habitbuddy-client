@@ -11,6 +11,7 @@ const Stack = createStackNavigator();
 
 /**
  * SettingsStack creates a stack for setting screens
+ * @author Dawson Buist (Bongo9911)
  * @param {var} navigation 
  * @return {property} Navigator
  */

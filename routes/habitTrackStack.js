@@ -11,6 +11,7 @@ const Stack = createStackNavigator();
 
 /** 
  * HabitTrackStack creates stack of Buddies and BuddyDetails screens
+ * @author Belina Sainju (zeph01)
  * @param {var} navigation
  * @return {property} Navigator
  */

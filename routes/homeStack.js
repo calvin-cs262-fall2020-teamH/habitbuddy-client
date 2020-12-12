@@ -8,6 +8,7 @@ const Stack = createStackNavigator();
 
 /** 
  * HomeStack creates stack for home screen navigation 
+ * @author Andrew Baker (andrewJamesBaker)
  * @default {Home}
  * @param {var} navigation
  * @return {property} Navigator

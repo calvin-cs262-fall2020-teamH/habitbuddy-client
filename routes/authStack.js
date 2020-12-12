@@ -13,6 +13,7 @@ const AuthStack = createStackNavigator();
 
 /** 
  * AuthStackScreen opens app to login screen and tavigates to sign up screens || to home screen if user is logged in
+ * @author Dawson Buist (Bongo9911)
  * @param {var} update
  * @return {property} Navigator  
  */

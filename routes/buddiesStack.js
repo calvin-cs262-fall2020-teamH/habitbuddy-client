@@ -12,6 +12,7 @@ const Stack = createStackNavigator();
 
 /** 
  * BuddiesStack creates stack of Buddies and BuddyDetails screens 
+ * @author Andrew Baker (andrewJamesBaker)
  * @default {Buddies}
  * @param {var} navigation
  * @return {property} Navigator

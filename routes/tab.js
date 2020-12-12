@@ -1,5 +1,3 @@
-/* drawer.js creates the drawer in the top right which lists all the pages a user can access */
-
 import * as React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
@@ -17,6 +15,7 @@ const Tab = createBottomTabNavigator();
 
 /** 
  * Tabs creates tab navigation at bototm of screen
+ * @author Dawson Buist (Bongo9911)
  * @param none
  * @return {property} Navigator
  */

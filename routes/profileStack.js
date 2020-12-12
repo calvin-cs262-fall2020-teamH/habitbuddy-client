@@ -10,6 +10,7 @@ const Stack = createStackNavigator();
 
 /** 
  * ProfileStack creates stack for profile and edit profile navigation 
+ * @author Joe Pastucha (JoePastucha)
  * @default {Profile}
  * @param {var} navigation
  * @return {property} Navigator
