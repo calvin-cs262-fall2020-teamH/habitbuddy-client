@@ -1,5 +1,5 @@
 # HabitBuddy Client
-This is the client application for [HabitBuddy](https://github.com/calvin-cs262-fall2020-teamH/habitbuddy-project), deployed through this [service repo](https://github.com/calvin-cs262-fall2020-teamH/habitbuddy-service).
+This is the client application for the project [HabitBuddy](https://github.com/calvin-cs262-fall2020-teamH/habitbuddy-project), deployed through this [service repo](https://github.com/calvin-cs262-fall2020-teamH/habitbuddy-service).
 
 To clone the client repo, use the following command:
 ```
