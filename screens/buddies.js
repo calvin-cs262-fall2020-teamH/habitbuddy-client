@@ -5,9 +5,8 @@ import { dynamicStyles } from '../styles/global';
 import Card from '../shared/card';
 import CommonDataManager from '../data/CommonDataManager';
 
-// Written by Andrew Baker
-
-/** About outputs the content of the About page 
+/**
+ * Buddies outputs the content of Buddies screen 
  * @author Andrew Baker (andrewJamesBaker)
  * @param {any} navigation
  * @return {Card} Buddies cards that are touchable to navigate to buddyDetails
