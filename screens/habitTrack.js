@@ -3,7 +3,7 @@ import { View, Text } from 'react-native';
 import { DynamicStyleSheet, useDynamicValue, useColorSchemeContext } from 'react-native-dynamic';
 import { dyColorCodes } from '../styles/global';
 import CommonDataManager from '../data/CommonDataManager';
-import HabitTrackBlock from '../shared/habitTrackBlock';
+import HabitTrackBlock from '../shared/blocks/habitTrackBlock';
 
 /**
  * HabitTrack displays the Habit Track feature

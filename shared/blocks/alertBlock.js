@@ -3,11 +3,17 @@ import { View, Text, TouchableOpacity, Alert } from 'react-native';
 import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 import { dyColorCodes } from '../../styles/global'
 
-//code modified from https://reactnative.dev/docs/alert
-
-//Alert Block brings up an alert block when pressed which can have up to 3 options
+/** 
+ * AlertBlock brings up an alert block when pressed which can have up to three options
+ * @author Dawson Buist (Bongo9911)
+ * Modified from https://reactnative.dev/docs/alert
+ * @param {any} title 
+ * @param {any} alertTitle
+ * @param {any} alertMsg
+ * @param {any} options
+ * @return {AlertBlock} Block with text and up to three touchable options
+ */
 export default function AlertBlock({title, alertTitle, alertMsg, options}) {
-
     const createAlert = () =>
         Alert.alert(
         alertTitle,
