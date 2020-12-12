@@ -9,7 +9,12 @@ import EditProfile from "../screens/editProfile";
 
 const Stack = createStackNavigator();
 
-/*ProfileStack creates a stack of screens with the default being the Profile screen */
+/** 
+ * ProfileStack creates stack for profile and edit profile navigation 
+ * @default {Profile}
+ * @param {var} navigation
+ * @return {property} Navigator
+ */
 export default function ProfileStack( {navigation} ) {
 
     return (

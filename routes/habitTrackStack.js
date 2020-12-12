@@ -9,6 +9,11 @@ import HabitTrack from '../screens/habitTrack';
 
 const Stack = createStackNavigator();
 
+/** 
+ * HabitTrackStack creates stack of Buddies and BuddyDetails screens
+ * @param {var} navigation
+ * @return {property} Navigator
+ */
 export default function HabitTrackStack({ navigation }) {
     // Alert box for HabitTracking info icon
     const alert = () => {
@@ -40,26 +45,27 @@ export default function HabitTrackStack({ navigation }) {
             <Stack.Screen
                 name="BuddyDetails"
                 component={BuddyDetails}
-                options={{title: 'Buddy Details',
+                options={{
+                    title: 'Buddy Details',
                     headerTitleAlign: {
                         textAlign: 'center'
                     },
                     headerRight: () => (
                         <MaterialIcons name="delete" size={27} color='#333' style={globalStyles.leftIcon}
-                                       onPress={() => Alert.alert(
-                                           "Delete Buddy",
-                                           "Are you sure you want to delete your buddy?",
-                                           [
-                                               {
-                                                   text: "Cancel",
-                                                   onPress: () => console.log("Cancel Pressed"),
-                                                   style: "cancel"
-                                               },
-                                               { text: "Delete", onPress: () => console.log("OK Pressed") } //delete the buddy here
-                                           ],
-                                           { cancelable: false }
-                                       )
-                                       }/>
+                            onPress={() => Alert.alert(
+                                "Delete Buddy",
+                                "Are you sure you want to delete your buddy?",
+                                [
+                                    {
+                                        text: "Cancel",
+                                        onPress: () => console.log("Cancel Pressed"),
+                                        style: "cancel"
+                                    },
+                                    { text: "Delete", onPress: () => console.log("OK Pressed") } //delete the buddy here
+                                ],
+                                { cancelable: false }
+                            )
+                            } />
 
                     ),
                 }}

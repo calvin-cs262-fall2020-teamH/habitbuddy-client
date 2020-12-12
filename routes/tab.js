@@ -15,6 +15,11 @@ import CommonDataManager from '../data/CommonDataManager';
 
 const Tab = createBottomTabNavigator();
 
+/** 
+ * Tabs creates tab navigation at bototm of screen
+ * @param none
+ * @return {property} Navigator
+ */
 export default function Tabs() {
 
 	return (
@@ -68,6 +73,11 @@ export default function Tabs() {
 	);
 };
 
+/** 
+ * GetTabBarVisibility implements tab visibility based on route
+ * @param route
+ * @return {boolean} default == true
+ */
 function getTabBarVisibility(route) {
 	const routeName = route.state ? route.state.routes[route.state.index].name : '';
 	switch (routeName) {

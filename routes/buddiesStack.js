@@ -10,16 +10,18 @@ import CommonDataManager from '../data/CommonDataManager';
 
 const Stack = createStackNavigator();
 
-/*BuddiesStack creates a stack of screens with the default being the Buddies screen */
+/** 
+ * BuddiesStack creates stack of Buddies and BuddyDetails screens 
+ * @default {Buddies}
+ * @param {var} navigation
+ * @return {property} Navigator
+ */
 export default function BuddiesStack({ navigation }) {
     // Alert box for HabitTracking info icon
     const alert = () => {
         Alert.alert('What are Buddies?',
             "Buddies are other users that have the same habit category as you! By tapping on a buddy, you will be directed to their profile page where you can connect with them and grow your community.",
-            [
-                { text: "Got it!" }
-            ]
-        )
+            [{ text: "Got it!" }])
     }
 
     const commonData = CommonDataManager.getInstance();
@@ -28,9 +30,7 @@ export default function BuddiesStack({ navigation }) {
         await fetch(`http://habit-buddy.herokuapp.com/user/` + commonData.getUserID() + '/' + commonData.getViewingBuddy(), {
             method: 'DELETE', headers: { 'Content-Type': 'application/json' }
         })
-            .catch((error) => {
-                console.error(error);
-            });
+            .catch((error) => { console.error(error) });
 
         commonData.deleteBuddy();
     }
@@ -47,12 +47,10 @@ export default function BuddiesStack({ navigation }) {
                     headerTitleAlign: { textAlign: 'center' },
                     headerRight: () => (
                         <MaterialIcons name="info-outline" size={27} color='#333' style={globalStyles.leftIcon}
-                            onPress={alert}
-                        />
+                            onPress={alert} />
 
-                    ),
-                }}
-            />
+                    )
+                }} />
             <Stack.Screen
                 name="BuddyDetails"
                 component={BuddyDetails}
@@ -75,9 +73,8 @@ export default function BuddiesStack({ navigation }) {
                                     { text: "Delete", onPress: () => deleteBuddy() } //delete the buddy here
                                 ],
                                 { cancelable: false }
-                            )
-                            } />
-
+                            )}
+                        />
                     ),
                 }}
             />
