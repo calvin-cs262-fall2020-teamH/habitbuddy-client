@@ -6,10 +6,13 @@ import ProfileCard from "../shared/profileCard";
 import { ScrollView } from 'react-native-gesture-handler';
 import CommonDataManager from '../data/CommonDataManager';
 
-/*Created by Joe Pastucha*/
-
-/* Profile outputs the content of the Profile page */
-export default function Profile({ navigation }) {
+/**
+ * Profile outputs the content of Profile screen
+ * @author Joe Pastucha (JoePastucha) and Andrew Baker (andrewJamesBaker)
+ * @param none
+ * @return {ProfileCard} cards with "Category", "Habit Goal", "Hobby", "Phone Number", "Email" info
+ */
+export default function Profile() {
     const [isLoading, setLoading] = useState(true);
     const [data, setData] = useState([]);
 
@@ -39,7 +42,6 @@ export default function Profile({ navigation }) {
     return (
         <ScrollView style={{ height: '100%', backgroundColor: useDynamicValue(dyColorCodes.back) }}>
             <View style={dyStyles.wholePage}>
-
                 <View style={dyStyles.profContainer}>
                     <View style={dyStyles.profilePic}>
                         <Image source={{ uri: data.profileurl }} style={{ width: 110, height: 110, position: 'absolute' }} />

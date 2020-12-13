@@ -11,28 +11,29 @@ import CommonDataManager from '../data/CommonDataManager';
 
 const AuthStack = createStackNavigator();
 
+/** 
+ * AuthStackScreen opens app to login screen and tavigates to sign up screens || to home screen if user is logged in
+ * @author Dawson Buist (Bongo9911)
+ * @param {var} update
+ * @return {property} Navigator  
+ */
 function AuthStackScreen({ update }) {
 
     return (
         <AuthStack.Navigator
             screenOptions={{
                 headerStyle: { backgroundColor: 'orange' }
-            }}
-        >
+            }} >
             <AuthStack.Screen name="HabitBuddy" component={Login} initialParams={{ updateData: update }} />
             <AuthStack.Screen
                 name='SignUpProfile'
                 component={SignUpProfile}
-                options={{
-                    title: 'Account Information',
-                }}
-            />
+                options={{ title: 'Account Information' }} />
             <AuthStack.Screen
                 name='SignUpHabit'
                 component={SignUpHabit}
-                options={{title: 'Habit Information'}}
-                initialParams={{ updateData: update }}
-            />
+                options={{ title: 'Habit Information' }}
+                initialParams={{ updateData: update }} />
         </AuthStack.Navigator>
     )
 }
@@ -90,11 +91,11 @@ export default () => {
       ) :  */}
             {user ? (
                 <ColorSchemeProvider mode={theme}>
-                    <TabScreen streak={streak}/>
+                    <TabScreen streak={streak} />
                 </ColorSchemeProvider>
             ) : (
                     <ColorSchemeProvider>
-                        <AuthStackScreen/>
+                        <AuthStackScreen />
                     </ColorSchemeProvider>
                 )}
         </NavigationContainer>

@@ -6,12 +6,15 @@ import ProfileCard from "../shared/profileCard";
 import ProfileLinkingCard from "../shared/profileLinkingCard";
 import CommonDataManager from '../data/CommonDataManager';
 
-/*Created by Joe Pastucha/Dawson*/
-
-/* Profile outputs the content of the Buddy Details page */
+/**
+ * BuddyDetails outputs the content of the Buddy Details page
+ * @author Joe Pastucha (JoePastucha) and Dawson Buist (Bongo9911)
+ * @param {any} route
+ * @param {any} navigation
+ * @return {ProfileCard} Cards with "Habit Category", "Habit Goal", "Hobby", "Phone Number", "Email" info
+ */
 export default function BuddyDetails({route, navigation}) {
     /*Initialization the profile page with the user information*/
-  
     let [profilePage, setProfilePage] = useState(
         {name: route.params.firstname + " " + route.params.lastname,
             category: route.params.category,

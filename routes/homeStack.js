@@ -6,7 +6,13 @@ import Home from '../screens/home';
 
 const Stack = createStackNavigator();
 
-/*HomeStack creates a stack of screens with the default being the Home screen */
+/** 
+ * HomeStack creates stack for home screen navigation 
+ * @author Andrew Baker (andrewJamesBaker)
+ * @default {Home}
+ * @param {var} navigation
+ * @return {property} Navigator
+ */
 export default function HomeStack( {navigation} ) {
 
     return (

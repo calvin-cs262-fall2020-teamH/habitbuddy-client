@@ -1,32 +1,27 @@
 import React, { useEffect, useState } from "react";
-
-import {
-    Text,
-    View,
-    Image,
-    TouchableWithoutFeedback,
-    Keyboard,
-    TouchableOpacity
-} from "react-native";
-
+import { Text, View, Image,TouchableWithoutFeedback, Keyboard, TouchableOpacity } from "react-native";
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
-
+import { useDynamicValue } from 'react-native-dynamic'
 import EditProfileCard from "../shared/editProfileCard";
 import ProfileCard from "../shared/profileCard";
-
-import { useDynamicValue } from 'react-native-dynamic'
 import { dyColorCodes, dynamicStyles } from "../styles/global";
 import CommonDataManager from "../data/CommonDataManager";
 
+/**
+ * EditProfile outputs the editable content of Profile screen
+ * @author Joe Pastucha (JoePastucha)
+ * @param {any} navigation
+ * @return {EditProfileCard} editable cards with "Habit Goal", "Hobby", "Phone Number", "Email" info
+ */
+export default function EditProfile({ navigation }) {
+    const dyStyles = useDynamicValue(dynamicStyles);
 
-export default function EditProfile({ navigation, route }) {
     const [isLoading, setLoading] = useState(true);
     const [habit, setHabit] = useState(null);
     const [hobby, setHobby] = useState(null);
     const [email, setEmail] = useState(null);
     const [phone, setPhoneNumber] = useState(null)
     const [data, setData] = useState([]);
-
 
     useEffect(() => {
         fetch('https://habit-buddy.herokuapp.com/user/' + commonData.getUserID())
@@ -37,7 +32,6 @@ export default function EditProfile({ navigation, route }) {
     }, []);
 
     let commonData = CommonDataManager.getInstance();
-
 
     async function updateUser() {
         await fetch('http://habit-buddy.herokuapp.com/user/' + commonData.getUserID(), {
@@ -54,8 +48,6 @@ export default function EditProfile({ navigation, route }) {
                 console.error(error);
             });
     }
-
-    const dyStyles = useDynamicValue(dynamicStyles);
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>

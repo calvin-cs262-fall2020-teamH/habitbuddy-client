@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import { Text, View, FlatList, TouchableOpacity, SafeAreaView, } from 'react-native';
 import { DynamicStyleSheet, DynamicValue } from 'react-native-dynamic';
-import CommonDataManager from '../data/CommonDataManager';
-import { dyColorCodes } from '../styles/global';
-import BuddiesStreak from '../shared/buddiesStreakCard';
-
+import CommonDataManager from '../../data/CommonDataManager';
+import { dyColorCodes } from '../../styles/global';
+import BuddiesStreak from '../buddiesStreakCard';
 
 let data;
 let lastBlock = true;
 
-export default class HabittrackBlock extends Component {
+/** 
+ * HabitTrackBlock constructs blocks used in for Habit Track feature
+ * @author Belina Sainju (zeph01) and Dawson Buist (Bongo9911)
+ * @param {any} props
+ * @return {HabitTrackBlock} Block that stores number value for streak feature
+ */
+export default class HabitTrackBlock extends Component {
 
     //The constructor takes in props passed from outside and sets the default selected days to be none
     constructor(props) {

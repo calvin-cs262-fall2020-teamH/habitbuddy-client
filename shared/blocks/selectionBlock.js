@@ -3,12 +3,16 @@ import { Text, View, FlatList, TouchableOpacity, } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { dyColorCodes } from '../../styles/global'
 import { DynamicStyleSheet } from 'react-native-dynamic';
-
 import CommonDataManager from '../../data/CommonDataManager';
 
-{/* Sample code taken and modified from https://www.thetopsites.net/article/53403612.shtml */}
+/** 
+ * SelectionBlock brings up an alert block when pressed which can have up to three options
+ * @author Dawson Buist (Bongo9911)
+ * Modified from https://www.thetopsites.net/article/53403612.shtml
+ * @param {any} props
+ * @return {SelectionBlock} Block that changes color when selected/unselected
+ */
 export default class SelectionBlock extends Component {
-    
     //The constructor takes in props passed from outside and sets the default selected item (Light)
     constructor(props) {
         super(props);

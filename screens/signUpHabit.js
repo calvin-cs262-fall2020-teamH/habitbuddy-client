@@ -6,11 +6,13 @@ import { useDynamicValue } from 'react-native-dynamic';
 import { dynamicStyles, dyColorCodes } from '../styles/global';
 import CommonDataManager from '../data/CommonDataManager'
 
-/* signUpHabits lets you choose your habit and write a habit goal 
-*  Written by Kelsey Yen
-*/
-
-export default function SignUpHabit({route}) {
+/**
+ * SignUpHabits displays empty Habit info for first time users and POSTs to database
+ * @author Kelsey Yen (kny4) and Dawson Buist (Bongo9911)
+ * @param {any} route
+ * @return {Input} Text inputs for "Habit Category", "Habit Goal", and "Hobby"
+ */
+export default function SignUpHabit(route) {
     const [category, setCategory] = useState('category');
     const [personalGoal, setPersonalGoal] = useState('PersonalGoal');
     const [hobby, setHobby] = useState('hobby');

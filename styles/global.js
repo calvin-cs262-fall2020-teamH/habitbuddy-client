@@ -1,6 +1,14 @@
 import { StyleSheet } from 'react-native';
 import { DynamicValue, DynamicStyleSheet } from 'react-native-dynamic'
 
+/**
+ * Styling for HabitBuddy App, each screens' styhle was written by the author of the screen 
+ * @author Dawson Buist (Bongo9911)
+ * (Dawson moved us into the next century with the dynamic styling)
+ * Adapted from original globalStyles
+ * (sSme screens still have their own styling)
+ */
+
 let light = {
 	back: '#eee', //near-white
 	front: '#fff', //white

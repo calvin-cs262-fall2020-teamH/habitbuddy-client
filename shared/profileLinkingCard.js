@@ -3,8 +3,14 @@ import { View, Text, } from 'react-native';
 import { dyColorCodes } from '../styles/global'
 import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
+/**
+ * ProfileLinkingCard constructs cards used for email and phone number on the Profile screen
+ * @author Dawson Buist (Bongo9911) and Joe Pastucha (JoePastucha)
+ * @param {any} title
+ * @param {any} userInfo
+ * @return {Text} linked text for email and phone number to open messaging applications
+ */
 export default function ProfileLinkingCard({ title, userInfo }) {
-
     const dyStyles = new useDynamicValue(styles);
 
     return (
@@ -22,6 +28,7 @@ export default function ProfileLinkingCard({ title, userInfo }) {
         </View>
     );
 };
+
 const styles = new DynamicStyleSheet({
     block: {
         flexDirection: 'row',

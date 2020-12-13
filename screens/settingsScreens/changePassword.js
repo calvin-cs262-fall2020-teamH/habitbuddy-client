@@ -14,7 +14,12 @@ function focusNextField(id) {
     inputs[id].focus();
 }
 
-/* The Change Password screen allows the user to change their password*/
+/**
+ * ChangePassword allows user to change their current password 
+ * @author Dawson Buist (Bongo9911) and Kelsey Yen (kny4)
+ * @param {any} navigation
+ * @return {Input} Text inputs for "Current Password" and "New Password"
+ */
 export default function ChangePassword({ navigation }) {
     // let commonData = CommonDataManager.getInstance();
     const [password, setPassword] = useState('Password');
@@ -71,49 +76,6 @@ export default function ChangePassword({ navigation }) {
                     autoCapitalize='none'
                     returnKeyType={'done'}
                     ref={input => {inputs['three'] = input;}} />
-                
-                { /*<Input
-                    style={dyStyles.inputBox}
-                    placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
-                    placeholder='Current Password'
-                    secureTextEntry={true}
-                    onSubmitEditing={() => {
-                        focusNextField('two');
-                    }}
-                    returnKeyType={"next"}
-                    onChangeText={(val) => { }}
-                    autoCapitalize='none'
-                    ref={input => {
-                        inputs['one'] = input;
-                    }} />
-                <Input
-                    style={dyStyles.inputBox}
-                    placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
-                    placeholder='New Password'
-                    secureTextEntry={true}
-                    onSubmitEditing={() => {
-                        focusNextField('three');
-                    }}
-                    returnKeyType={"next"}
-                    onChangeText={(val) => { }}
-                    autoCapitalize='none'
-                    ref={input => {
-                        inputs['two'] = input;
-                    }} /> */}
-                {/* <Input
-                    style={dyStyles.inputBox}
-                    placeholderTextColor={useDynamicValue(dyColorCodes.lightText)}
-                    placeholder='Confirm Password'
-                    secureTextEntry={true}
-                    onSubmitEditing={() => {
-                        //Equivalent to Confirm button
-                    }}
-                    returnKeyType={"done"}
-                    onChangeText={(val) => { }}
-                    autoCapitalize='none'
-                    ref={input => {
-                        inputs['three'] = input;
-                    }} /> */}
                 <View style={{ alignItems: 'center', justifyContent: 'center' }}>
                     <TouchableOpacity style={dyStyles.loginButtonContainer}
                         onPress={() => {

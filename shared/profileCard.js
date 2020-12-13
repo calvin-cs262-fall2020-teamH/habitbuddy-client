@@ -3,8 +3,13 @@ import { View, Text, } from 'react-native';
 import { dyColorCodes } from '../styles/global'
 import { DynamicStyleSheet, useDynamicValue } from 'react-native-dynamic';
 
+/**
+ * ProfileCard constructs cards used on Profile screen
+ * @param {any} title
+ * @param {any} userInfo
+ * @return {Text} text for profile info
+ */
 export default function ProfileCard({ title, userInfo }) {
-
     const dyStyles = useDynamicValue(styles)
 
     return (
